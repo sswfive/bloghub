@@ -71,15 +71,14 @@ nav:
   - 主页: 
     - index.md
     - 标签: tag.md
-
   - Python:
-    - python常用库: 
-      - 常用库汇总: python/python_lib/lib_common_summary.md
-      - pathlib: python/python_lib/pathlib.md
-    - python基础:
-      - python基础: python/python_base/python_base.md
-      
-
+    - 常用库: 
+      - 汇总: 
+        - A: python/python_lib/lib_common_summary.md
+        - B: python/python_lib/pathlib2.md
+      - 详情:
+        - pathlib: python/python_lib/core/pathlib.md
+      - pathlib1: python/python_lib/pathlib1.md
 
   # - 标签: tag.md
   # - 留言板: liuyanban.md

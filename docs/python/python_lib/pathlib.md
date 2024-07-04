@@ -1,13 +1,4 @@
----
-title: pathlib之使用面向对象的方式操作路径
-date: 2024-01-17 16:38:44
-permalink: /pages/92ad63/
-categories:
-  - Python
-tags:
-  - python库
-simplePostListLength: 20
----
+# pathlib之使用面向对象的方式操作路径
 
 > Reference：  
 

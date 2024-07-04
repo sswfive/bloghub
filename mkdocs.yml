@@ -68,22 +68,30 @@ repo_name: sswfive # 右上角的名字
 
 # [Navigtion]
 nav:
-  # - 主页: index.md
-  # - Python:
+  - 主页: 
+    - index.md
+    - 标签: tag.md
+
+  - Python:
+    - python常用库: 
+      - 常用库汇总: python/python_lib/lib_common_summary.md
+      - pathlib: python/python_lib/pathlib.md
+    - python基础:
+      - python基础: python/python_base/python_base.md
+      
 
 
   # - 标签: tag.md
   # - 留言板: liuyanban.md
   # - Blogger:
   #     - index: blog/index.md
-  # - 友链:
-  #     - 友链: about/link.md
+  # - 友链:  #     - 友链: about/link.md
   # - 关于:
   #     - 作者个人简介: about/geren.md
   #     - 功能测试: about/test.md
   # # - 使用本主题: https://github.com/new?template_name=Mkdocs-Wcowin&template_owner=Wcowin
 
-copyright: Copyright &copy; 2022~2024 AstonWang/All Rights Reserved. # 左下角的版权声明
+copyright: Copyright &copy; 2017~2024 AstonWang/All Rights Reserved. # 左下角的版权声明
 
 extra:
   generator: true #是否删除页脚显示“使用 MkDocs 材料制造”

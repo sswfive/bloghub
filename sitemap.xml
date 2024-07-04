@@ -6,12 +6,67 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://sswfive.github.io/bloghub/python/python_core/coding_standard/</loc>
+         <lastmod>2024-07-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/python/python_core/devtools/dev_tool_selection/</loc>
+         <lastmod>2024-07-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/python/python_core/devtools/env_package_selection/</loc>
+         <lastmod>2024-07-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/python/python_core/devtools/package_tool_usage/</loc>
+         <lastmod>2024-07-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://sswfive.github.io/bloghub/python/python_lib/lib_common_summary/</loc>
          <lastmod>2024-07-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sswfive.github.io/bloghub/python/python_lib/core/pathlib/</loc>
+         <loc>https://sswfive.github.io/bloghub/python/python_lib/libs/APScheduler/</loc>
+         <lastmod>2024-07-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/python/python_lib/libs/MLflow/</loc>
+         <lastmod>2024-07-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/python/python_lib/libs/Numpy/</loc>
+         <lastmod>2024-07-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/python/python_lib/libs/Pandas/</loc>
+         <lastmod>2024-07-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/python/python_lib/libs/PyFlink/</loc>
+         <lastmod>2024-07-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/python/python_lib/libs/Supervisor/</loc>
+         <lastmod>2024-07-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/python/python_lib/libs/pathlib/</loc>
+         <lastmod>2024-07-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/python/python_lib/libs/subprocess/</loc>
          <lastmod>2024-07-04</lastmod>
          <changefreq>daily</changefreq>
     </url>

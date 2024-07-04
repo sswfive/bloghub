@@ -10,13 +10,13 @@
         <meta name="author" content="sswfive">
       
       
-        <link rel="canonical" href="https://sswfive.github.io/bloghub/python/python_lib/lib_common_summary/">
+        <link rel="canonical" href="https://sswfive.github.io/bloghub/python/python_lib/libs/APScheduler/">
       
       
-        <link rel="prev" href="../../../tag/">
+        <link rel="prev" href="../MLflow/">
       
       
-        <link rel="next" href="../libs/pathlib/">
+        <link rel="next" href="../../../python_core/coding_standard/">
       
       
       <link rel="icon" href="https://s2.loli.net/2024/04/26/PmRdM9iGnvOJHgu.png">
@@ -24,14 +24,14 @@
     
     
       
-        <title>总览 - 空谷幽兰</title>
+        <title>定时任务工具之APScheduler - 空谷幽兰</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6543a935.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,17 +50,17 @@
       
     
     
-      <link rel="stylesheet" href="../../../customize/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../customize/stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../../../customize/stylesheets/link.css">
+      <link rel="stylesheet" href="../../../../customize/stylesheets/link.css">
     
-      <link rel="stylesheet" href="../../../customize/stylesheets/customize.css">
+      <link rel="stylesheet" href="../../../../customize/stylesheets/customize.css">
     
       <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -77,7 +77,7 @@
     
     
     
-    <link rel="stylesheet" href="../../../assets/stylesheets/custom.00c04c01.min.css">
+    <link rel="stylesheet" href="../../../../assets/stylesheets/custom.00c04c01.min.css">
   
   </head>
   
@@ -98,7 +98,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#web" class="md-skip">
+        <a href="#apscheduler-" class="md-skip">
           跳转至
         </a>
       
@@ -142,7 +142,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="空谷幽兰" class="md-header__button md-logo" aria-label="空谷幽兰" data-md-component="logo">
+    <a href="../../../.." title="空谷幽兰" class="md-header__button md-logo" aria-label="空谷幽兰" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -162,7 +162,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              总览
+              定时任务工具之APScheduler
             
           </span>
         </div>
@@ -288,7 +288,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../.." class="md-tabs__link">
+        <a href="../../../.." class="md-tabs__link">
           
   
     
@@ -318,7 +318,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="../../lib_common_summary/" class="md-tabs__link">
           
   
     
@@ -356,7 +356,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="空谷幽兰" class="md-nav__button md-logo" aria-label="空谷幽兰" data-md-component="logo">
+    <a href="../../../.." title="空谷幽兰" class="md-nav__button md-logo" aria-label="空谷幽兰" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -413,7 +413,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../.." class="md-nav__link ">
+            <a href="../../../.." class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -446,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tag/" class="md-nav__link">
+      <a href="../../../../tag/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -573,28 +573,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    总览
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../lib_common_summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -603,174 +585,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#web" class="md-nav__link">
-    <span class="md-ellipsis">
-      Web开发库
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    <span class="md-ellipsis">
-      Python 机器学习库
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#python_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Python 数据处理库
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Python 数据处理库">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#orm" class="md-nav__link">
-    <span class="md-ellipsis">
-      ORM 库
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      环境包管理库
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      任务库
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      性能分析库
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      代码编译加密库
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      测试库
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      依赖注入框架
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      重试库：
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      进程管理库
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      操作日期时间库
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#json" class="md-nav__link">
-    <span class="md-ellipsis">
-      操作Json文件
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#yaml" class="md-nav__link">
-    <span class="md-ellipsis">
-      操作YAML文件
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      未分类
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -780,8 +594,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -809,13 +625,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
@@ -829,7 +643,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_1_2">
             <span class="md-nav__icon md-icon"></span>
             库集
@@ -843,7 +657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../libs/pathlib/" class="md-nav__link">
+      <a href="../pathlib/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -864,7 +678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../libs/Supervisor/" class="md-nav__link">
+      <a href="../Supervisor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -885,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../libs/subprocess/" class="md-nav__link">
+      <a href="../subprocess/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -906,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../libs/Numpy/" class="md-nav__link">
+      <a href="../Numpy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -927,7 +741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../libs/Pandas/" class="md-nav__link">
+      <a href="../Pandas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -948,7 +762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../libs/PyFlink/" class="md-nav__link">
+      <a href="../PyFlink/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -969,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../libs/MLflow/" class="md-nav__link">
+      <a href="../MLflow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -987,10 +801,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../libs/APScheduler/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    定时任务工具之APScheduler
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -999,6 +833,188 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#apscheduler" class="md-nav__link">
+    <span class="md-ellipsis">
+      APScheduler概述
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.安装
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.使用方式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3scheduler" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.调度器Scheduler
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-executors" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.执行器 executors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.触发器 Trigger
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 配置方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 配置方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 启动
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.扩展
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.扩展">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      任务管理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="任务管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      方式一
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      方式二
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      调整任务调度周期
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apscheduler_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      停止APScheduler运行
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1128,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python_core/coding_standard/" class="md-nav__link">
+      <a href="../../../python_core/coding_standard/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1149,7 +1165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python_core/devtools/dev_tool_selection/" class="md-nav__link">
+      <a href="../../../python_core/devtools/dev_tool_selection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1170,7 +1186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python_core/devtools/env_package_selection/" class="md-nav__link">
+      <a href="../../../python_core/devtools/env_package_selection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1191,7 +1207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python_core/devtools/package_tool_usage/" class="md-nav__link">
+      <a href="../../../python_core/devtools/package_tool_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1245,6 +1261,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1253,136 +1271,82 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#web" class="md-nav__link">
+  <a href="#apscheduler" class="md-nav__link">
     <span class="md-ellipsis">
-      Web开发库
+      APScheduler概述
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      Python 机器学习库
+      1.安装
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#python_1" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      Python 数据处理库
+      2.使用方式
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Python 数据处理库">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3scheduler" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.调度器Scheduler
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-executors" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.执行器 executors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.触发器 Trigger
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 配置方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 配置方法">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#orm" class="md-nav__link">
+  <a href="#1_1" class="md-nav__link">
     <span class="md-ellipsis">
-      ORM 库
+      方法1
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#2_1" class="md-nav__link">
     <span class="md-ellipsis">
-      环境包管理库
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      任务库
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      性能分析库
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      代码编译加密库
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      测试库
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      依赖注入框架
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      重试库：
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      进程管理库
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      操作日期时间库
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#json" class="md-nav__link">
-    <span class="md-ellipsis">
-      操作Json文件
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#yaml" class="md-nav__link">
-    <span class="md-ellipsis">
-      操作YAML文件
+      方法2
     </span>
   </a>
   
@@ -1394,11 +1358,77 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
-      未分类
+      7. 启动
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.扩展
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.扩展">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      任务管理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="任务管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      方式一
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      方式二
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      调整任务调度周期
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apscheduler_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      停止APScheduler运行
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1417,7 +1447,7 @@
                   
 
   
-    <a href="https://github.com/sswfive/edit/master/docs/python/python_lib/lib_common_summary.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/sswfive/edit/master/docs/python/python_lib/libs/APScheduler.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1426,129 +1456,292 @@
     
       
     
-    <a href="https://github.com/sswfive/raw/master/docs/python/python_lib/lib_common_summary.md" title="查看本页的源代码" class="md-content__button md-icon">
+    <a href="https://github.com/sswfive/raw/master/docs/python/python_lib/libs/APScheduler.md" title="查看本页的源代码" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-  <h1>总览</h1>
-
-<h2 id="web">Web开发库<a class="headerlink" href="#web" title="Permanent link">&para;</a></h2>
+<h1 id="apscheduler-">APScheduler -&gt; 定时任务工具<a class="headerlink" href="#apscheduler-" title="Permanent link">&para;</a></h1>
+<h2 id="apscheduler">APScheduler概述<a class="headerlink" href="#apscheduler" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://github.com/django/django">Django</a>: 一款全面且重量（大而全）的Web框架，当前star数： 75.1k</li>
-<li><a href="https://github.com/tiangolo/fastapi">FastAPI</a>: 一款高性能、异步的轻量级Web框架，当前star数：67.2k</li>
-<li><a href="https://github.com/pallets/flask">Flask</a>: 一款轻量级用于构建Web应用程序的Python微框架， 当前star数：65.5k</li>
-<li><a href="https://github.com/streamlit/streamlit">streamlit</a>: 一款快速搭建数据共享与可视化的Web应用框架，当前star数：29.7k</li>
-<li><a href="https://github.com/encode/django-rest-framework">django-rest-framework</a>: 一款基于Django，用于快速开发Web API程序的扩展框架，当前star数：27k</li>
-<li><a href="https://github.com/gradio-app/gradio">gradio</a>:  一款用于快速构建AI算法可视化部署的框架，当前star数：25.7k</li>
-<li><a href="https://github.com/tornadoweb/tornado">Tornado</a>: 一款异步的网络库，可用于快速开发Web应用的框架，当前star数：21.4k</li>
-<li><a href="https://github.com/sanic-org/sanic">sanic</a>: 一款快速构建、快速开发的异步Web框架，当前star数：17.6k</li>
-<li><a href="https://github.com/falconry/falcon">Falcon</a>：面向python开发人员的简单Web数据平面API和微服务框架，当前star数： 9.3k</li>
-<li><a href="https://github.com/zauberzeug/nicegui">nicegui</a>: 一款使用python开发的Web用户界面，当前star数： 6.4k</li>
-<li><a href="https://github.com/nameko/nameko">nameko</a>:一款用于构建微服务的Python框架，当前star数：4.6k</li>
-<li><a href="https://github.com/cherrypy/cherrypy">cherrypy</a>: 一个轻量级、Pythonic、面向对象的HTTP 框架，当前star数：1.8k</li>
-<li><a href="https://github.com/miguelgrinberg/microdot">Microdot</a>: 适用于Python和Microdot的超小型Web框架；当前star数：1.2k</li>
-</ul>
-<h2 id="python">Python 机器学习库<a class="headerlink" href="#python" title="Permanent link">&para;</a></h2>
+<li>
+<p>APScheduler （advanceded python scheduler）是一款Python开发的定时任务工具。</p>
+</li>
+<li>
+<p>文档地址 https://apscheduler.readthedocs.io/en/latest/userguide.html#starting-the-scheduler</p>
+</li>
+<li>
+<p>特点：</p>
 <ul>
-<li><a href="https://github.com/sb-ai-lab/LightAutoML">lightautoml</a>：一款全自动机器学习框架， 当前 star 数：720</li>
+<li>
+<p>不依赖于Linux系统的crontab系统定时，独立运行</p>
+</li>
+<li>
+<p>可以动态添加新的定时任务，如</p>
+</li>
+<li>
+<p>下单后30分钟内必须支付，否则取消订单，就可以借助此工具（每下一单就要添加此订单的定时任务）</p>
+</li>
+<li>
+<p>对添加的定时任务可以做持久保存</p>
+</li>
 </ul>
-<h2 id="python_1">Python 数据处理库<a class="headerlink" href="#python_1" title="Permanent link">&para;</a></h2>
+</li>
+</ul>
+<h2 id="1">1.安装<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>pip install apscheduler
+</code></pre></div></td></tr></table></div>
+<h2 id="2">2.使用方式<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>from apscheduler.schedulers.background import BackgroundScheduler
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a># 创建定时任务的调度器对象
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>scheduler = BackgroundScheduler()
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a># 定义定时任务
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>def my_job(param1, param2):
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>    pass
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a># 向调度器中添加定时任务
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>scheduler.add_job(my_job, &#39;date&#39;, args=[100, &#39;python&#39;])
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a># 启动定时任务调度器工作
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>scheduler.start()
+</code></pre></div></td></tr></table></div>
+<h2 id="3scheduler">3.调度器Scheduler<a class="headerlink" href="#3scheduler" title="Permanent link">&para;</a></h2>
+<p><strong>负责管理定时任务</strong>
+- BlockingScheduler: 作为独立进程时使用
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>from apscheduler.schedulers.blocking import BlockingScheduler
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>  scheduler = BlockingScheduler()
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>  scheduler.start()  # 此处程序会发生阻塞
+</code></pre></div></td></tr></table></div>
+- BackgroundScheduler: 在框架程序（如Django、Flask）中使用</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a> from apscheduler.schedulers.background import BackgroundScheduler
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>  scheduler = BackgroundScheduler()
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>  scheduler.start()  # 此处程序不会发生阻塞
+</code></pre></div></td></tr></table></div>
+<h2 id="4-executors">4.执行器 executors<a class="headerlink" href="#4-executors" title="Permanent link">&para;</a></h2>
+<p><strong>在定时任务该执行时，以进程或线程方式执行任务</strong></p>
 <ul>
-<li><a href="https://github.com/alecthomas/voluptuous">voluptuous</a>: 一个 Python 数据验证库,当前 star 数：1.8k</li>
+<li>ThreadPoolExecutor
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>  from apscheduler.executors.pool import ThreadPoolExecutor
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>  ThreadPoolExecutor(max_workers)  
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>  ThreadPoolExecutor(20) # 最多20个线程同时执行
+</code></pre></div></td></tr></table></div><blockquote>
+<p>使用方法</p>
+</blockquote>
+</li>
 </ul>
-<h3 id="orm">ORM 库<a class="headerlink" href="#orm" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a> executors = {
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>      &#39;default&#39;: ThreadPoolExecutor(20)
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>  }
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>  scheduler = BackgroundScheduler(executors=executors)
+</code></pre></div></td></tr></table></div>
+- ProcessPoolExecutor
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a> from apscheduler.executors.pool import ProcessPoolExecutor
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>  ProcessPoolExecutor(max_workers)
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>  ProcessPoolExecutor(5) # 最多5个进程同时执行
+</code></pre></div></td></tr></table></div></p>
+<blockquote>
+<p>使用方法</p>
+</blockquote>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>  executors = {
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>      &#39;default&#39;: ProcessPoolExecutor(3)
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>  }
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>  scheduler = BackgroundScheduler(executors=executors)
+</code></pre></div></td></tr></table></div>
+<h2 id="5-trigger">5.触发器 Trigger<a class="headerlink" href="#5-trigger" title="Permanent link">&para;</a></h2>
+<p><strong>指定定时任务执行的时机</strong></p>
+<p><strong>1） date 在特定的时间日期执行</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>from datetime import date
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a># 在2019年11月6日00:00:00执行
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>sched.add_job(my_job, &#39;date&#39;, run_date=date(2009, 11, 6))
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a># 在2019年11月6日16:30:05
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>sched.add_job(my_job, &#39;date&#39;, run_date=datetime(2009, 11, 6, 16, 30, 5))
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>sched.add_job(my_job, &#39;date&#39;, run_date=&#39;2009-11-06 16:30:05&#39;)
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a># 立即执行
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a>sched.add_job(my_job, &#39;date&#39;)  
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a>sched.start()
+</code></pre></div></td></tr></table></div>
+<strong>2） interval 经过指定的时间间隔执行</strong></p>
 <ul>
-<li><a href="https://github.com/sqlalchemy/sqlalchemy">sqlalchemy</a>: Python 数据库工具包</li>
-<li><a href="https://github.com/encode/databases">databases</a>: Python的异步数据库支持</li>
-<li><a href="https://pypi.org/project/django-orm/">django-orm</a>:</li>
-<li><a href="https://github.com/coleifer/peewee">peewee</a></li>
-<li><a href="https://github.com/tortoise/tortoise-orm">tortoise-orm</a></li>
-<li><a href="https://github.com/sqlalchemy/alembic">alembic</a>: 数据库迁移工具</li>
+<li>weeks (int) – number of weeks to wait</li>
+<li>days (int) – number of days to wait</li>
+<li>hours (int) – number of hours to wait</li>
+<li>minutes (int) – number of minutes to wait</li>
+<li>seconds (int) – number of seconds to wait</li>
+<li>start_date (datetime|str) – starting point for the interval calculation</li>
+<li>end_date (datetime|str) – latest possible date/time to trigger on</li>
+<li>timezone (datetime.tzinfo|str) – time zone to use for the date/time calculations
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span>
+<span class="normal"><a href="#__codelineno-9-6">6</a></span>
+<span class="normal"><a href="#__codelineno-9-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>from datetime import datetime
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a># 每两小时执行一次
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>sched.add_job(job_function, &#39;interval&#39;, hours=2)
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a># 在2010年10月10日09:30:00 到2014年6月15日的时间内，每两小时执行一次
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>sched.add_job(job_function, &#39;interval&#39;, hours=2, start_date=&#39;2010-10-10 09:30:00&#39;, end_date=&#39;2014-06-15 11:00:00&#39;)
+</code></pre></div></td></tr></table></div>
+<strong>3） cron 按指定的周期执行</strong></li>
+<li>year (int|str) – 4-digit year</li>
+<li>month (int|str) – month (1-12)</li>
+<li>day (int|str) – day of the (1-31)</li>
+<li>week (int|str) – ISO week (1-53)</li>
+<li>day_of_week (int|str) – number or name of weekday (0-6 or mon,tue,wed,thu,fri,sat,sun)</li>
+<li>hour (int|str) – hour (0-23)</li>
+<li>minute (int|str) – minute (0-59)</li>
+<li>second (int|str) – second (0-59)</li>
+<li>start_date (datetime|str) – earliest possible date/time to trigger on (inclusive)</li>
+<li>end_date (datetime|str) – latest possible date/time to trigger on (inclusive)</li>
+<li>timezone (datetime.tzinfo|str) – time zone to use for the date/time calculations (defaults to scheduler timezone)
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a># 在6、7、8、11、12月的第三个周五的00:00, 01:00, 02:00和03:00 执行
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>sched.add_job(job_function, &#39;cron&#39;, month=&#39;6-8,11-12&#39;, day=&#39;3rd fri&#39;, hour=&#39;0-3&#39;)
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a># 在2014年5月30日前的周一到周五的5:30执行
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>sched.add_job(job_function, &#39;cron&#39;, day_of_week=&#39;mon-fri&#39;, hour=5, minute=30, end_date=&#39;2014-05-30&#39;)
+</code></pre></div></td></tr></table></div></li>
 </ul>
-<h3 id="_1">环境包管理库<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="https://github.com/conda/conda">conda</a>: 包管理工具</li>
-<li><a href="https://github.com/python-poetry/poetry">poetry</a>: 依赖管理工具</li>
-<li><a href="https://github.com/pdm-project/pdm">pdm</a>: 依赖管理工具</li>
-<li><a href="https://github.com/pipxproject/pipx">pipx</a>: 管理Python包的工具,在隔离环境中安装和运行 Python 应用程序</li>
-<li><a href="https://github.com/pypa/pipenv">pipenv</a>: 管理Python包的工具</li>
-<li><a href="https://github.com/pypa/virtualenv">virtualenv</a>: 虚拟环境管理工具</li>
-<li><a href="https://docs.python.org/zh-cn/3/library/venv.html">venv</a>: 虚拟环境管理工具</li>
-<li><a href="https://github.com/virtualenvwrapper/virtualenvwrapper">virtualenvwrapper</a>: 虚拟环境管理工具</li>
-<li><a href="https://github.com/pyenv/pyenv">pyenv</a>: Python版本管理工具</li>
-</ul>
-<h3 id="_2">任务库<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="https://github.com/celery/celery">celery</a>: 分布式任务调度框架</li>
-<li><a href="https://github.com/agronholm/apscheduler">apscheduler</a>: 定时任务调度框架</li>
-<li><a href="https://github.com/ydf0509/funboost">funboost</a>: 异步任务调度框架</li>
-<li><a href="https://github.com/rq/rq">rq</a>: 轻量级任务调度框架</li>
-<li><a href="https://docs.python.org/3/library/sched.html">sched</a>: 轻量级任务调度框架</li>
-<li><a href="https://github.com/dbader/schedule">schedule</a>: 轻量级任务调度框架</li>
-</ul>
-<h3 id="_3">性能分析库<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="https://docs.python.org/zh-cn/3/library/profile.html">cProfile</a>: 标准库自带的性能分析</li>
-<li><a href="https://github.com/pythonprofilers/memory_profiler">memory_profiler</a>: 内存分析工具，监控Python代码的内存使用情况</li>
-<li><a href="https://github.com/rkern/line_profiler">line_profiler</a>: 行级性能分析工具，</li>
-</ul>
-<h3 id="_4">代码编译加密库<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="https://github.com/Nuitka/Nuitka">Nuitka</a>: 代码加密工具,一个用 Python 编写的 Python 编译器</li>
-<li><a href="https://github.com/dashingsoft/pyarmor">pyarmor</a>: 代码加密工具</li>
-<li><a href="https://github.com/cckuailong/py2sec">py2sec</a>: 一个跨平台、快速且灵活的工具，可将 .py 更改为 .so（Linux 和 Mac）或 .pyd（Win）</li>
-<li><a href="https://github.com/pyinstaller/pyinstaller">pyinstaller</a>: 代码打包工具,将 Python 程序冻结（打包）为独立的可执行文件</li>
-</ul>
-<h3 id="_5">测试库<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="https://github.com/pytest-dev/pytest">pytest</a>: 测试框架</li>
-<li><a href="https://github.com/python/cpython/tree/3.11/Lib/unittest">unittest</a>: 单元测试框架</li>
-<li><a href="https://github.com/pytest-dev/pytest-html">pytest-html</a>: 测试报告生成工具</li>
-<li><a href="https://github.com/testing-cabal/mock">mock</a>: 模拟对象库</li>
-</ul>
-<h3 id="_6">依赖注入框架<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="https://github.com/ets-labs/python-dependency-injector">dependency-injector</a>: 依赖注入框架</li>
-<li><a href="https://github.com/ZechCodes/Bevy">bevy</a>: 依赖注入框架</li>
-</ul>
-<h3 id="_7">重试库：<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="https://github.com/invl/retry">retry</a>: 重试库</li>
-</ul>
-<h3 id="_8">进程管理库<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="https://github.com/Supervisor/supervisor">supervisor</a>: 进程管理工具</li>
-<li><a href="https://github.com/benoitc/gunicorn">gunicorn</a>: 进程管理工具</li>
-<li><a href="https://github.com/unbit/uwsgi">uwsgi</a>: 进程管理工具</li>
-</ul>
-<h3 id="_9">操作日期时间库<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="https://docs.python.org/zh-cn/3/library/time.html">time</a>: 官方内置库</li>
-<li><a href="https://docs.python.org/zh-cn/3/library/datetime.html">datetime</a>: 官方内置库</li>
-<li><a href="https://github.com/arrow-py/arrow">arrow</a>: 日期时间库</li>
-<li><a href="https://dateutil.readthedocs.io/en/stable/">dateutil</a></li>
-<li><a href="https://github.com/arrow-py/arrow">arrow</a></li>
-<li><a href="https://github.com/myusuf3/delorean">delorean</a></li>
-<li><a href="https://github.com/spulec/freezegun">Freezegun</a></li>
-<li><a href="https://github.com/zachwill/moment">moment</a></li>
-<li><a href="https://github.com/kennethreitz/maya">maya</a></li>
-</ul>
-<h3 id="json">操作Json文件<a class="headerlink" href="#json" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="https://docs.python.org/zh-cn/3/library/json.html">Json</a>:官方内置库 </li>
-<li>【☆】<a href="https://github.com/jmespath/jmespath.py">Jmespath</a>: 是一个json查询库，可以使用声明的方式从Json中提取元素 </li>
-</ul>
-<h3 id="yaml">操作YAML文件<a class="headerlink" href="#yaml" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="https://github.com/yaml/pyyaml">PyYAML</a></li>
-</ul>
-<h2 id="_10">未分类<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/joke2k/faker">Faker</a>: 一个用于生成虚拟数据的python库</li>
-</ul>
+<h2 id="6">6. 配置方法<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h3 id="1_1">方法1<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span>
+<span class="normal"><a href="#__codelineno-11-5">5</a></span>
+<span class="normal"><a href="#__codelineno-11-6">6</a></span>
+<span class="normal"><a href="#__codelineno-11-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>from apscheduler.schedulers.background import BackgroundScheduler
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>from apscheduler.executors.pool import ThreadPoolExecutor
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>executors = {
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>    &#39;default&#39;: ThreadPoolExecutor(20),
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a>}
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a>scheduler = BackgroundScheduler(executors=executors)
+</code></pre></div></td></tr></table></div>
+<h3 id="2_1">方法2<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span>
+<span class="normal"><a href="#__codelineno-12-11">11</a></span>
+<span class="normal"><a href="#__codelineno-12-12">12</a></span>
+<span class="normal"><a href="#__codelineno-12-13">13</a></span>
+<span class="normal"><a href="#__codelineno-12-14">14</a></span>
+<span class="normal"><a href="#__codelineno-12-15">15</a></span>
+<span class="normal"><a href="#__codelineno-12-16">16</a></span>
+<span class="normal"><a href="#__codelineno-12-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>from pytz import utc
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>from apscheduler.schedulers.background import BackgroundScheduler
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>from apscheduler.executors.pool import ProcessPoolExecutor
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a>executors = {
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a>    &#39;default&#39;: {&#39;type&#39;: &#39;threadpool&#39;, &#39;max_workers&#39;: 20},
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a>    &#39;processpool&#39;: ProcessPoolExecutor(max_workers=5)
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a>}
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a>
+<a id="__codelineno-12-12" name="__codelineno-12-12"></a>scheduler = BackgroundScheduler()
+<a id="__codelineno-12-13" name="__codelineno-12-13"></a>
+<a id="__codelineno-12-14" name="__codelineno-12-14"></a># .. 此处可以编写其他代码
+<a id="__codelineno-12-15" name="__codelineno-12-15"></a>
+<a id="__codelineno-12-16" name="__codelineno-12-16"></a># 使用configure方法进行配置
+<a id="__codelineno-12-17" name="__codelineno-12-17"></a>scheduler.configure(executors=executors)
+</code></pre></div></td></tr></table></div>
+<h2 id="7">7. 启动<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>scheduler.start()
+</code></pre></div></td></tr></table></div>
+- 对于BlockingScheduler ，程序会阻塞在这，防止退出
+- 对于BackgroundScheduler，程序会立即返回，后台运行</p>
+<h2 id="8">8.扩展<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<h3 id="_1">任务管理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h4 id="_2">方式一<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>job = scheduler.add_job(myfunc, &#39;interval&#39;, minutes=2)  # 添加任务
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>job.remove()  # 删除任务
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>job.pause() # 暂定任务
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>job.resume()  # 恢复任务
+</code></pre></div></td></tr></table></div>
+<h4 id="_3">方式二<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span>
+<span class="normal"><a href="#__codelineno-15-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>scheduler.add_job(myfunc, &#39;interval&#39;, minutes=2, id=&#39;my_job_id&#39;)  # 添加任务    
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>scheduler.remove_job(&#39;my_job_id&#39;)  # 删除任务
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>scheduler.pause_job(&#39;my_job_id&#39;)  # 暂定任务
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>scheduler.resume_job(&#39;my_job_id&#39;)  # 恢复任务
+</code></pre></div></td></tr></table></div>
+<h3 id="_4">调整任务调度周期<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>job.modify(max_instances=6, name=&#39;Alternate name&#39;)
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>scheduler.reschedule_job(&#39;my_job_id&#39;, trigger=&#39;cron&#39;, minute=&#39;*/5&#39;)
+</code></pre></div></td></tr></table></div>
+<h3 id="apscheduler_1">停止APScheduler运行<a class="headerlink" href="#apscheduler_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>scheduler.shutdown()
+</code></pre></div></td></tr></table></div>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
 
@@ -1726,9 +1919,9 @@
         
           
           <a
-            href="../../../tag/"
+            href="../MLflow/"
             class="md-footer__link md-footer__link--prev"
-            aria-label="上一页: 标签"
+            aria-label="上一页: 模型管理工具之MLFlow"
           >
             <div class="md-footer__button md-icon">
               
@@ -1739,7 +1932,7 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                标签
+                模型管理工具之MLFlow
               </div>
             </div>
             
@@ -1750,16 +1943,16 @@
         
           
           <a
-            href="../libs/pathlib/"
+            href="../../../python_core/coding_standard/"
             class="md-footer__link md-footer__link--next"
-            aria-label="下一页: 路径操作之pathlib"
+            aria-label="下一页: Python编码规范"
           >
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                路径操作之pathlib
+                Python编码规范
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1816,15 +2009,15 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share", "navigation.expand", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.action.edit", "content.action.view", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["announce.dismiss", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share", "navigation.expand", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.action.edit", "content.action.view", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
     
-      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
-        <script src="../../../customize/javascripts/extra.js"></script>
+        <script src="../../../../customize/javascripts/extra.js"></script>
       
-        <script src="../../../customize/javascripts/mathjax.js"></script>
+        <script src="../../../../customize/javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
@@ -1833,7 +2026,7 @@
         <script src="https://cdn.jsdelivr.net/npm/mermaid@10.0.2/dist/add-html-label-6e56ed67.min.js"></script>
       
     
-    <script src="../../../assets/javascripts/custom.9458f965.min.js"></script>
+    <script src="../../../../assets/javascripts/custom.9458f965.min.js"></script>
   
   </body>
 </html>

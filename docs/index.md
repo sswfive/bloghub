@@ -7,15 +7,6 @@ hide:
 comments: false
 ---
 
-<!-- 
-                      __  _                _      _
- ___  ___ __      __ / _|(_)__   __  ___  | |__  | |  ___    __ _
-/ __|/ __|\ \ /\ / /| |_ | |\ \ / / / _ \ | '_ \ | | / _ \  / _` |
-\__ \\__ \ \ V  V / |  _|| | \ V / |  __/ | |_) || || (_) || (_| |
-|___/|___/  \_/\_/  |_|  |_|  \_/   \___| |_.__/ |_| \___/  \__, |                                   
--->
-
-
 
 <center><font  color= #518FC1 size=6 class="ml3">AstonWang 个人博客</font></center>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
@@ -52,9 +43,10 @@ comments: false
 
 <div id="rcorners2" >
   <div id="rcorners1">
-    <!-- <i class="fa fa-calendar" style="font-size:100"></i> -->
+    <i class="fa fa-calendar" style="font-size:100"></i>
     <body>
       <font color="#4351AF">
+      编程是一种技艺，一种需要用心学习的技艺
         <p class="p1"></p>
 <script defer>
     //格式：2020年04月12日 10:20:00 星期二
@@ -175,8 +167,8 @@ comments: false
 </div> -->
 
 
-[^Knowing-that-loving-you-has-no-ending]: 一切看似逝去的，都不曾离开，你所给予的爱与温暖，让我执着地守护着这里 ！  
-[^see-how-much-I-love-you]: All problems in computer science can be solved by another level of indirection
+- 一切看似逝去的，都不曾离开，你所给予的爱与温暖，让我执着地守护着这里 ！    
+- All problems in computer science can be solved by another level of indirection !
 
    <body>
         <font color="#B9B9B9">

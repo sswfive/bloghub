@@ -3,7 +3,7 @@ name = "bloghub"
 version = "1.0"
 description = "AstonWang's blogs"
 authors = [
-    {name = "AstonWang", email = "AstonWang"},
+    {name = "AstonWang", email = "sswss5@aliyun.com"},
 ]
 dependencies = []
 requires-python = ">=3.12"

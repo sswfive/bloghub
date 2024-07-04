@@ -6,7 +6,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sswfive.github.io/bloghub/python/pathlib/</loc>
+         <loc>https://sswfive.github.io/bloghub/python/python_lib/lib_common_summary/</loc>
+         <lastmod>2024-07-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/python/python_lib/pathlib/</loc>
          <lastmod>2024-07-04</lastmod>
          <changefreq>daily</changefreq>
     </url>

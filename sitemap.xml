@@ -2,17 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://sswfive.github.io/bloghub/</loc>
-         <lastmod>2024-07-03</lastmod>
+         <lastmod>2024-07-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pathlib/</loc>
-         <lastmod>2024-07-03</lastmod>
+         <lastmod>2024-07-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/tag/</loc>
-         <lastmod>2024-07-03</lastmod>
+         <lastmod>2024-07-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

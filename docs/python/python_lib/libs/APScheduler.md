@@ -1,4 +1,11 @@
-# APScheduler -> 定时任务工具
+---
+title: APScheduler -> 定时任务工具
+tags:
+  - python
+date: 2020-07-15 14:00:00
+categories: python
+---
+
 
 ## APScheduler概述
 
@@ -21,7 +28,7 @@
 pip install apscheduler
 ```
 ## 2.使用方式
-```
+```python
 from apscheduler.schedulers.background import BackgroundScheduler
 
 # 创建定时任务的调度器对象
@@ -40,59 +47,71 @@ scheduler.start()
 ## 3.调度器Scheduler
 
 **负责管理定时任务**
+
 - BlockingScheduler: 作为独立进程时使用
-```
+
+```python
 from apscheduler.schedulers.blocking import BlockingScheduler
 
-  scheduler = BlockingScheduler()
-  scheduler.start()  # 此处程序会发生阻塞
+scheduler = BlockingScheduler()
+scheduler.start()  # 此处程序会发生阻塞
 ```
+
 - BackgroundScheduler: 在框架程序（如Django、Flask）中使用
 
-```
- from apscheduler.schedulers.background import BackgroundScheduler
+```python
+from apscheduler.schedulers.background import BackgroundScheduler
 
-  scheduler = BackgroundScheduler()
-  scheduler.start()  # 此处程序不会发生阻塞
+scheduler = BackgroundScheduler()
+scheduler.start()  # 此处程序不会发生阻塞
 ```
+
 ## 4.执行器 executors
 
 **在定时任务该执行时，以进程或线程方式执行任务**
 
 - ThreadPoolExecutor
+
+```python
+from apscheduler.executors.pool import ThreadPoolExecutor
+
+ThreadPoolExecutor(max_workers)  
+ThreadPoolExecutor(20) # 最多20个线程同时执行
 ```
-  from apscheduler.executors.pool import ThreadPoolExecutor
-  ThreadPoolExecutor(max_workers)  
-  ThreadPoolExecutor(20) # 最多20个线程同时执行
-```
+
 > 使用方法
 
+```python
+executors = {
+    'default': ThreadPoolExecutor(20)
+}
+scheduler = BackgroundScheduler(executors=executors)
 ```
- executors = {
-      'default': ThreadPoolExecutor(20)
-  }
-  scheduler = BackgroundScheduler(executors=executors)
-```
+
 - ProcessPoolExecutor
-```
- from apscheduler.executors.pool import ProcessPoolExecutor
-  ProcessPoolExecutor(max_workers)
-  ProcessPoolExecutor(5) # 最多5个进程同时执行
+
+```python
+from apscheduler.executors.pool import ProcessPoolExecutor
+
+ProcessPoolExecutor(max_workers)
+ProcessPoolExecutor(5) # 最多5个进程同时执行
 ```
 > 使用方法
 
+```python
+executors = {
+    'default': ProcessPoolExecutor(3)
+}
+scheduler = BackgroundScheduler(executors=executors)
 ```
-  executors = {
-      'default': ProcessPoolExecutor(3)
-  }
-  scheduler = BackgroundScheduler(executors=executors)
-```
+
 ## 5.触发器 Trigger
 
 **指定定时任务执行的时机**
 
 **1） date 在特定的时间日期执行**
-```
+
+```python
 from datetime import date
 
 # 在2019年11月6日00:00:00执行
@@ -116,7 +135,8 @@ sched.start()
 - start_date (datetime|str) – starting point for the interval calculation
 - end_date (datetime|str) – latest possible date/time to trigger on
 - timezone (datetime.tzinfo|str) – time zone to use for the date/time calculations
-```
+
+```python
 from datetime import datetime
 
 # 每两小时执行一次
@@ -125,7 +145,9 @@ sched.add_job(job_function, 'interval', hours=2)
 # 在2010年10月10日09:30:00 到2014年6月15日的时间内，每两小时执行一次
 sched.add_job(job_function, 'interval', hours=2, start_date='2010-10-10 09:30:00', end_date='2014-06-15 11:00:00')
 ```
+
 **3） cron 按指定的周期执行**
+
 - year (int|str) – 4-digit year
 - month (int|str) – month (1-12)
 - day (int|str) – day of the (1-31)
@@ -137,7 +159,8 @@ sched.add_job(job_function, 'interval', hours=2, start_date='2010-10-10 09:30:00
 - start_date (datetime|str) – earliest possible date/time to trigger on (inclusive)
 - end_date (datetime|str) – latest possible date/time to trigger on (inclusive)
 - timezone (datetime.tzinfo|str) – time zone to use for the date/time calculations (defaults to scheduler timezone)
-```
+
+```python
 # 在6、7、8、11、12月的第三个周五的00:00, 01:00, 02:00和03:00 执行
 sched.add_job(job_function, 'cron', month='6-8,11-12', day='3rd fri', hour='0-3')
 
@@ -147,7 +170,8 @@ sched.add_job(job_function, 'cron', day_of_week='mon-fri', hour=5, minute=30, en
 ## 6. 配置方法
 
 ### 方法1
-```
+
+```python
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.executors.pool import ThreadPoolExecutor
 
@@ -156,8 +180,10 @@ executors = {
 }
 scheduler = BackgroundScheduler(executors=executors)
 ```
+
 ### 方法2
-```
+
+```python
 from pytz import utc
 
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -176,8 +202,10 @@ scheduler = BackgroundScheduler()
 # 使用configure方法进行配置
 scheduler.configure(executors=executors)
 ```
+
 ## 7. 启动
-```
+
+```python
 scheduler.start()
 ```
 - 对于BlockingScheduler ，程序会阻塞在这，防止退出
@@ -187,7 +215,7 @@ scheduler.start()
 ### 任务管理
 #### 方式一
 
-```
+```python
 job = scheduler.add_job(myfunc, 'interval', minutes=2)  # 添加任务
 job.remove()  # 删除任务
 job.pause() # 暂定任务
@@ -195,7 +223,7 @@ job.resume()  # 恢复任务
 ```
 
 #### 方式二
-```
+```python
 scheduler.add_job(myfunc, 'interval', minutes=2, id='my_job_id')  # 添加任务    
 scheduler.remove_job('my_job_id')  # 删除任务
 scheduler.pause_job('my_job_id')  # 暂定任务
@@ -203,13 +231,13 @@ scheduler.resume_job('my_job_id')  # 恢复任务
 ```
 
 ### 调整任务调度周期
-```
+```python
 job.modify(max_instances=6, name='Alternate name')
 
 scheduler.reschedule_job('my_job_id', trigger='cron', minute='*/5')
 ```
 
 ### 停止APScheduler运行
-```
+```python
 scheduler.shutdown()
 ```

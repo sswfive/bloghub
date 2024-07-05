@@ -1,8 +1,8 @@
-#[Info]
+# [Info]
 site_name: 空谷幽兰  # your site name 显示在左上角
 site_url: https://sswfive.github.io/bloghub/  # your site url
 site_author: sswfive # your name
-#[UI]
+# [UI]
 theme:
   name: material
   custom_dir: docs/customize/overrides #覆写路径
@@ -38,7 +38,7 @@ theme:
 
   features:
     - announce.dismiss #呈现可标记为由用户读取的临时公告，可以包含一个用于取消当前公告的按钮
-    # - navigation.instant
+    - navigation.instant
     #- header.autohide  #自动隐藏
     - navigation.tracking #地址栏中的 URL 将自动更新为在目录中突出显示的活动锚点
     - navigation.tabs #顶级部分将呈现在上面视口标题下方的菜单层中，但在移动设备上保持原样
@@ -49,7 +49,7 @@ theme:
     - search.suggest # 搜索输入一些字母时推荐补全整个单词
     - search.highlight # 搜索出的文章关键词加入高亮
     - search.share #搜索分享按钮
-    - navigation.expand # 打开Tab时左侧目录全部展开
+    # - navigation.expand # 打开Tab时左侧目录全部展开
     - navigation.indexes #启用节索引页后，可以将文档直接附加到节
     - content.tabs.link
     - content.tooltips
@@ -62,7 +62,6 @@ theme:
   # icon:
   #   repo: fontawesome/brands/github #右上角图标
   #   logo: logo
-
 
 copyright: Copyright &copy; 2017~2024 AstonWang/All Rights Reserved. # 左下角的版权声明
 
@@ -223,34 +222,38 @@ nav:
   - 主页: 
     - index.md
     - 标签: tag.md
-  - Python:
-    - Python常用库:
-      - 总览: python/python_lib/lib_common_summary.md
-      - 库集:
-        - 路径操作之pathlib: python/python_lib/libs/pathlib.md
-        - 进程管理之Supervisor: python/python_lib/libs/Supervisor.md
-        - 子进程管理之subprocess: python/python_lib/libs/subprocess.md
-        - 数据分析之Numpy: python/python_lib/libs/Numpy.md
-        - 数据分析之Pandas: python/python_lib/libs/Pandas.md
-        - 分布式流计算之PyFlink: python/python_lib/libs/PyFlink.md
-        - 模型管理工具之MLFlow: python/python_lib/libs/MLflow.md
-        - 定时任务工具之APScheduler: python/python_lib/libs/APScheduler.md
+  - Python编程:
     - Python编程实践: 
-      - 工程系列: 
+      - 规范与语法:
         - Python编码规范: python/python_core/coding_standard.md
+      - 开发与管理工具:
         - Python开发工具汇总: python/python_core/devtools/dev_tool_selection.md
         - 包管理工具方案: python/python_core/devtools/env_package_selection.md
         - 包管理工具使用总结: python/python_core/devtools/package_tool_usage.md
       # - 核心语法:
       #   - A: python/python_lib/pathlib2.md
     
+    - Python常用库:
+      - 汇总: python/python_lib/lib_common_summary.md
+      - 数据分析库:
+        - 数据分析之Numpy: python/python_lib/libs/numpy.md
+        - 数据分析之Pandas: python/python_lib/libs/pandas.md
+        - 分布式流计算之PyFlink: python/python_lib/libs/pyflink.md
+      - ModelOps库:
+        - 模型管理工具之MLFlow: python/python_lib/libs/mlflow.md
+      - 进程管理库:
+        - 进程管理之Supervisor: python/python_lib/libs/supervisor.md
+        - 子进程管理之subprocess: python/python_lib/libs/subprocess.md
+      - 任务管理库:
+        - 定时任务工具之APScheduler: python/python_lib/libs/apscheduler.md
+      - 文件操作库:
+        - 路径操作之pathlib: python/python_lib/libs/pathlib.md
 
-  # - 标签: tag.md
+  - 关于:
+    - 作者个人简介: about/personal_profile.md
   # - 留言板: liuyanban.md
   # - Blogger:
   #     - index: blog/index.md
   # - 友链:  #     - 友链: about/link.md
-  # - 关于:
-  #     - 作者个人简介: about/geren.md
+  
   #     - 功能测试: about/test.md
-  # # - 使用本主题: https://github.com/new?template_name=Mkdocs-Wcowin&template_owner=Wcowin

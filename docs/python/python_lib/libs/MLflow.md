@@ -74,35 +74,36 @@ pip3 install mlflow
 
 | 函数                                                         | 描述                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [active_run](#active_run)                                    | 获取当前活跃的Run对象实例，若没有则返回None                  |
-| [create_experiment(name, artifact_location=None)](#create_experiment) | 创建一个MLflow实验                                           |
-| [delete_experiment(experiment_id)](#delete_experiment)       | 从后台中删除一个实验                                         |
-| [delete_run(run_id)](#delete_run)                            | 删除一个run对象实例                                          |
-| [delete_tag(key)](#delete_tag)                               | 删除一个run对象的tag                                         |
-| [end_run(status='FINISHED')](#end_run)                       | 结束一个活跃的MLflow run对象                                 |
-| [get_artifact_uri(artifact_path=None)](#get_artifact_uri)    | 获取当前运行的run对象中artifact_path指定的artifact的绝对URI，若artifact_path为None，则返回artifact的根URI |
-| [get_experiment(experiment_id)](#get_experiment)             | 从后台存储中获取experiment_id指定的experiment对象            |
-| [get_experiment_by_name(name)](#get_experiment_by_name)      | 从后台存储中获取name指定的experiment对象                     |
-| [get_registry_uri()](#get_registry_uri)                      | 获取当前注册表的URI，默认返回tracking URI                    |
-| [get_run(run_id)](#get_run)                                  | 后台存储中获取run对象实例                                    |
-| [get_tracking_uri()](#get_tracking_uri)                      | 获取当前的tracking URI                                       |
-| [list_run_infos(experiment_id, run_view_type=1, max_results=1000, order_by=None)](#list_run_infos) （进阶） | 返回experiment_id指定实验下的所有run实例的信息               |
-| [log_artifact(local_path, artifact_path=None)](#log_artifact) | 将本地文件或目录记录为当前活跃run对象的artifact              |
-| [log_artifacts(local_dir, artifact_path=None)](#log_artifacts) | 记录本地目录的所有的内容作为run对象的artifacts               |
-| [log_metric(key, value, step=None)](#log_metric)             | 记录当前run对象的一个metric                                  |
-| [log_metrics(metrics, step=None)](#log_metrics)              | 记录当前run对象的多个metric                                  |
-| [log_param(key, value)](#log_param)                          | 记录当前run对象的一个parameter                               |
-| [log_params(params)](#log_params)                            | 记录当前run对象的一组parameters                              |
-| [log_text(text, artifact_file)](#log_text)                   | 记录text内容作为一个artifact                                 |
-| [register_model(model_uri, name, await_registration_for=300)](#register_model)（进阶） | 在模型注册表中为model_uri指定的模型文件创建新的模型版本      |
-| [run(uri, entry_point='main', version=None, parameters=None, docker_args=None, experiment_name=None, experiment_id=None, backend='local', backend_config=None, use_conda=True, storage_dir=None, synchronous=True, run_id=None)](#run)（进阶） | 运行一个MLflow项目，这个项目可以在本地或者在GitHub上。       |
-| [search_runs(experiment_ids=None, filter_string='', run_view_type=1, max_results=100000, order_by=None, output_format='pandas')](#search_runs)（进阶） | 以pandas数据框架类型获取满足查询条件的所有run对象            |
-| [set_experiment(experiment_name)](#set_experiment)           | 设置指定名称的experiment对象                                 |
-| [set_registry_uri(uri)](#set_registry_uri)                   | 设置注册表服务器的URI                                        |
-| [set_tag(key, value)](#set_tag)                              | 为当前run对象设置标签                                        |
-| [set_tags(tags)](#set_tags)                                  | 为当前run对象设置一组标签                                    |
-| [set_tracking_uri(uri)](#set_tracking_uri)                   | 设置tracking服务器的URI                                      |
-| [start_run(run_id=None, experiment_id=None, run_name=None, nested=False, tags=None)](#start_run)（进阶） | 开启一个新的MLflow run对象实例                               |
+| active_run                                                   | 获取当前活跃的Run对象实例，若没有则返回None                  |
+| create_experiment(name, artifact_location=None)              | 创建一个MLflow实验                                           |
+| delete_experiment(experiment_id)                             | 从后台中删除一个实验                                         |
+| delete_run(run_id)                                           | 删除一个run对象实例                                          |
+| delete_tag(key)                                              | 删除一个run对象的tag                                         |
+| end_run(status='FINISHED')                                   | 结束一个活跃的MLflow run对象                                 |
+| get_artifact_uri(artifact_path=None)                         | 获取当前运行的run对象中artifact_path指定的artifact的绝对URI，若artifact_path为None，则返回artifact的根URI |
+| get_experiment(experiment_id)                                | 从后台存储中获取experiment_id指定的experiment对象            |
+| get_experiment_by_name(name)                                 | 从后台存储中获取name指定的experiment对象                     |
+| get_registry_uri                                             | 获取当前注册表的URI，默认返回tracking URI                    |
+| get_run(run_id)                                              | 后台存储中获取run对象实例                                    |
+| get_tracking_uri                                             | 获取当前的tracking URI                                       |
+| list_run_infos(experiment_id, run_view_type=1, max_results=1000, order_by=None) | 返回experiment_id指定实验下的所有run实例的信息               |
+| log_artifact(local_path, artifact_path=None)                 | 将本地文件或目录记录为当前活跃run对象的artifact              |
+| log_artifacts(local_dir, artifact_path=None)                 | 记录本地目录的所有的内容作为run对象的artifacts               |
+| log_metric(key, value, step=None)                            | 记录当前run对象的一个metric                                  |
+| log_metrics(metrics, step=None)                              | 记录当前run对象的多个metric                                  |
+| log_param(key, value)                                        | 记录当前run对象的一个parameter                               |
+| log_params(params)                                           | 记录当前run对象的一组parameters                              |
+| log_text(text, artifact_file)                                | 记录text内容作为一个artifact                                 |
+| register_model(model_uri, name, await_registration_for=300)  | 在模型注册表中为model_uri指定的模型文件创建新的模型版本      |
+| run(uri, entry_point='main', version=None, parameters=None, docker_args=None, experiment_name=None, experiment_id=None, backend='local', backend_config=None, use_conda=True, storage_dir=None, synchronous=True, run_id=None) | 运行一个MLflow项目，这个项目可以在本地或者在GitHub上。       |
+| search_runs(experiment_ids=None, filter_string='', run_view_type=1, max_results=100000, order_by=None, output_format='pandas') | 以pandas数据框架类型获取满足查询条件的所有run对象            |
+| set_experiment(experiment_name)                              | 设置指定名称的experiment对象                                 |
+| set_registry_uri(uri)                                        | 设置注册表服务器的URI                                        |
+| set_tag(key, value)                                          | 为当前run对象设置标签                                        |
+| set_tags(tags)                                               | 为当前run对象设置一组标签                                    |
+| set_tracking_uri(uri)                                        | 设置tracking服务器的URI                                      |
+| start_run(run_id=None, experiment_id=None, run_name=None, nested=False, tags=None) | 开启一个新的MLflow run对象实例                               |
+       |
 
 ### mlflow.tracking模块
 

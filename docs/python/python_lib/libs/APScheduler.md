@@ -1,9 +1,7 @@
 ---
 title: APScheduler -> 定时任务工具
 tags:
-  - python
-date: 2020-07-15 14:00:00
-categories: python
+  - Python
 ---
 
 

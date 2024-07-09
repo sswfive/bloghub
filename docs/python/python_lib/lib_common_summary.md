@@ -1,3 +1,10 @@
+---
+title: Python 常用库汇总
+tags:
+  - Python
+---
+
+
 ##    Web开发库
 - [Django](https://github.com/django/django): 一款全面且重量（大而全）的Web框架，当前star数： 75.1k
 - [FastAPI](https://github.com/tiangolo/fastapi): 一款高性能、异步的轻量级Web框架，当前star数：67.2k

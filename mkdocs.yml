@@ -66,7 +66,7 @@ theme:
 copyright: Copyright &copy; 2017~2024 AstonWang/All Rights Reserved. # 左下角的版权声明
 
 extra:
-  generator: true #是否删除页脚显示“使用 MkDocs 材料制造”
+  generator: false #是否删除页脚显示“使用 MkDocs 材料制造”
   social:
     # - icon: fontawesome/brands/x-twitter #联系方式图标 : https://fontawesome.com/ 去这里找图标
     #   link: https://twitter.com/wcowin_
@@ -228,8 +228,8 @@ nav:
         - Python编码规范: python/python_core/coding_standard.md
       - 开发与管理工具:
         - Python开发工具汇总: python/python_core/devtools/dev_tool_selection.md
-        - 包管理工具方案: python/python_core/devtools/env_package_selection.md
-        - 包管理工具使用总结: python/python_core/devtools/package_tool_usage.md
+        - Python版本及包管理工具选型: python/python_core/devtools/env_package_selection.md
+        - 常用Pypi源汇总及使用: python/python_core/devtools/pypi_source_usage.md
       # - 核心语法:
       #   - A: python/python_lib/pathlib2.md
     

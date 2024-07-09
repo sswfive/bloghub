@@ -1,4 +1,8 @@
-# subprocess -> 子进程管理
+---
+title: subprocess -> 子进程管理
+tags:
+  - Python
+---
 
 
 > Reference：[官方文档](https://docs.python.org/zh-cn/3.12/library/subprocess.html)

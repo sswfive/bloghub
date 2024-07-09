@@ -1,4 +1,8 @@
-# Numpy -> 数据分析工具
+---
+title: Numpy -> 数据分析工具
+tags:
+  - Python
+---
 
 ## 总结：
 ![numpy_struct](https://cdn.staticaly.com/gh/sswfive/blog-pic@main/20230328/numpy_struct.2y7o3azo78a0.webp)

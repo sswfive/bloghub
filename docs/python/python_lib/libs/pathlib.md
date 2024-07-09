@@ -1,4 +1,8 @@
-# pathlib之使用面向对象的方式操作路径
+---
+title: pathlib之使用面向对象的方式操作路径
+tags:
+  - Python
+---
 
 > Reference：  
 

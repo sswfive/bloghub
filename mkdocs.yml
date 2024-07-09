@@ -43,9 +43,10 @@ theme:
     - navigation.tracking #地址栏中的 URL 将自动更新为在目录中突出显示的活动锚点
     - navigation.tabs #顶级部分将呈现在上面视口标题下方的菜单层中，但在移动设备上保持原样
     # - navigation.tabs.sticky  #启用粘性选项卡后，导航选项卡将锁定在标题下方，并在向下滚动时始终保持可见
-    - navigation.sections #启用部分后，顶级部分在边栏中呈现为1220px以上视口的组，但在移动设备上保持原样
+    # - navigation.sections #启用部分后，顶级部分在边栏中呈现为1220px以上视口的组，但在移动设备上保持原样
     - navigation.top # 返回顶部的按钮 在上滑时出现
     - navigation.footer #页脚将呈现在边栏中，但在移动设备上保持原样
+    # - navigation.path #激活导航路径后，每个页面的标题上方都会呈现面包屑导航，这可能会让用户在屏幕较小的设备上访问文档时更容易定位
     - search.suggest # 搜索输入一些字母时推荐补全整个单词
     - search.highlight # 搜索出的文章关键词加入高亮
     - search.share #搜索分享按钮
@@ -224,25 +225,22 @@ nav:
     - 关于: about/personal_profile.md
 
   - Python编程:
+    
+    - Python编程实践: 
+      - Python编码规范: python/python_core/coding_standard.md
+      - Python开发工具汇总: python/python_core/devtools/dev_tool_selection.md
+      - Python版本及包管理工具选型: python/python_core/devtools/env_package_selection.md
+      - 常用Pypi源汇总及使用: python/python_core/devtools/pypi_source_usage.md
+
     - Web 框架:
       - Django:
         - django中ORM字段总结: python/pyweb/django/orm_fields_summary.md
         - django中ORM查询方法总结: python/pyweb/django/orm_query_summary.md
         - django源码学习之LazyObject: python/pyweb/django/django_lazyobject_analysis.md
-    - Python编程实践: 
-      - 规范与语法:
-        - Python编码规范: python/python_core/coding_standard.md
-      - 开发与管理工具:
-        - Python开发工具汇总: python/python_core/devtools/dev_tool_selection.md
-        - Python版本及包管理工具选型: python/python_core/devtools/env_package_selection.md
-        - 常用Pypi源汇总及使用: python/python_core/devtools/pypi_source_usage.md
-      # - 核心语法:
-      #   - A: python/python_lib/pathlib2.md
-    
     - Python常用库:
       - 热门库汇总: python/python_lib/lib_common_summary.md
-      - 常用库笔记: python/python_lib/daily_lib_summary.md
-      - 笔记清单:
+      - 常用库笔记: 
+        - 笔记清单: python/python_lib/daily_lib_summary.md
         - 数据分析之Numpy: python/python_lib/libs/numpy.md
         - 数据分析之Pandas: python/python_lib/libs/pandas.md
         - 分布式流计算之PyFlink: python/python_lib/libs/pyflink.md
@@ -258,19 +256,18 @@ nav:
       - 设计模式分类总览: codecore/design_patterns/design_patterns_categories.md
 
   - 迎刃而解:
-    - 迎刃而解:
-      - 运维手记:
-        - 服务器磁盘空间满的解决办法: blogs/solutionhub/opshub/server_disk_full_solution.md
-        - Centos的yum源误删解决方法: blogs/solutionhub/opshub/centos_yum_source_delete_solution.md
-        - win10的cmd中操作git中文乱码解决方法: blogs/solutionhub/opshub/win10_git_chinese_solution.md
-        - Mac使用brew services报错: blogs/solutionhub/opshub/mac_brew_service_error_solution.md
-      - Bugs复盘:
-        - Jupyterhub离线部署踩坑总结: blogs/solutionhub/bughub/jupyterhub_deploy_bug.md
-        - Jupyter matplotlib画图中文字体缺失: blogs/solutionhub/bughub/jupyter_matplotlib_font_bug.md
-        - Jupyter运行asyncio run报错: blogs/solutionhub/bughub/jupyter_asyncio_run_bug.md
-        - window环境中pip安装报错: blogs/solutionhub/bughub/window_install_pip_bug.md
-        - Conda修改虚拟环境名导致异常: blogs/solutionhub/bughub/conda_rename_env_bug.md
-        - 多语言之间的RSA加解密问题: blogs/solutionhub/bughub/rsa_encryption_bug.md
+    - 运维手记:
+      - 服务器磁盘空间满的解决办法: blogs/solutionhub/opshub/server_disk_full_solution.md
+      - Centos的yum源误删解决方法: blogs/solutionhub/opshub/centos_yum_source_delete_solution.md
+      - win10的cmd中操作git中文乱码解决方法: blogs/solutionhub/opshub/win10_git_chinese_solution.md
+      - Mac使用brew services报错: blogs/solutionhub/opshub/mac_brew_service_error_solution.md
+    - Bugs复盘:
+      - Jupyterhub离线部署踩坑总结: blogs/solutionhub/bughub/jupyterhub_deploy_bug.md
+      - Jupyter matplotlib画图中文字体缺失: blogs/solutionhub/bughub/jupyter_matplotlib_font_bug.md
+      - Jupyter运行asyncio run报错: blogs/solutionhub/bughub/jupyter_asyncio_run_bug.md
+      - window环境中pip安装报错: blogs/solutionhub/bughub/window_install_pip_bug.md
+      - Conda修改虚拟环境名导致异常: blogs/solutionhub/bughub/conda_rename_env_bug.md
+      - 多语言之间的RSA加解密问题: blogs/solutionhub/bughub/rsa_encryption_bug.md
 
   - 工具箱:
     - 开发工具:

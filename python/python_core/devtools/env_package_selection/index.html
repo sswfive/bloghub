@@ -16,7 +16,7 @@
         <link rel="prev" href="../dev_tool_selection/">
       
       
-        <link rel="next" href="../package_tool_usage/">
+        <link rel="next" href="../pypi_source_usage/">
       
       
       <link rel="icon" href="https://s2.loli.net/2024/04/26/PmRdM9iGnvOJHgu.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>包管理工具方案 - 空谷幽兰</title>
+        <title>Python版本及包管理工具选型 - 空谷幽兰</title>
       
     
     
@@ -162,7 +162,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              包管理工具方案
+              Python版本及包管理工具选型
             
           </span>
         </div>
@@ -755,14 +755,12 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   <span class="md-ellipsis">
-    包管理工具方案
+    Python版本及包管理工具选型
   </span>
   
 
@@ -773,7 +771,7 @@
         
   
   <span class="md-ellipsis">
-    包管理工具方案
+    Python版本及包管理工具选型
   </span>
   
 
@@ -785,8 +783,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -795,28 +791,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#python_1" class="md-nav__link">
+  <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
-      原生Python的安装方式
+      Python多版本管理方案
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python多版本管理方案">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      方案一：原生安装方法
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#python_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      多Python版本管理工具
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="多Python版本管理工具">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#conda" class="md-nav__link">
     <span class="md-ellipsis">
-      Conda：☆☆☆☆☆
+      方案二：使用 conda
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      方案三：使用 pyenv
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdm" class="md-nav__link">
+    <span class="md-ellipsis">
+      方案四：使用 PDM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pythonz" class="md-nav__link">
+    <span class="md-ellipsis">
+      方案五：使用 pythonz
     </span>
   </a>
   
@@ -828,19 +851,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      虚拟环境管理工具
+      依赖包管理方案
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="虚拟环境管理工具">
+    <nav class="md-nav" aria-label="依赖包管理方案">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pipenv" class="md-nav__link">
+  <a href="#pdm_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Pipenv：☆☆☆
+      方案一：PDM：☆☆☆☆☆
     </span>
   </a>
   
@@ -849,16 +872,25 @@
           <li class="md-nav__item">
   <a href="#poetry" class="md-nav__link">
     <span class="md-ellipsis">
-      Poetry：☆☆☆
+      方法二：Poetry：☆☆☆☆
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pdm" class="md-nav__link">
+  <a href="#conda_1" class="md-nav__link">
     <span class="md-ellipsis">
-      PDM：☆☆☆☆☆
+      方案三：Conda：☆☆☆
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      方案四：Pipenv：☆☆☆
     </span>
   </a>
   
@@ -867,16 +899,7 @@
           <li class="md-nav__item">
   <a href="#venv" class="md-nav__link">
     <span class="md-ellipsis">
-      venv：☆☆☆☆
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hatch" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hatch：☆
+      方案五：venv：☆☆☆
     </span>
   </a>
   
@@ -885,7 +908,7 @@
           <li class="md-nav__item">
   <a href="#virtualenv" class="md-nav__link">
     <span class="md-ellipsis">
-      Virtualenv：☆☆
+      方案六：Virtualenv：☆☆
     </span>
   </a>
   
@@ -894,9 +917,135 @@
           <li class="md-nav__item">
   <a href="#virtualenvwrapper" class="md-nav__link">
     <span class="md-ellipsis">
-      virtualenvwrapper：☆☆
+      方案七：virtualenvwrapper：☆☆
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      方案八：Hatch：☆
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rye" class="md-nav__link">
+    <span class="md-ellipsis">
+      方案九：Rye
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用工具安装步骤
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常用工具安装步骤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      【pip】安装及常用命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conda_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      【conda】安装及常用命令
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="【conda】安装及常用命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anaconda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anaconda安装
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miniconda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Miniconda安装
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用命令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyenv_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      【pyenv】安装及常用命令
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="【pyenv】安装及常用命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      版本控制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virturalenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      virturalenv虚拟环境设置
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -921,11 +1070,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../package_tool_usage/" class="md-nav__link">
+      <a href="../pypi_source_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    包管理工具使用总结
+    常用Pypi源汇总及使用
   </span>
   
 
@@ -1574,8 +1723,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1584,28 +1731,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#python_1" class="md-nav__link">
+  <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
-      原生Python的安装方式
+      Python多版本管理方案
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python多版本管理方案">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      方案一：原生安装方法
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#python_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      多Python版本管理工具
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="多Python版本管理工具">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#conda" class="md-nav__link">
     <span class="md-ellipsis">
-      Conda：☆☆☆☆☆
+      方案二：使用 conda
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      方案三：使用 pyenv
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdm" class="md-nav__link">
+    <span class="md-ellipsis">
+      方案四：使用 PDM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pythonz" class="md-nav__link">
+    <span class="md-ellipsis">
+      方案五：使用 pythonz
     </span>
   </a>
   
@@ -1617,19 +1791,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      虚拟环境管理工具
+      依赖包管理方案
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="虚拟环境管理工具">
+    <nav class="md-nav" aria-label="依赖包管理方案">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pipenv" class="md-nav__link">
+  <a href="#pdm_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Pipenv：☆☆☆
+      方案一：PDM：☆☆☆☆☆
     </span>
   </a>
   
@@ -1638,16 +1812,25 @@
           <li class="md-nav__item">
   <a href="#poetry" class="md-nav__link">
     <span class="md-ellipsis">
-      Poetry：☆☆☆
+      方法二：Poetry：☆☆☆☆
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pdm" class="md-nav__link">
+  <a href="#conda_1" class="md-nav__link">
     <span class="md-ellipsis">
-      PDM：☆☆☆☆☆
+      方案三：Conda：☆☆☆
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      方案四：Pipenv：☆☆☆
     </span>
   </a>
   
@@ -1656,16 +1839,7 @@
           <li class="md-nav__item">
   <a href="#venv" class="md-nav__link">
     <span class="md-ellipsis">
-      venv：☆☆☆☆
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hatch" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hatch：☆
+      方案五：venv：☆☆☆
     </span>
   </a>
   
@@ -1674,7 +1848,7 @@
           <li class="md-nav__item">
   <a href="#virtualenv" class="md-nav__link">
     <span class="md-ellipsis">
-      Virtualenv：☆☆
+      方案六：Virtualenv：☆☆
     </span>
   </a>
   
@@ -1683,9 +1857,135 @@
           <li class="md-nav__item">
   <a href="#virtualenvwrapper" class="md-nav__link">
     <span class="md-ellipsis">
-      virtualenvwrapper：☆☆
+      方案七：virtualenvwrapper：☆☆
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      方案八：Hatch：☆
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rye" class="md-nav__link">
+    <span class="md-ellipsis">
+      方案九：Rye
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用工具安装步骤
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常用工具安装步骤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      【pip】安装及常用命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conda_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      【conda】安装及常用命令
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="【conda】安装及常用命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anaconda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anaconda安装
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miniconda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Miniconda安装
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用命令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyenv_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      【pyenv】安装及常用命令
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="【pyenv】安装及常用命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      版本控制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virturalenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      virturalenv虚拟环境设置
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1707,6 +2007,17 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../../../tag/#python" class="md-tag">Python</a>
+    
+  
+</nav>
+
 
   
     <a href="https://github.com/sswfive/edit/master/docs/python/python_core/devtools/env_package_selection.md" title="编辑此页" class="md-content__button md-icon">
@@ -1725,60 +2036,66 @@
   
 
 
-<h1 id="python">Python环境及包管理工具选型<a class="headerlink" href="#python" title="Permanent link">&para;</a></h1>
-<h2 id="python_1">原生Python的安装方式<a class="headerlink" href="#python_1" title="Permanent link">&para;</a></h2>
-<ol>
-<li>源码安装（适用于：Linux、MacOS）</li>
-<li>图形界面安装（适用于：MacOS、Win）</li>
-<li>Conda安装（适用于：Linux、MacOS、Win）</li>
-</ol>
-<p>详细的介绍和安装阅读：<a href="https://www.python.org/">官方文档</a></p>
-<h2 id="python_2">多Python版本管理工具<a class="headerlink" href="#python_2" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>一种方案就是对开发环境安装多个原生不同版本的Python。另一种方案就是下述介绍的conda管理工具。</p>
-</blockquote>
-<h3 id="conda"><a href="https://docs.conda.io/en/latest/">Conda</a>：☆☆☆☆☆<a class="headerlink" href="#conda" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p>多Python版本管理、多虚拟环境管理</p>
-</blockquote>
-<p><strong>简述：</strong></p>
+  <h1>Python版本及包管理工具选型</h1>
+
+<h2 id="python">Python多版本管理方案<a class="headerlink" href="#python" title="Permanent link">&para;</a></h2>
+<p>在日常开发过程，可能会有多个不同Python版本的共存的需求，以下介绍几种关于python多版本共存的解决方案:</p>
+<h3 id="_1">方案一：原生安装方法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Conda是一个跨平台（Windows, macOS, and Linux）的开源的环境及包管理平台，官方称不仅限于管理Python版本和环境包的管理，还可以管理_ R, Ruby, Lua, Scala, Java, JavaScript, C/ C++, Fortran_等主流语言，但据笔者了解到，除了python开发者圈应用广泛外，其他语言的开发者几乎很难看到使用的。</li>
-<li>特点是：可即时按需创建对应python版本的虚拟环境；Conda分为两个版本：<a href="https://www.anaconda.com/">Anaconda</a>、<a href="https://docs.conda.io/projects/miniconda/en/latest/">Miniconda</a>;这两个工具的安装方式都是比较容易，且易于迁移；</li>
-<li>相比较于后面的工具而言，占用空间比较大，相对比较重。</li>
+<li>从<a href="https://www.python.org/downloads/">Python官网</a>下载需要安装的Python版本，在不同的目录（建议：目录名使用和版本对应的名称）中安装下载好的安装包，安装后，在环境变量中设置一个常用的Python版本作为默认版本，后续如果需要修改python版本，只需要修改环境变量中python解释器路径即可。</li>
+<li>详细的介绍和安装阅读：<a href="https://www.python.org/">官方文档</a></li>
 </ul>
-<p><strong>版本说明：</strong></p>
+<h3 id="conda">方案二：使用 <a href="https://conda.io/projects/conda/en/latest/user-guide/install/index.html">conda</a><a class="headerlink" href="#conda" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="https://www.anaconda.com/">Anaconda</a>:</li>
-<li>【重】大而全，除了安装 Conda 内核，还安装了完整的 Anaconda 的发行包，即内置集成了很多工具包，包括python的多个版本，常用机器学习等科学工具包</li>
-<li><a href="https://www.anaconda.com/download">官方下载</a>，<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">清华源下载</a>；</li>
-<li><a href="https://docs.conda.io/projects/miniconda/en/latest/">Miniconda</a>:</li>
-<li>【轻】小而美，只安装了 Conda 内核，即内置了多个python版本和必要的工具包。</li>
-<li><a href="https://docs.conda.io/projects/miniconda/en/latest/miniconda-other-installer-links.html">官方下载</a>、<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/">清华源下载</a>；</li>
+<li>安装好conda后，通过创建不同python版本的虚拟环境进行多版本的管理，其中conda分为完整版（<a href="https://www.anaconda.com/">Anaconda</a>）和精简版（<a href="https://docs.conda.io/projects/miniconda/en/latest/">Miniconda</a>），根据需要选择合适的版本。</li>
+<li>Anaconda:【重】大而全，除了安装 Conda 内核，还安装了完整的 Anaconda 的发行包，即内置集成了很多工具包，包括python的多个版本，常用机器学习等科学工具包；<a href="https://www.anaconda.com/download">官方下载</a>，<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">清华源下载</a>；</li>
+<li>Miniconda:【轻】小而美，只安装了 Conda 内核，即内置了多个python版本和必要的工具包；<a href="https://docs.conda.io/projects/miniconda/en/latest/miniconda-other-installer-links.html">官方下载</a>、<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/">清华源下载</a>；</li>
 </ul>
-<p><strong>选型说明：</strong></p>
+<blockquote>
+<p>选型建议：</p>
 <ul>
-<li>对于日常在一个环境有多Python版本的开发需求的，且不想在开发环境中安装多个原生Python,Anaconda和Miniconda都是一个很好的选择；</li>
-<li>对于使用Python进行数据分析、机器学习及AI方向的开发者，Anaconda是一个很好的选择；</li>
-<li>对于Python web开发来说，Miniconda是一个不错的选择，主要是因为适合web开发的环境包管理工具的选择是很多的。<blockquote>
-<p>tip: 个人日常用的比较多，主要原因对应选型说明的前两点。</p>
-</blockquote>
+<li>
+<p>对于日常在一个环境有多Python版本的开发需求的，且不想在开发环境中安装多个原生Python,Anaconda和Miniconda都是一个很好的选择；</p>
+</li>
+<li>
+<p>对于使用Python进行数据分析、机器学习及AI方向的开发者，Anaconda是一个很好的选择；</p>
+</li>
+<li>
+<p>对于Python web开发来说，Miniconda是一个不错的选择，主要是因为适合web开发的环境包管理工具的选择是很多的。</p>
 </li>
 </ul>
-<h2 id="_1">虚拟环境管理工具<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<h3 id="pipenv"><a href="https://github.com/pypa/pipenv">Pipenv</a>：☆☆☆<a class="headerlink" href="#pipenv" title="Permanent link">&para;</a></h3>
+</blockquote>
+<h3 id="pyenv">方案三：使用 <a href="https://github.com/pyenv/pyenv">pyenv</a><a class="headerlink" href="#pyenv" title="Permanent link">&para;</a></h3>
+<ul>
+<li>安装pyenv后，通过<code>pyenv install 3.x.x</code> 的方式进行安装，通过<code>pyenv global 3.x.x</code>设置全局python版本方式，详细使用流程<a href="https://github.com/pyenv/pyenv/blob/master/COMMANDS.md">参考文档</a></li>
+<li>在UNIX/MacO系统中,使用pyenv, 在window系统中，使用<a href="https://github.com/pyenv-win/pyenv-win"><code>pyenv-win</code></a></li>
+</ul>
+<h3 id="pdm">方案四：使用 <a href="https://pdm-project.org/en/latest/usage/project/#install-python-interpreters-with-pdm">PDM</a><a class="headerlink" href="#pdm" title="Permanent link">&para;</a></h3>
+<ul>
+<li>安装pdm后，通过<code>pdm python install 3.x.x</code>方式进行安装，通过<code>pdm python install --list</code>查看可安装的版本清单</li>
+<li>如果只需要python解释器，且已经安装了pdm工具，推荐使用此方式进行安装。</li>
+</ul>
+<h3 id="pythonz">方案五：使用 <a href="https://github.com/saghul/pythonz">pythonz</a><a class="headerlink" href="#pythonz" title="Permanent link">&para;</a></h3>
+<ul>
+<li>安装好pythonz后，详细使用参考<a href="https://bettercallsaghul.com/pythonz/">官方文档</a></li>
+<li>此工具对于有安装 CPython, Stackless, PyPy and Jython的需求时比较方便。</li>
+</ul>
+<h2 id="_2">依赖包管理方案<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="pdm_1">方案一：<a href="https://github.com/pdm-project/pdm">PDM</a>：☆☆☆☆☆<a class="headerlink" href="#pdm_1" title="Permanent link">&para;</a></h3>
 <p><strong>简述：</strong></p>
 <ul>
-<li>此工具是一个跨平台（Windows, macOS, and Linux）的开源的python虚拟环境管理工具，依赖于开发环境中原生安装的Python版本（目前官方仅支持Python3.7+）其主要特点有：</li>
-<li>使用Pipfile和Pipflile.lock文件来维护环境中的包版本</li>
-<li>支持pipenv CLI操作</li>
+<li>此工具是一款跨平台包管理工具，要求python3.7+,主要的功能和上述的Poetry类似，但它摈弃了虚拟环境，直接将包文件夹放在项目根目录下，或放到统一的地方进行集中管理，另外其由一位国内的开发者在业余时间开发而成，主要特点有：</li>
+<li>支持最新PEP标准（兼容 <a href="https://www.python.org/dev/peps/pep-0517">PEP 517</a> 的构建后端，用于构建发布包、<a href="https://www.python.org/dev/peps/pep-0621">PEP 621</a> 元数据格式）</li>
+<li>像pnpm采用了去中心化安装缓存，节省磁盘空间</li>
+<li>用户脚本功能比较强大；</li>
+<li>使用pyproject.toml和lockfile管理包的版本。</li>
 </ul>
 <p><strong>选型说明：</strong></p>
 <ul>
-<li>个人安装官方文档实操过一遍，并未在生产环境中将其引入。</li>
-<li>在实操过程中给人的体验还是不错的。</li>
+<li>在知道此工具后，逐渐放弃了poetry，虽然当前star数刚达到5k,但个人看好此工具的后续发展。</li>
+<li>自定义脚本使用体验非常好。</li>
 </ul>
-<h3 id="poetry"><a href="https://github.com/python-poetry/poetry">Poetry</a>：☆☆☆<a class="headerlink" href="#poetry" title="Permanent link">&para;</a></h3>
+<h3 id="poetry">方法二：<a href="https://github.com/python-poetry/poetry">Poetry</a>：☆☆☆☆<a class="headerlink" href="#poetry" title="Permanent link">&para;</a></h3>
 <p><strong>简述：</strong></p>
 <ul>
 <li>此工具是一个跨平台（Windows, macOS, and Linux）、开源的第包管理工具平台，本质还是需要创建虚拟环境进行包管理，官方描述：Python packaging and dependency management made easy；最新版本需要开发环境的python3.8+，其主要特点有：</li>
@@ -1793,21 +2110,26 @@
 <li>个人在近两年（PDM发现之前）的web开发中均由在使用，在体验上相当不错，缺点是如果不配置国内源，现在安装效率是极低的，且容易安装出错。</li>
 <li>用好自定义脚本的功能可大大提升效率。</li>
 </ul>
-<h3 id="pdm"><a href="https://github.com/pdm-project/pdm">PDM</a>：☆☆☆☆☆<a class="headerlink" href="#pdm" title="Permanent link">&para;</a></h3>
+<h3 id="conda_1">方案三：<a href="https://docs.conda.io/en/latest/">Conda</a>：☆☆☆<a class="headerlink" href="#conda_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Conda是一个跨平台（Windows, macOS, and Linux）的开源的环境及包管理平台，官方称不仅限于管理Python版本和环境包的管理，还可以管理 <em>R, Ruby, Lua, Scala, Java, JavaScript, C/ C++, Fortran</em>等主流语言，但据笔者了解到，除了python开发者圈应用广泛外，其他语言的开发者几乎很难看到使用的。</li>
+<li>特点是：可即时按需创建对应python版本的虚拟环境；Conda分为两个版本：<a href="https://www.anaconda.com/">Anaconda</a>、<a href="https://docs.conda.io/projects/miniconda/en/latest/">Miniconda</a>;这两个工具的安装方式都是比较容易，且易于迁移；</li>
+<li>相比较于后面的工具而言，占用空间比较大，相对比较重。</li>
+<li>在conda环境中，既支持<code>conda add &lt;package&gt;</code>也支持 <code>pip install &lt;package&gt;</code>方式进行依赖包安装</li>
+</ul>
+<h3 id="pipenv">方案四：<a href="https://github.com/pypa/pipenv">Pipenv</a>：☆☆☆<a class="headerlink" href="#pipenv" title="Permanent link">&para;</a></h3>
 <p><strong>简述：</strong></p>
 <ul>
-<li>此工具是一款跨平台包管理工具，要求python3.7+,主要的功能和上述的Poetry类似，但它摈弃了虚拟环境，直接将包文件夹放在项目根目录下，或放到统一的地方进行集中管理，另外其由一位国内的开发者在业余时间开发而成，主要特点有：</li>
-<li>支持最新PEP标准（兼容 <a href="https://www.python.org/dev/peps/pep-0517">PEP 517</a> 的构建后端，用于构建发布包、<a href="https://www.python.org/dev/peps/pep-0621">PEP 621</a> 元数据格式）</li>
-<li>像pnpm采用了去中心化安装缓存，节省磁盘空间</li>
-<li>用户脚本功能比较强大；</li>
-<li>使用pyproject.toml和lockfile管理包的版本。</li>
+<li>此工具是一个跨平台（Windows, macOS, and Linux）的开源的python虚拟环境管理工具，依赖于开发环境中原生安装的Python版本（目前官方仅支持Python3.7+）其主要特点有：</li>
+<li>使用Pipfile和Pipflile.lock文件来维护环境中的包版本</li>
+<li>支持pipenv CLI操作</li>
 </ul>
 <p><strong>选型说明：</strong></p>
 <ul>
-<li>在知道此工具后，逐渐放弃了poetry，虽然当前star数刚达到5k,但个人看好此工具的后续发展。</li>
-<li>自定义脚本使用体验非常好。</li>
+<li>个人安装官方文档实操过一遍，并未在生产环境中将其引入。</li>
+<li>在实操过程中给人的体验还是不错的。</li>
 </ul>
-<h3 id="venv"><a href="https://docs.python.org/zh-cn/3/library/venv.html#module-venv">venv</a>：☆☆☆☆<a class="headerlink" href="#venv" title="Permanent link">&para;</a></h3>
+<h3 id="venv">方案五：<a href="https://docs.python.org/zh-cn/3/library/venv.html#module-venv">venv</a>：☆☆☆<a class="headerlink" href="#venv" title="Permanent link">&para;</a></h3>
 <p><strong>简述：</strong></p>
 <ul>
 <li>Python原生安装包中内置的虚拟环境，每个虚拟环境将拥有它们自己独立的安装在其 site,</li>
@@ -1817,16 +2139,7 @@
 <ul>
 <li>个人认为在使用docker构建项目是采用改工具进行包管理体验比较好，轻量简单易用。</li>
 </ul>
-<h3 id="hatch"><a href="https://hatch.pypa.io/">Hatch</a>：☆<a class="headerlink" href="#hatch" title="Permanent link">&para;</a></h3>
-<p><strong>简述：</strong></p>
-<ul>
-<li>Hatch 也是一款虚拟环境管理工具，可以管理环境（它允许每个项目有多个环境，但不允许把它们放在项目目录中），并且可以管理包（但不支持 lockfile）。Hatch 也可以用来打包一个项目（用符合 PEP 621 标准的 pyproject.toml 文件）并上传到 PyPI。</li>
-</ul>
-<p><strong>选型说明：</strong></p>
-<ul>
-<li>仅知道此工具，从未实操体验过，是否推荐需要后续实操体验后才能决定。</li>
-</ul>
-<h3 id="virtualenv"><a href="https://virtualenv.pypa.io/en/latest/">Virtualenv</a>：☆☆<a class="headerlink" href="#virtualenv" title="Permanent link">&para;</a></h3>
+<h3 id="virtualenv">方案六：<a href="https://virtualenv.pypa.io/en/latest/">Virtualenv</a>：☆☆<a class="headerlink" href="#virtualenv" title="Permanent link">&para;</a></h3>
 <p><strong>简述：</strong></p>
 <ul>
 <li>依赖于开发环境中的原生Python，仅能创建相同Python版本的不同虚拟环境，在早期的web开发中使用比较多。</li>
@@ -1836,7 +2149,7 @@
 <ul>
 <li>在刚从事Python相关学习和工作使用的比较多，近些年几乎不在使用，因为又上述更好的工具取代了它，不过有兴趣的小伙伴可以体验体验。</li>
 </ul>
-<h3 id="virtualenvwrapper"><a href="https://pypi.org/project/virtualenvwrapper">virtualenvwrapper</a>：☆☆<a class="headerlink" href="#virtualenvwrapper" title="Permanent link">&para;</a></h3>
+<h3 id="virtualenvwrapper">方案七：<a href="https://pypi.org/project/virtualenvwrapper">virtualenvwrapper</a>：☆☆<a class="headerlink" href="#virtualenvwrapper" title="Permanent link">&para;</a></h3>
 <p><strong>简述：</strong></p>
 <ul>
 <li>依赖于上述的Virtualenv,其本质是一个virtualenv的脚本工具，可以方便的创建和删除虚拟环境。</li>
@@ -1845,6 +2158,359 @@
 <ul>
 <li>在个人早起使用virtualenv,基本都是搭载了virtualenvwrapper工具来进行相关开发工作。</li>
 </ul>
+<h3 id="hatch">方案八：<a href="https://hatch.pypa.io/">Hatch</a>：☆<a class="headerlink" href="#hatch" title="Permanent link">&para;</a></h3>
+<p><strong>简述：</strong></p>
+<ul>
+<li>Hatch 也是一款虚拟环境管理工具，可以管理环境（它允许每个项目有多个环境，但不允许把它们放在项目目录中），并且可以管理包（但不支持 lockfile）。Hatch 也可以用来打包一个项目（用符合 PEP 621 标准的 pyproject.toml 文件）并上传到 PyPI。</li>
+</ul>
+<p><strong>选型说明：</strong></p>
+<ul>
+<li>仅知道此工具，从未实操体验过，是否推荐需要后续实操体验后才能决定。</li>
+</ul>
+<h3 id="rye">方案九：<a href="https://github.com/mitsuhiko/rye">Rye</a><a class="headerlink" href="#rye" title="Permanent link">&para;</a></h3>
+<ul>
+<li>使用Rust开发，暂未研究，值得关注</li>
+</ul>
+<p>方案十：<a href="https://github.com/David-OConnor/pyflow">Pyflow</a> </p>
+<ul>
+<li>An installation and dependency system for Python,此项目近两年未更新了。</li>
+</ul>
+<h2 id="_3">常用工具安装步骤<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="pip">【pip】安装及常用命令<a class="headerlink" href="#pip" title="Permanent link">&para;</a></h3>
+<ul>
+<li>在python3以后，安装原生python后，默认会安装pip。故此处安装略</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># 常用命令</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># 安装 pkgname1和 pkgname2</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>pip<span class="w"> </span>install<span class="w">  </span>&lt;pkgname1&gt;<span class="w">  </span>&lt;pkgname2&gt;
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># 查看已经安装的包</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>pip<span class="w"> </span>list
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1"># 查看当前源中能够安装的包及版本</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>pip<span class="w"> </span>search<span class="w"> </span>keyword<span class="w"> </span>或者<span class="w"> </span>pypi
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="c1"># 安装帮助</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>pip<span class="w"> </span><span class="nb">help</span><span class="w"> </span>install
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="c1"># 查看pip版本</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>pip<span class="w"> </span>-V
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="c1"># 将已安装的包及版本输出到requirements.txt文件中</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirement.txt
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="c1"># 安装requirements.txt中全部包（除#注释外）</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirement.txt
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="c1"># 更新pip版本</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>pip<span class="w">  </span>
+</code></pre></div></td></tr></table></div>
+<h3 id="conda_2">【conda】安装及常用命令<a class="headerlink" href="#conda_2" title="Permanent link">&para;</a></h3>
+<h4 id="anaconda">Anaconda安装<a class="headerlink" href="#anaconda" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Linux/MacOS系统</li>
+</ul>
+<blockquote>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&amp;O=D">清华镜像源</a>：</p>
+</blockquote>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span>
+<span class="normal"><a href="#__codelineno-1-27">27</a></span>
+<span class="normal"><a href="#__codelineno-1-28">28</a></span>
+<span class="normal"><a href="#__codelineno-1-29">29</a></span>
+<span class="normal"><a href="#__codelineno-1-30">30</a></span>
+<span class="normal"><a href="#__codelineno-1-31">31</a></span>
+<span class="normal"><a href="#__codelineno-1-32">32</a></span>
+<span class="normal"><a href="#__codelineno-1-33">33</a></span>
+<span class="normal"><a href="#__codelineno-1-34">34</a></span>
+<span class="normal"><a href="#__codelineno-1-35">35</a></span>
+<span class="normal"><a href="#__codelineno-1-36">36</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># step1: 执行安装</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>bash<span class="w"> </span>Anaconda3-2021.11-Linux-x86_64.sh
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>-----------------------------------------------------------------------------
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>logger:
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>Do<span class="w"> </span>you<span class="w"> </span>accept<span class="w"> </span>the<span class="w"> </span>license<span class="w"> </span>terms?<span class="w"> </span><span class="o">[</span>yes<span class="p">|</span>no<span class="o">]</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="o">[</span>no<span class="o">]</span><span class="w"> </span>&gt;&gt;&gt;
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>Please<span class="w"> </span>answer<span class="w"> </span><span class="s1">&#39;yes&#39;</span><span class="w"> </span>or<span class="w"> </span><span class="s1">&#39;no&#39;</span>:<span class="err">&#39;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>&gt;&gt;&gt;<span class="w"> </span>yes
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>Anaconda3<span class="w"> </span>will<span class="w"> </span>now<span class="w"> </span>be<span class="w"> </span>installed<span class="w"> </span>into<span class="w"> </span>this<span class="w"> </span>location:
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>/root/anaconda3
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">  </span>-<span class="w"> </span>Press<span class="w"> </span>ENTER<span class="w"> </span>to<span class="w"> </span>confirm<span class="w"> </span>the<span class="w"> </span>location
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">  </span>-<span class="w"> </span>Press<span class="w"> </span>CTRL-C<span class="w"> </span>to<span class="w"> </span>abort<span class="w"> </span>the<span class="w"> </span>installation
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">  </span>-<span class="w"> </span>Or<span class="w"> </span>specify<span class="w"> </span>a<span class="w"> </span>different<span class="w"> </span>location<span class="w"> </span>below
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="o">[</span>/root/anaconda3<span class="o">]</span><span class="w"> </span>&gt;&gt;&gt;<span class="w"> </span>/data/bluewhale/software/anaconda3
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="nv">PREFIX</span><span class="o">=</span>/data/bluewhale/
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a>installation<span class="w"> </span>finished.
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>Do<span class="w"> </span>you<span class="w"> </span>wish<span class="w"> </span>the<span class="w"> </span>installer<span class="w"> </span>to<span class="w"> </span>initialize<span class="w"> </span>Anaconda3
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a>by<span class="w"> </span>running<span class="w"> </span>conda<span class="w"> </span>init?<span class="w"> </span><span class="o">[</span>yes<span class="p">|</span>no<span class="o">]</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="o">[</span>no<span class="o">]</span><span class="w"> </span>&gt;&gt;&gt;<span class="w"> </span>yes
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a>--------------------------------------------------------------------
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="c1"># step2:配置环境变量</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a>vim<span class="w"> </span>/etc/profile
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/data/bluewhale/software/anaconda3/bin
+<a id="__codelineno-1-33" name="__codelineno-1-33"></a>
+<a id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="nb">source</span><span class="w"> </span>/etc/profile
+<a id="__codelineno-1-35" name="__codelineno-1-35"></a>
+<a id="__codelineno-1-36" name="__codelineno-1-36"></a>conda<span class="w"> </span>init
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>Win系统</li>
+</ul>
+<blockquote>
+<p><a href="https://www.anaconda.com/products/distribution">安装包下载地址</a></p>
+</blockquote>
+<ul>
+<li>选择自己的平台对应的安装包，双击安装包使用图形化界面进行安装，没有特殊的配置，一般使用默认项按照提示进行安装即可</li>
+<li>由于笔者没有win系统，故没有场景进行安装验证，在此贴上一个【<a href="https://blog.51cto.com/u_13640625/3028327">安装教程</a>】链接，仅供参考</li>
+</ul>
+<h4 id="miniconda">Miniconda安装<a class="headerlink" href="#miniconda" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><a href="https://docs.conda.io/en/latest/miniconda.html">安装包下载地址</a></p>
+</blockquote>
+<ul>
+<li>安装流程和配置与安装Anaconda类似，只是安装包不一样，再次不在赘述详细步骤</li>
+</ul>
+<h4 id="_4">常用命令<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>创建、进入、退出、删除</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># 创建环境</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>&lt;env_name&gt;<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># 查看所有环境</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>conda<span class="w"> </span>env<span class="w"> </span>list<span class="w"> </span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>conda<span class="w"> </span>info<span class="w"> </span>-e
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="c1"># 激活虚拟环境</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>conda<span class="w"> </span>activate<span class="w"> </span>&lt;env_name&gt;
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="c1"># 退出虚拟环境</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>conda<span class="w"> </span>deactivate<span class="w"> </span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="c1"># 删除虚拟环境</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a>conda<span class="w"> </span>remove<span class="w"> </span>-n<span class="w"> </span>&lt;env_name&gt;<span class="w"> </span>--all
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>查看、安装、卸载依赖</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># 查看版本</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>conda<span class="w"> </span>-V
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># 查看当前环境所有的依赖包(已激活的环境的时)</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>conda<span class="w"> </span>list
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="c1"># 查看当前环境所有的依赖包（未激活环境时）</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>conda<span class="w"> </span>list<span class="w"> </span>-n<span class="w"> </span>&lt;env_name&gt;
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="c1"># 查看指定依赖包</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a>conda<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>&lt;pkg_name&gt;
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="c1"># 安装依赖包</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a>conda<span class="w"> </span>install<span class="w"> </span>&lt;pkg_name&gt;
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="c1"># 在指定环境中安装依赖包</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a>conda<span class="w"> </span>install<span class="w"> </span>-n<span class="w"> </span>&lt;env_name&gt;<span class="w"> </span>&lt;pkg_name&gt;
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="c1">#或</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a>pip<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>-i<span class="w"> </span>https://pypi.douban.com/simple<span class="w">  </span><span class="c1"># 临时使用国内源进行安装</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>升级相关命令</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span>
+<span class="normal"><a href="#__codelineno-4-7">7</a></span>
+<span class="normal"><a href="#__codelineno-4-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># 升级conda</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>conda<span class="w"> </span>update<span class="w"> </span>conda
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># 升级python</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>conda<span class="w"> </span>update<span class="w"> </span>python
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="c1"># 升级指定依赖包</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>conda<span class="w"> </span>update<span class="w"> </span>&lt;pkg_name&gt;
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>分享、导出、迁移</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span>
+<span class="normal"><a href="#__codelineno-5-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># 导出当前环境已安装包列表到yaml文件中</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>&gt;<span class="w"> </span>environment.yaml
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># 从文件中创建环境</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yaml
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="c1"># 克隆虚拟环境</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>&lt;env_name1&gt;<span class="w"> </span>--clone<span class="w"> </span>&lt;env_name&gt;
+</code></pre></div></td></tr></table></div>
+<h3 id="pyenv_1">【pyenv】安装及常用命令<a class="headerlink" href="#pyenv_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/pyenv/pyenv#installation">官网安装说明</a></li>
+</ul>
+<h4 id="_5">常用命令<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>pyenv<span class="w"> </span><span class="nb">help</span><span class="w"> </span>install
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="c1"># 列出所有可用版本</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>pyenv<span class="w"> </span>install<span class="w"> </span>--list
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="c1"># 在线安装指定版本</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.8.13
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>pyenv<span class="w"> </span>versions
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="c1"># 使用缓存方式安装</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="c1">## 在~/.pyenv 目录下新建cache目录，放入下载好的待下载安装版本的文件</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="c1">## 不确定要哪一个文件时，把下载的三个文件都放进去</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.8.13<span class="w"> </span>-v
+</code></pre></div></td></tr></table></div>
+<h4 id="_6">版本控制<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># 显示当前的python版本</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>pyenv<span class="w"> </span>version<span class="w"> </span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="c1"># 显示所有可用的python版本，和当前版本</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>pyenv<span class="w"> </span>versions<span class="w"> </span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="c1"># global全局设置</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>pyenv<span class="w"> </span>global<span class="w"> </span><span class="m">3</span>.8.13
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="c1"># 提示：如果是root用户安装，不建议使用global，否则影响太大</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="c1"># shell会话</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a>pyenv<span class="w"> </span>shell<span class="w"> </span><span class="m">3</span>.8.13
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="c1"># local本地设置</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="c1">## 使用pyenv local 设置</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a>pyenv<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="m">3</span>.8.13
+</code></pre></div></td></tr></table></div>
+<h4 id="virturalenv">virturalenv虚拟环境设置<a class="headerlink" href="#virturalenv" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># 使用插件 在plugins/pyenv-virtualenv中</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>pyenv<span class="w"> </span>virtualenv<span class="w"> </span><span class="m">3</span>.8.13<span class="w"> </span>py38env
+</code></pre></div></td></tr></table></div>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
 
@@ -1912,7 +2578,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-07-04</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-07-09</span>
   </span>
 
     
@@ -2046,16 +2712,16 @@
         
           
           <a
-            href="../package_tool_usage/"
+            href="../pypi_source_usage/"
             class="md-footer__link md-footer__link--next"
-            aria-label="下一页: 包管理工具使用总结"
+            aria-label="下一页: 常用Pypi源汇总及使用"
           >
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                包管理工具使用总结
+                常用Pypi源汇总及使用
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2078,12 +2744,20 @@
     </div>
   
   
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
 </div>
+
+      <font color="#B9B9B9">
+      <div class="md-footer-meta__inner md-grid" style="display: flex; justify-content: center; "></div>
+        <div id='box11' style="font-size: 14px;"> &nbsp;| &nbsp; 本站已经运行: <span id="timer"></span></div>
+      </font>
+
+    <!-- 本站访问量：<script async src="//finicounter.eu.org/finicounter.js"></script> -->
+    <!-- <span id="finicount_views"></span>    &nbsp;|&nbsp; -->
+    <!-- <footer> -->
+      <!-- <a href="https://icp.gov.moe/?keyword=20230640" target="_blank">萌ICP备20230640号</a> -->
+    <!-- </footer> -->
+  </div>
+      </font>
    
     <!-- <font color="#B9B9B9">
       <div class="footer-visit-count" style="display: flex; justify-content: center; align-items: center;">
@@ -2105,6 +2779,29 @@
     </div>
   </div>
 </footer>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+  function timingTime(){
+    let start = '2024-06-28 00:00:00'
+    let startTime = new Date(start).getTime()
+    let currentTime = new Date().getTime()
+    let difference = currentTime - startTime
+    let m =  Math.floor(difference / (1000))
+    let mm = m % 60  // 秒
+    let f = Math.floor(m / 60)
+    let ff = f % 60 // 分钟
+    let s = Math.floor(f/ 60) // 小时
+    let ss = s % 24
+    let day = Math.floor(s  / 24 ) // 天数
+    return day + "天" + ss + "时" + ff + "分" + mm +'秒'
+  }
+  setInterval(()=>{
+    document.getElementById('timer').innerHTML = timingTime()
+  },1000)
+  });
+</script>
       
     </div>
     <div class="md-dialog" data-md-component="dialog">

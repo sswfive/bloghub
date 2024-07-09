@@ -737,7 +737,7 @@
         
   
   <span class="md-ellipsis">
-    包管理工具方案
+    Python版本及包管理工具选型
   </span>
   
 
@@ -754,11 +754,11 @@
   
   
     <li class="md-nav__item">
-      <a href="python/python_core/devtools/package_tool_usage/" class="md-nav__link">
+      <a href="python/python_core/devtools/pypi_source_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    包管理工具使用总结
+    常用Pypi源汇总及使用
   </span>
   
 
@@ -1814,12 +1814,20 @@
     </div>
   
   
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
 </div>
+
+      <font color="#B9B9B9">
+      <div class="md-footer-meta__inner md-grid" style="display: flex; justify-content: center; "></div>
+        <div id='box11' style="font-size: 14px;"> &nbsp;| &nbsp; 本站已经运行: <span id="timer"></span></div>
+      </font>
+
+    <!-- 本站访问量：<script async src="//finicounter.eu.org/finicounter.js"></script> -->
+    <!-- <span id="finicount_views"></span>    &nbsp;|&nbsp; -->
+    <!-- <footer> -->
+      <!-- <a href="https://icp.gov.moe/?keyword=20230640" target="_blank">萌ICP备20230640号</a> -->
+    <!-- </footer> -->
+  </div>
+      </font>
    
     <!-- <font color="#B9B9B9">
       <div class="footer-visit-count" style="display: flex; justify-content: center; align-items: center;">
@@ -1841,6 +1849,29 @@
     </div>
   </div>
 </footer>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+  function timingTime(){
+    let start = '2024-06-28 00:00:00'
+    let startTime = new Date(start).getTime()
+    let currentTime = new Date().getTime()
+    let difference = currentTime - startTime
+    let m =  Math.floor(difference / (1000))
+    let mm = m % 60  // 秒
+    let f = Math.floor(m / 60)
+    let ff = f % 60 // 分钟
+    let s = Math.floor(f/ 60) // 小时
+    let ss = s % 24
+    let day = Math.floor(s  / 24 ) // 天数
+    return day + "天" + ss + "时" + ff + "分" + mm +'秒'
+  }
+  setInterval(()=>{
+    document.getElementById('timer').innerHTML = timingTime()
+  },1000)
+  });
+</script>
       
     </div>
     <div class="md-dialog" data-md-component="dialog">

@@ -221,8 +221,14 @@ repo_name: sswfive # 右上角的名字
 nav:
   - 主页: 
     - index.md
-    - 标签: tag.md
+    - 关于: about/personal_profile.md
+
   - Python编程:
+    - Web 框架:
+      - Django:
+        - django中ORM字段总结: python/pyweb/django/orm_fields_summary.md
+        - django中ORM查询方法总结: python/pyweb/django/orm_query_summary.md
+        - django源码学习之LazyObject: python/pyweb/django/django_lazyobject_analysis.md
     - Python编程实践: 
       - 规范与语法:
         - Python编码规范: python/python_core/coding_standard.md
@@ -234,23 +240,44 @@ nav:
       #   - A: python/python_lib/pathlib2.md
     
     - Python常用库:
-      - 汇总: python/python_lib/lib_common_summary.md
-      - 数据分析库:
+      - 热门库汇总: python/python_lib/lib_common_summary.md
+      - 常用库笔记: python/python_lib/daily_lib_summary.md
+      - 笔记清单:
         - 数据分析之Numpy: python/python_lib/libs/numpy.md
         - 数据分析之Pandas: python/python_lib/libs/pandas.md
         - 分布式流计算之PyFlink: python/python_lib/libs/pyflink.md
-      - ModelOps库:
         - 模型管理工具之MLFlow: python/python_lib/libs/mlflow.md
-      - 进程管理库:
         - 进程管理之Supervisor: python/python_lib/libs/supervisor.md
         - 子进程管理之subprocess: python/python_lib/libs/subprocess.md
-      - 任务管理库:
         - 定时任务工具之APScheduler: python/python_lib/libs/apscheduler.md
-      - 文件操作库:
         - 路径操作之pathlib: python/python_lib/libs/pathlib.md
 
-  - 关于:
-    - 作者个人简介: about/personal_profile.md
+  - 编程内功:
+    - 设计模式:
+      - 面向对象设计原则: codecore/design_patterns/object_oriented_principles.md
+      - 设计模式分类总览: codecore/design_patterns/design_patterns_categories.md
+
+  - 迎刃而解:
+    - 迎刃而解:
+      - 运维手记:
+        - 服务器磁盘空间满的解决办法: blogs/solutionhub/opshub/server_disk_full_solution.md
+        - Centos的yum源误删解决方法: blogs/solutionhub/opshub/centos_yum_source_delete_solution.md
+        - win10的cmd中操作git中文乱码解决方法: blogs/solutionhub/opshub/win10_git_chinese_solution.md
+        - Mac使用brew services报错: blogs/solutionhub/opshub/mac_brew_service_error_solution.md
+      - Bugs复盘:
+        - Jupyterhub离线部署踩坑总结: blogs/solutionhub/bughub/jupyterhub_deploy_bug.md
+        - Jupyter matplotlib画图中文字体缺失: blogs/solutionhub/bughub/jupyter_matplotlib_font_bug.md
+        - Jupyter运行asyncio run报错: blogs/solutionhub/bughub/jupyter_asyncio_run_bug.md
+        - window环境中pip安装报错: blogs/solutionhub/bughub/window_install_pip_bug.md
+        - Conda修改虚拟环境名导致异常: blogs/solutionhub/bughub/conda_rename_env_bug.md
+        - 多语言之间的RSA加解密问题: blogs/solutionhub/bughub/rsa_encryption_bug.md
+
+  - 工具箱:
+    - 开发工具:
+      - Git:
+        - git同时配置多个平台的SSH: toolbox/git/git_multi_ssh.md
+  - 标签: tag.md
+  
   # - 留言板: liuyanban.md
   # - Blogger:
   #     - index: blog/index.md

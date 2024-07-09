@@ -170,7 +170,7 @@ comments: false
 - 一切看似逝去的，都不曾离开，你所给予的爱与温暖，让我执着地守护着这里 ！    
 - All problems in computer science can be solved by another level of indirection !
 
-   <body>
+   <!-- <body>
         <font color="#B9B9B9">
         <p style="text-align: center; ">
                 <span>本站已经运行: </span>
@@ -197,7 +197,7 @@ comments: false
         },1000)
       </script>
       </font>
-    </body>
+    </body> -->
 
 
 <!-- <script src="//code.tidio.co/6jmawe9m5wy4ahvlhub2riyrnujz7xxi.js" async></script> -->

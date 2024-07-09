@@ -11,6 +11,66 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://sswfive.github.io/bloghub/blogs/solutionhub/bughub/conda_rename_env_bug/</loc>
+         <lastmod>2024-07-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/blogs/solutionhub/bughub/jupyter_asyncio_run_bug/</loc>
+         <lastmod>2024-07-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/blogs/solutionhub/bughub/jupyter_matplotlib_font_bug/</loc>
+         <lastmod>2024-07-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/blogs/solutionhub/bughub/jupyterhub_deploy_bug/</loc>
+         <lastmod>2024-07-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/blogs/solutionhub/bughub/rsa_encryption_bug/</loc>
+         <lastmod>2024-07-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/blogs/solutionhub/bughub/window_install_pip_bug/</loc>
+         <lastmod>2024-07-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/blogs/solutionhub/opshub/centos_yum_source_delete_solution/</loc>
+         <lastmod>2024-07-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/blogs/solutionhub/opshub/mac_brew_service_error_solution/</loc>
+         <lastmod>2024-07-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/blogs/solutionhub/opshub/server_disk_full_solution/</loc>
+         <lastmod>2024-07-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/blogs/solutionhub/opshub/win10_git_chinese_solution/</loc>
+         <lastmod>2024-07-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/codecore/design_patterns/design_patterns_categories/</loc>
+         <lastmod>2024-07-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/codecore/design_patterns/object_oriented_principles/</loc>
+         <lastmod>2024-07-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://sswfive.github.io/bloghub/python/python_core/coding_standard/</loc>
          <lastmod>2024-07-09</lastmod>
          <changefreq>daily</changefreq>
@@ -27,6 +87,11 @@
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/python_core/devtools/pypi_source_usage/</loc>
+         <lastmod>2024-07-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/python/python_lib/daily_lib_summary/</loc>
          <lastmod>2024-07-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -72,6 +137,26 @@
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/python_lib/libs/subprocess/</loc>
+         <lastmod>2024-07-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/python/pyweb/django/django_lazyobject_analysis/</loc>
+         <lastmod>2024-07-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/python/pyweb/django/orm_fields_summary/</loc>
+         <lastmod>2024-07-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/python/pyweb/django/orm_query_summary/</loc>
+         <lastmod>2024-07-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/toolbox/git/git_multi_ssh/</loc>
          <lastmod>2024-07-09</lastmod>
          <changefreq>daily</changefreq>
     </url>

@@ -1,0 +1,3642 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="sswfive">
+      
+      
+        <link rel="canonical" href="https://sswfive.github.io/bloghub/python/pydevtools/02.Jupyter%E7%B3%BB%E5%88%97%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/">
+      
+      
+      
+      
+      <link rel="icon" href="https://s2.loli.net/2024/04/26/PmRdM9iGnvOJHgu.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
+    
+    
+      
+        <title>Python | Jupyter系列工具的使用总结 - 空谷幽兰</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.76a95c52.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../customize/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../customize/stylesheets/link.css">
+    
+      <link rel="stylesheet" href="../../../customize/stylesheets/customize.css">
+    
+      <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config",""),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+    <link rel="stylesheet" href="../../../assets/stylesheets/custom.00c04c01.min.css">
+  
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#jupyter-notebook" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="不再显示此消息">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+              </button>
+            
+            
+     Follow <strong>@Wcowin</strong> on
+    <a rel="me" href="https://space.bilibili.com/1407028951?spm_id_from=333.1007.0.0">
+      <span class="twemoji bilibili">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0s16.1 2.868 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0c8.8 0 16.1 2.868 21.9 8.603 5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1zm-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8 6.3-6.5 9.7-14.3 10.1-23.5V173.8zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5-9.6 0-17.5-3.2-23.6-9.5-6.1-6.3-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2 6.3-6.3 13.2-9.6 23.3-10 9.2.4 17 3.7 23.3 10zm191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.1 6.3-14 9.5-23.6 9.5-9.6 0-17.4-3.2-23.6-9.5-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2 6.3-6.3 14.1-9.6 23.3-10 9.2.4 17 3.7 23.3 10z"/></svg>
+      </span>
+      <strong>Bilibili</strong>
+    </a>
+    and
+    <a href="https://twitter.com/Wcowin_">
+      <span class="twemoji twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </span>
+      <strong>Twitter</strong>
+    </a>
+  
+          </div>
+          
+            <script>var content,el=document.querySelector("[data-md-component=announce]");el&&(content=el.querySelector(".md-typeset"),__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0))</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="空谷幽兰" class="md-header__button md-logo" aria-label="空谷幽兰" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            空谷幽兰
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Python | Jupyter系列工具的使用总结
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="关闭自动模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="关闭自动模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sswfive" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sswfive
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  主页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../python_core/python_dev_summary/Docker构建Python镜像实践指南.md" class="md-tabs__link">
+          
+  
+    
+  
+  Python编程
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../codecore/design_patterns/object_oriented_principles/" class="md-tabs__link">
+          
+  
+    
+  
+  编程内功
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../blogs/solutionhub/opshub/server_disk_full_solution/" class="md-tabs__link">
+          
+  
+    
+  
+  迎刃而解
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../blogs/techout/how_to_ask_questions_the_smart_way/" class="md-tabs__link">
+          
+  
+    
+  
+  技术之外
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../toolbox/git/git_multi_ssh/" class="md-tabs__link">
+          
+  
+    
+  
+  工具箱
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../tag/" class="md-tabs__link">
+        
+  
+    
+  
+  标签
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="空谷幽兰" class="md-nav__button md-logo" aria-label="空谷幽兰" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    空谷幽兰
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sswfive" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sswfive
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            主页
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/personal_profile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python编程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Python编程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python编程实践
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Python编程实践
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_core/python_dev_summary/Docker构建Python镜像实践指南.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker构建Python镜像实践指南
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_core/python_dev_summary/Python中的数据类型用法剖析总结.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python中的数据结构用法剖析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_core/devtools/dev_tool_selection.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python开发工具汇总
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_core/devtools/env_package_selection.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python版本及包管理工具选型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_core/devtools/pypi_source_usage.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常用Pypi源汇总及使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_core/coding_standard.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python编码规范
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Web 框架
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Web 框架
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Django
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Django
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pyweb/django/orm_fields_summary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django中ORM字段总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pyweb/django/orm_query_summary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django中ORM查询方法总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pyweb/django/django_lazyobject_analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django源码学习之LazyObject
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python常用库
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Python常用库
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_lib/lib_common_summary.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    热门库汇总
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    常用库笔记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            常用库笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_lib/daily_lib_summary.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    笔记清单
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_lib/libs/numpy.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据分析之Numpy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_lib/libs/pandas.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据分析之Pandas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_lib/libs/pyflink.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    分布式流计算之PyFlink
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_lib/libs/mlflow.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模型管理工具之MLFlow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_lib/libs/supervisor.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    进程管理之Supervisor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_lib/libs/subprocess.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    子进程管理之subprocess
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_lib/libs/apscheduler.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    定时任务工具之APScheduler
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_lib/libs/pathlib.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    路径操作之pathlib
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    编程内功
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            编程内功
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    设计模式
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            设计模式
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../codecore/design_patterns/object_oriented_principles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    面向对象设计原则
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../codecore/design_patterns/design_patterns_categories/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    设计模式分类总览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    迎刃而解
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            迎刃而解
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    运维手记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            运维手记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/solutionhub/opshub/server_disk_full_solution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    服务器磁盘空间满的解决办法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/solutionhub/opshub/centos_yum_source_delete_solution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Centos的yum源误删解决方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/solutionhub/opshub/win10_git_chinese_solution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    win10的cmd中操作git中文乱码解决方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/solutionhub/opshub/mac_brew_service_error_solution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mac使用brew services报错
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Bugs复盘
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Bugs复盘
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/solutionhub/bughub/jupyterhub_deploy_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jupyterhub离线部署踩坑总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/solutionhub/bughub/jupyter_matplotlib_font_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jupyter matplotlib画图中文字体缺失
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/solutionhub/bughub/jupyter_asyncio_run_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jupyter运行asyncio run报错
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/solutionhub/bughub/window_install_pip_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    window环境中pip安装报错
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/solutionhub/bughub/conda_rename_env_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conda修改虚拟环境名导致异常
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/solutionhub/bughub/rsa_encryption_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    多语言之间的RSA加解密问题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    技术之外
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            技术之外
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/techout/how_to_ask_questions_the_smart_way/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何高效提问
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/techout/personal_strategy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    个人战略上的聚焦和放弃
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/techout/learn_top_down_or_bottom_up/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    学习应该自底向上，还是自顶向下
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/techout/how_to_learn_open_source_project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何高效学习开源项目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/techout/understand_do_things/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    明白且高效做事三要素
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/techout/yiyan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    技术一言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blogs/techout/rego/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HelloWorld
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    工具箱
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            工具箱
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    开发工具
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            开发工具
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1_1" id="__nav_6_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/git/git_multi_ssh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git同时配置多个平台的SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tag/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    标签
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jupyter-notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、Jupyter Notebook
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、Jupyter Notebook">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jupyter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jupyter概述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      环境安装：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用总结
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      支持两种模式：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用快捷键
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      插件安装
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jupyterlab" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、JupyterLab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-2-3-4-5-install-pip-install-jupyterlab-run-jupyter-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 2 3 4 5# install pip install jupyterlab # run jupyter-lab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jupyterhub" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、JupyterHub
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、JupyterHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装部署概述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装部署指南
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="安装部署指南">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step1conda" class="md-nav__link">
+    <span class="md-ellipsis">
+      step1：Conda安装与配置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step2-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step2： Nodejs安装与配置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step3-jupyterhub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step3: Jupyterhub安装配置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step4-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step4: 添加Linux系统用户
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step5: 启动运行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step6: 环境导出(非必须)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arch" class="md-nav__link">
+    <span class="md-ellipsis">
+      案例：Arch系统下的详细安装流程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="案例：Arch系统下的详细安装流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step1conda_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      step1:安装conda
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step2" class="md-nav__link">
+    <span class="md-ellipsis">
+      step2 创建虚拟环境
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step3-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      step3: 安装nodejs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step4-configurable-http-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      step4: 安装configurable-http-proxy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step5-jupyterhub" class="md-nav__link">
+    <span class="md-ellipsis">
+      step5: 激活虚拟环境安装jupyterhub相关依赖包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step6-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      step6： 安装python开发依赖包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setp7" class="md-nav__link">
+    <span class="md-ellipsis">
+      setp7:生成配置文件并添加内容如下：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step8-jupyterhub" class="md-nav__link">
+    <span class="md-ellipsis">
+      step8: 使用系统用户登录jupyterhub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step9" class="md-nav__link">
+    <span class="md-ellipsis">
+      step9 启动
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      扩展（非必须）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="扩展（非必须）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装主题扩展
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sklearn" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装sklearn环境
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scala-kernel" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装scala kernel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyspark-kernel" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装pyspark kernel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r-kernel" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装R kernel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../../tag/#" class="md-tag">开发工具</a>
+    
+  
+    
+    
+    
+      <a href="../../../tag/#jupyter" class="md-tag">jupyter</a>
+    
+  
+</nav>
+
+
+  
+    <a href="https://github.com/sswfive/edit/master/docs/python/pydevtools/02.Jupyter系列工具的使用总结.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/sswfive/raw/master/docs/python/pydevtools/02.Jupyter系列工具的使用总结.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+  <h1>Python | Jupyter系列工具的使用总结</h1>
+
+<h2 id="jupyter-notebook">一、Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Permanent link">&para;</a></h2>
+<h3 id="jupyter">Jupyter概述<a class="headerlink" href="#jupyter" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>创始人（Fernando Pérez）所言：最初的梦想是做一个综合Ju(Julia)、Py(Python)和R三种科学运算语言的计算工具平台，所以将其命名为Ju-Py-te-R.发展到现在，Jupyter已经成为了一个几乎支持所有语言，能够把软件代码、计算输出、解释文档、多媒体资源整合在一起的多功能科学运算平台；</p>
+</li>
+<li>
+<p>Jupyter优点：</p>
+</li>
+<li>
+<p>整合所有的资源，提高开发效率</p>
+<ul>
+<li>Jupyter 通过把所有和软件编写有关的资源全部放在一个地方</li>
+<li>当你打开一个 Jupyter Notebook 时，就已经可以看到相应的文档、图表、视频和相应的代码。这样，你就不需要切换窗口去找资料，只要看一个文件，就可以获得项目的所有信息。</li>
+</ul>
+</li>
+<li>交互性编程体验<ul>
+<li>为了解决在传统开发环境中，每一次实验都需要把所有的代码重新跑一遍，及其浪费时间；</li>
+<li>引入了Cell的概念，每次小实验可以只跑在一个小的Cell里，实现了所见即所得，这样强的互动性，让 Python 研究员可以专注于问题本身，不被繁杂的工具链所累，不用在命令行直接切换，所有科研工作都能在 Jupyter 上完成。</li>
+</ul>
+</li>
+<li>
+<p>零成本重现结果</p>
+</li>
+<li>
+<p>Jupyter解决的问题域：</p>
+</li>
+<li>
+<p>帮助用户解决繁琐的环境安装问题，给用户提供了云端的运行环境，致力提高用户真正生产力</p>
+<ul>
+<li>常见的场景是，我在论文里看到别人的方法效果很好，可是当我去重现时，却发现需要 pip 重新安装一堆依赖软件。这些准备工作可能会消耗你 80% 的时间，却并不是真正的生产力</li>
+</ul>
+</li>
+<li>
+<p>云端环境环境地址：   </p>
+<ul>
+<li>Jupyter官方的<a href="https://mybinder.readthedocs.io/en/latest/index.html">binder</a>平台</li>
+<li>
+<p>当你用 Binder 打开一份 GitHub 上的 Jupyter Notebook 时，你不需要安装任何软件，直接在浏览器打开一份代码，就能在云端运行。</p>
+</li>
+<li>
+<p>Google <a href="https://colab.research.google.com/notebooks/welcome.ipynb">Colab</a>平台</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="_1">环境安装：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>使用云端环境：</p>
+<ul>
+<li>第一个是 Jupyter 官方：<a href="https://mybinder.org/v2/gh/binder-examples/matplotlib-versions/mpl-v2.0/?filepath=matplotlib_versions_demo.ipynb">在线binder平台</a></li>
+<li>第二个是 Google Research 提供的 Colab 环境，尤其适合机器学习的实践应用：<a href="https://colab.research.google.com/notebooks/basic_features_overview.ipynb">在线Colab平台</a></li>
+</ul>
+<p>使用本地环境：</p>
+<ul>
+<li>安装：<a href="https://jupyter.org/install.html">Jupyter安装</a></li>
+<li>运行：<a href="https://docs.jupyter.org/en/latest/running.html">Jupyter运行</a>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># install</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>notebook
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># run</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>jupyter<span class="w"> </span>notebook
+</code></pre></div></td></tr></table></div></li>
+</ul>
+<h3 id="_2">使用总结<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h4 id="_3">支持两种模式：<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>编辑模式（Enter）</li>
+<li>命令模式下<code>回车Enter</code>或<code>鼠标双击</code>cell进入编辑模式</li>
+<li>可以<strong>操作cell内文本</strong>或代码，剪切／复制／粘贴移动等操作</li>
+<li>命令模式（Esc）</li>
+<li>按<code>Esc</code>退出编辑，进入命令模式</li>
+<li>可以<strong>操作cell单元本身</strong>进行剪切／复制／粘贴／移动等操作</li>
+</ul>
+<h4 id="_4">常用快捷键<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>notebook的文档格式是<code>.ipynb</code></p>
+<p>cell行号前的 * ，表示代码正在运行</p>
+</blockquote>
+<ul>
+<li>
+<p>两种模式通用快捷键</p>
+</li>
+<li>
+<p><strong><code>Shift+Enter</code>，执行本单元代码，并跳转到下一单元</strong></p>
+</li>
+<li>
+<p><strong><code>Ctrl+Enter</code>，执行本单元代码，留在本单元</strong></p>
+</li>
+<li>
+<p>命令模式</p>
+</li>
+</ul>
+<p>：按ESC进入</p>
+<ul>
+<li><code>Y</code>，cell切换到Code模式</li>
+<li><code>M</code>，cell切换到Markdown模式</li>
+<li><code>A</code>，在当前cell的上面添加cell</li>
+<li><code>B</code>，在当前cell的下面添加cell</li>
+<li><code>双击D</code>：删除当前cell</li>
+<li><code>Z</code>，回退</li>
+<li><code>L</code>，为当前cell加上行号 &lt;!--</li>
+<li><code>Ctrl+Shift+P</code>，对话框输入命令直接运行</li>
+<li>快速跳转到首个cell，<code>Crtl+Home</code></li>
+<li>
+<p>快速跳转到最后一个cell，<code>Crtl+End</code> </p>
+</li>
+<li>
+<p>编辑模式</p>
+</li>
+</ul>
+<p>：按Enter进入</p>
+<ul>
+<li>多光标操作：<code>Ctrl键点击鼠标</code>（Mac:CMD+点击鼠标）</li>
+<li>回退：<code>Ctrl+Z</code>（Mac:CMD+Z）</li>
+<li>重做：<code>Ctrl+Y</code>（Mac:CMD+Y)</li>
+<li>补全代码：变量、方法后跟<code>Tab键</code></li>
+<li>为一行或多行代码添加/取消注释：<code>Ctrl+/</code>（Mac:CMD+/）</li>
+<li>屏蔽自动输出信息：可在最后一条语句之后加一个分号</li>
+</ul>
+<h4 id="_5">插件安装<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li>自动补全插件的安装</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>jupyter_contrib_nbextensions
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>jupyter<span class="w"> </span>contrib<span class="w"> </span>nbextension<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--skip-running-check
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="jupyterlab">二、JupyterLab<a class="headerlink" href="#jupyterlab" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.jupyter.org/en/latest/install/notebook-classic.html">官方链接</a></li>
+<li>jupyterlab是jupyter notebook的升级版</li>
+</ul>
+<h2 id="1-2-3-4-5-install-pip-install-jupyterlab-run-jupyter-lab"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># install</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>pip<span class="w"> </span>install<span class="w"> </span>jupyterlab
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># run</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>jupyter-lab
+</code></pre></div></td></tr></table></div><a class="headerlink" href="#1-2-3-4-5-install-pip-install-jupyterlab-run-jupyter-lab" title="Permanent link">&para;</a></h2>
+<h2 id="jupyterhub">三、JupyterHub<a class="headerlink" href="#jupyterhub" title="Permanent link">&para;</a></h2>
+<ul>
+<li>jupyterhub是juypter notebook的多用户版，内置jupyterlab。</li>
+</ul>
+<h3 id="_6">安装部署概述<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ol>
+<li>conda安装与配置</li>
+<li>Nodejs安装与配置</li>
+<li>Jupyterhub安装配置</li>
+<li>添加Linux系统用户登录</li>
+<li>启动运行</li>
+</ol>
+<h3 id="_7">安装部署指南<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>基于python3.8环境安装</p>
+</blockquote>
+<h4 id="step1conda">step1：Conda安装与配置<a class="headerlink" href="#step1conda" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span>
+<span class="normal"><a href="#__codelineno-3-6">6</a></span>
+<span class="normal"><a href="#__codelineno-3-7">7</a></span>
+<span class="normal"><a href="#__codelineno-3-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># step1: 下载安装包(有网：使用wget下载，无网时：下载离线安装包上传至安装服务器)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>wget<span class="w"> </span>https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2021.05-Linux-x86_64.sh
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># step2: 按提醒输入安装指令</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>bash<span class="w"> </span>Anaconda3-2021.05-Linux-x86_64.sh
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="c1"># step3:初始化conda</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div></td></tr></table></div>
+<h4 id="step2-nodejs">Step2： Nodejs安装与配置<a class="headerlink" href="#step2-nodejs" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Note: 若当前服务器是Arch架构的，则建议使用<a href="https://support.huaweicloud.com/prtg-kunpengweb/nodejs_01_0001.html">华为官方文档</a>给出的版本进行安装，否则会出现未知异常，</p>
+</blockquote>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span>
+<span class="normal"><a href="#__codelineno-4-18">18</a></span>
+<span class="normal"><a href="#__codelineno-4-19">19</a></span>
+<span class="normal"><a href="#__codelineno-4-20">20</a></span>
+<span class="normal"><a href="#__codelineno-4-21">21</a></span>
+<span class="normal"><a href="#__codelineno-4-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># step1: 下载</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>wget<span class="w"> </span>https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># step2: 解压</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>tar<span class="w"> </span>-xvf<span class="w"> </span>node-v16.15.1-linux-x64.tar.xz
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="c1"># step3: 重命名</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>mv<span class="w"> </span>node-v16.15.1-linux-x64<span class="w"> </span>nodejs
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="c1"># step4: 创建软连接（或者添加环境变量）</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>ln<span class="w"> </span>-s<span class="w"> </span>/data/bluewhale/software/nodejs/bin/node<span class="w">  </span>/usr/local/bin/node
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>ln<span class="w"> </span>-s<span class="w"> </span>/data/bluewhale/software/nodejs/bin/npm<span class="w">  </span>/usr/local/bin/npm
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="c1"># step5: 验证</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="o">(</span>jupyterhub_py38env<span class="o">)</span><span class="w"> </span><span class="o">[</span>root@2-123<span class="w"> </span>jupyterhub<span class="o">]</span><span class="c1"># node -v</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a>v16.15.1
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a>
+<a id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="c1"># step6: 安装configurable-http-proxy</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19"></a>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>configurable-http-proxy
+<a id="__codelineno-4-20" name="__codelineno-4-20"></a>
+<a id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="c1"># step7: 环境变量中如果配置了node的路径,这边可以忽略</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22"></a>c.JupyterHub.proxy_cmd<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s1">&#39;/opt/nodejs/bin/configurable-http-proxy&#39;</span>,<span class="o">]</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="step3-jupyterhub">Step3: Jupyterhub安装配置<a class="headerlink" href="#step3-jupyterhub" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Note：若在内网条件下安装，则需要在在有外网下构建好环境包，然后使用conda-pack进行打包迁移</p>
+</blockquote>
+<ul>
+<li>
+<p>安装
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># step1: 创建虚拟环境</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>jupyterhub_py38env<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8<span class="w"> </span>-y
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># step2:激活环境</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>conda<span class="w"> </span>activate<span class="w"> </span>jupyterhub_py38env
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="c1"># step3: 安装jupyterhub及其依赖</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>pip<span class="w"> </span>install<span class="w"> </span>ipykernel<span class="w"> </span>notebook<span class="w"> </span>jupyterlab<span class="w"> </span>jupyterhub<span class="w"> </span>jupyterhub-dummyauthenticator<span class="w"> </span>mysql-connector<span class="w"> </span>-i<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="c1"># step4: 安装kernal</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>conda<span class="w"> </span>install<span class="w"> </span>nb_conda_kernels<span class="w"> </span>ipykernel<span class="w"> </span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="c1"># 查看内核清单</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>jupyter<span class="w"> </span>kernelspec<span class="w"> </span>list
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="c1"># step5：安装常用插件</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a>jupyter<span class="w"> </span>labextension<span class="w"> </span>install<span class="w"> </span>@jupyterlab/hub-extension
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>生成配置
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># 生成配置文件</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>jupyterhub<span class="w"> </span>--generate-config<span class="w"> </span>-f<span class="w"> </span>/etc/jupyterhub/jupyterhub_config.py
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="c1"># 修改配置文件的权限，本质只授权可执行文件即可</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span>jupyterhub_config.py
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>修改配置
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>c.JupyterHub.ip = &#39;172.x.x.x&#39;
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>c.JupyterHub.port = 30020
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>c.Spawner.ip = &#39;172.x.x.x&#39;
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>c.JupyterHub.base_url = &#39;/jupyterhub&#39;
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>c.PAMAuthenticator.encoding = &#39;utf8&#39;
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>c.LocalAuthenticator.create_system_users = True
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>c.Authenticator.admin_users = {&quot;demouser&quot;}
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>c.Authenticator.whitelist = {&#39;demouser&#39;}
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>c.Spawner.notebook_dir = &#39;/data/bluewhale/jupyterhubuser/&#39; 
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>#c.JupyterHub.authenticator_class = &#39;remote_user_authenticator.RemoteUserAuthenticator&#39;
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ul>
+<h4 id="step4-linux">Step4: 添加Linux系统用户<a class="headerlink" href="#step4-linux" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>在Linux Shell中执行
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">5</a></span>
+<span class="normal"><a href="#__codelineno-8-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># 添加用户</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>useradd<span class="w"> </span>demouser
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="c1"># 修改密码</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>passwd<span class="w"> </span>demouer
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="c1"># 按照提示输入新密码（2次）</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>修改jupyterhub配置文件
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>vim<span class="w"> </span>/etc/jupyterhub_config.py
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="c1">#配置</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>c.Authenticator.whitelist<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span><span class="s2">&quot;root&quot;</span>,<span class="w"> </span><span class="s2">&quot;demouser&quot;</span><span class="o">}</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h4 id="step5">Step5: 启动运行<a class="headerlink" href="#step5" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="c1"># 前台启动（在虚拟环境中）</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>jupyterhub<span class="w"> </span>--config<span class="o">=</span>/etc/jupyterhub/jupyterhub_config.py<span class="w"> </span>--no-ssl
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="c1"># 后台启动</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>nohup<span class="w"> </span>jupyterhub<span class="w"> </span>--config<span class="o">=</span>/etc/jupyterhub/jupyterhub_config.py<span class="w"> </span>--no-ssl<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="step6">Step6: 环境导出(非必须)<a class="headerlink" href="#step6" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>若需要将该jupyterhub环境包导入到其他环境，可执行下列操作</p>
+</blockquote>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>conda-pack
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>conda<span class="w"> </span>pack<span class="w"> </span>-n<span class="w"> </span>jupyterhub_py38env<span class="w"> </span>-o<span class="w"> </span>jupyterhub_py38env.tar.gz
+</code></pre></div></td></tr></table></div>
+<h3 id="arch">案例：Arch系统下的详细安装流程<a class="headerlink" href="#arch" title="Permanent link">&para;</a></h3>
+<h4 id="step1conda_1">step1:安装conda<a class="headerlink" href="#step1conda_1" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><a href="https://repo.anaconda.com/miniconda/">镜像链接</a></p>
+</blockquote>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span>
+<span class="normal"><a href="#__codelineno-12-11">11</a></span>
+<span class="normal"><a href="#__codelineno-12-12">12</a></span>
+<span class="normal"><a href="#__codelineno-12-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="nb">cd</span><span class="w"> </span>/opt/
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>wget<span class="w"> </span>http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>bash<span class="w"> </span>Miniconda3-latest-Linux-armv7l.sh
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="c1"># 执行过程中留意：</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>When<span class="w"> </span>asked,<span class="w"> </span>change<span class="w"> </span>the<span class="w"> </span>install<span class="w"> </span>location:<span class="w"> </span>/home/pi/miniconda3<span class="w">  </span><span class="c1"># 输入：/opt/miniconda</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a>Do<span class="w"> </span>you<span class="w"> </span>wish<span class="w"> </span>the<span class="w"> </span>installer<span class="w"> </span>to<span class="w"> </span>prepend<span class="w"> </span>the<span class="w"> </span>Miniconda3<span class="w"> </span>install<span class="w"> </span>location<span class="w"> </span>to<span class="w"> </span>PATH<span class="w"> </span><span class="k">in</span><span class="w"> </span>your<span class="w"> </span>/root/.bashrc<span class="w"> </span>?<span class="w"> </span>yes
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a>
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="c1"># 激活conda</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="nb">source</span><span class="w"> </span>/root/.bashrc
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a>
+<a id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="c1"># 确认是否安装成功</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13"></a>conda
+</code></pre></div></td></tr></table></div>
+<h4 id="step2">step2 创建虚拟环境<a class="headerlink" href="#step2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">4</a></span>
+<span class="normal"><a href="#__codelineno-13-5">5</a></span>
+<span class="normal"><a href="#__codelineno-13-6">6</a></span>
+<span class="normal"><a href="#__codelineno-13-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>jupyter<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7<span class="w"> </span>-y
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="c1"># 补充：</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="c1"># 激活虚拟环境： </span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>conda<span class="w"> </span>activate<span class="w"> </span>jupyter
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="c1"># 退出虚拟环境</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>conda<span class="w"> </span>deactivate<span class="w"> </span>
+</code></pre></div></td></tr></table></div>
+<h4 id="step3-nodejs">step3: 安装nodejs<a class="headerlink" href="#step3-nodejs" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>此处建议使用华为官方文档给出的版本进行安装：
+<a href="https://support.huaweicloud.com/prtg-kunpengweb/nodejs_01_0001.html">https://support.huaweicloud.com/prtg-kunpengweb/nodejs_01_0001.html</a></p>
+</blockquote>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span>
+<span class="normal"><a href="#__codelineno-14-5">5</a></span>
+<span class="normal"><a href="#__codelineno-14-6">6</a></span>
+<span class="normal"><a href="#__codelineno-14-7">7</a></span>
+<span class="normal"><a href="#__codelineno-14-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="c1"># 下载并安装</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>wget<span class="w"> </span>https://nodejs.org/dist/v10.16.0/node-v10.16.0-linux-arm64.tar.xz
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>tar<span class="w"> </span>-xvf<span class="w"> </span>node-v10.16.0-linux-arm64.tar.xz
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>ln<span class="w"> </span>-s<span class="w"> </span>/opt/nodejs/bin/node<span class="w"> </span>/usr/local/bin/node
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a>ln<span class="w"> </span>-s<span class="w"> </span>/root/nodejs/bin/npm<span class="w"> </span>/usr/local/bin/npm
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="c1"># 验证</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a>./opt/nodejs/bin/node<span class="w"> </span>-v
+</code></pre></div></td></tr></table></div>
+<h4 id="step4-configurable-http-proxy">step4: 安装configurable-http-proxy<a class="headerlink" href="#step4-configurable-http-proxy" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>configurable-http-proxy<span class="w"> </span><span class="c1"># 安装代理工具</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="step5-jupyterhub">step5: 激活虚拟环境安装jupyterhub相关依赖包<a class="headerlink" href="#step5-jupyterhub" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>jupyter
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>pip<span class="w"> </span>install<span class="w"> </span>ipykernel<span class="w"> </span>notebook<span class="w"> </span>jupyterlab<span class="w"> </span>jupyterhub<span class="w"> </span>jupyterhub-dummyauthenticator<span class="w"> </span>mysql-connector
+</code></pre></div></td></tr></table></div>
+<h4 id="step6-python">step6： 安装python开发依赖包<a class="headerlink" href="#step6-python" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>scikit-learn<span class="w"> </span>pyspark<span class="w"> </span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>
+<p>备注：安装过程进行step4时可能出现的问题</p>
+<ul>
+<li>
+<p>错误1：如果安装包下载速度太慢，且是非arch架构的系统环境，则可以将conda的下载源修改为国内的镜像源，设置方法如下
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span>
+<span class="normal"><a href="#__codelineno-18-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>https://mirrors.ustc.edu.cn/anaconda/pkgs/main/
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>https://mirrors.ustc.edu.cn/anaconda/pkgs/free/
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a>conda<span class="w"> </span>config<span class="w"> </span>--set<span class="w"> </span>show_channel_urls:<span class="w"> </span>yes
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>错误二：</p>
+<ul>
+<li>
+<p>报错信息如下：
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span>
+<span class="normal"><a href="#__codelineno-19-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="nt">Could not find a version that satisfies the requirement cffi&gt;=1.0 (from versions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">)</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="l l-Scalar l-Scalar-Plain">No matching distribution found for cffi&gt;=1.0</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="l l-Scalar l-Scalar-Plain">You are using pip version 10.0.1, however version 21.0.1 is available.</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="l l-Scalar l-Scalar-Plain">You should consider upgrading via the &#39;pip install --upgrade pip&#39; command.</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>解决办法：升级pip版本python -m pip install --upgrade pip</p>
+</li>
+</ul>
+<h4 id="setp7">setp7:生成配置文件并添加内容如下：<a class="headerlink" href="#setp7" title="Permanent link">&para;</a></h4>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span>
+<span class="normal"><a href="#__codelineno-20-5">5</a></span>
+<span class="normal"><a href="#__codelineno-20-6">6</a></span>
+<span class="normal"><a href="#__codelineno-20-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>/data/jupyter<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/data/jupyter
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>jupyterhub<span class="w"> </span>--generate-config
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a>
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a>chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span>jupyterhub_config.py
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a>
+<a id="__codelineno-20-7" name="__codelineno-20-7"></a>vim<span class="w"> </span>jupyterhub_config.py
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-21-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-21-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-21-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-21-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-21-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-21-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-21-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-21-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-21-10">10</a></span>
+<span class="normal"><a href="#__codelineno-21-11">11</a></span>
+<span class="normal"><a href="#__codelineno-21-12">12</a></span>
+<span class="normal"><a href="#__codelineno-21-13">13</a></span>
+<span class="normal"><a href="#__codelineno-21-14">14</a></span>
+<span class="normal"><a href="#__codelineno-21-15">15</a></span>
+<span class="normal"><a href="#__codelineno-21-16">16</a></span>
+<span class="normal"><a href="#__codelineno-21-17">17</a></span>
+<span class="normal"><a href="#__codelineno-21-18">18</a></span>
+<span class="normal"><a href="#__codelineno-21-19">19</a></span>
+<span class="normal"><a href="#__codelineno-21-20">20</a></span>
+<span class="normal"><a href="#__codelineno-21-21">21</a></span>
+<span class="normal"><a href="#__codelineno-21-22">22</a></span>
+<span class="normal"><a href="#__codelineno-21-23">23</a></span>
+<span class="normal"><a href="#__codelineno-21-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a>c.JupyterHub.base_url<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;/jupyterhub&#39;</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a>c.JupyterHub.ip<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.0.0.0&quot;</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>c.Spawner.default_url<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;/lab&#39;</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a>c.PAMAuthenticator.open_sessions<span class="w"> </span><span class="o">=</span><span class="w"> </span>False
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a>c.LocalAuthenticator.create_system_users<span class="w"> </span><span class="o">=</span><span class="w"> </span>True
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a>c.Authenticator.admin_users<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span><span class="s1">&#39;hcdsj&#39;</span><span class="o">}</span><span class="w">  </span><span class="c1"># #管理员用户</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7"></a>c.JupyterHub.admin_access<span class="w"> </span><span class="o">=</span><span class="w"> </span>True
+<a id="__codelineno-21-8" name="__codelineno-21-8"></a>c.JupyterHub.port<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8888</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9"></a>c.Spawner.cmd<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s1">&#39;jupyterhub-singleuser&#39;</span><span class="o">]</span>
+<a id="__codelineno-21-10" name="__codelineno-21-10"></a>c.JupyterHub.proxy_cmd<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s1">&#39;/opt/nodejs/bin/configurable-http-proxy&#39;</span>,<span class="o">]</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11"></a>c.PAMAuthenticator.encoding<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;utf8&#39;</span>
+<a id="__codelineno-21-12" name="__codelineno-21-12"></a>c.Authenticator.whitelist<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span><span class="s1">&#39;hcdsj1&#39;</span>,<span class="s1">&#39;hcdsj2&#39;</span>,<span class="s1">&#39;hcdsj3&#39;</span><span class="o">}</span><span class="w">  </span><span class="c1"># 白名单</span>
+<a id="__codelineno-21-13" name="__codelineno-21-13"></a>c.JupyterHub.statsd_prefix<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;jupyterhub&#39;</span>
+<a id="__codelineno-21-14" name="__codelineno-21-14"></a>c.Authenticator.delete_invalid_users<span class="w"> </span><span class="o">=</span><span class="w"> </span>True
+<a id="__codelineno-21-15" name="__codelineno-21-15"></a>
+<a id="__codelineno-21-16" name="__codelineno-21-16"></a><span class="c1"># 解决iframe权限问题</span>
+<a id="__codelineno-21-17" name="__codelineno-21-17"></a>c.JupyterHub.statsd_prefix<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;jupyterhub&#39;</span>
+<a id="__codelineno-21-18" name="__codelineno-21-18"></a><span class="c1">#c.Spawner.cmd=[&#39;jupyterhub-singleuser&#39;]</span>
+<a id="__codelineno-21-19" name="__codelineno-21-19"></a>c.Spawner.cmd<span class="o">=[</span><span class="s1">&#39;jupyter-labhub&#39;</span><span class="o">]</span>
+<a id="__codelineno-21-20" name="__codelineno-21-20"></a>c.JupyterHub.tornado_settings<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-21-21" name="__codelineno-21-21"></a><span class="w">     </span><span class="s2">&quot;headers&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-21-22" name="__codelineno-21-22"></a><span class="w">        </span><span class="s2">&quot;Content-Security-Policy&quot;</span>:<span class="w"> </span><span class="s2">&quot;frame-ancestors http://192.168.0.111:7080 http://192.168.0.111:9999/ http://192.168.0.111:9529 http://124.71.144.188:7080 http://124.71.144.188:9999/ http://124.71.144.188:9529; report-uri /api/security/csp-report&quot;</span>
+<a id="__codelineno-21-23" name="__codelineno-21-23"></a><span class="w">    </span><span class="o">}</span>
+<a id="__codelineno-21-24" name="__codelineno-21-24"></a><span class="o">}</span>
+</code></pre></div></td></tr></table></div></p>
+<h4 id="step8-jupyterhub">step8: 使用系统用户登录jupyterhub<a class="headerlink" href="#step8-jupyterhub" title="Permanent link">&para;</a></h4>
+</li>
+</ul>
+</li>
+<li>
+<p>添加用户并修改密码
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-22-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-22-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-22-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-22-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-22-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-22-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-22-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-22-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-22-10">10</a></span>
+<span class="normal"><a href="#__codelineno-22-11">11</a></span>
+<span class="normal"><a href="#__codelineno-22-12">12</a></span>
+<span class="normal"><a href="#__codelineno-22-13">13</a></span>
+<span class="normal"><a href="#__codelineno-22-14">14</a></span>
+<span class="normal"><a href="#__codelineno-22-15">15</a></span>
+<span class="normal"><a href="#__codelineno-22-16">16</a></span>
+<span class="normal"><a href="#__codelineno-22-17">17</a></span>
+<span class="normal"><a href="#__codelineno-22-18">18</a></span>
+<span class="normal"><a href="#__codelineno-22-19">19</a></span>
+<span class="normal"><a href="#__codelineno-22-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="c1"># 查看用户</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a>cat<span class="w"> </span>/etc/passwd
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a>
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a>adduser<span class="w"> </span>hcdsj<span class="w"> </span>hcdsj1<span class="w"> </span>hcdsj2<span class="w"> </span>hcdsj3
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a>
+<a id="__codelineno-22-6" name="__codelineno-22-6"></a>useradd<span class="w"> </span>hcdsj<span class="w"> </span>-G<span class="w"> </span>test01<span class="w">  </span><span class="c1"># 该用户在jupyterhub_config.py文件中添加</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7"></a>
+<a id="__codelineno-22-8" name="__codelineno-22-8"></a><span class="c1"># 查看是否添加成功</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9"></a>cat<span class="w"> </span>/etc/group
+<a id="__codelineno-22-10" name="__codelineno-22-10"></a>
+<a id="__codelineno-22-11" name="__codelineno-22-11"></a><span class="c1"># 注意使用下列命令修改</span>
+<a id="__codelineno-22-12" name="__codelineno-22-12"></a>passwd<span class="w"> </span>hcdsj<span class="w">  </span><span class="c1"># 此处密码设置为用户名(首字母大写)加123， 如：Hcdsj123</span>
+<a id="__codelineno-22-13" name="__codelineno-22-13"></a><span class="c1"># 输出新密码即可</span>
+<a id="__codelineno-22-14" name="__codelineno-22-14"></a><span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-22-15" name="__codelineno-22-15"></a><span class="s2">(jupyter) [root@ecs-c589-0002 jupyter]# sudo passwd wss</span>
+<a id="__codelineno-22-16" name="__codelineno-22-16"></a><span class="s2">更改用户 wss 的密码 。</span>
+<a id="__codelineno-22-17" name="__codelineno-22-17"></a><span class="s2">新的 密码：</span>
+<a id="__codelineno-22-18" name="__codelineno-22-18"></a><span class="s2">重新输入新的 密码：</span>
+<a id="__codelineno-22-19" name="__codelineno-22-19"></a><span class="s2">passwd：所有的身份验证令牌已经成功更新。</span>
+<a id="__codelineno-22-20" name="__codelineno-22-20"></a><span class="s2">&quot;&quot;&quot;</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ul>
+<h4 id="step9">step9 启动<a class="headerlink" href="#step9" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>在虚拟环境中执行下列命令</p>
+</blockquote>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
+<span class="normal"><a href="#__codelineno-23-2">2</a></span>
+<span class="normal"><a href="#__codelineno-23-3">3</a></span>
+<span class="normal"><a href="#__codelineno-23-4">4</a></span>
+<span class="normal"><a href="#__codelineno-23-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="c1"># 前台启动</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a>jupyterhub<span class="w"> </span>-f<span class="w"> </span>/data/jupyter/jupyterhub_config.py
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a>
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="c1"># 后台启动</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a>nohup<span class="w"> </span>jupyterhub<span class="w"> </span>-f<span class="w"> </span>/data/jupyter/jupyterhub_config.py<span class="w"> </span>--no-ssl<span class="w"> </span><span class="p">&amp;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_8">扩展（非必须）<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h4 id="_9">安装主题扩展<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
+<span class="normal"><a href="#__codelineno-24-2">2</a></span>
+<span class="normal"><a href="#__codelineno-24-3">3</a></span>
+<span class="normal"><a href="#__codelineno-24-4">4</a></span>
+<span class="normal"><a href="#__codelineno-24-5">5</a></span>
+<span class="normal"><a href="#__codelineno-24-6">6</a></span>
+<span class="normal"><a href="#__codelineno-24-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a>pip<span class="w"> </span>install<span class="w"> </span>jupyterthemes<span class="w"> </span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="c1">#列出主题</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a>jt<span class="w"> </span>-l<span class="w"> </span>
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a>
+<a id="__codelineno-24-6" name="__codelineno-24-6"></a><span class="c1">#应用monokai主题</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7"></a>jt<span class="w"> </span>-t<span class="w"> </span>monokai<span class="w"> </span>-T<span class="w"> </span>-N<span class="w"> </span>-altp<span class="w"> </span>-fs<span class="w"> </span><span class="m">13</span><span class="w"> </span>-nfs<span class="w"> </span><span class="m">13</span><span class="w"> </span>-tfs<span class="w"> </span><span class="m">13</span><span class="w"> </span>-ofs<span class="w"> </span><span class="m">13</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="sklearn">安装sklearn环境<a class="headerlink" href="#sklearn" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>scikit-learn<span class="w">  </span>-i<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre></div></td></tr></table></div>
+<h4 id="scala-kernel">安装scala kernel<a class="headerlink" href="#scala-kernel" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span>
+<span class="normal"><a href="#__codelineno-26-2">2</a></span>
+<span class="normal"><a href="#__codelineno-26-3">3</a></span>
+<span class="normal"><a href="#__codelineno-26-4">4</a></span>
+<span class="normal"><a href="#__codelineno-26-5">5</a></span>
+<span class="normal"><a href="#__codelineno-26-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="c1"># 下载</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a>wget<span class="w"> </span>https://oss.sonatype.org/content/repositories/snapshots/com/github/alexarchambault/jupyter/jupyter-scala-cli_2.10.5/0.2.0-SNAPSHOT/jupyter-scala_2.10.5-0.2.0-SNAPSHOT.tar.xz
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a>
+<a id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="c1"># 安装jupyter-scala</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5"></a>tar<span class="w"> </span>-xvf<span class="w"> </span>jupyter-scala_2.10.5-0.2.0-SNAPSHOT.tar.xz<span class="w"> </span>-C<span class="w"> </span>/usr/local/
+<a id="__codelineno-26-6" name="__codelineno-26-6"></a>bash<span class="w"> </span>/usr/local/jupyter-scala_2.10.5-0.2.0-SNAPSHOT/bin/jupyter-scala
+</code></pre></div></td></tr></table></div>
+<h4 id="pyspark-kernel">安装pyspark kernel<a class="headerlink" href="#pyspark-kernel" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-27-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-27-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-27-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-27-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-27-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-27-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-27-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-27-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-27-10">10</a></span>
+<span class="normal"><a href="#__codelineno-27-11">11</a></span>
+<span class="normal"><a href="#__codelineno-27-12">12</a></span>
+<span class="normal"><a href="#__codelineno-27-13">13</a></span>
+<span class="normal"><a href="#__codelineno-27-14">14</a></span>
+<span class="normal"><a href="#__codelineno-27-15">15</a></span>
+<span class="normal"><a href="#__codelineno-27-16">16</a></span>
+<span class="normal"><a href="#__codelineno-27-17">17</a></span>
+<span class="normal"><a href="#__codelineno-27-18">18</a></span>
+<span class="normal"><a href="#__codelineno-27-19">19</a></span>
+<span class="normal"><a href="#__codelineno-27-20">20</a></span>
+<span class="normal"><a href="#__codelineno-27-21">21</a></span>
+<span class="normal"><a href="#__codelineno-27-22">22</a></span>
+<span class="normal"><a href="#__codelineno-27-23">23</a></span>
+<span class="normal"><a href="#__codelineno-27-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="c1"># 安装findspark，实现在jupyter中可以获取Spark Context环境</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a>pip<span class="w"> </span>install<span class="w"> </span>pyspark<span class="w">  </span>findspark<span class="w"> </span>-i<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a>
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a>mkdir<span class="w"> </span>~/.ipython/kernels/pyspark
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a>vim<span class="w"> </span>~/.ipython/kernels/pyspark/kernel.json
+<a id="__codelineno-27-6" name="__codelineno-27-6"></a>
+<a id="__codelineno-27-7" name="__codelineno-27-7"></a><span class="c1"># kernel.json中写入</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8"></a><span class="o">{</span>
+<a id="__codelineno-27-9" name="__codelineno-27-9"></a><span class="w"> </span><span class="s2">&quot;display_name&quot;</span>:<span class="w"> </span><span class="s2">&quot;pySpark&quot;</span>,
+<a id="__codelineno-27-10" name="__codelineno-27-10"></a><span class="w"> </span><span class="s2">&quot;language&quot;</span>:<span class="w"> </span><span class="s2">&quot;python&quot;</span>,
+<a id="__codelineno-27-11" name="__codelineno-27-11"></a><span class="w"> </span><span class="s2">&quot;argv&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<a id="__codelineno-27-12" name="__codelineno-27-12"></a><span class="w">  </span><span class="s2">&quot;/usr/local/anacond/bin/python3&quot;</span>,
+<a id="__codelineno-27-13" name="__codelineno-27-13"></a><span class="w">  </span><span class="s2">&quot;-m&quot;</span>,
+<a id="__codelineno-27-14" name="__codelineno-27-14"></a><span class="w">  </span><span class="s2">&quot;IPython.kernel&quot;</span>,
+<a id="__codelineno-27-15" name="__codelineno-27-15"></a><span class="w">  </span><span class="s2">&quot;-f&quot;</span>,
+<a id="__codelineno-27-16" name="__codelineno-27-16"></a><span class="w">  </span><span class="s2">&quot;{connection_file}&quot;</span>
+<a id="__codelineno-27-17" name="__codelineno-27-17"></a><span class="w"> </span><span class="o">]</span>,
+<a id="__codelineno-27-18" name="__codelineno-27-18"></a><span class="w"> </span><span class="s2">&quot;env&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-27-19" name="__codelineno-27-19"></a><span class="w">  </span><span class="s2">&quot;SPARK_HOME&quot;</span>:<span class="w"> </span><span class="s2">&quot;/usr/local/spark&quot;</span>,
+<a id="__codelineno-27-20" name="__codelineno-27-20"></a><span class="w">  </span><span class="s2">&quot;PYTHONPATH&quot;</span>:<span class="w"> </span><span class="s2">&quot;/usr/local/spark/python:/usr/local/spark/python/lib/py4j-0.10.4-src.zip&quot;</span>,
+<a id="__codelineno-27-21" name="__codelineno-27-21"></a><span class="w">  </span><span class="s2">&quot;PYTHONSTARTUP&quot;</span>:<span class="w"> </span><span class="s2">&quot;/usr/local/spark/python/pyspark/shell.py &quot;</span>,
+<a id="__codelineno-27-22" name="__codelineno-27-22"></a><span class="w">  </span><span class="s2">&quot;PYSPARK_SUBMIT_ARGS&quot;</span>:<span class="w"> </span><span class="s2">&quot;pyspark-shell&quot;</span>
+<a id="__codelineno-27-23" name="__codelineno-27-23"></a><span class="w"> </span><span class="o">}</span>
+<a id="__codelineno-27-24" name="__codelineno-27-24"></a><span class="o">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="r-kernel">安装R kernel<a class="headerlink" href="#r-kernel" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-28-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-28-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-28-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-28-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-28-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-28-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-28-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-28-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-28-10">10</a></span>
+<span class="normal"><a href="#__codelineno-28-11">11</a></span>
+<span class="normal"><a href="#__codelineno-28-12">12</a></span>
+<span class="normal"><a href="#__codelineno-28-13">13</a></span>
+<span class="normal"><a href="#__codelineno-28-14">14</a></span>
+<span class="normal"><a href="#__codelineno-28-15">15</a></span>
+<span class="normal"><a href="#__codelineno-28-16">16</a></span>
+<span class="normal"><a href="#__codelineno-28-17">17</a></span>
+<span class="normal"><a href="#__codelineno-28-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="c1"># 使用conda创建一个R语言的环境，命名为R</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>R<span class="w"> </span>r-essentials
+<a id="__codelineno-28-3" name="__codelineno-28-3"></a>
+<a id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="c1"># 激活环境</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5"></a>conda<span class="w"> </span>activate<span class="w"> </span>R
+<a id="__codelineno-28-6" name="__codelineno-28-6"></a>
+<a id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="c1"># 进入到R的Session中</span>
+<a id="__codelineno-28-8" name="__codelineno-28-8"></a>R
+<a id="__codelineno-28-9" name="__codelineno-28-9"></a>
+<a id="__codelineno-28-10" name="__codelineno-28-10"></a><span class="c1"># 依次执行以下命令安装R kernekl</span>
+<a id="__codelineno-28-11" name="__codelineno-28-11"></a>&gt;<span class="w"> </span>install.packages<span class="o">(</span>c<span class="o">(</span><span class="s1">&#39;pbdZMQ&#39;</span>,<span class="w"> </span><span class="s1">&#39;repr&#39;</span>,<span class="w"> </span><span class="s1">&#39;devtools&#39;</span><span class="o">))</span><span class="w"> </span>
+<a id="__codelineno-28-12" name="__codelineno-28-12"></a>&gt;<span class="w"> </span>devtools::install_github<span class="o">(</span><span class="s1">&#39;IRkernel/IRkernel&#39;</span><span class="o">)</span><span class="w"> </span>
+<a id="__codelineno-28-13" name="__codelineno-28-13"></a>&gt;<span class="w"> </span>IRkernel::installspec<span class="o">()</span>
+<a id="__codelineno-28-14" name="__codelineno-28-14"></a>
+<a id="__codelineno-28-15" name="__codelineno-28-15"></a><span class="c1"># 安装完成后会在目录/root/.local/share/jupyter/kernels/ir生成一份配置信息。手工拷贝到jupyterlab默认读取的位置/usr/local/share/jupyter/kernels</span>
+<a id="__codelineno-28-16" name="__codelineno-28-16"></a><span class="c1"># 刷新页面就可以看到R的kernel了！</span>
+<a id="__codelineno-28-17" name="__codelineno-28-17"></a>
+<a id="__codelineno-28-18" name="__codelineno-28-18"></a>cp<span class="w"> </span>-r<span class="w"> </span>/root/.local/share/jupyter/kernels/ir<span class="w"> </span>/usr/local/share/jupyter/kernels
+</code></pre></div></td></tr></table></div>
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Render date of last update -->
+
+
+<!-- Render date of creation -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render authors -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render committers from GitHub -->
+
+
+<!-- Render committers from GitLab -->
+
+
+<!-- Render committers -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Determine date of last update -->
+
+  
+    
+  
+
+  <!-- Determine date of creation -->
+  
+
+
+<!-- Source file information -->
+
+  <aside class="md-source-file">
+
+    <!-- Date of last update -->
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-07-14</span>
+  </span>
+
+    
+
+    <!-- Date of creation -->
+    
+
+    <!-- Authors (git-authors plugin) -->
+    
+
+    <!-- Authors (git-committers plugin) -->
+    
+  </aside>
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine feedback configuration -->
+
+  
+
+
+<!-- Determine whether to show feedback -->
+
+
+<!-- Was this page helpful? -->
+
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Comment system -->
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <!-- Footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid" style="display: flex; justify-content: center; ">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2017~2024 AstonWang/All Rights Reserved.
+    </div>
+  
+  
+</div>
+
+      <font color="#B9B9B9">
+      <div class="md-footer-meta__inner md-grid" style="display: flex; justify-content: center; "></div>
+        <div id='box11' style="font-size: 14px;"> &nbsp;| &nbsp; 本站已经运行: <span id="timer"></span></div>
+      </font>
+
+    <!-- 本站访问量：<script async src="//finicounter.eu.org/finicounter.js"></script> -->
+    <!-- <span id="finicount_views"></span>    &nbsp;|&nbsp; -->
+    <!-- <footer> -->
+      <!-- <a href="https://icp.gov.moe/?keyword=20230640" target="_blank">萌ICP备20230640号</a> -->
+    <!-- </footer> -->
+  </div>
+      </font>
+   
+    <!-- <font color="#B9B9B9">
+      <div class="footer-visit-count" style="display: flex; justify-content: center; align-items: center;">
+    本站访问量：<script async src="//finicounter.eu.org/finicounter.js"></script>
+    <span id="finicount_views"></span>    &nbsp;|&nbsp;
+    <footer>
+      <a href="https://icp.gov.moe/?keyword=20230640" target="_blank">萌ICP备20230640号</a>
+    </footer>
+  </div>
+      </font> -->
+
+      <style>
+        .footer-visit-count {
+            height: fit-content;
+            min-height: 55px; /* 根据实际情况调整此高度 */
+        }
+        </style>
+      
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+  function timingTime(){
+    let start = '2024-06-28 00:00:00'
+    let startTime = new Date(start).getTime()
+    let currentTime = new Date().getTime()
+    let difference = currentTime - startTime
+    let m =  Math.floor(difference / (1000))
+    let mm = m % 60  // 秒
+    let f = Math.floor(m / 60)
+    let ff = f % 60 // 分钟
+    let s = Math.floor(f/ 60) // 小时
+    let ss = s % 24
+    let day = Math.floor(s  / 24 ) // 天数
+    return day + "天" + ss + "时" + ff + "分" + mm +'秒'
+  }
+  setInterval(()=>{
+    document.getElementById('timer').innerHTML = timingTime()
+  },1000)
+  });
+</script>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.action.edit", "content.action.view", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+    
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../../../customize/javascripts/extra.js"></script>
+      
+        <script src="../../../customize/javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.0.2/dist/add-html-label-6e56ed67.min.js"></script>
+      
+    
+    <script src="../../../assets/javascripts/custom.9458f965.min.js"></script>
+  
+  </body>
+</html>

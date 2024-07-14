@@ -269,6 +269,15 @@ nav:
       - Conda修改虚拟环境名导致异常: blogs/solutionhub/bughub/conda_rename_env_bug.md
       - 多语言之间的RSA加解密问题: blogs/solutionhub/bughub/rsa_encryption_bug.md
 
+  - 技术之外:
+    - 如何高效提问: blogs/techout/how_to_ask_questions_the_smart_way.md
+    - 个人战略上的聚焦和放弃: blogs/techout/personal_strategy.md
+    - 学习应该自底向上，还是自顶向下: blogs/techout/learn_top_down_or_bottom_up.md
+    - 如何高效学习开源项目: blogs/techout/how_to_learn_open_source_project.md
+    - 明白且高效做事三要素: blogs/techout/understand_do_things.md
+    - 技术一言: blogs/techout/yiyan.md
+    - HelloWorld: blogs/techout/rego.md
+
   - 工具箱:
     - 开发工具:
       - Git:

@@ -2,7 +2,7 @@
 title: 如何高效提问
 date: 2022-11-10 21:38:02
 tags:
-  - blog
+  - Thinking
 ---
 # 提问的智慧
 :::tip 本文是摘录

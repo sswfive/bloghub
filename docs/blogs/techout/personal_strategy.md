@@ -1,14 +1,8 @@
 ---
 title: 个人战略上的聚焦和放弃
 date: 2023-01-10 08:06:21
-permalink: /pages/818d43/
-categories: 
-  - blog
-tags: 
-  - null
-simplePostListLength: 20
-postList: none
-sidebar: auto
+tags:
+  - Thinking
 ---
 :::center
 # 有舍才有得

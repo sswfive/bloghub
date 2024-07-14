@@ -1,13 +1,8 @@
 ---
 title: 学习应该自底向上，还是自顶向下？
 date: 2023-08-19 23:02:09
-permalink: /pages/0f72c3/
-sidebar: auto
-categories: 
-  - blog
-tags: 
-  - null
-simplePostListLength: 20
+tags:
+  - Thinking
 ---
 **活到老，学到老**，是自然界的生存法则，对于软件行业从业者来说，这个法则更为适用，也更应该遵守和执行，那么如何学习？如何高效的学习？就是值得思考的问题，对于这个问题，我思考了很久，接下来我就谈谈个人在学习实践中的一些思考和想法。
 

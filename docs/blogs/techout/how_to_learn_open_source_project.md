@@ -1,14 +1,8 @@
 ---
 title: 如何高效学习开源项目
 date: 2022-10-19 14:23:32
-permalink: /pages/974c9d/
-categories: 
-  - blog
-simplePostListLength: 20
-tags: 
-  - null
-postList: none
-sidebar: auto
+tags:
+  - Thinking
 ---
 ## 学习原则：
 

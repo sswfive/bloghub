@@ -1,14 +1,8 @@
 ---
 title: 如何明明白白的做事
 date: 2022-02-03 23:00:14
-permalink: /pages/85dfe1/
-categories: 
-  - blog
-tags: 
-  - null
-simplePostListLength: 20
-postList: none
-sidebar: auto
+tags:
+  - Thinking
 ---
 ## 明白做事的核心三要素
 1. 理清楚

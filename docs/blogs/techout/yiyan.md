@@ -1,13 +1,8 @@
 ---
 title: 技术一言
 date: 2022-05-01 11:42:28
-permalink: /pages/983d47/
-categories: 
-  - 甄选收藏
-tags: 
-  - 一言
-simplePostListLength: 20
-postList: none
+tags:
+  - Thinking
 ---
 - 要学习一门语言，最终目的就是学会用这门编程语言的思维去写这门语言的代码，go coding in go way, 而不是，go coding in c way, or java way.
 

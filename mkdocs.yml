@@ -227,10 +227,12 @@ nav:
   - Python编程:
     
     - Python编程实践: 
-      - Python编码规范: python/python_core/coding_standard.md
+      - Docker构建Python镜像实践指南: python/python_core/python_dev_summary/Docker构建Python镜像实践指南.md
+      - Python中的数据结构用法剖析: python/python_core/python_dev_summary/Python中的数据类型用法剖析总结.md
       - Python开发工具汇总: python/python_core/devtools/dev_tool_selection.md
       - Python版本及包管理工具选型: python/python_core/devtools/env_package_selection.md
       - 常用Pypi源汇总及使用: python/python_core/devtools/pypi_source_usage.md
+      - Python编码规范: python/python_core/coding_standard.md
 
     - Web 框架:
       - Django:

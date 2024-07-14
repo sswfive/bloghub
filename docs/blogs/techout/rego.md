@@ -1,14 +1,8 @@
 ---
 title: Hello World, 重新出发
 date: 2022-01-01 00:00:15
-permalink: /pages/23088e/
-categories: 
-  - blog
-simplePostListLength: 20
-tags: 
-  - null
-postList: none
-sidebar: auto
+tags:
+  - Thinking
 ---
 
 ::: center  

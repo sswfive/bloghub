@@ -542,6 +542,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    关于
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new"></span>
+  
+
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -558,6 +576,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      現在の技能
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -944,6 +990,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      現在の技能
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1015,19 +1078,79 @@
 </ul>
 </div>
 <div class="admonition pied-piper1">
-<p class="admonition-title">About Skill</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 持续精进服务端开发技能，致力于发展成为一名全沾的艺人...  </li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 持续关注机器学习+云原生领域的技术...  </li>
-</ul>
-</div>
-<div class="admonition pied-piper1">
 <p class="admonition-title">About 一言</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 我认清时间的时候，只剩下一寸光阴，这是我的个人主页，到处是岁月痕迹...</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 很多时候技术人觉得实现功能重要，事实上可持续维护才是最重要的... </li>
 </ul>
 </div>
+<h2 id="_2">現在の技能<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="admonition pied-piper1">
+<p class="admonition-title">About Skill</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 持续精进服务端开发技能，致力于发展成为一名全沾的艺人...  </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 持续关注机器学习+云原生领域的技术...  </li>
+</ul>
+</div>
+<style>
+
+.skill {
+  margin-bottom: 10px;
+}
+
+.skill-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.skill-bar {
+  background-color: #ddd;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.skill-level {
+  background-color: #4CAF50;
+  height: 100%;
+  border-radius: 5px;
+}
+</style>
+
+<div class="skill">
+  <div class="skill-name">Python</div>
+  <div class="skill-bar">
+    <div class="skill-level" style="width: 75%;"></div>
+  </div>
+</div>
+
+<div class="skill">
+  <div class="skill-name">Go</div>
+  <div class="skill-bar">
+    <div class="skill-level" style="width: 50%;"></div>
+  </div>
+</div>
+
+<div class="skill">
+  <div class="skill-name">数据分析</div>
+  <div class="skill-bar">
+    <div class="skill-level" style="width: 50%;"></div>
+  </div>
+</div>
+
+<div class="skill">
+  <div class="skill-name">机器学习</div>
+  <div class="skill-bar">
+    <div class="skill-level" style="width: 35%;"></div>
+  </div>
+</div>
+
+<div class="skill">
+  <div class="skill-name">Shell</div>
+  <div class="skill-bar">
+    <div class="skill-level" style="width: 25%;"></div>
+  </div>
+</div>
+
 <!-- <img class="img1" src="https://s2.loli.net/2024/02/01/AgiGpYk38C6ctJV.jpg"> -->
 
 <!-- ## 联系我
@@ -1151,7 +1274,7 @@ t.parentNode.insertBefore(e,t)}})();
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-07-09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-07-27</span>
   </span>
 
     

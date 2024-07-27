@@ -8,7 +8,7 @@ hide:
 comments: false
 ---
 
-<center><font  color= #518FC1 size=6 class="ml3">AstonWang 个人博客</font></center>
+<center><font  color= #518FC1 size=6 class="ml3">AstonWang Blog</font></center>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
 

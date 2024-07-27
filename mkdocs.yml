@@ -1,7 +1,7 @@
 # [Info]
 site_name: 空谷幽兰  # your site name 显示在左上角
 site_url: https://sswfive.github.io/bloghub/  # your site url
-site_author: sswfive # your name
+site_author: AstonWang # your name
 # [UI]
 theme:
   name: material
@@ -46,7 +46,7 @@ theme:
     # - navigation.sections #启用部分后，顶级部分在边栏中呈现为1220px以上视口的组，但在移动设备上保持原样
     - navigation.top # 返回顶部的按钮 在上滑时出现
     - navigation.footer #页脚将呈现在边栏中，但在移动设备上保持原样
-    # - navigation.path #激活导航路径后，每个页面的标题上方都会呈现面包屑导航，这可能会让用户在屏幕较小的设备上访问文档时更容易定位
+    - navigation.path #激活导航路径后，每个页面的标题上方都会呈现面包屑导航，这可能会让用户在屏幕较小的设备上访问文档时更容易定位
     - search.suggest # 搜索输入一些字母时推荐补全整个单词
     - search.highlight # 搜索出的文章关键词加入高亮
     - search.share #搜索分享按钮
@@ -58,6 +58,7 @@ theme:
     - content.action.edit
     - content.action.view
     - content.code.annotate
+    - toc.follow
   language: zh # 一些提示性的文字会变成中文
 
   # icon:
@@ -108,39 +109,33 @@ plugins:
   - search #搜索配置
   - git-committers:
       enabled: !ENV [CI, false]
-      repository: Wcowin/Mkdocs-Wcowin
+      repository: sswfive/bloghub
       branch: main
       exclude:
         - index.md
         - tag.md
-        - waline.md
-        - blog/posts/update.md
-        - blog/posts/wkw.md
-        - about/link.md
   - git-revision-date-localized:
       enabled: !ENV [CI, false]
       type: iso_date
-      enable_creation_date: false
+      enable_creation_date: true
       exclude:
         - index.md
         - tag.md
         - liuyanban.md
-        - blog/posts/update.md
-        - blog/posts/wkw.md
-        - about/link.md
-        - websitebeauty/linktech.md
-  # - blog: #博客配置
-  #     post_date_format: full #时间
-  #     draft: true
-  #     draft_if_future_date: true #自动将具有未来日期的帖子标记为草稿
-  #     post_readtime: true
-  #     post_readtime_words_per_minute: 265 #计算帖子的阅读时间时读者每分钟预计阅读的字数
-  #     post_url_format: "{date}/{slug}"
-  #     # categories_slugify: !!python/object/apply:pymdownx.slugs.slugify
-  #     #   kwds:
-  #     #     case: lower
-  #     pagination_url_format: "page/{page}"
-  #     authors_file: "{blog}/.authors.yml" #作者信息
+  - blog: #博客配置
+      blog_toc: true
+      post_date_format: full # 时间
+      post_url_date_format: yyyy/MM/dd
+      draft: true
+      draft_if_future_date: true #自动将具有未来日期的帖子标记为草稿
+      post_readtime: true
+      post_readtime_words_per_minute: 265 #计算帖子的阅读时间时读者每分钟预计阅读的字数
+      post_url_format: "{date}/{slug}"
+      # categories_slugify: !!python/object/apply:pymdownx.slugs.slugify
+      #   kwds:
+      #     case: lower
+      pagination_url_format: "page/{page}"
+      authors_file: "{blog}/.authors.yml" #作者信息
   - tags:
       tags_file: tag.md #分类标签
 
@@ -162,14 +157,12 @@ markdown_extensions: #详见https://squidfunk.github.io/mkdocs-material/setup/ex
   - pymdownx.snippets
   - pymdownx.smartsymbols
   - pymdownx.tilde
-
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format:
             !!python/name:pymdownx.superfences.fence_code_format # 代码块高亮插件
-
   - pymdownx.arithmatex: # latex支持
       generic: true
   - toc:
@@ -200,7 +193,7 @@ extra_javascript:
 
 extra_css:
   - customize/stylesheets/extra.css # 自定义CSS
-  - customize/stylesheets/link.css #友链配置
+  # - customize/stylesheets/link.css #友链配置
   - customize/stylesheets/customize.css # 搜索圆角优化
 
   # - stylesheets/video.css #播放器可选配置
@@ -214,81 +207,30 @@ extra_css:
   # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css  #字体
   # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css  #字体
 
-# edit_uri: edit/main/docs # 编辑按钮跳转的链接
-repo_url: https://github.com/sswfive # 右上角点击跳转的链接
-repo_name: sswfive # 右上角的名字
+edit_uri: edit/main/docs # 编辑按钮跳转的链接
+repo_url: https://github.com/sswfive/bloghub # 右上角点击跳转的链接
+repo_name: AstonWang # 右上角的名字
 
 # [Navigtion]
 nav:
   - 主页: 
     - index.md
     - 关于: about/personal_profile.md
-
   - Python编程:
-    
-    - Python编程实践: 
-      - Docker构建Python镜像实践指南: python/python_core/python_dev_summary/Docker构建Python镜像实践指南.md
-      - Python中的数据结构用法剖析: python/python_core/python_dev_summary/Python中的数据类型用法剖析总结.md
-      - Python开发工具汇总: python/python_core/devtools/dev_tool_selection.md
-      - Python版本及包管理工具选型: python/python_core/devtools/env_package_selection.md
-      - 常用Pypi源汇总及使用: python/python_core/devtools/pypi_source_usage.md
-      - Python编码规范: python/python_core/coding_standard.md
-
-    - Web 框架:
-      - Django:
-        - django中ORM字段总结: python/pyweb/django/orm_fields_summary.md
-        - django中ORM查询方法总结: python/pyweb/django/orm_query_summary.md
-        - django源码学习之LazyObject: python/pyweb/django/django_lazyobject_analysis.md
-    - Python常用库:
-      - 热门库汇总: python/python_lib/lib_common_summary.md
-      - 常用库笔记: 
-        - 笔记清单: python/python_lib/daily_lib_summary.md
-        - 数据分析之Numpy: python/python_lib/libs/numpy.md
-        - 数据分析之Pandas: python/python_lib/libs/pandas.md
-        - 分布式流计算之PyFlink: python/python_lib/libs/pyflink.md
-        - 模型管理工具之MLFlow: python/python_lib/libs/mlflow.md
-        - 进程管理之Supervisor: python/python_lib/libs/supervisor.md
-        - 子进程管理之subprocess: python/python_lib/libs/subprocess.md
-        - 定时任务工具之APScheduler: python/python_lib/libs/apscheduler.md
-        - 路径操作之pathlib: python/python_lib/libs/pathlib.md
-
-  - 编程内功:
-    - 设计模式:
-      - 面向对象设计原则: codecore/design_patterns/object_oriented_principles.md
-      - 设计模式分类总览: codecore/design_patterns/design_patterns_categories.md
-
+    - index: language/index.md
+  - 综合知识库:
+      - index: notehub/index.md
+  - 常用工具:
+    - index: toolhub/index.md
   - 迎刃而解:
-    - 运维手记:
-      - 服务器磁盘空间满的解决办法: blogs/solutionhub/opshub/server_disk_full_solution.md
-      - Centos的yum源误删解决方法: blogs/solutionhub/opshub/centos_yum_source_delete_solution.md
-      - win10的cmd中操作git中文乱码解决方法: blogs/solutionhub/opshub/win10_git_chinese_solution.md
-      - Mac使用brew services报错: blogs/solutionhub/opshub/mac_brew_service_error_solution.md
-    - Bugs复盘:
-      - Jupyterhub离线部署踩坑总结: blogs/solutionhub/bughub/jupyterhub_deploy_bug.md
-      - Jupyter matplotlib画图中文字体缺失: blogs/solutionhub/bughub/jupyter_matplotlib_font_bug.md
-      - Jupyter运行asyncio run报错: blogs/solutionhub/bughub/jupyter_asyncio_run_bug.md
-      - window环境中pip安装报错: blogs/solutionhub/bughub/window_install_pip_bug.md
-      - Conda修改虚拟环境名导致异常: blogs/solutionhub/bughub/conda_rename_env_bug.md
-      - 多语言之间的RSA加解密问题: blogs/solutionhub/bughub/rsa_encryption_bug.md
-
-  - 技术之外:
-    - 如何高效提问: blogs/techout/how_to_ask_questions_the_smart_way.md
-    - 个人战略上的聚焦和放弃: blogs/techout/personal_strategy.md
-    - 学习应该自底向上，还是自顶向下: blogs/techout/learn_top_down_or_bottom_up.md
-    - 如何高效学习开源项目: blogs/techout/how_to_learn_open_source_project.md
-    - 明白且高效做事三要素: blogs/techout/understand_do_things.md
-    - 技术一言: blogs/techout/yiyan.md
-    - HelloWorld: blogs/techout/rego.md
-
-  - 工具箱:
-    - 开发工具:
-      - Git:
-        - git同时配置多个平台的SSH: toolbox/git/git_multi_ssh.md
+    - index: bughub/index.md
+  - 随思录:
+    - index: thinking/index.md
+    - thinking/yiyan.md
+    - thinking/understand_do_things.md
+    
   - 标签: tag.md
   
   # - 留言板: liuyanban.md
-  # - Blogger:
-  #     - index: blog/index.md
   # - 友链:  #     - 友链: about/link.md
-  
-  #     - 功能测试: about/test.md
+

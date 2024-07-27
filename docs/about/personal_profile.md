@@ -46,13 +46,76 @@ status: new
     - [x] Hey, I'm AstonWang! 一个咖啡重度爱好者...
     - [x] 目前主要从事后端+机器学习工程化方向的工作...
 
+!!! pied-piper1 "About 一言"    
+    - [x] 我认清时间的时候，只剩下一寸光阴，这是我的个人主页，到处是岁月痕迹...
+    - [x] 很多时候技术人觉得实现功能重要，事实上可持续维护才是最重要的... 
+
+
+
+## 現在の技能
+
 !!! pied-piper1 "About Skill"
     - [x] 持续精进服务端开发技能，致力于发展成为一名全沾的艺人...  
     - [x] 持续关注机器学习+云原生领域的技术...  
 
-!!! pied-piper1 "About 一言"    
-    - [x] 我认清时间的时候，只剩下一寸光阴，这是我的个人主页，到处是岁月痕迹...
-    - [x] 很多时候技术人觉得实现功能重要，事实上可持续维护才是最重要的... 
+<style>
+
+.skill {
+  margin-bottom: 10px;
+}
+
+.skill-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.skill-bar {
+  background-color: #ddd;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.skill-level {
+  background-color: #4CAF50;
+  height: 100%;
+  border-radius: 5px;
+}
+</style>
+
+<div class="skill">
+  <div class="skill-name">Python</div>
+  <div class="skill-bar">
+    <div class="skill-level" style="width: 75%;"></div>
+  </div>
+</div>
+
+<div class="skill">
+  <div class="skill-name">Go</div>
+  <div class="skill-bar">
+    <div class="skill-level" style="width: 50%;"></div>
+  </div>
+</div>
+
+<div class="skill">
+  <div class="skill-name">数据分析</div>
+  <div class="skill-bar">
+    <div class="skill-level" style="width: 50%;"></div>
+  </div>
+</div>
+
+<div class="skill">
+  <div class="skill-name">机器学习</div>
+  <div class="skill-bar">
+    <div class="skill-level" style="width: 35%;"></div>
+  </div>
+</div>
+
+<div class="skill">
+  <div class="skill-name">Shell</div>
+  <div class="skill-bar">
+    <div class="skill-level" style="width: 25%;"></div>
+  </div>
+</div>
 
 
 <!-- <img class="img1" src="https://s2.loli.net/2024/02/01/AgiGpYk38C6ctJV.jpg"> -->

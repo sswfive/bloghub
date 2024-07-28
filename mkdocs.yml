@@ -218,6 +218,34 @@ nav:
     - 关于: about/personal_profile.md
   - Python编程:
     - index: language/python/index.md
+    - Python最佳实践:
+      - language/python/pybestpractices/py_security_guide.md
+      - language/python/pybestpractices/docker_build_python_image.md
+      - language/python/pybestpractices/py_data_struct_summary.md
+      - language/python/pybestpractices/py2_py3_update.md
+      - language/python/pybestpractices/coding_standard.md
+    - Python Web:
+      - language/python/pyweb/django/django_lazyobject_analysis.md
+      - language/python/pyweb/django/django_websocket_usage.md
+      - language/python/pyweb/django/django_class_view_usage.md
+      - language/python/pyweb/django/django_middleware_usage.md
+      - language/python/pyweb/django/django_bulk_create.md
+      - language/python/pyweb/django/django_orm_query.md
+      - language/python/pyweb/django/django_orm_fields.md
+      - language/python/pyweb/django/django_17_db_migrate.md
+    - Python常用第三库:
+      - language/python/pylibs/awesome_libs.md
+      - language/python/pylibs/daily_libs.md
+      - language/python/pylibs/apscheduler.md
+      - language/python/pylibs/mlflow.md
+      - language/python/pylibs/numpy.md
+      - language/python/pylibs/pandas.md
+      - language/python/pylibs/pathlib.md
+      - language/python/pylibs/pyflink.md
+      - language/python/pylibs/subprocess.md
+      - language/python/pylibs/supervisor.md
+      - language/python/pylibs/pickle.md
+      - language/python/pylibs/collections.md
     - 开发工具与依赖管理:
       - language/python/pydevtools/env_package_selection.md
       - language/python/pydevtools/conda_usage.md

@@ -16,17 +16,67 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sswfive.github.io/bloghub/bughub/</loc>
-         <lastmod>2024-07-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://sswfive.github.io/bloghub/language/</loc>
          <lastmod>2024-07-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/solutionhub/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/solutionhub/bughub/conda_rename_env_bug/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/solutionhub/bughub/jupyter_asyncio_run_bug/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/solutionhub/bughub/jupyter_matplotlib_font_bug/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/solutionhub/bughub/jupyterhub_deploy_bug/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/solutionhub/bughub/rsa_encryption_bug/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/solutionhub/bughub/window_install_pip_bug/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/solutionhub/opshub/centos_yum_source_delete_solution/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/solutionhub/opshub/mac_brew_service_error_solution/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/solutionhub/opshub/server_disk_full_solution/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/solutionhub/opshub/win10_git_chinese_solution/</loc>
          <lastmod>2024-07-28</lastmod>
          <changefreq>daily</changefreq>
     </url>

@@ -16,12 +16,32 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sswfive.github.io/bloghub/language/</loc>
+         <loc>https://sswfive.github.io/bloghub/language/python/</loc>
          <lastmod>2024-07-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sswfive.github.io/bloghub/language/python/</loc>
+         <loc>https://sswfive.github.io/bloghub/language/python/pybestpractices/coding_standard/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pybestpractices/docker_build_python_image/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pybestpractices/py2_py3_update/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pybestpractices/py_data_struct_summary/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pybestpractices/py_security_guide/</loc>
          <lastmod>2024-07-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -52,6 +72,106 @@
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/language/python/pydevtools/pypi_source_usage/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pylibs/apscheduler/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pylibs/awesome_libs/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pylibs/collections/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pylibs/daily_libs/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pylibs/mlflow/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pylibs/numpy/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pylibs/pandas/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pylibs/pathlib/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pylibs/pickle/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pylibs/pyflink/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pylibs/subprocess/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pylibs/supervisor/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pyweb/django/django_17_db_migrate/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pyweb/django/django_bulk_create/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pyweb/django/django_class_view_usage/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pyweb/django/django_lazyobject_analysis/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pyweb/django/django_middleware_usage/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pyweb/django/django_orm_fields/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pyweb/django/django_orm_query/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pyweb/django/django_websocket_usage/</loc>
          <lastmod>2024-07-28</lastmod>
          <changefreq>daily</changefreq>
     </url>

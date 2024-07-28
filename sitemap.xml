@@ -21,6 +21,41 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pydevtools/conda_usage/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pydevtools/env_package_selection/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pydevtools/jupyter_tool_usage/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pydevtools/py_dev_tool_selection/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pydevtools/pypi_python_pkg_publish/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pydevtools/pypi_source_usage/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://sswfive.github.io/bloghub/notehub/</loc>
          <lastmod>2024-07-28</lastmod>
          <changefreq>daily</changefreq>

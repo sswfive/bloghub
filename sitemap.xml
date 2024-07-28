@@ -2,57 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://sswfive.github.io/bloghub/</loc>
-         <lastmod>2024-07-27</lastmod>
+         <lastmod>2024-07-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/about/personal_profile/</loc>
-         <lastmod>2024-07-27</lastmod>
+         <lastmod>2024-07-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/blog/</loc>
-         <lastmod>2024-07-27</lastmod>
+         <lastmod>2024-07-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/bughub/</loc>
-         <lastmod>2024-07-27</lastmod>
+         <lastmod>2024-07-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/language/</loc>
-         <lastmod>2024-07-27</lastmod>
+         <lastmod>2024-07-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/</loc>
-         <lastmod>2024-07-27</lastmod>
+         <lastmod>2024-07-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/thinking/</loc>
-         <lastmod>2024-07-27</lastmod>
+         <lastmod>2024-07-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sswfive.github.io/bloghub/thinking/understand_do_things/</loc>
-         <lastmod>2024-07-27</lastmod>
+         <loc>https://sswfive.github.io/bloghub/thinking/article/here_we_go/</loc>
+         <lastmod>2024-07-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sswfive.github.io/bloghub/thinking/yiyan/</loc>
-         <lastmod>2024-07-27</lastmod>
+         <loc>https://sswfive.github.io/bloghub/thinking/article/how_to_do_things_clearly/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/thinking/article/how_to_learn_open_source_project/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/thinking/article/learn_top_down_or_bottom_up/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/thinking/article/personal_strategy_focus_and_abandonment/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/thinking/article/tech_yiyan/</loc>
+         <lastmod>2024-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/thinking/article/the_wisdom_of_asking_questions/</loc>
+         <lastmod>2024-07-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolhub/</loc>
-         <lastmod>2024-07-27</lastmod>
+         <lastmod>2024-07-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/tag/</loc>
-         <lastmod>2024-07-27</lastmod>
+         <lastmod>2024-07-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

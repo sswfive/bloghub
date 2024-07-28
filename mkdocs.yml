@@ -223,7 +223,19 @@ nav:
   - 常用工具:
     - index: toolhub/index.md
   - 迎刃而解:
-    - index: bughub/index.md
+    - index: solutionhub/index.md
+    - BugHub:
+      - solutionhub/bughub/jupyter_matplotlib_font_bug.md
+      - solutionhub/bughub/jupyter_asyncio_run_bug.md
+      - solutionhub/bughub/rsa_encryption_bug.md
+      - solutionhub/bughub/conda_rename_env_bug.md
+      - solutionhub/bughub/window_install_pip_bug.md
+      - solutionhub/bughub/jupyterhub_deploy_bug.md
+    - OpsHub:
+      - solutionhub/opshub/mac_brew_service_error_solution.md
+      - solutionhub/opshub/win10_git_chinese_solution.md
+      - solutionhub/opshub/centos_yum_source_delete_solution.md
+      - solutionhub/opshub/server_disk_full_solution.md
   - 随思录:
     - index: thinking/index.md
     - thinking/article/learn_top_down_or_bottom_up.md

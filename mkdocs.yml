@@ -253,8 +253,33 @@ nav:
       - language/python/pydevtools/pypi_source_usage.md
       - language/python/pydevtools/jupyter_tool_usage.md
       - language/python/pydevtools/py_dev_tool_selection.md
+    - Python语法知识:
+      - language/python/pysyntax/24_py_gc.md
+      - language/python/pysyntax/23_py_gil.md
+      - language/python/pysyntax/22_py_mem_manage.md
+      - language/python/pysyntax/21_py_reduce.md
+      - language/python/pysyntax/20_py_dir.md
+      - language/python/pysyntax/19_py_property.md
+      - language/python/pysyntax/18_py_oop.md
+      - language/python/pysyntax/17_py_futures.md
+      - language/python/pysyntax/16_py_asyncio.md
+      - language/python/pysyntax/15_py_deep_copy.md
+      - language/python/pysyntax/14_py_is_and_equals.md
+      - language/python/pysyntax/13_py_func_params.md
+      - language/python/pysyntax/12_py_iterator.md
+      - language/python/pysyntax/11_py_generator.md
+      - language/python/pysyntax/10_py_decorator.md
+      - language/python/pysyntax/09_py_closure.md
+      - language/python/pysyntax/08_py_def_and_lambda.md
+      - language/python/pysyntax/07_py_exception.md
+      - language/python/pysyntax/06_py_condition_and_loop.md
+      - language/python/pysyntax/05_py_slices.md
+      - language/python/pysyntax/04_py_list_tuple_dict.md
+      - language/python/pysyntax/03_py_string.md
+      - language/python/pysyntax/02_py_variable_comment.md
+      - language/python/pysyntax/01_py_basics.md
   - 综合知识库:
-      - index: notehub/index.md
+    - index: notehub/index.md
   - 常用工具:
     - index: toolhub/index.md
   - 迎刃而解:

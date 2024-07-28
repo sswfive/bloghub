@@ -38,8 +38,6 @@ title: Python
 - [x] [django1.7以前的版本执行数据库迁移（2020-08-21）](./pyweb/django/django_17_db_migrate.md)
     
 
-
-
 ## Python环境及依赖包管理
 - [x] [Python版本及包管理工具选型（2023-05-01）](./pydevtools/env_package_selection.md)
 - [x] [Conda的实践应用（2022-03-22）](./pydevtools/conda_usage.md)
@@ -47,7 +45,37 @@ title: Python
 - [x] [常用Pypi源汇总及使用（2022-01-13）](./pydevtools/pypi_source_usage.md)
 
 
+## Python语法学习
+- [x] [python中的GC（2019-06-21）](./pysyntax/24_py_gc.md)
+- [x] [python中的GIL（2019-06-14）](./pysyntax/23_py_gil.md)
+- [x] [python中的内存管理（2019-06-07）](./pysyntax/22_py_mem_manage.md)
+- [x] [python中的reduce（2019-05-31）](./pysyntax/21_py_reduce.md)
+- [x] [python中的dir（2019-05-31](./pysyntax/20_py_dir.md)
+- [x] [python中的property（2019-05-29）](./pysyntax/19_py_property.md)
+- [x] [python中的面向对象编程OOP（2019-05-27）](./pysyntax/18_py_oop.md)
+- [x] [python中的Futures（2019-05-26）](./pysyntax/17_py_futures.md)
+- [x] [Python中的Asyncio（2019-05-20）](./pysyntax/16_py_asyncio.md)
+- [x] [python中浅拷贝与深拷贝（2019-05-19）](./pysyntax/15_py_deep_copy.md)
+- [x] [python中is和equals的区别（2019-05-18）](./pysyntax/14_py_is_and_equals.md)
+- [x] [python变量赋值与函数传参（2019-05-15）](./pysyntax/13_py_func_params.md)
+- [x] [python迭代器iterator用法（2019-05-12）](./pysyntax/12_py_iterator.md)
+- [x] [python生成器generator用法（2019-05-09）](./pysyntax/11_py_generator.md)
+- [x] [python装饰器decorator用法（2019-05-07）](./pysyntax/10_py_decorator.md)
+- [x] [python闭包closure用法（2019-05-06）](./pysyntax/09_py_closure.md)
+- [x] [def函数与lambda函数（2019-05-05）](./pysyntax/08_py_def_and_lambda.md)
+- [x] [python异常处理（2019-05-04）](./pysyntax/07_py_exception.md)
+- [x] [python条件与循环语句（2019-05-04）](./pysyntax/06_py_condition_and_loop.md)
+- [x] [python切片与推导式（2019-05-03）](./pysyntax/05_py_slices.md)
+- [x] [python之容器类型（2019-05-02）](./pysyntax/04_py_list_tuple_dict.md)
+- [x] [python之string（2019-05-02）](./pysyntax/03_py_string.md)
+- [x] [python变量与注释（2019-05-01）](./pysyntax/02_py_variable_comment.md)
+- [x] [Python基础知识梳理（2019-05-01）](./pysyntax/01_py_basics.md)
+
+
+
+
 ## Python常用开发工具
 
 - [x] [Jupyter系列工具的使用总结（2022-01-02）](./pydevtools/jupyter_tool_usage.md)
 - [x] [Python常用开发工具（2022-01-01）](./pydevtools/py_dev_tool_selection.md)
+

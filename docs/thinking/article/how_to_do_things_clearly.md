@@ -20,11 +20,11 @@ tags:
 ### 常用拆解问题的思维模型
 
 - MECE分解法：
-   - 相对独立，完全穷尽的分解出最小的问题——分类
+   - 相对独立，完全穷尽的分解出最小的问题 —> 分类
 - 归因回溯法：
-   - 通过不同地反推追问，从而找到深层的原因——假设
+   - 通过不同地反推追问，从而找到深层的原因 —> 假设
 - 5W2H：
-   - What、Who、Where、When、Why、How、How Much——角度
+   - What、Who、Where、When、Why、How、How Much —> 角度
 ### MECE分解法
 Mutually Exclusive各部分之间**相互独立**，Collectively Exhaustive所有部分**完全穷尽**。用于将一个大问题拆分成若干个互相排斥且集合完备的小问题，让你很清晰简单的解决。
 

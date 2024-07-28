@@ -226,8 +226,13 @@ nav:
     - index: bughub/index.md
   - 随思录:
     - index: thinking/index.md
-    - thinking/yiyan.md
-    - thinking/understand_do_things.md
+    - thinking/article/learn_top_down_or_bottom_up.md
+    - thinking/article/personal_strategy_focus_and_abandonment.md
+    - thinking/article/the_wisdom_of_asking_questions.md
+    - thinking/article/how_to_learn_open_source_project.md
+    - thinking/article/tech_yiyan.md
+    - thinking/article/how_to_do_things_clearly.md
+    - thinking/article/here_we_go.md
     
   - 标签: tag.md
   

@@ -217,7 +217,14 @@ nav:
     - index.md
     - 关于: about/personal_profile.md
   - Python编程:
-    - index: language/index.md
+    - index: language/python/index.md
+    - 开发工具与依赖管理:
+      - language/python/pydevtools/env_package_selection.md
+      - language/python/pydevtools/conda_usage.md
+      - language/python/pydevtools/pypi_python_pkg_publish.md
+      - language/python/pydevtools/pypi_source_usage.md
+      - language/python/pydevtools/jupyter_tool_usage.md
+      - language/python/pydevtools/py_dev_tool_selection.md
   - 综合知识库:
       - index: notehub/index.md
   - 常用工具:

@@ -281,16 +281,27 @@ nav:
   - 综合知识库:
     - index: notehub/index.md
     - cloud:
+      - K8S:
+        - notehub/cloud/k8s/yaml_usage.md
+        - notehub/cloud/k8s/k8s_core_name.md
+        - notehub/cloud/k8s/k8s_cluster_deploy.md
+        - notehub/cloud/k8s/k8s_common_cmd.md
+        - notehub/cloud/k8s/k8s_usage_skills.md
+        - notehub/cloud/k8s/k8s_private_hub_pull_image.md
+        - notehub/cloud/k8s/k8s_common_qa.md
+        - notehub/cloud/k8s/k8s_ectd_mount_memo.md
+        - notehub/cloud/k8s/k8s_storageclass_nfs.md
+        - notehub/cloud/k8s/k8s_dashboard.md
       - Docker:
-        - notehub/cloud/docker/09_docker_detail_commands.md
-        - notehub/cloud/docker/08_dockerignore_template.md
-        - notehub/cloud/docker/07_docker_registry_usage.md
-        - notehub/cloud/docker/06_dockerifle_guide.md
-        - notehub/cloud/docker/05_docker_common_software_install.md
-        - notehub/cloud/docker/04_docker_practical_skills.md
-        - notehub/cloud/docker/03_docker_command.md
-        - notehub/cloud/docker/02_docker_install_guide.md
-        - notehub/cloud/docker/01_docker_arch_and_principle.md
+        - notehub/cloud/docker/docker_detail_commands.md
+        - notehub/cloud/docker/dockerignore_template.md
+        - notehub/cloud/docker/docker_registry_usage.md
+        - notehub/cloud/docker/dockerifle_guide.md
+        - notehub/cloud/docker/docker_common_software_install.md
+        - notehub/cloud/docker/docker_practical_skills.md
+        - notehub/cloud/docker/docker_command.md
+        - notehub/cloud/docker/docker_install_guide.md
+        - notehub/cloud/docker/docker_arch_and_principle.md
       - Docker-Compose:
         - notehub/cloud/docker_compose/docker_compose_summary.md
         - notehub/cloud/docker_compose/docker_compose_software_usage.md

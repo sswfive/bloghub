@@ -21,7 +21,7 @@ tags:
 
 ## Docker和虚拟机的区别
 
-![image](https://cdn.staticaly.com/gh/sswfive/blog-pic@main/20230219/image.224hmdkb1qhs.webp)
+![image](./pics/docker_vm.png)
 
 
 ## Docker架构 (C/S)
@@ -34,10 +34,10 @@ Docker是一种C/S架构的产品（Docker Engine）
 - REST API: 一套用于与和Docker Daemon通信的接口协议
 - Client端：本质是一个命令行接口（Command Line Interface）,主要的职责是接收用户在命令行的指令，通过协议（REST API）直接操作Docker Daemon执行用户操作。
 
-![image](https://cdn.staticaly.com/gh/sswfive/blog-pic@main/20230219/image.1l4fqns6q6cg.webp)
+![image](./pics/docker_arch.png)
 
 ### 结构图
-![image](https://cdn.staticaly.com/gh/sswfive/blog-pic@main/20230219/image.kr5t52ueqfk.webp)
+![image](./pics/docker_struct.png)
 
 - Docker客户端(Docker Client)
    - Docker客户端(Docker Client)是用户与Docker进行交互的最主要方式。当在终端输入docker命令时，对应的就会在服务端产生对应的作用，并把结果返回给客户端。Docker Client除了连接本地服务端，通过更改或指定DOCKER_HOST连接远程服务端。

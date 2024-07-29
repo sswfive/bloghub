@@ -291,6 +291,12 @@ nav:
       - language/golang/gosyntax/go_data_struct.md
       - language/golang/gosyntax/go_data_type.md
       - language/golang/gosyntax/go_point.md
+  - ModelOps:
+    - 机器学习:
+      - notehub/modelops/ml_basic/data_mining.md
+      - notehub/modelops/ml_basic/ml_term.md
+      - notehub/modelops/ml_basic/ml_work_flow.md
+      - notehub/modelops/ml_basic/model_evalution.md
   - 综合知识库:
     - index: notehub/index.md
     - 编程内功:

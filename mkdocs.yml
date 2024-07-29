@@ -307,7 +307,7 @@ nav:
         - notehub/cloud/docker_compose/docker_compose_software_usage.md
         
   - 常用工具:
-    - index: toolhub/index.md
+    - toolhub/selections.md
     - 常用软件安装:
       - toolhub/software_install/java.md
       - toolhub/software_install/nginx.md

@@ -293,6 +293,25 @@ nav:
       - language/golang/gosyntax/go_point.md
   - 综合知识库:
     - index: notehub/index.md
+    - 编程内功:
+      - 数据结构与算法:
+        - notehub/codecore/data_struct/codecore_learn_docs.md
+        - notehub/codecore/data_struct/why_learn_datastruct.md
+        - notehub/codecore/data_struct/datastruct_understanding.md
+        - notehub/codecore/data_struct/datastruct_algo_summary.md
+        - notehub/codecore/data_struct/big_O.md
+        - 数据结构:
+          - notehub/codecore/data_struct/datastruct_array.md
+          - notehub/codecore/data_struct/datastruct_array_skill.md
+          - notehub/codecore/data_struct/datastruct_equeue.md
+          - notehub/codecore/data_struct/datastruct_list.md
+          - notehub/codecore/data_struct/datastruct_stack.md
+        - 常用算法:
+          - notehub/codecore/data_struct/algo_recursion.md
+          - notehub/codecore/data_struct/algo_sort.md
+      - 设计模式:
+        - notehub/codecore/design_patterns/design_patterns_categories.md
+        - notehub/codecore/design_patterns/object_oriented_principles.md
     - 云计算技术:
       - K8S:
         - notehub/cloud/k8s/yaml_usage.md

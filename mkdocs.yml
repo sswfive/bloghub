@@ -308,6 +308,21 @@ nav:
         
   - 常用工具:
     - index: toolhub/index.md
+    - 开发软件安装部署:
+      - toolhub/software_install/java.md
+      - toolhub/software_install/nginx.md
+      - toolhub/software_install/postgresql.md
+      - toolhub/software_install/mongodb.md
+      - toolhub/software_install/rabbitmq.md
+      - toolhub/software_install/redis.md
+      - toolhub/software_install/etcd.md
+      - toolhub/software_install/kafka.md
+      - toolhub/software_install/zookeeper.md
+      - toolhub/software_install/hadoop.md
+      - toolhub/software_install/YARN.md
+      - toolhub/software_install/spark_on_yarn.md
+      - toolhub/software_install/flink_on_yarn.md
+      - toolhub/software_install/zabbix.md
   - 迎刃而解:
     - index: solutionhub/index.md
     - BugHub:

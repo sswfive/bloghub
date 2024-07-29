@@ -245,3 +245,13 @@
       opacity: 1;
   }
 }
+
+@media screen and (min-width: 1220px) {
+.md-grid {
+  max-width: 80rem;
+}
+
+.md-sidebar {
+  width: 15.1rem;
+}
+}

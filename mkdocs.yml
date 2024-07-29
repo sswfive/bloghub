@@ -308,7 +308,7 @@ nav:
         
   - 常用工具:
     - index: toolhub/index.md
-    - 开发软件安装部署:
+    - 常用软件安装:
       - toolhub/software_install/java.md
       - toolhub/software_install/nginx.md
       - toolhub/software_install/postgresql.md
@@ -323,6 +323,16 @@ nav:
       - toolhub/software_install/spark_on_yarn.md
       - toolhub/software_install/flink_on_yarn.md
       - toolhub/software_install/zabbix.md
+    - 常用软件使用:
+      - toolhub/software_usage/git_common_install.md
+      - toolhub/software_usage/git_config.md
+      - toolhub/software_usage/git_install_for_centos7.md
+      - toolhub/software_usage/git_multi_ssh.md
+      - toolhub/software_usage/git_usage_summary.md
+      - toolhub/software_usage/gitflow_usage.md
+      - toolhub/software_usage/github_access_acce.md
+      - toolhub/software_usage/macos_common_quickly_key.md
+      - toolhub/software_usage/vim_usage.md
   - 迎刃而解:
     - index: solutionhub/index.md
     - BugHub:

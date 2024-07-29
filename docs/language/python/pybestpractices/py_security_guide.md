@@ -1,12 +1,8 @@
 ---
 title: Python安全指南[摘录]
 date: 2023-12-01 12:18:41
-permalink: /pages/c274fe/
-categories:
-  - Python
 tags:
-  - 安全
-simplePostListLength: 20
+  - Python
 ---
 
 # Python安全指南[摘录]

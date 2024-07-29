@@ -1,18 +1,17 @@
 [project]
 name = "bloghub"
 version = "1.0"
-description = "AstonWang's blogs"
+description = "Default template for PDM package"
 authors = [
-    {name = "AstonWang", email = "sswss5@aliyun.com"},
+    {name = "AstonWang",email = "sswss5@aliyun.com"},
 ]
 dependencies = []
-requires-python = ">=3.12"
+requires-python = "==3.12.*"
 readme = "README.md"
 license = {text = "MIT"}
-
 [project.optional-dependencies]
 core = [
-    "mkdocs-material>=9.5.28",
+    "mkdocs-material>=9.5.30",
 ]
 plugins = [
     "mkdocs-git-committers-plugin>=0.2.3",
@@ -20,13 +19,8 @@ plugins = [
     "mkdocs-git-authors-plugin>=0.9.0",
     "mkdocs-git-committers-plugin-2>=2.3.0",
     "mkdocs-rss-plugin>=1.15.0",
-    "jieba>=0.42.1",
-    "mkdocs-markdownextradata-plugin>=0.2.5",
 ]
-[build-system]
-requires = ["setuptools>=61", "wheel"]
-build-backend = "setuptools.build_meta"
 
 
 [tool.pdm]
-distribution = true
+distribution = false

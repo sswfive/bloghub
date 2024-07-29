@@ -280,7 +280,7 @@ nav:
       - language/python/pysyntax/01_py_basics.md
   - 综合知识库:
     - index: notehub/index.md
-    - cloud:
+    - 云计算技术:
       - K8S:
         - notehub/cloud/k8s/yaml_usage.md
         - notehub/cloud/k8s/k8s_core_name.md
@@ -305,7 +305,13 @@ nav:
       - Docker-Compose:
         - notehub/cloud/docker_compose/docker_compose_summary.md
         - notehub/cloud/docker_compose/docker_compose_software_usage.md
-        
+    - 大数据技术:
+      - Spark:
+        - notehub/bigdata/spark/spark_first_know.md
+        - notehub/bigdata/spark/spark_rdd.md
+        - notehub/bigdata/spark/spark_shuffle.md
+        - notehub/bigdata/spark/spark_distribute_compute.md
+        - notehub/bigdata/spark/spark_scheduler_system.md
   - 常用工具:
     - toolhub/selections.md
     - 常用软件安装:

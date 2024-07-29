@@ -278,6 +278,19 @@ nav:
       - language/python/pysyntax/03_py_string.md
       - language/python/pysyntax/02_py_variable_comment.md
       - language/python/pysyntax/01_py_basics.md
+  - Go编程:
+    - language/golang/go_learn_docs.md
+    - Go最佳实践:
+      - language/golang/gobestpractices/go_code_standard.md
+      - language/golang/gobestpractices/go_security_guide.md
+    - 环境与依赖管理:
+      - language/golang/gobestpractices/go_install_guide.md
+      - language/golang/gobestpractices/go_install_guide_2.md
+    - Go语法:
+      - language/golang/gosyntax/go_basics.md
+      - language/golang/gosyntax/go_data_struct.md
+      - language/golang/gosyntax/go_data_type.md
+      - language/golang/gosyntax/go_point.md
   - 综合知识库:
     - index: notehub/index.md
     - 云计算技术:

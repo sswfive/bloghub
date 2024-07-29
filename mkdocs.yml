@@ -312,6 +312,16 @@ nav:
       - 设计模式:
         - notehub/codecore/design_patterns/design_patterns_categories.md
         - notehub/codecore/design_patterns/object_oriented_principles.md
+    - 软件工程:
+      - notehub/software_engineering/capacity_manage.md
+      - notehub/software_engineering/encrypt_and_decrypt.md
+      - notehub/software_engineering/algo_hash.md
+      - notehub/software_engineering/auth_jwt.md
+      - notehub/software_engineering/gRPC.md
+      - notehub/software_engineering/rpc_learn.md
+      - notehub/software_engineering/api_desgin.md
+      - notehub/software_engineering/middle_platform_and_platform.md
+      
     - 云计算技术:
       - K8S:
         - notehub/cloud/k8s/yaml_usage.md

@@ -361,6 +361,7 @@ nav:
         - notehub/bigdata/spark/spark_distribute_compute.md
         - notehub/bigdata/spark/spark_scheduler_system.md
   - 常用工具:
+    - toolhub/ai_tools.md
     - toolhub/selections.md
     - 常用软件安装:
       - toolhub/software_install/java.md

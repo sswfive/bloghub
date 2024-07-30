@@ -8,6 +8,7 @@ title: Python
     这里是Python编程实践的相关学习和心得的记录.
 
 ##  Python最佳实践
+- [x] [Python中不同场景中使用日志的方法(2024-07-30)](./pybestpractices/py_logger_usage.md)
 - [x] [Python安全指南[摘录]（2023-12-01）](./pybestpractices/py_security_guide.md)
 - [x] [Docker构建Python镜像实践指南（2023-06-18）](./pybestpractices/docker_build_python_image.md)
 - [x] [Python中的数据类型用法剖析总结（2022-12-12）](./pybestpractices/py_data_struct_summary.md)

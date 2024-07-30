@@ -86,6 +86,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://sswfive.github.io/bloghub/language/python/pybestpractices/py_logger_usage/</loc>
+         <lastmod>2024-07-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://sswfive.github.io/bloghub/language/python/pybestpractices/py_security_guide/</loc>
          <lastmod>2024-07-30</lastmod>
          <changefreq>daily</changefreq>

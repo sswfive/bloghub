@@ -25,6 +25,8 @@ tags:
 
 
 
+
+
 ## 画图工具
 
 >  推荐
@@ -173,3 +175,13 @@ tags:
 
 - [Super Productivity](https://github.com/johannesjo/super-productivity)： Super Productivity 是一款先进的跨平台的待办事项列表应用程序，具有集成的 Timeboxing 和时间跟踪功能。
 - [DooTask](https://github.com/kuaifan/dootask):一款轻量级的开源在线项目任务管理工具，提供各类文档协作工具，在线思维导图、在线流程图、项目管理、任务分发、即时IM，文件管理等工具。【当前Star数据：2.3k】
+
+
+## 开发工具
+
+### Redis相关
+
+- [Tiny RDM](https://github.com/tiny-craft/tiny-rdm)：一款优秀的 Redis 可视化管理工具（⭐️）
+- [RedisShake](https://github.com/tair-opensource/RedisShake):  是一个 Redis 数据处理和迁移工具。
+- [redis-manager](https://github.com/ngbdf/redis-manager): Redis 一站式管理平台，支持集群的监控、安装、管理、告警以及基本的数据操作
+

@@ -32,7 +32,7 @@ tags:
 >  推荐
 
 - [diagrams.net](https://www.diagrams.net/)：一个在线画流程图的网站。
-- [https://excalidraw.com/](https://excalidraw.com/)： 一个非常简单易用的白板绘图开源工具。
+- [https://excalidraw.com/](https://excalidraw.com/)： 一个非常简单易用的白板绘图开源工具(手绘风格的白板 Web 应用。这是一款完全免费、开源的基于无限画布的白板 Web 应用，用户可以在上面创建手绘风格的作品。支持包括中文在内的多种语言，提供了自由绘制、多种工具、导出 PNG、实时协作、共享链接、自动保存等功能)。
 
 > 其他
 
@@ -43,6 +43,9 @@ tags:
 
 
 ## Transform转换工具
+
+- [jsoneditor](https://github.com/josdejong/jsoneditor): 在线的 JSON 编辑器。该项目是一个基于 Web 的 JSON 编辑器，可用于查看、编辑、格式化和验证 JSON。它支持树形编辑器、代码编辑器和纯文本等模式，不仅可以直接在线使用，还可作为组件集成到项目中。
+- [json-server](https://github.com/typicode/json-server): 仅需 30 秒、不用写代码就能模拟接口数据。这是一款小巧的接口模拟工具，它使用起来十分简单，只需创建 JSON 文件，然后一条命令就能快速启动接口服务。
 
 > - github地址： https://github.com/ritz078/transform
 
@@ -114,6 +117,9 @@ tags:
   - [code-server](https://github.com/coder/code-server)：一个 VS Code 远程服务的封装，可以安装在任意机器上面，然后就能在浏览器使用 VS Code
   - [codegeex](https://github.com/THUDM/CodeGeeX): 一个国产的代码生成的人工智能工具，跟 GitHub Copilot 类似，可以将一种语言的代码翻译成另一种
   - [vscode-markdown-github](https://github.com/lzm0x219/vscode-markdown-github)：VSCode 的 Markdown 渲染插件，特点是完全按照 GitHub 的 Markdown 效果进行渲染
+- 主题配色相关：
+  - [catppuccin](https://github.com/catppuccin/catppuccin): 超看好的主题配色方案。该项目是由社区驱动的配色方案，内含以暖色调为主、色彩丰富的主题，可用于 VSCode、JetBrains、Vim 等编辑器和 IDE，同样适用于各种编程语言的开发库、终端、操作系统、浏览器等应用。
+  
 
 
 
@@ -144,7 +150,9 @@ tags:
 - [https://wantwords.net](https://wantwords.net)： 反向词典
 - [Bob](https://github.com/ripperhe/Bob): 一款mac端翻译软件
 
+## 简历模板
 
+- [LapisCV](https://github.com/BingyanStudio/LapisCV): 一款开箱即用的简历模板（提供 Obsidian 和 Typora 的简历模板），它基于 Markdown 格式、编辑方便、所见即所得，设计简洁且正式，借助编辑器可直接导出 PDF 格式的简历。
 
 ## 资源处理
 
@@ -173,15 +181,34 @@ tags:
 
 ## 任务管理
 
-- [Super Productivity](https://github.com/johannesjo/super-productivity)： Super Productivity 是一款先进的跨平台的待办事项列表应用程序，具有集成的 Timeboxing 和时间跟踪功能。
+- [Super Productivity](https://github.com/johannesjo/super-productivity)： Super Productivity 是一款先进的跨平台的待办事项列表应用程序，具有集成的 Timeboxing 和时间跟踪功能(一款先进的待办事项列表应用。超级生产力是一款用 TypeScript 开发的高级 TODO 应用，旨在帮助用户规划任务和管理待办事项，培养健康高效的习惯。它开源、免费、无需注册，支持与 Jira、GitHub、GitLab 等第三方平台集成，可即时收到任务变动的通知。除了可在线使用的 Web 网页版，还提供了 Windows、Linux、macOS、iOS 和 Android 客户端。)。
 - [DooTask](https://github.com/kuaifan/dootask):一款轻量级的开源在线项目任务管理工具，提供各类文档协作工具，在线思维导图、在线流程图、项目管理、任务分发、即时IM，文件管理等工具。【当前Star数据：2.3k】
+- [focalboard](https://github.com/mattermost/focalboard): 一款开源、多语言、自托管的项目管理工具，兼容了 Trello 和 Notion 的特点。它支持看板、表格和日历等视图管理任务，并提供评论同步、文件共享、用户权限等功能。该工具还提供了适用于 Windows、macOS、Linux 系统的客户端。
 
 
 ## 开发工具
 
+### Python相关
+
+- [vulture](https://github.com/jendrikseipp/vulture):  一款Python 的静态代码分析工具，又称Python 的“死”代码侦探，它可以找出 Python 项目中未使用的代码，仅需一条命令，就能清理没用和无效的 Python 函数、变量和代码片段。
+- [radon](https://github.com/rubik/radon): 一款强大的 Python 代码质量分析工具，它能够计算多种代码指标，包括 McCabe 复杂度、Halstead 指标和可维护性指数，适用于 Python 代码质量评估和持续集成等场景。
+- [pyupgrade](https://github.com/asottile/pyupgrade): 一键升级 Python 代码的工具。这是一个用于自动升级 Python 代码，以适应新版本语法的工具。支持升级到不同的 Python 版本、提供预览模式即查看改动变化等功能。
+- [jurigged](https://github.com/breuleux/jurigged): 一款专为 Python 提供热重载功能的库，它支持在程序运行时修改和更新 Python 代码，无需重启程序。
+- [ciphey](https://github.com/Ciphey/Ciphey): 自动解密/解码各种加密算法的工具。使用该项目时，你只需输入加密的文本，无需提供具体的加密类型，它就可以在 3 秒或更短的时间内自动解密大多数的加密文本。这个项目支持 50 多种常见的加密/编码方式，包括二进制、base64、哈希和凯撒密码等。
+- [sqlglot](https://github.com/tobymao/sqlglot): 一个非常全面的 SQL 解析器。该项目是用 Python 写的 SQL 解析器、转译器和优化器，它可以格式化 SQL 以及支持在 20 种不同方言和 SQL 之间进行转化，可用来自定义解析器、分析查询，用编程方式构建 SQL。
+
+
+
 ### Redis相关
 
-- [Tiny RDM](https://github.com/tiny-craft/tiny-rdm)：一款优秀的 Redis 可视化管理工具（⭐️）
+- [Tiny RDM](https://github.com/tiny-craft/tiny-rdm)：一款优秀的 Redis 可视化管理工具（⭐️）,它提供了多种连接方式、分段加载、慢日志、转码显示等功能，可以在 Windows、Linux 和 macOS 系统上使用。
 - [RedisShake](https://github.com/tair-opensource/RedisShake):  是一个 Redis 数据处理和迁移工具。
 - [redis-manager](https://github.com/ngbdf/redis-manager): Redis 一站式管理平台，支持集群的监控、安装、管理、告警以及基本的数据操作
 
+### Docker相关
+
+- [buildg](https://github.com/ktock/buildg): 交互式的 Dockerfile 调试工具,支持设置断点、单步执行和非 root 模式，并且可以在 VSCode 等编辑器中使用。
+- [xpipe](https://github.com/xpipe-io/xpipe): 一键远程登录 Docker 实例的工具。该项目是用于管理远程服务器的桌面工具，它会在 SSH 连接到服务器后，自动检测服务器环境和 shell 类型，实现一键登录各种容器实例（Docker、LXC、WSL），并支持远程文件管理和工具集成等功能。
+- [dockge](https://github.com/louislam/dockge): 一个美观、易用的 Docker Compose 管理平台。该项目提供了一个 Web 界面，用于管理 docker-compose.yaml 文件。它开箱即用、界面设计精美，支持交互式编辑 compose.yaml 文件、更新 docker 镜像，以及启动、停止、重启、删除 docker 等操作。
+
+### 

@@ -1,32 +1,87 @@
 ---
-hide:
-#   - navigation
-  # - toc
-  - feedback
-status: new
+title: 个人主页
 ---
-<center> 
-<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-</center>  
+
+<center><font  color= #518FC1 size=6 class="ml3">AstonWang‘s Blog</font></center>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+ 
+<center><font  color= #518FC1 size=2 class="ml3">一切看似逝去的，都不曾离开，你所给予的爱与温暖，让我执着地守护在这里</font></center>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
 
-# <span id="jinrishici-sentence">今日诗词</span>
 
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
-/>
 
+<div id="rcorners2" >
+  <div id="rcorners1">
+    <i class="fa fa-calendar" style="font-size:100"></i>
+    <body>
+      <font color="#4351AF">
+      编程是一种技艺，一种需要用心学习的技艺
+        <p class="p1"></p>
+<script defer>
+    //格式：2020年04月12日 10:20:00 星期二
+    function format(newDate) {
+        var day = newDate.getDay();
+        var y = newDate.getFullYear();
+        var m =
+            newDate.getMonth() + 1 < 10
+                ? "0" + (newDate.getMonth() + 1)
+                : newDate.getMonth() + 1;
+        var d =
+            newDate.getDate() < 10 ? "0" + newDate.getDate() : newDate.getDate();
+        var h =
+            newDate.getHours() < 10 ? "0" + newDate.getHours() : newDate.getHours();
+        var min =
+            newDate.getMinutes() < 10
+                ? "0" + newDate.getMinutes()
+                : newDate.getMinutes();
+        var s =
+            newDate.getSeconds() < 10
+                ? "0" + newDate.getSeconds()
+                : newDate.getSeconds();
+        var dict = {
+            1: "一",
+            2: "二",
+            3: "三",
+            4: "四",
+            5: "五",
+            6: "六",
+            0: "天",
+        };
+        //var week=["日","一","二","三","四","五","六"]
+        return (
+            y +
+            "年" +
+            m +
+            "月" +
+            d +
+            "日" +
+            " " +
+            h +
+            ":" +
+            min +
+            ":" +
+            s +
+            " 星期" +
+            dict[day]
+        );
+    }
+    var timerId = setInterval(function () {
+        var newDate = new Date();
+        var p1 = document.querySelector(".p1");
+        if (p1) {
+            p1.textContent = format(newDate);
+        }
+    }, 1000);
+</script>
+      </font>
+    </body>
+    <!-- <b><span id="time"></span></b> -->
+  </div>
+</div> 
 
 <!-- <img class="img1" src="https://s2.loli.net/2024/02/01/AgiGpYk38C6ctJV.jpg"> -->
-
-<p style="text-align: center; margin: 0px;" markdown>
-<!-- ![personal](./pics/personal.jpg){style="width: 300px; border-radius: 50%;"} -->
-  <img src="../pics/personal.jpg" alt="arv-anshul" style="width: 300px; border-radius: 50%;" />
-  <p style="text-align: center; font-size: 30px; margin: 0px;"><strong>AstonWang</strong></p>
-  <p style="text-align: center; font-size: 30px; margin: 0px;"><strong>PyGoer practitioner</strong></p>
-</p>
 
 
 <!-- <div id="rcorners3" >
@@ -42,9 +97,10 @@ status: new
 !!! pied-piper1 "About Site"
     本站名为：空谷幽兰，取自许巍歌曲《空谷幽兰》，始于20190417，重建于20231201，此站点为个人知识库，经历了几次更迭，并决心从重建之日开始，坚持长期主义，认真记录，思考总结。不为别的，只为在这漫长而又短暂的一生中，留一丝浅浅的记忆...（如果错误，欢迎指正！）
 
-!!! pied-piper1 "About Me"
+!!! pied-piper1 "About Me <img src="../pics/personal.jpg" alt="arv-anshul" style="width: 30px; border-radius: 50%;" />"
     - [x] Hey, I'm AstonWang! 一个咖啡重度爱好者...
     - [x] 目前主要从事后端+机器学习工程化方向的工作...
+
 
 !!! pied-piper1 "About 一言"    
     - [x] 我认清时间的时候，只剩下一寸光阴，这是我的个人主页，到处是岁月痕迹...
@@ -117,6 +173,25 @@ status: new
   </div>
 </div>
 
+
+<!-- 可选一言 -->
+<center>
+<font  color= #608DBD size=5>
+<p id="hitokoto">
+  <a href="#" id="hitokoto_text" target="_blank"></a>
+</p>
+<script>
+  fetch('https://v1.hitokoto.cn')
+    .then(response => response.json())
+    .then(data => {
+      const hitokoto = document.querySelector('#hitokoto_text')
+      hitokoto.href = `https://hitokoto.cn/?uuid=${data.uuid}`
+      hitokoto.innerText = data.hitokoto
+    })
+    .catch(console.error)
+</script>
+</font>
+</center>
 
 <!-- <img class="img1" src="https://s2.loli.net/2024/02/01/AgiGpYk38C6ctJV.jpg"> -->
 

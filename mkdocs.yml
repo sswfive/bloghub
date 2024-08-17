@@ -213,9 +213,10 @@ repo_name: AstonWang # 右上角的名字
 
 # [Navigtion]
 nav:
-  - 主页: 
-    - index.md
-    - 关于: about/personal_profile.md
+  - 首页: 
+    - 文章列表: index.md
+    - 标签分类: tag.md
+    - 个人主页: about/personal_profile.md
   - Python编程:
     - index: language/python/index.md
     - Python最佳实践:
@@ -298,27 +299,9 @@ nav:
       - notehub/modelops/ml_basic/ml_term.md
       - notehub/modelops/ml_basic/ml_work_flow.md
       - notehub/modelops/ml_basic/model_evalution.md
-  - 综合知识库:
+  - 专题技术:
     - index: notehub/index.md
-    - 编程内功:
-      - 数据结构与算法:
-        - notehub/codecore/data_struct/codecore_learn_docs.md
-        - notehub/codecore/data_struct/why_learn_datastruct.md
-        - notehub/codecore/data_struct/datastruct_understanding.md
-        - notehub/codecore/data_struct/datastruct_algo_summary.md
-        - notehub/codecore/data_struct/big_O.md
-        - 数据结构:
-          - notehub/codecore/data_struct/datastruct_array.md
-          - notehub/codecore/data_struct/datastruct_array_skill.md
-          - notehub/codecore/data_struct/datastruct_equeue.md
-          - notehub/codecore/data_struct/datastruct_list.md
-          - notehub/codecore/data_struct/datastruct_stack.md
-        - 常用算法:
-          - notehub/codecore/data_struct/algo_recursion.md
-          - notehub/codecore/data_struct/algo_sort.md
-      - 设计模式:
-        - notehub/codecore/design_patterns/design_patterns_categories.md
-        - notehub/codecore/design_patterns/object_oriented_principles.md
+    
     - 软件工程:
       - notehub/software_engineering/capacity_manage.md
       - notehub/software_engineering/encrypt_and_decrypt.md
@@ -362,6 +345,25 @@ nav:
         - notehub/bigdata/spark/spark_shuffle.md
         - notehub/bigdata/spark/spark_distribute_compute.md
         - notehub/bigdata/spark/spark_scheduler_system.md
+  - 编程之基:
+    - 数据结构与算法:
+      - notehub/codecore/data_struct/codecore_learn_docs.md
+      - notehub/codecore/data_struct/why_learn_datastruct.md
+      - notehub/codecore/data_struct/datastruct_understanding.md
+      - notehub/codecore/data_struct/datastruct_algo_summary.md
+      - notehub/codecore/data_struct/big_O.md
+      - 数据结构:
+        - notehub/codecore/data_struct/datastruct_array.md
+        - notehub/codecore/data_struct/datastruct_array_skill.md
+        - notehub/codecore/data_struct/datastruct_equeue.md
+        - notehub/codecore/data_struct/datastruct_list.md
+        - notehub/codecore/data_struct/datastruct_stack.md
+      - 常用算法:
+        - notehub/codecore/data_struct/algo_recursion.md
+        - notehub/codecore/data_struct/algo_sort.md
+    - 设计模式:
+      - notehub/codecore/design_patterns/design_patterns_categories.md
+      - notehub/codecore/design_patterns/object_oriented_principles.md
   - 常用工具:
     - toolhub/ai_tools.md
     - toolhub/selections.md
@@ -414,7 +416,7 @@ nav:
     - thinking/article/how_to_do_things_clearly.md
     - thinking/article/here_we_go.md
     
-  - 标签: tag.md
+
   
   # - 留言板: liuyanban.md
   # - 友链:  #     - 友链: about/link.md

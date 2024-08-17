@@ -21,6 +21,8 @@ plugins = [
     "mkdocs-rss-plugin>=1.15.0",
 ]
 
-
 [tool.pdm]
 distribution = false
+
+[tool.pdm.scripts]
+dev = "mkdocs serve"

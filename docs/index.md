@@ -1,5 +1,5 @@
 ---
-title: 主页
+title: 文章列表
 hide:
   # - navigation # 显示右
   # - toc #显示左
@@ -8,7 +8,7 @@ hide:
 comments: false
 ---
 
-<center><font  color= #518FC1 size=6 class="ml3">AstonWang Blog</font></center>
+<center><font  color= #518FC1 size=6 class="ml3">AstonWang‘s Blog</font></center>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
 

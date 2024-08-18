@@ -37,9 +37,11 @@ Helm Client（helm命令）和Helm Chart包时核心，helm命令可以从Chart 
 ![](./pics/helm_struct.png)
 
 - 模板文件
+
   - 【通常有多个】，基于`text/template` 模板文件，提供了强大的模板渲染能力。Helm可以将配置文件中的值渲染进模板文件中，最终生成一个可以部署的K8S YAML格式的资源定义文件。
 
 - 配置文件
+  
   - 【通常有一个】。
 
 总结：

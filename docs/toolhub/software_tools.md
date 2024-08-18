@@ -1,5 +1,5 @@
 ---
-title: 甄选优质工具
+title: 甄选软件集
 date: 2022-07-31 23:05:23
 tags:
   - Tools
@@ -22,8 +22,6 @@ tags:
   - 支持Win
 - [NxShell](https://github.com/nxshell)
 - [ContainerSSH](https://github.com/ContainerSSH/ContainerSSH)：一个SSH服务器，用户使用ssh登录是，它会自动启动一个容器，让用户登录到这个容器里面，而不是登录到底层机器，用户不会察觉。
-
-
 
 
 
@@ -95,37 +93,6 @@ tags:
 
 - [useragent](https://www.useragents.me/)： 此网站提供各种最新版浏览器的useragent的字符串
 - [spider-admin-pro](https://github.com/mouday/spider-admin-pro)：爬虫工具 Scrapy 的一个管理面板。
-
-
-
-## Chrome插件
-
-- 收藏猫插件：[https://chrome.pictureknow.com/](https://chrome.pictureknow.com/)
-
-
-
-## Pycharm插件
-
-- Save Actions  ： 按下 Ctrl + S 即可自动格式化代码
-
-
-
-## Vscode插件
-
-- 数据库相关
-  - [PPZ.vscode](https://marketplace.visualstudio.com/items?itemName=ppz.ppz)：一个 VSCode 插件，提供操作数据库的图形界面，支持多种数据库
-  - [code-server](https://github.com/coder/code-server)：一个 VS Code 远程服务的封装，可以安装在任意机器上面，然后就能在浏览器使用 VS Code
-  - [codegeex](https://github.com/THUDM/CodeGeeX): 一个国产的代码生成的人工智能工具，跟 GitHub Copilot 类似，可以将一种语言的代码翻译成另一种
-  - [vscode-markdown-github](https://github.com/lzm0x219/vscode-markdown-github)：VSCode 的 Markdown 渲染插件，特点是完全按照 GitHub 的 Markdown 效果进行渲染
-- 主题配色相关：
-  - [catppuccin](https://github.com/catppuccin/catppuccin): 超看好的主题配色方案。该项目是由社区驱动的配色方案，内含以暖色调为主、色彩丰富的主题，可用于 VSCode、JetBrains、Vim 等编辑器和 IDE，同样适用于各种编程语言的开发库、终端、操作系统、浏览器等应用。
-  
-
-
-
-## 油猴插件
-
-- [greasyfork商店](https://greasyfork.org/zh-CN/scripts)
 
 
 
@@ -210,5 +177,3 @@ tags:
 - [buildg](https://github.com/ktock/buildg): 交互式的 Dockerfile 调试工具,支持设置断点、单步执行和非 root 模式，并且可以在 VSCode 等编辑器中使用。
 - [xpipe](https://github.com/xpipe-io/xpipe): 一键远程登录 Docker 实例的工具。该项目是用于管理远程服务器的桌面工具，它会在 SSH 连接到服务器后，自动检测服务器环境和 shell 类型，实现一键登录各种容器实例（Docker、LXC、WSL），并支持远程文件管理和工具集成等功能。
 - [dockge](https://github.com/louislam/dockge): 一个美观、易用的 Docker Compose 管理平台。该项目提供了一个 Web 界面，用于管理 docker-compose.yaml 文件。它开箱即用、界面设计精美，支持交互式编辑 compose.yaml 文件、更新 docker 镜像，以及启动、停止、重启、删除 docker 等操作。
-
-### 

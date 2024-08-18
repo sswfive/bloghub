@@ -5,7 +5,9 @@ description = "AstonWang blog project"
 authors = [
     {name = "AstonWang",email = "sswss5@aliyun.com"},
 ]
-dependencies = []
+dependencies = [
+    "mkdocs-awesome-pages-plugin>=2.9.3",
+]
 requires-python = "==3.12.*"
 readme = "README.md"
 license = {text = "MIT"}

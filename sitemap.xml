@@ -721,7 +721,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sswfive.github.io/bloghub/toolhub/selections/</loc>
+         <loc>https://sswfive.github.io/bloghub/toolhub/cheatsheet/</loc>
+         <lastmod>2024-08-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/toolhub/plugin_tools/</loc>
+         <lastmod>2024-08-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/toolhub/software_tools/</loc>
          <lastmod>2024-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>

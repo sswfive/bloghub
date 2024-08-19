@@ -67,21 +67,21 @@ Helm Client（helm命令）和Helm Chart包时核心，helm命令可以从Chart 
 ### 安装步骤
 
 ```bash
-$ mkdir -p $HOME/bin
 $ wget https://get.helm.sh/helm-v3.15.4-linux-amd64.tar.gz
 $ tar -xvzf helm-v3.15.4-linux-amd64.tar.gz
-$ mv linux-amd64/helm $HOME/bin
-$ chmod +x $HOME/bin/helm
+$ mv linux-amd64/helm /usr/local/bin/helm
+$ chmod +x /usr/local/bin/helm
 $ helm version  # 输出版本号即表示安装成功
-version.BuildInfo{Version:"v3.15.4", GitCommit:"d506314abfb5d21419df8c7e7e68012379db2354", GitTreeState:"clean", GoVersion:"go1.16.5"}
+######log info ########
+version.BuildInfo{Version:"v3.15.4", GitCommit:"fa9efb07d9d8debbb4306d72af76a383895aa8c4", GitTreeState:"clean", GoVersion:"go1.22.6"}
 ```
 
 安装helm命令自动补全脚本（非必须）
 
+- [文档参考](https://helm.sh/docs/helm/helm_completion/)
+
 ```bash
-$ helm completion bash > $HOME/.helm-completion.bash
-$ echo 'source $HOME/.helm-completion.bash' >> ~/.bashrc
-$ bash
+helm completion bash > /etc/bash_completion.d/helm
 ```
 
 - 执行 helm comp，就会自动补全为helm completion。

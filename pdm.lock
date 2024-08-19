@@ -5,7 +5,7 @@
 groups = ["default", "core", "plugins"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:603894955fe4438767e5972d0c448593b20f141949150be80c55d00c44cc393a"
+content_hash = "sha256:da0823f5952cd96ffae61391f23019b7caca498a1a32f0645458e36246f35e5b"
 
 [[metadata.targets]]
 requires_python = "==3.12.*"
@@ -29,7 +29,7 @@ name = "bracex"
 version = "2.5"
 requires_python = ">=3.8"
 summary = "Bash style brace expander."
-groups = ["default"]
+groups = ["core"]
 files = [
     {file = "bracex-2.5-py3-none-any.whl", hash = "sha256:d2fcf4b606a82ac325471affe1706dd9bbaa3536c91ef86a31f6b766f3dad1d0"},
     {file = "bracex-2.5.tar.gz", hash = "sha256:0725da5045e8d37ea9592ab3614d8b561e22c3c5fde3964699be672e072ab611"},
@@ -131,7 +131,7 @@ name = "click"
 version = "8.1.7"
 requires_python = ">=3.7"
 summary = "Composable command line interface toolkit"
-groups = ["default", "core", "plugins"]
+groups = ["core", "plugins"]
 dependencies = [
     "colorama; platform_system == \"Windows\"",
     "importlib-metadata; python_version < \"3.8\"",
@@ -146,7 +146,7 @@ name = "colorama"
 version = "0.4.6"
 requires_python = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
 summary = "Cross-platform colored terminal text."
-groups = ["default", "core", "plugins"]
+groups = ["core", "plugins"]
 files = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
@@ -212,7 +212,7 @@ files = [
 name = "ghp-import"
 version = "2.1.0"
 summary = "Copy your docs directly to the gh-pages branch."
-groups = ["default", "core", "plugins"]
+groups = ["core", "plugins"]
 dependencies = [
     "python-dateutil>=2.8.1",
 ]
@@ -266,7 +266,7 @@ name = "jinja2"
 version = "3.1.4"
 requires_python = ">=3.7"
 summary = "A very fast and expressive template engine."
-groups = ["default", "core", "plugins"]
+groups = ["core", "plugins"]
 dependencies = [
     "MarkupSafe>=2.0",
 ]
@@ -280,7 +280,7 @@ name = "markdown"
 version = "3.6"
 requires_python = ">=3.8"
 summary = "Python implementation of John Gruber's Markdown."
-groups = ["default", "core", "plugins"]
+groups = ["core", "plugins"]
 dependencies = [
     "importlib-metadata>=4.4; python_version < \"3.10\"",
 ]
@@ -294,7 +294,7 @@ name = "markupsafe"
 version = "2.1.5"
 requires_python = ">=3.7"
 summary = "Safely add untrusted strings to HTML/XML markup."
-groups = ["default", "core", "plugins"]
+groups = ["core", "plugins"]
 files = [
     {file = "MarkupSafe-2.1.5-cp312-cp312-macosx_10_9_universal2.whl", hash = "sha256:8dec4936e9c3100156f8a2dc89c4b88d5c435175ff03413b443469c7c8c5f4d1"},
     {file = "MarkupSafe-2.1.5-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:3c6b973f22eb18a789b1460b4b91bf04ae3f0c4234a0a6aa6b0a92f6f7b951d4"},
@@ -314,7 +314,7 @@ name = "mergedeep"
 version = "1.3.4"
 requires_python = ">=3.6"
 summary = "A deep merge function for 🐍."
-groups = ["default", "core", "plugins"]
+groups = ["core", "plugins"]
 files = [
     {file = "mergedeep-1.3.4-py3-none-any.whl", hash = "sha256:70775750742b25c0d8f36c55aed03d24c3384d17c951b3175d898bd778ef0307"},
     {file = "mergedeep-1.3.4.tar.gz", hash = "sha256:0096d52e9dad9939c3d975a774666af186eda617e6ca84df4c94dec30004f2a8"},
@@ -325,7 +325,7 @@ name = "mkdocs"
 version = "1.6.0"
 requires_python = ">=3.8"
 summary = "Project documentation with Markdown."
-groups = ["default", "core", "plugins"]
+groups = ["core", "plugins"]
 dependencies = [
     "click>=7.0",
     "colorama>=0.4; platform_system == \"Windows\"",
@@ -352,7 +352,7 @@ name = "mkdocs-awesome-pages-plugin"
 version = "2.9.3"
 requires_python = ">=3.8.1"
 summary = "An MkDocs plugin that simplifies configuring page titles and their order"
-groups = ["default"]
+groups = ["core"]
 dependencies = [
     "mkdocs>=1",
     "natsort>=8.1.0",
@@ -368,7 +368,7 @@ name = "mkdocs-get-deps"
 version = "0.2.0"
 requires_python = ">=3.8"
 summary = "MkDocs extension that lists all dependencies according to a mkdocs.yml file"
-groups = ["default", "core", "plugins"]
+groups = ["core", "plugins"]
 dependencies = [
     "importlib-metadata>=4.3; python_version < \"3.10\"",
     "mergedeep>=1.3.4",
@@ -522,7 +522,7 @@ name = "natsort"
 version = "8.4.0"
 requires_python = ">=3.7"
 summary = "Simple yet flexible natural sorting in Python."
-groups = ["default"]
+groups = ["core"]
 files = [
     {file = "natsort-8.4.0-py3-none-any.whl", hash = "sha256:4732914fb471f56b5cce04d7bae6f164a592c7712e1c85f9ef585e197299521c"},
     {file = "natsort-8.4.0.tar.gz", hash = "sha256:45312c4a0e5507593da193dedd04abb1469253b601ecaf63445ad80f0a1ea581"},
@@ -533,7 +533,7 @@ name = "packaging"
 version = "24.1"
 requires_python = ">=3.8"
 summary = "Core utilities for Python packages"
-groups = ["default", "core", "plugins"]
+groups = ["core", "plugins"]
 files = [
     {file = "packaging-24.1-py3-none-any.whl", hash = "sha256:5b8f2217dbdbd2f7f384c41c628544e6d52f2d0f53c6d0c3ea61aa5d1d7ff124"},
     {file = "packaging-24.1.tar.gz", hash = "sha256:026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"},
@@ -553,7 +553,7 @@ name = "pathspec"
 version = "0.12.1"
 requires_python = ">=3.8"
 summary = "Utility library for gitignore style pattern matching of file paths."
-groups = ["default", "core", "plugins"]
+groups = ["core", "plugins"]
 files = [
     {file = "pathspec-0.12.1-py3-none-any.whl", hash = "sha256:a0d503e138a4c123b27490a4f7beda6a01c6f288df0e4a8b79c7eb0dc7b4cc08"},
     {file = "pathspec-0.12.1.tar.gz", hash = "sha256:a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712"},
@@ -564,7 +564,7 @@ name = "platformdirs"
 version = "4.2.2"
 requires_python = ">=3.8"
 summary = "A small Python package for determining appropriate platform-specific dirs, e.g. a `user data dir`."
-groups = ["default", "core", "plugins"]
+groups = ["core", "plugins"]
 files = [
     {file = "platformdirs-4.2.2-py3-none-any.whl", hash = "sha256:2d7a1657e36a80ea911db832a8a6ece5ee53d8de21edd5cc5879af6530b1bfee"},
     {file = "platformdirs-4.2.2.tar.gz", hash = "sha256:38b7b51f512eed9e84a22788b4bce1de17c0adb134d6becb09836e37d8654cd3"},
@@ -683,7 +683,7 @@ name = "python-dateutil"
 version = "2.9.0.post0"
 requires_python = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 summary = "Extensions to the standard Python datetime module"
-groups = ["default", "core", "plugins"]
+groups = ["core", "plugins"]
 dependencies = [
     "six>=1.5",
 ]
@@ -707,7 +707,7 @@ name = "pyyaml"
 version = "6.0.1"
 requires_python = ">=3.6"
 summary = "YAML parser and emitter for Python"
-groups = ["default", "core", "plugins"]
+groups = ["core", "plugins"]
 files = [
     {file = "PyYAML-6.0.1-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:855fb52b0dc35af121542a76b9a84f8d1cd886ea97c84703eaa6d88e37a2ad28"},
     {file = "PyYAML-6.0.1-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:40df9b996c2b73138957fe23a16a4f0ba614f4c0efce1e9406a184b6d07fa3a9"},
@@ -724,7 +724,7 @@ name = "pyyaml-env-tag"
 version = "0.1"
 requires_python = ">=3.6"
 summary = "A custom YAML tag for referencing environment variables in YAML files. "
-groups = ["default", "core", "plugins"]
+groups = ["core", "plugins"]
 dependencies = [
     "pyyaml",
 ]
@@ -780,7 +780,7 @@ name = "six"
 version = "1.16.0"
 requires_python = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 summary = "Python 2 and 3 compatibility utilities"
-groups = ["default", "core", "plugins"]
+groups = ["core", "plugins"]
 files = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
     {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
@@ -836,7 +836,7 @@ name = "watchdog"
 version = "4.0.1"
 requires_python = ">=3.8"
 summary = "Filesystem events monitoring"
-groups = ["default", "core", "plugins"]
+groups = ["core", "plugins"]
 files = [
     {file = "watchdog-4.0.1-cp312-cp312-macosx_10_9_universal2.whl", hash = "sha256:093b23e6906a8b97051191a4a0c73a77ecc958121d42346274c6af6520dec175"},
     {file = "watchdog-4.0.1-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:611be3904f9843f0529c35a3ff3fd617449463cb4b73b1633950b3d97fa4bfb7"},
@@ -859,7 +859,7 @@ name = "wcmatch"
 version = "9.0"
 requires_python = ">=3.8"
 summary = "Wildcard/glob file name matcher."
-groups = ["default"]
+groups = ["core"]
 dependencies = [
     "bracex>=2.1.1",
 ]

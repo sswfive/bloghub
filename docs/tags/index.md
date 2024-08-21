@@ -2,6 +2,7 @@
 template: custom_tags.html
 hide:
   - toc
+  - navigation
 ---
 
 # Tags

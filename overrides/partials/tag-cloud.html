@@ -1,30 +1,15 @@
 {% from "partials/colors.html" import color %}
 
-{% set tags=[] %}
+{% set tags = {} %}
 
-{# scan all pages #}
+{# 扫描所有页面并收集标签 #}
 {% for p in pages %}
   {% if p.page.meta.tags %}
-    {# extract tags if available #}
     {% for tag in p.page.meta.tags %}
-      {% if tags|length %}
-        {% set ns = namespace(found=False) %}
-        {# check if tag exists, append to its page list #}
-        {% for item in tags %}
-          {% set t, ps = item %}
-          {% if tag == t %}
-            {% set ns.found = True %}
-            {# use "" to not add spaces in content #}
-            {{ ps.append(p.page) or "" }}
-          {% endif %}
-        {% endfor %}
-        {# if tag doesn't exist, create new page list#}
-        {% if not ns.found %}
-          {{ tags.append((tag, [p.page])) or "" }}
-        {% endif %}
-      {% else %}
-        {{ tags.append((tag, [p.page])) or "" }}
+      {% if tag not in tags %}
+        {% set _ = tags.update({tag: []}) %}
       {% endif %}
+      {% set _ = tags[tag].append(p.page) %}
     {% endfor %}
   {% endif %}
 {% endfor %}
@@ -32,6 +17,7 @@
 <style>
     .tag-cloud {
         margin-top:0;
+        margin-left: 10em;
         margin-bottom: 0.5em;
     }
     .tag-cloud-content {
@@ -44,33 +30,27 @@
 
 <h2 id="tag_cloud">标签云</h2>
 <div class="tag-cloud-content">
-    {% if tags|count %}
-        {% for item in tags %}
-            {% set tag, ps = item %}
-            {# create a link with tag name #}
-            {# font size is based on the page count #}
+    {% if tags|length %}
+        {% for tag, pages in tags.items() %}
+            {% set size = pages | length %}
+            {% if size > 10 %}
+                {% set size = 10 %}
+            {% endif %}
             <a class="tag" href="/bloghub/tags/#{{ tag }}">
                 <span class="tag-name" style="display:inline-block;
-                    {% set sz = ps|count %}
-                        {% if sz > 10 %}
-                            {% set sz = 10 %}
-                        {% endif %}
                     {% if page.url == 'tags/' %}
-                        font-size:{{ 0.8 +sz*0.04}}rem;
+                        font-size:{{ 0.8 + size * 0.04 }}rem;
                     {% else %}
-                        font-size:{{ 0.75+sz*0.04}}rem;
+                        font-size:{{ 0.75 + size * 0.04 }}rem;
                     {% endif %}
-                    color:{{ color( loop.index%12) }};
+                    color:{{ color(loop.index % 12) }};
                 ">
                     {{- tag -}} &nbsp;
                 </span>
-                <!-- 上标还是算了，有点乱 -->
-                <!-- <sup class="tag-count">{{- ps|count -}}</sup> -->
+                <!-- Superscript was removed for readability -->
             </a>
         {% endfor %}
     {% else %}
-        <p>
-            No tag found!
-        </p>
+        <p>No tag found!</p>
     {% endif %}
 </div>

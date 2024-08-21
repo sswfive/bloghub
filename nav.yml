@@ -1,9 +1,10 @@
 # [Navigtion]
 nav:
   - 首页: 
-    - 文章列表: index.md
-    - 标签分类: tag.md
-    - 个人主页: about/personal_profile.md
+    - index.md
+    # - 文章列表: home
+    # - 标签分类: tags/index.md
+    - 个人主页: about/profile.md
   - Python编程:
     - index: language/python/index.md
     - Python最佳实践:
@@ -206,8 +207,6 @@ nav:
     - thinking/article/how_to_do_things_clearly.md
     - thinking/article/here_we_go.md
     
-
+  - 标签:
+    - tags/index.md
   
-  # - 留言板: liuyanban.md
-  # - 友链:  #     - 友链: about/link.md
-

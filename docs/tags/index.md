@@ -1,5 +1,7 @@
 ---
 template: custom_tags.html
+hide:
+  - toc
 ---
 
 # Tags

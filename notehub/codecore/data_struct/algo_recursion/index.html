@@ -13,18 +13,18 @@
         <link rel="canonical" href="https://sswfive.github.io/bloghub/notehub/codecore/data_struct/algo_recursion/">
       
       
-        <link rel="prev" href="../algo_sort/">
+        <link rel="prev" href="../datastruct_stack/">
       
       
-        <link rel="next" href="../../design_patterns/object_oriented_principles/">
+        <link rel="next" href="../algo_sort/">
       
       
-      <link rel="icon" href="https://s2.loli.net/2024/04/26/PmRdM9iGnvOJHgu.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
+      <link rel="icon" href="../../../../customize/assets/head.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.32">
     
     
       
-        <title>算法之递归 - 空谷幽兰</title>
+        <title>算法之递归 - IceCoffee</title>
       
     
     
@@ -38,8 +38,14 @@
 
     
     
+
       
     
+<!-- 数学公式格式支持，用html嵌入的方式支持数学公式自动换行，mathjax似乎要支持但是现在还没实现。
+Automatic line breaking has not yet been implemented in MathJax version 3, 
+but is high on our list for inclusion in a future release. -->
+
+
     
       
         
@@ -75,8 +81,6 @@
     
     
     
-    <link rel="stylesheet" href="../../../../assets/stylesheets/custom.00c04c01.min.css">
-  
   </head>
   
   
@@ -103,36 +107,6 @@
     </div>
     <div data-md-component="announce">
       
-        <aside class="md-banner">
-          <div class="md-banner__inner md-grid md-typeset">
-            
-              <button class="md-banner__button md-icon" aria-label="不再显示此消息">
-                
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-              </button>
-            
-            
-     Follow <strong>@AstonWang</strong> on
-    <!-- <a rel="me" href="https://space.bilibili.com/1407028951?spm_id_from=333.1007.0.0">
-      <span class="twemoji bilibili">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0s16.1 2.868 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0c8.8 0 16.1 2.868 21.9 8.603 5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1zm-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8 6.3-6.5 9.7-14.3 10.1-23.5V173.8zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5-9.6 0-17.5-3.2-23.6-9.5-6.1-6.3-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2 6.3-6.3 13.2-9.6 23.3-10 9.2.4 17 3.7 23.3 10zm191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.1 6.3-14 9.5-23.6 9.5-9.6 0-17.4-3.2-23.6-9.5-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2 6.3-6.3 14.1-9.6 23.3-10 9.2.4 17 3.7 23.3 10z"/></svg>
-      </span>
-      <strong>Bilibili</strong>
-    </a> -->
-    and
-    <!-- <a href="https://twitter.com/Wcowin_">
-      <span class="twemoji twitter">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
-      </span>
-      <strong>Twitter</strong>
-    </a> -->
-  
-          </div>
-          
-            <script>var content,el=document.querySelector("[data-md-component=announce]");el&&(content=el.querySelector(".md-typeset"),__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0))</script>
-          
-        </aside>
-      
     </div>
     
     
@@ -140,10 +114,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../.." title="空谷幽兰" class="md-header__button md-logo" aria-label="空谷幽兰" data-md-component="logo">
+    <a href="../../../.." title="IceCoffee" class="md-header__button md-logo" aria-label="IceCoffee" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../customize/assets/head.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +127,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            空谷幽兰
+            IceCoffee
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -260,7 +233,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    AstonWang
+    bloghub
   </div>
 </a>
       </div>
@@ -286,7 +259,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../tag/" class="md-tabs__link">
+        <a href="../../../.." class="md-tabs__link">
           
   
     
@@ -352,7 +325,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../modelops/ml_basic/model_evalution/" class="md-tabs__link">
+        <a href="../../../modelops/ml_basic/data_mining/" class="md-tabs__link">
           
   
     
@@ -405,7 +378,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../why_learn_datastruct/" class="md-tabs__link">
+        <a href="../codecore_learn_docs/" class="md-tabs__link">
           
   
     
@@ -428,7 +401,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../toolhub/software_tools/" class="md-tabs__link">
+        <a href="../../../../toolhub/ai_tools/" class="md-tabs__link">
           
   
     
@@ -468,12 +441,32 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../thinking/article/the_wisdom_of_asking_questions/" class="md-tabs__link">
+        <a href="../../../../thinking/" class="md-tabs__link">
           
   
     
   
   随思录
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../tags/" class="md-tabs__link">
+          
+  
+    
+  
+  标签
 
         </a>
       </li>
@@ -503,13 +496,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="空谷幽兰" class="md-nav__button md-logo" aria-label="空谷幽兰" data-md-component="logo">
+    <a href="../../../.." title="IceCoffee" class="md-nav__button md-logo" aria-label="IceCoffee" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../customize/assets/head.png" alt="logo">
 
     </a>
-    空谷幽兰
+    IceCoffee
   </label>
   
     <div class="md-nav__source">
@@ -519,7 +511,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    AstonWang
+    bloghub
   </div>
 </a>
     </div>
@@ -536,11 +528,9 @@
     
       
         
-      
-        
-      
-        
           
+        
+      
         
       
     
@@ -583,25 +573,6 @@
           <ul class="md-nav__list" data-md-scrollfix>
             
               
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../tag/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    标签分类
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -610,7 +581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../about/personal_profile/" class="md-nav__link">
+      <a href="../../../../about/profile/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -622,8 +593,6 @@
     </li>
   
 
-              
-            
               
             
           </ul>
@@ -756,6 +725,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../language/python/pybestpractices/py_logger_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python中不同场景中使用日志的方式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../language/python/pybestpractices/py_security_guide/" class="md-nav__link">
         
   
@@ -777,11 +767,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../language/python/pybestpractices/py_logger_usage/" class="md-nav__link">
+      <a href="../../../../language/python/pybestpractices/docker_build_python_image/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Python中不同场景中使用日志的方式
+    Docker构建Python镜像实践指南
   </span>
   
 
@@ -824,27 +814,6 @@
   
   <span class="md-ellipsis">
     python2到python3的变化
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../language/python/pybestpractices/docker_build_python_image/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Docker构建Python镜像实践指南
   </span>
   
 
@@ -946,11 +915,95 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../language/python/pyweb/django/django_lazyobject_analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django源码学习之LazyObject
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../language/python/pyweb/django/django_websocket_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     django中使用websocket
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../language/python/pyweb/django/django_class_view_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django中类视图的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../language/python/pyweb/django/django_middleware_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django中间件的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../language/python/pyweb/django/django_bulk_create/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django批量导入数据
   </span>
   
 
@@ -993,90 +1046,6 @@
   
   <span class="md-ellipsis">
     django中ORM字段总结
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../language/python/pyweb/django/django_middleware_usage/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    django中间件的使用
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../language/python/pyweb/django/django_lazyobject_analysis/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    django源码学习之LazyObject
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../language/python/pyweb/django/django_class_view_usage/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    django中类视图的使用
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../language/python/pyweb/django/django_bulk_create/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    django批量导入数据
   </span>
   
 
@@ -1186,158 +1155,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../language/python/pylibs/supervisor/" class="md-nav__link">
+      <a href="../../../../language/python/pylibs/awesome_libs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Supervisor之进程管理工具
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../language/python/pylibs/subprocess/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    subprocess之子进程管理
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../language/python/pylibs/pyflink/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    PyFlink之分布式计算
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../language/python/pylibs/pickle/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Pickle之数据序列化工具的使用
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../language/python/pylibs/pathlib/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    pathlib之使用面向对象的方式操作路径
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../language/python/pylibs/pandas/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Pandas之数据分析工具
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../language/python/pylibs/numpy/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Numpy之数据计算工具
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../language/python/pylibs/mlflow/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    MLflow之模型生命周期管理
+    Python常用库汇总[awesome]
   </span>
   
 
@@ -1375,53 +1197,200 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../language/python/pylibs/collections/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Python之collections的用法
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../language/python/pylibs/awesome_libs/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Python常用库汇总[awesome]
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../../language/python/pylibs/apscheduler/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     APScheduler之定时任务工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../language/python/pylibs/mlflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MLflow之模型生命周期管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../language/python/pylibs/numpy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Numpy之数据计算工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../language/python/pylibs/pandas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pandas之数据分析工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../language/python/pylibs/pathlib/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pathlib之使用面向对象的方式操作路径
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../language/python/pylibs/pyflink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyFlink之分布式计算
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../language/python/pylibs/subprocess/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    subprocess之子进程管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../language/python/pylibs/supervisor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Supervisor之进程管理工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../language/python/pylibs/pickle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pickle之数据序列化工具的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../language/python/pylibs/collections/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python之collections的用法
   </span>
   
 
@@ -1498,11 +1467,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../language/python/pydevtools/pypi_source_usage/" class="md-nav__link">
+      <a href="../../../../language/python/pydevtools/env_package_selection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    常用Pypi源汇总及使用
+    Python版本及包管理工具选型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../language/python/pydevtools/conda_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conda的实践应用
   </span>
   
 
@@ -1540,11 +1530,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../language/python/pydevtools/py_dev_tool_selection/" class="md-nav__link">
+      <a href="../../../../language/python/pydevtools/pypi_source_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Python常用开发工具
+    常用Pypi源汇总及使用
   </span>
   
 
@@ -1582,32 +1572,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../language/python/pydevtools/env_package_selection/" class="md-nav__link">
+      <a href="../../../../language/python/pydevtools/py_dev_tool_selection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Python版本及包管理工具选型
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../language/python/pydevtools/conda_usage/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Conda的实践应用
+    Python常用开发工具
   </span>
   
 
@@ -2352,11 +2321,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../language/golang/gobestpractices/go_security_guide/" class="md-nav__link">
+      <a href="../../../../language/golang/gobestpractices/go_code_standard/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Go安全指南[摘录]
+    Go编码规范
   </span>
   
 
@@ -2373,11 +2342,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../language/golang/gobestpractices/go_code_standard/" class="md-nav__link">
+      <a href="../../../../language/golang/gobestpractices/go_security_guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Go编码规范
+    Go安全指南[摘录]
   </span>
   
 
@@ -2446,11 +2415,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../language/golang/gobestpractices/go_install_guide_2/" class="md-nav__link">
+      <a href="../../../../language/golang/gobestpractices/go_install_guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Go环境安装和配置
+    Go在不同平台的安装及配置指南
   </span>
   
 
@@ -2467,11 +2436,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../language/golang/gobestpractices/go_install_guide/" class="md-nav__link">
+      <a href="../../../../language/golang/gobestpractices/go_install_guide_2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Go在不同平台的安装及配置指南
+    Go环境安装和配置
   </span>
   
 
@@ -2544,32 +2513,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../language/golang/gosyntax/go_point/" class="md-nav__link">
+      <a href="../../../../language/golang/gosyntax/go_basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Go的指针和结构体
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../language/golang/gosyntax/go_data_type/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Go的容器数据类型
+    Go的基本知识点
   </span>
   
 
@@ -2607,11 +2555,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../language/golang/gosyntax/go_basics/" class="md-nav__link">
+      <a href="../../../../language/golang/gosyntax/go_data_type/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Go的基本知识点
+    Go的容器数据类型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../language/golang/gosyntax/go_point/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go的指针和结构体
   </span>
   
 
@@ -2733,32 +2702,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../modelops/ml_basic/model_evalution/" class="md-nav__link">
+      <a href="../../../modelops/ml_basic/data_mining/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    机器学习模型的评估方法
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../modelops/ml_basic/ml_work_flow/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    机器学习的流程
+    关于数据挖掘
   </span>
   
 
@@ -2796,11 +2744,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../modelops/ml_basic/data_mining/" class="md-nav__link">
+      <a href="../../../modelops/ml_basic/ml_work_flow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    关于数据挖掘
+    机器学习的流程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../modelops/ml_basic/model_evalution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    机器学习模型的评估方法
   </span>
   
 
@@ -2948,53 +2917,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../software_engineering/rpc_learn/" class="md-nav__link">
+      <a href="../../../software_engineering/capacity_manage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    RPC学习
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../software_engineering/middle_platform_and_platform/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    关于平台和中台的理解
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../software_engineering/gRPC/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    gRPC的学习
+    系统设计之-容量治理
   </span>
   
 
@@ -3032,11 +2959,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../software_engineering/capacity_manage/" class="md-nav__link">
+      <a href="../../../software_engineering/algo_hash/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    系统设计之-容量治理
+    浅析Hash算法
   </span>
   
 
@@ -3074,6 +3001,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../software_engineering/gRPC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    gRPC的学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software_engineering/rpc_learn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RPC学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../software_engineering/api_desgin/" class="md-nav__link">
         
   
@@ -3095,11 +3064,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../software_engineering/algo_hash/" class="md-nav__link">
+      <a href="../../../software_engineering/middle_platform_and_platform/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    浅析Hash算法
+    关于平台和中台的理解
   </span>
   
 
@@ -3234,27 +3203,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/k8s/yaml_usage/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    k8s中yaml文件的编写和使用
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../cloud/k8s/kubernetes_deploy/" class="md-nav__link">
         
   
@@ -3276,11 +3224,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/k8s/k8s_usage_skills/" class="md-nav__link">
+      <a href="../../../cloud/k8s/helm_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    k8s实用小技巧
+    k8s包管理工具helm的使用
   </span>
   
 
@@ -3297,74 +3245,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/k8s/k8s_storageclass_nfs/" class="md-nav__link">
+      <a href="../../../cloud/k8s/yaml_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    k8s的storageclass-nfs安装和使用
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../cloud/k8s/k8s_private_hub_pull_image/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    k8s私有仓库拉取镜像添加secrets
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../cloud/k8s/k8s_ectd_mount_memo/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    k8s中etcd挂载内存卷步骤
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../cloud/k8s/k8s_dashboard/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    k8s的Dashboard安装
+    k8s中yaml文件的编写和使用
   </span>
   
 
@@ -3402,11 +3287,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/k8s/k8s_common_qa/" class="md-nav__link">
+      <a href="../../../cloud/k8s/k8s_cluster_deploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    k8s常见问题汇总
+    k8s集群部署
   </span>
   
 
@@ -3444,11 +3329,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/k8s/k8s_cluster_deploy/" class="md-nav__link">
+      <a href="../../../cloud/k8s/k8s_usage_skills/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    k8s集群部署
+    k8s实用小技巧
   </span>
   
 
@@ -3465,11 +3350,95 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/k8s/helm_usage/" class="md-nav__link">
+      <a href="../../../cloud/k8s/k8s_private_hub_pull_image/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    k8s包管理工具helm的使用
+    k8s私有仓库拉取镜像添加secrets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud/k8s/k8s_common_qa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s常见问题汇总
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud/k8s/k8s_ectd_mount_memo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s中etcd挂载内存卷步骤
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud/k8s/k8s_storageclass_nfs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s的storageclass-nfs安装和使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud/k8s/k8s_dashboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s的Dashboard安装
   </span>
   
 
@@ -3552,11 +3521,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/docker/dockerignore_template/" class="md-nav__link">
+      <a href="../../../cloud/docker/docker_detail_commands/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    dockerignore文件
+    查看docker容器启动的详细命令及参数
   </span>
   
 
@@ -3573,11 +3542,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/docker/dockerifle_guide/" class="md-nav__link">
+      <a href="../../../cloud/docker/dockerignore_template/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Dockerfile常用命令与编写指南
+    dockerignore文件
   </span>
   
 
@@ -3615,53 +3584,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/docker/docker_practical_skills/" class="md-nav__link">
+      <a href="../../../cloud/docker/dockerifle_guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Docker实用技巧
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../cloud/docker/docker_install_guide/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Docker安装卸载指南
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../cloud/docker/docker_detail_commands/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    查看docker容器启动的详细命令及参数
+    Dockerfile常用命令与编写指南
   </span>
   
 
@@ -3699,11 +3626,53 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../cloud/docker/docker_practical_skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker实用技巧
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../cloud/docker/docker_command/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Docker常用命令速查
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud/docker/docker_install_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker安装卸载指南
   </span>
   
 
@@ -3943,32 +3912,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../bigdata/spark/spark_shuffle/" class="md-nav__link">
+      <a href="../../../bigdata/spark/spark_first_know/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    spark中shuffle的工作原理
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../bigdata/spark/spark_scheduler_system/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    spark调度系统的探索
+    初识spark
   </span>
   
 
@@ -4006,11 +3954,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../bigdata/spark/spark_first_know/" class="md-nav__link">
+      <a href="../../../bigdata/spark/spark_shuffle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    初识spark
+    spark中shuffle的工作原理
   </span>
   
 
@@ -4032,6 +3980,27 @@
   
   <span class="md-ellipsis">
     spark分布式计算总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../bigdata/spark/spark_scheduler_system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    spark调度系统的探索
   </span>
   
 
@@ -4176,6 +4145,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../codecore_learn_docs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构算法学习资料
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../why_learn_datastruct/" class="md-nav__link">
         
   
@@ -4223,27 +4213,6 @@
   
   <span class="md-ellipsis">
     常见数据结构与算法汇总
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../codecore_learn_docs/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    数据结构算法学习资料
   </span>
   
 
@@ -4331,53 +4300,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../datastruct_stack/" class="md-nav__link">
+      <a href="../datastruct_array/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    数据结构之栈
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../datastruct_list/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    数据结构之链表
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../datastruct_equeue/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    数据结构之队列
+    数据结构之数组
   </span>
   
 
@@ -4415,11 +4342,53 @@
   
   
     <li class="md-nav__item">
-      <a href="../datastruct_array/" class="md-nav__link">
+      <a href="../datastruct_equeue/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    数据结构之数组
+    数据结构之队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../datastruct_list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构之链表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../datastruct_stack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构之栈
   </span>
   
 
@@ -4482,27 +4451,6 @@
             常用算法
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../algo_sort/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    算法之排序
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -4639,6 +4587,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algo_sort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    算法之排序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -4706,11 +4675,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design_patterns/object_oriented_principles/" class="md-nav__link">
+      <a href="../../design_patterns/design_patterns_categories/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    面向对象的五大基本原则
+    设计模式分类
   </span>
   
 
@@ -4727,11 +4696,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design_patterns/design_patterns_categories/" class="md-nav__link">
+      <a href="../../design_patterns/object_oriented_principles/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    设计模式分类
+    面向对象的五大基本原则
   </span>
   
 
@@ -4815,32 +4784,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolhub/software_tools/" class="md-nav__link">
+      <a href="../../../../toolhub/ai_tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    甄选软件集
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../toolhub/plugin_tools/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    常用插件集
+    甄选AI工具
   </span>
   
 
@@ -4878,11 +4826,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolhub/ai_tools/" class="md-nav__link">
+      <a href="../../../../toolhub/plugin_tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    甄选AI工具
+    常用插件集
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../toolhub/software_tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    甄选软件集
   </span>
   
 
@@ -4967,116 +4936,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolhub/software_install/zookeeper/" class="md-nav__link">
+      <a href="../../../../toolhub/software_install/java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Zookeeper安装部署
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../toolhub/software_install/zabbix/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Zabbix常用配置
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../toolhub/software_install/spark_on_yarn/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Spark(ON YARN）安装部署
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../toolhub/software_install/redis/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Redis主从-哨兵部署
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../toolhub/software_install/rabbitmq/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    RabbitMQ介绍和使用
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../toolhub/software_install/postgresql/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    PostgreSQL主从部署
+    Java环境安装
   </span>
   
 
@@ -5114,6 +4978,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../toolhub/software_install/postgresql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostgreSQL主从部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../toolhub/software_install/mongodb/" class="md-nav__link">
         
   
@@ -5135,11 +5020,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolhub/software_install/kafka/" class="md-nav__link">
+      <a href="../../../../toolhub/software_install/rabbitmq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    kafka安装部署
+    RabbitMQ介绍和使用
   </span>
   
 
@@ -5156,53 +5041,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolhub/software_install/java/" class="md-nav__link">
+      <a href="../../../../toolhub/software_install/redis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Java环境安装
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../toolhub/software_install/hadoop/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Hadoop安装部署
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../toolhub/software_install/flink_on_yarn/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Flink(On YARN)安装部署
+    Redis主从-哨兵部署
   </span>
   
 
@@ -5240,11 +5083,137 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../toolhub/software_install/kafka/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    kafka安装部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../toolhub/software_install/zookeeper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Zookeeper安装部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../toolhub/software_install/hadoop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hadoop安装部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../toolhub/software_install/YARN/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     YARN集群安装部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../toolhub/software_install/spark_on_yarn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spark(ON YARN）安装部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../toolhub/software_install/flink_on_yarn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flink(On YARN)安装部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../toolhub/software_install/zabbix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Zabbix常用配置
   </span>
   
 
@@ -5327,137 +5296,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolhub/software_usage/vim_usage/" class="md-nav__link">
+      <a href="../../../../toolhub/software_usage/git_common_install/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    vim常用命令总结
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../toolhub/software_usage/macos_common_quickly_key/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Mac常用快捷键
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../toolhub/software_usage/github_access_acce/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    github访问加速配置
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../toolhub/software_usage/gitflow_usage/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    gitflow的使用
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../toolhub/software_usage/git_usage_summary/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    git使用总结
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../toolhub/software_usage/git_multi_ssh/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    git同时配置多个平台的SSH
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../toolhub/software_usage/git_install_for_centos7/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    centos7安装git
+    git常用软件安装
   </span>
   
 
@@ -5495,11 +5338,137 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolhub/software_usage/git_common_install/" class="md-nav__link">
+      <a href="../../../../toolhub/software_usage/git_install_for_centos7/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    git常用软件安装
+    centos7安装git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../toolhub/software_usage/git_multi_ssh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git同时配置多个平台的SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../toolhub/software_usage/git_usage_summary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git使用总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../toolhub/software_usage/gitflow_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    gitflow的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../toolhub/software_usage/github_access_acce/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    github访问加速配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../toolhub/software_usage/macos_common_quickly_key/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mac常用快捷键
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../toolhub/software_usage/vim_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    vim常用命令总结
   </span>
   
 
@@ -5641,69 +5610,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../solutionhub/bughub/window_install_pip_bug/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    window环境中pip安装报错
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../solutionhub/bughub/rsa_encryption_bug/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    多语言之间的RSA加解密问题
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../solutionhub/bughub/jupyterhub_deploy_bug/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Jupyterhub离线部署踩坑总结
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../../solutionhub/bughub/jupyter_matplotlib_font_bug/" class="md-nav__link">
         
   
@@ -5746,11 +5652,74 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../solutionhub/bughub/rsa_encryption_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    多语言之间的RSA加解密问题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../solutionhub/bughub/conda_rename_env_bug/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Conda修改虚拟环境名导致异常
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../solutionhub/bughub/window_install_pip_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    window环境中pip安装报错
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../solutionhub/bughub/jupyterhub_deploy_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jupyterhub离线部署踩坑总结
   </span>
   
 
@@ -5823,53 +5792,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../solutionhub/opshub/win10_git_chinese_solution/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    win10的cmd中操作git中文乱码解决方法
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../solutionhub/opshub/server_disk_full_solution/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    服务器磁盘空间满的解决办法
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../../solutionhub/opshub/mac_brew_service_error_solution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Mac使用brew services报错
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../solutionhub/opshub/win10_git_chinese_solution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    win10的cmd中操作git中文乱码解决方法
   </span>
   
 
@@ -5900,6 +5848,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../solutionhub/opshub/server_disk_full_solution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    服务器磁盘空间满的解决办法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -5925,15 +5894,15 @@
     
       
         
-      
-        
-      
-        
-      
-        
-      
-        
           
+        
+      
+        
+      
+        
+      
+        
+      
         
       
         
@@ -5982,25 +5951,6 @@
           <ul class="md-nav__list" data-md-scrollfix>
             
               
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../thinking/article/the_wisdom_of_asking_questions/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    提问的智慧
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -6009,11 +5959,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../thinking/article/tech_yiyan/" class="md-nav__link">
+      <a href="../../../../thinking/article/learn_top_down_or_bottom_up/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    技术一言
+    学习应该自底向上，还是自顶向下？
   </span>
   
 
@@ -6051,11 +6001,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../thinking/article/learn_top_down_or_bottom_up/" class="md-nav__link">
+      <a href="../../../../thinking/article/the_wisdom_of_asking_questions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    学习应该自底向上，还是自顶向下？
+    提问的智慧
   </span>
   
 
@@ -6063,8 +6013,6 @@
     </li>
   
 
-              
-            
               
             
               
@@ -6079,6 +6027,27 @@
   
   <span class="md-ellipsis">
     如何高效学习开源项目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../thinking/article/tech_yiyan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    技术一言
   </span>
   
 
@@ -6128,6 +6097,62 @@
     </li>
   
 
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../tags/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    标签
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            标签
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
               
             
           </ul>
@@ -6258,7 +6283,7 @@
     
     
     
-      <a href="../../../../tag/#" class="md-tag">数据结构算法</a>
+      <a href="../../../../tags/#" class="md-tag">数据结构算法</a>
     
   
 </nav>
@@ -6349,69 +6374,22 @@
 <li>初始值和边界条件</li>
 <li>用迭代循环实现</li>
 </ul>
-<!--
-  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
-<!-- Render date of last update -->
 
 
-<!-- Render date of creation -->
 
 
-<!-- ---------------------------------------------------------------------- -->
-
-<!-- Render authors -->
 
 
-<!-- ---------------------------------------------------------------------- -->
-
-<!-- Render committers from GitHub -->
-
-
-<!-- Render committers from GitLab -->
-
-
-<!-- Render committers -->
-
-
-<!-- ---------------------------------------------------------------------- -->
-
-<!-- Determine date of last update -->
 
   
     
   
-
-  <!-- Determine date of creation -->
   
     
   
 
-
-<!-- Source file information -->
 
   <aside class="md-source-file">
-
-    <!-- Date of last update -->
     
       
   <span class="md-source-file__fact">
@@ -6422,8 +6400,6 @@
   </span>
 
     
-
-    <!-- Date of creation -->
     
       
   <span class="md-source-file__fact">
@@ -6434,70 +6410,12 @@
   </span>
 
     
-
-    <!-- Authors (git-authors plugin) -->
     
-
-    <!-- Authors (git-committers plugin) -->
     
   </aside>
 
-<!--
-  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
-<!-- Determine feedback configuration -->
 
   
-
-
-<!-- Determine whether to show feedback -->
-
-
-<!-- Was this page helpful? -->
-
-<!--
-  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
-<!-- Comment system -->
-
 
 
 
@@ -6537,9 +6455,9 @@
         
           
           <a
-            href="../algo_sort/"
+            href="../datastruct_stack/"
             class="md-footer__link md-footer__link--prev"
-            aria-label="上一页: 算法之排序"
+            aria-label="上一页: 数据结构之栈"
           >
             <div class="md-footer__button md-icon">
               
@@ -6550,7 +6468,7 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                算法之排序
+                数据结构之栈
               </div>
             </div>
             
@@ -6561,16 +6479,16 @@
         
           
           <a
-            href="../../design_patterns/object_oriented_principles/"
+            href="../algo_sort/"
             class="md-footer__link md-footer__link--next"
-            aria-label="下一页: 面向对象的五大基本原则"
+            aria-label="下一页: 算法之排序"
           >
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                面向对象的五大基本原则
+                算法之排序
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -6661,12 +6579,9 @@
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["announce.dismiss", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.footer", "navigation.path", "search.suggest", "search.highlight", "search.share", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.action.edit", "content.action.view", "content.code.annotate", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-    
-      <script src="../../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.471ce7a9.min.js"></script>
       
         <script src="../../../../customize/javascripts/extra.js"></script>
-      
-        <script src="../../../../customize/javascripts/color.js"></script>
       
         <script src="../../../../customize/javascripts/mathjax.js"></script>
       
@@ -6677,7 +6592,5 @@
         <script src="https://cdn.jsdelivr.net/npm/mermaid@10.0.2/dist/add-html-label-6e56ed67.min.js"></script>
       
     
-    <script src="../../../../assets/javascripts/custom.9458f965.min.js"></script>
-  
   </body>
 </html>

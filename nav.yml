@@ -115,6 +115,7 @@ nav:
         - notehub/cloud/k8s/k8s_storageclass_nfs.md
         - notehub/cloud/k8s/k8s_dashboard.md
       - Docker:
+        - notehub/cloud/docker/docker_image_pull_problem_for_solution.md
         - notehub/cloud/docker/docker_detail_commands.md
         - notehub/cloud/docker/dockerignore_template.md
         - notehub/cloud/docker/docker_registry_usage.md

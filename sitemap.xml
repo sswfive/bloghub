@@ -391,6 +391,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://sswfive.github.io/bloghub/notehub/cloud/docker/docker_image_pull_problem_for_solution/</loc>
+         <lastmod>2024-08-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud/docker/docker_install_guide/</loc>
          <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>

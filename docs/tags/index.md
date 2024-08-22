@@ -1,5 +1,5 @@
 ---
-template: custom_tags.html
+template: tags.html
 hide:
   - toc
   - navigation

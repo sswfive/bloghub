@@ -24,7 +24,7 @@
     
     
       
-        <title>kafka安装部署 - IceCoffee</title>
+        <title>kafka安装部署 - IceCoffee[空谷幽兰]</title>
       
     
     
@@ -114,7 +114,7 @@ but is high on our list for inclusion in a future release. -->
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="IceCoffee" class="md-header__button md-logo" aria-label="IceCoffee" data-md-component="logo">
+    <a href="../../.." title="IceCoffee[空谷幽兰]" class="md-header__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
   <img src="../../../customize/assets/head.png" alt="logo">
 
@@ -127,7 +127,7 @@ but is high on our list for inclusion in a future release. -->
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            IceCoffee
+            IceCoffee[空谷幽兰]
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -464,7 +464,7 @@ but is high on our list for inclusion in a future release. -->
   
     
   
-  标签
+  标签分类
 
         </a>
       </li>
@@ -494,12 +494,12 @@ but is high on our list for inclusion in a future release. -->
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="IceCoffee" class="md-nav__button md-logo" aria-label="IceCoffee" data-md-component="logo">
+    <a href="../../.." title="IceCoffee[空谷幽兰]" class="md-nav__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
   <img src="../../../customize/assets/head.png" alt="logo">
 
     </a>
-    IceCoffee
+    IceCoffee[空谷幽兰]
   </label>
   
     <div class="md-nav__source">
@@ -6154,7 +6154,7 @@ but is high on our list for inclusion in a future release. -->
               
   
   <span class="md-ellipsis">
-    标签
+    标签分类
   </span>
   
 
@@ -6165,7 +6165,7 @@ but is high on our list for inclusion in a future release. -->
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            标签
+            标签分类
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -6365,26 +6365,26 @@ but is high on our list for inclusion in a future release. -->
 </table>
 <h2 id="kafka_1">Kafka部署<a class="headerlink" href="#kafka_1" title="Permanent link">&para;</a></h2>
 <h3 id="step1">step1: 解压安装包<a class="headerlink" href="#step1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo<span class="w"> </span>tar<span class="w"> </span>-zxvf<span class="w"> </span>/data/software/kafka_2.12-2.1.1.tgz<span class="w"> </span>-C<span class="w"> </span>/data/workspace
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>demouser:demouser<span class="w"> </span>/data/workspace/kafka_2.12-2.1.1/
 </code></pre></div></td></tr></table></div>
 <h3 id="step2-flink">step2: 配置 Flink 环境变量<a class="headerlink" href="#step2-flink" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>vim<span class="w"> </span>~/.bashrc
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>vim<span class="w"> </span>~/.bashrc
 </code></pre></div></td></tr></table></div>
 <p>​     配置内容如下：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># FLINK</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">KAFKA_HOME</span><span class="o">=</span>/data/workspace/kafka_2.12-2.1.1
 <a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$KAFKA_HOME</span>/bin
 </code></pre></div></td></tr></table></div>
 <p>​     生效配置：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
 </code></pre></div></td></tr></table></div>
 <h3 id="step3-serverproperties">step3: 配置server.properties文件<a class="headerlink" href="#step3-serverproperties" title="Permanent link">&para;</a></h3>
 <p>在${KAFKA_HOME}/config路径下配置server.properties文件，配置项如下：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">  1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Properties</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">  1</a></span>
 <span class="normal"><a href="#__codelineno-4-2">  2</a></span>
 <span class="normal"><a href="#__codelineno-4-3">  3</a></span>
 <span class="normal"><a href="#__codelineno-4-4">  4</a></span>
@@ -6620,7 +6620,7 @@ but is high on our list for inclusion in a future release. -->
 </code></pre></div></td></tr></table></div>
 <h3 id="step4">step4：运维管理<a class="headerlink" href="#step4" title="Permanent link">&para;</a></h3>
 <p>例如创建一个名称为t1的主题，同时指定1个分区和1个副本。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">2</a></span>
 <span class="normal"><a href="#__codelineno-5-3">3</a></span>
 <span class="normal"><a href="#__codelineno-5-4">4</a></span>
@@ -6631,13 +6631,13 @@ but is high on our list for inclusion in a future release. -->
 <a id="__codelineno-5-5" name="__codelineno-5-5"></a>--topic<span class="w"> </span>t1
 </code></pre></div></td></tr></table></div>
 <p>​       【注意】这里的--zookeeper必须对应$KAFKA_HOME/config/server.properties配置文件中的zookeeper.connect参数所对应的值，容易出错的地方在于如果配置了kafka注册到节点znode，那么在通过kafka-topics.sh操作主题时--zookeeper参数也必须附带上这个znode，否则会有如下异常：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
 <span class="normal"><a href="#__codelineno-6-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>ERROR<span class="w"> </span>org.apache.kafka.common.errors.InvalidReplicationFactorException:<span class="w"> </span>Replication<span class="w"> </span>factor:<span class="w"> </span><span class="m">1</span><span class="w"> </span>larger<span class="w"> </span>than<span class="w"> </span>available<span class="w"> </span>brokers:<span class="w"> </span><span class="m">0</span>.
 <a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w"> </span><span class="o">(</span>kafka.admin.TopicCommand$<span class="o">)</span>
 </code></pre></div></td></tr></table></div>
 <p>查看主题</p>
 <p>【查看单个主题】</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
 <span class="normal"><a href="#__codelineno-7-2">2</a></span>
 <span class="normal"><a href="#__codelineno-7-3">3</a></span>
 <span class="normal"><a href="#__codelineno-7-4">4</a></span>
@@ -6648,7 +6648,7 @@ but is high on our list for inclusion in a future release. -->
 <a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">        </span>Topic:<span class="w"> </span>t1<span class="w">       </span>Partition:<span class="w"> </span><span class="m">0</span><span class="w">    </span>Leader:<span class="w"> </span><span class="m">2</span><span class="w">       </span>Replicas:<span class="w"> </span><span class="m">2</span><span class="w">     </span>Isr:<span class="w"> </span><span class="m">2</span>
 </code></pre></div></td></tr></table></div>
 <p>【列出所有主题】</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
 <span class="normal"><a href="#__codelineno-8-2">2</a></span>
 <span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nv">$KAFKA_HOME</span>/bin/kafka-topics.sh<span class="w"> </span>--list<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2"></a>--zookeeper<span class="w"> </span>node73:2181,node74:2181,node75:2181/kafka-2.1.1
@@ -6656,7 +6656,7 @@ but is high on our list for inclusion in a future release. -->
 </code></pre></div></td></tr></table></div>
 <p>删除主题</p>
 <p>【方式一】</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
 <span class="normal"><a href="#__codelineno-9-2">2</a></span>
 <span class="normal"><a href="#__codelineno-9-3">3</a></span>
 <span class="normal"><a href="#__codelineno-9-4">4</a></span>
@@ -6667,7 +6667,7 @@ but is high on our list for inclusion in a future release. -->
 <a id="__codelineno-9-5" name="__codelineno-9-5"></a>Note:<span class="w"> </span>This<span class="w"> </span>will<span class="w"> </span>have<span class="w"> </span>no<span class="w"> </span>impact<span class="w"> </span><span class="k">if</span><span class="w"> </span>delete.topic.enable<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span><span class="nb">set</span><span class="w"> </span>to<span class="w"> </span>true.
 </code></pre></div></td></tr></table></div>
 <p>【方式二】</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
 <span class="normal"><a href="#__codelineno-10-2">2</a></span>
 <span class="normal"><a href="#__codelineno-10-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nv">$KAFKA_HOME</span>/bin/kafka-topics.sh<span class="w"> </span>--delete<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2"></a>--zookeeper<span class="w"> </span>node73:2181,node74:2181,node75:2181/kafka-2.1.1<span class="w"> </span><span class="se">\</span>
@@ -6675,14 +6675,14 @@ but is high on our list for inclusion in a future release. -->
 </code></pre></div></td></tr></table></div>
 <p>生产消息</p>
 <p>【使用内部网卡】</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
 <span class="normal"><a href="#__codelineno-11-2">2</a></span>
 <span class="normal"><a href="#__codelineno-11-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="nv">$KAFKA_HOME</span>/bin/kafka-console-producer.sh<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2"></a>--broker-list<span class="w"> </span>node73:9092<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-11-3" name="__codelineno-11-3"></a>--topic<span class="w"> </span>t1
 </code></pre></div></td></tr></table></div>
 <p>【使用外部网卡】</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
 <span class="normal"><a href="#__codelineno-12-2">2</a></span>
 <span class="normal"><a href="#__codelineno-12-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="nv">$KAFKA_HOME</span>/bin/kafka-console-producer.sh<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2"></a>--broker-list<span class="w"> </span>node73:9092<span class="w"> </span><span class="se">\</span>
@@ -6690,7 +6690,7 @@ but is high on our list for inclusion in a future release. -->
 </code></pre></div></td></tr></table></div>
 <p>消费消息</p>
 <p>【使用内部网卡】</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
 <span class="normal"><a href="#__codelineno-13-2">2</a></span>
 <span class="normal"><a href="#__codelineno-13-3">3</a></span>
 <span class="normal"><a href="#__codelineno-13-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="nv">$KAFKA_HOME</span>/bin/kafka-console-consumer.sh<span class="w"> </span><span class="se">\</span>
@@ -6699,7 +6699,7 @@ but is high on our list for inclusion in a future release. -->
 <a id="__codelineno-13-4" name="__codelineno-13-4"></a>--from-beginning
 </code></pre></div></td></tr></table></div>
 <p>【使用外部网卡】</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
 <span class="normal"><a href="#__codelineno-14-2">2</a></span>
 <span class="normal"><a href="#__codelineno-14-3">3</a></span>
 <span class="normal"><a href="#__codelineno-14-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="nv">$KAFKA_HOME</span>/bin/kafka-console-consumer.sh<span class="w"> </span><span class="se">\</span>
@@ -6708,14 +6708,14 @@ but is high on our list for inclusion in a future release. -->
 <a id="__codelineno-14-4" name="__codelineno-14-4"></a>--from-beginning
 </code></pre></div></td></tr></table></div>
 <p>查看消费者组</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
 <span class="normal"><a href="#__codelineno-15-2">2</a></span>
 <span class="normal"><a href="#__codelineno-15-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="nv">$KAFKA_HOME</span>/bin/kafka-consumer-groups.sh<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2"></a>--bootstrap-server<span class="w"> </span>node73:9092<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-15-3" name="__codelineno-15-3"></a>--list
 </code></pre></div></td></tr></table></div>
 <p>查看消费者组详细消费情况</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
 <span class="normal"><a href="#__codelineno-16-2">2</a></span>
 <span class="normal"><a href="#__codelineno-16-3">3</a></span>
 <span class="normal"><a href="#__codelineno-16-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="nv">$KAFKA_HOME</span>/bin/kafka-consumer-groups.sh<span class="w"> </span><span class="se">\</span>

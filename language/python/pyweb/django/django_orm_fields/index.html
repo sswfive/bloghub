@@ -24,7 +24,7 @@
     
     
       
-        <title>django中ORM字段总结 - IceCoffee</title>
+        <title>django中ORM字段总结 - IceCoffee[空谷幽兰]</title>
       
     
     
@@ -114,7 +114,7 @@ but is high on our list for inclusion in a future release. -->
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../../.." title="IceCoffee" class="md-header__button md-logo" aria-label="IceCoffee" data-md-component="logo">
+    <a href="../../../../.." title="IceCoffee[空谷幽兰]" class="md-header__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
   <img src="../../../../../customize/assets/head.png" alt="logo">
 
@@ -127,7 +127,7 @@ but is high on our list for inclusion in a future release. -->
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            IceCoffee
+            IceCoffee[空谷幽兰]
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -464,7 +464,7 @@ but is high on our list for inclusion in a future release. -->
   
     
   
-  标签
+  标签分类
 
         </a>
       </li>
@@ -494,12 +494,12 @@ but is high on our list for inclusion in a future release. -->
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../.." title="IceCoffee" class="md-nav__button md-logo" aria-label="IceCoffee" data-md-component="logo">
+    <a href="../../../../.." title="IceCoffee[空谷幽兰]" class="md-nav__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
   <img src="../../../../../customize/assets/head.png" alt="logo">
 
     </a>
-    IceCoffee
+    IceCoffee[空谷幽兰]
   </label>
   
     <div class="md-nav__source">
@@ -6176,7 +6176,7 @@ but is high on our list for inclusion in a future release. -->
               
   
   <span class="md-ellipsis">
-    标签
+    标签分类
   </span>
   
 
@@ -6187,7 +6187,7 @@ but is high on our list for inclusion in a future release. -->
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            标签
+            标签分类
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -6382,7 +6382,7 @@ but is high on our list for inclusion in a future release. -->
 <p>表的内容相对简单,就是建立一个类.而真正对表有影响的,是其中的<a href="https://docs.djangoproject.com/en/1.11/ref/models/fields/">字段(Field)</a>,非常重要,因为字段不仅代表这表的实际内容,在ORM模型下,字段的设置还会对MySQL里实际建立的表产生非常大的影响.
 在之前的项目中,使用过的字段有AutoField,CharField,ForeignKey,ManyToManyField.这些对于开发程序来说远远不够,现在要来详细的看一下所有的字段及对应关系.</p>
 <p>在Django中,所有的字段(Field),都是由两部分组成的,即<a href="https://docs.djangoproject.com/en/1.11/ref/models/fields/#field-types">字段类型(Field Types)</a>和<a href="https://docs.djangoproject.com/en/1.11/ref/models/fields/#field-options">字段选项(Field Options)</a>构成.例如我们之前写的:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nb">id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">AutoField</span><span class="p">(</span><span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nb">id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">AutoField</span><span class="p">(</span><span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>其中<code>models.AutoField</code>叫做字段类型;<code>primary_key</code>叫做字段选项或者说字段参数,字段选项在设置的时候通过类似关键字参数的方式设置.下边分开介绍这两部分.</p>
 <h3 id="field-types"><strong>字段类型 Field types</strong><a class="headerlink" href="#field-types" title="Permanent link">&para;</a></h3>
@@ -6513,7 +6513,7 @@ but is high on our list for inclusion in a future release. -->
 </tbody>
 </table>
 <p>除了上边常用的内置字段之外,还可以自定义字段,在models.py里新建一个类继承models.Field类,具体以后先研究,先把示例代码贴在这里:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
@@ -6626,14 +6626,14 @@ but is high on our list for inclusion in a future release. -->
 <h3 id="foreignkey"><strong>ForeignKey 一对多关系</strong><a class="headerlink" href="#foreignkey" title="Permanent link">&para;</a></h3>
 <p>外键类型在ORM中用来表示外键关联关系，一般把ForeignKey字段设置在 ‘一对多’中’多’的一方。
 ForeignKey可以和其他表做关联关系同时也可以和自身做关联关系。设置ForeignKey的格式如下:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">theclass</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="s2">&quot;Classes&quot;</span><span class="p">,</span><span class="n">to_field</span><span class="o">=</span><span class="s2">&quot;name&quot;</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&quot;students&quot;</span><span class="p">,</span><span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">theclass</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="s2">&quot;Classes&quot;</span><span class="p">,</span><span class="n">to_field</span><span class="o">=</span><span class="s2">&quot;name&quot;</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&quot;students&quot;</span><span class="p">,</span><span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>ForeignKey的几个字段参数介绍如下:
 <strong>to=</strong>
 其中的to=表示外键关联到哪个表,可以直接为类名,如果类还没建立,可以用字符串的类名.to_field表示关联到哪个字段,如果不设置,Django默认会关联到主键.</p>
 <p><strong>related_name</strong>
 related_name表示反向操作的时候代替的表名,比如学生表关联到班级表:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
 <span class="normal"><a href="#__codelineno-3-3">3</a></span>
 <span class="normal"><a href="#__codelineno-3-4">4</a></span>
@@ -6646,18 +6646,18 @@ related_name表示反向操作的时候代替的表名,比如学生表关联到�
 <a id="__codelineno-3-6" name="__codelineno-3-6"></a>    <span class="n">theclass</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="s2">&quot;Classes&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>这里外键设置在学生里,如果要查一个班级对应的所有学生,操作的主体是Classes对象,写成:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>models.Classes.objects.first().student_set.all()
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>models.Classes.objects.first().student_set.all()
 </code></pre></div></td></tr></table></div>
 <p>这里的_set是固定写法,即去反查设置了外键的那一张表.student是自动小写的类名.
 如果Student表里的theclass外键设置了related_name如下:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">2</a></span>
 <span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3"></a>    <span class="n">theclass</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="s2">&quot;Classes&quot;</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&quot;students&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>则上边通过班级表查对应学生可以写成:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">models</span><span class="o">.</span><span class="n">Classes</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">students</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">models</span><span class="o">.</span><span class="n">Classes</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">students</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>related_query_name</strong>
 反向查询操作时，使用的连接前缀，用于替换表名。即在反向操作的时候给表起个别名.related_name是给外键字段起一个别名.</p>
@@ -6754,7 +6754,7 @@ related_name表示反向操作的时候代替的表名,比如学生表关联到�
 </table>
 <p>但看字段参数还有点不明白,在MySQL里多对多关系是通过创建一张表格来对应的.要了解ManyToMany,就要了解ORM模型里创建多对多关系的三种方法:</p>
 <p>第一种方法,自行创建第三张表,不使用ManyToMany:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
@@ -6786,7 +6786,7 @@ related_name表示反向操作的时候代替的表名,比如学生表关联到�
 </code></pre></div></td></tr></table></div>
 <p>这种方法自然无法通过ManyToMany字段来直接查询取值,想要查询关系就必须通过多对多表拿到结果再过滤.</p>
 <p>第二种方法,通过ManyToManyField自动创建多对多关系表:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
 <span class="normal"><a href="#__codelineno-8-2">2</a></span>
 <span class="normal"><a href="#__codelineno-8-3">3</a></span>
 <span class="normal"><a href="#__codelineno-8-4">4</a></span>
@@ -6804,7 +6804,7 @@ related_name表示反向操作的时候代替的表名,比如学生表关联到�
 </code></pre></div></td></tr></table></div>
 <p>这种情况下想要查询作者对应的书,是可以使用Django提供的API直接查询的,就像之前项目里写的<code>author_obj.book.set(books)</code>直接在多对多关系里设置了对应关系.</p>
 <p>第三种方法,设置ManyTomanyField并指定自行创建的第三张表:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
@@ -6844,7 +6844,7 @@ related_name表示反向操作的时候代替的表名,比如学生表关联到�
 <p>到这里基本上学习完了定义表时候的操作,包括类和类属性,关联关系的各种设置.
 此外,还要对表再补充一点,就是类内可以再定义一个叫<a href="https://docs.djangoproject.com/en/1.11/ref/models/options/">META的类</a>,保存着这个表的一些其他属性.
 建立META类很简单,只要在表的类内定义一个类如下:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
 <span class="normal"><a href="#__codelineno-10-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2"></a>    <span class="n">unique_together</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;author&quot;</span><span class="p">,</span> <span class="s2">&quot;book&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>

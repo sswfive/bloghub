@@ -24,7 +24,7 @@
     
     
       
-        <title>k8s集群部署 - IceCoffee</title>
+        <title>k8s集群部署 - IceCoffee[空谷幽兰]</title>
       
     
     
@@ -114,7 +114,7 @@ but is high on our list for inclusion in a future release. -->
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../.." title="IceCoffee" class="md-header__button md-logo" aria-label="IceCoffee" data-md-component="logo">
+    <a href="../../../.." title="IceCoffee[空谷幽兰]" class="md-header__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
   <img src="../../../../customize/assets/head.png" alt="logo">
 
@@ -127,7 +127,7 @@ but is high on our list for inclusion in a future release. -->
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            IceCoffee
+            IceCoffee[空谷幽兰]
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -464,7 +464,7 @@ but is high on our list for inclusion in a future release. -->
   
     
   
-  标签
+  标签分类
 
         </a>
       </li>
@@ -494,12 +494,12 @@ but is high on our list for inclusion in a future release. -->
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="IceCoffee" class="md-nav__button md-logo" aria-label="IceCoffee" data-md-component="logo">
+    <a href="../../../.." title="IceCoffee[空谷幽兰]" class="md-nav__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
   <img src="../../../../customize/assets/head.png" alt="logo">
 
     </a>
-    IceCoffee
+    IceCoffee[空谷幽兰]
   </label>
   
     <div class="md-nav__source">
@@ -6513,7 +6513,7 @@ but is high on our list for inclusion in a future release. -->
               
   
   <span class="md-ellipsis">
-    标签
+    标签分类
   </span>
   
 
@@ -6524,7 +6524,7 @@ but is high on our list for inclusion in a future release. -->
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            标签
+            标签分类
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -7078,7 +7078,7 @@ but is high on our list for inclusion in a future release. -->
 <blockquote>
 <p>eg：</p>
 </blockquote>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
@@ -7141,14 +7141,14 @@ but is high on our list for inclusion in a future release. -->
 <a id="__codelineno-0-31" name="__codelineno-0-31"></a>（eg:<span class="w"> </span>ifup<span class="w"> </span>ens33）
 </code></pre></div></td></tr></table></div>
 <h3 id="3hostname">3.设置主机名（hostname）<a class="headerlink" href="#3hostname" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># xxx为主机名 </span>
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>xxx<span class="w"> </span>
 </code></pre></div></td></tr></table></div>
 <h3 id="4hosts">4.查看或设置hosts<a class="headerlink" href="#4hosts" title="Permanent link">&para;</a></h3>
 <ul>
 <li>节点的 hostname 必须使用标准的 DNS 命名，另外千万不用什么默认的 <code>localhost</code> 的 hostname，会导致各种错误出现的。在 Kubernetes 项目里，机器的名字以及一切存储在 Etcd 中的 API 对象，都必须使用标准的 DNS 命名（RFC 1123）。可以使用命令 <code>hostnamectl set-hostname ydzs-node1</code> 来修改 hostname。
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
@@ -7172,10 +7172,10 @@ but is high on our list for inclusion in a future release. -->
 </code></pre></div></td></tr></table></div></li>
 </ul>
 <h3 id="5">5.禁用防火墙：<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>systemctl<span class="w"> </span>stop<span class="w"> </span>firewalld<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>firewalld
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>systemctl<span class="w"> </span>stop<span class="w"> </span>firewalld<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>firewalld
 </code></pre></div></td></tr></table></div>
 <h3 id="6swap">6.禁用swap（交换分区）<a class="headerlink" href="#6swap" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
@@ -7220,7 +7220,7 @@ but is high on our list for inclusion in a future release. -->
 <a id="__codelineno-4-22" name="__codelineno-4-22"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;/ swap / s/^\(.*\)$/#\1/g&#39;</span><span class="w"> </span>/etc/fstab
 </code></pre></div></td></tr></table></div>
 <h3 id="7selinux">7.禁用selinux<a class="headerlink" href="#7selinux" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">2</a></span>
 <span class="normal"><a href="#__codelineno-5-3">3</a></span>
 <span class="normal"><a href="#__codelineno-5-4">4</a></span>
@@ -7233,11 +7233,11 @@ but is high on our list for inclusion in a future release. -->
 <h3 id="8br_netfilter">8.加载br_netfilter模块<a class="headerlink" href="#8br_netfilter" title="Permanent link">&para;</a></h3>
 <ul>
 <li>由于开启内核 ipv4 转发需要加载 br_netfilter 模块
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="w"> </span>modprobe<span class="w"> </span>br_netfilter
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="w"> </span>modprobe<span class="w"> </span>br_netfilter
 </code></pre></div></td></tr></table></div></li>
 </ul>
 <h3 id="9ipv4iptables">9.将桥接的IPv4流量传递到iptables的链<a class="headerlink" href="#9ipv4iptables" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
@@ -7269,7 +7269,7 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 <ul>
 <li>
 <p>保证在节点重启后能自动加载所需模块。使用<code>lsmod | grep -e ip_vs -e nf_conntrack_ipv4</code>命令查看是否已经正确加载所需的内核模块
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
@@ -7292,17 +7292,17 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 </li>
 <li>
 <p>接下来还需要确保各个节点上已经安装了 ipset 软件包：
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>yum<span class="w"> </span>install<span class="w"> </span>ipset
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>yum<span class="w"> </span>install<span class="w"> </span>ipset
 </code></pre></div></td></tr></table></div></p>
 </li>
 <li>
 <p>为了便于查看 ipvs 的代理规则，最好安装一下管理工具 ipvsadm：
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>yum<span class="w"> </span>install<span class="w"> </span>ipvsadm<span class="w"> </span>-y
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>yum<span class="w"> </span>install<span class="w"> </span>ipvsadm<span class="w"> </span>-y
 </code></pre></div></td></tr></table></div></p>
 </li>
 </ul>
 <h3 id="11">11.同步服务器时间<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
@@ -7359,7 +7359,7 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 <a id="__codelineno-11-28" name="__codelineno-11-28"></a>Wed<span class="w"> </span>Jun<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">13</span>:53:22<span class="w"> </span>CST<span class="w"> </span><span class="m">2021</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="12">12.安装常用软件<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>vim<span class="w">  </span>lrzsz<span class="w"> </span>wget<span class="w"> </span>curl<span class="w"> </span>man<span class="w"> </span>tree<span class="w"> </span>rsync<span class="w"> </span>gcc<span class="w"> </span>gcc-c++<span class="w"> </span>cmake<span class="w"> </span>telnet
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>vim<span class="w">  </span>lrzsz<span class="w"> </span>wget<span class="w"> </span>curl<span class="w"> </span>man<span class="w"> </span>tree<span class="w"> </span>rsync<span class="w"> </span>gcc<span class="w"> </span>gcc-c++<span class="w"> </span>cmake<span class="w"> </span>telnet
 </code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="step2docker">STEP2:安装依赖——Docker<a class="headerlink" href="#step2docker" title="Permanent link">&para;</a></h2>
@@ -7380,7 +7380,7 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 <ul>
 <li>
 <p>能使用科学上网设置源的方式
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
@@ -7403,7 +7403,7 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 </li>
 <li>
 <p>不能科学上网设置源的方式
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-14-4"> 4</a></span>
@@ -7426,14 +7426,14 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 </li>
 </ul>
 <h3 id="2yum">2.重新构建yum缓存<a class="headerlink" href="#2yum" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
 <span class="normal"><a href="#__codelineno-15-2">2</a></span>
 <span class="normal"><a href="#__codelineno-15-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>epel-release
 <a id="__codelineno-15-2" name="__codelineno-15-2"></a>yum<span class="w"> </span>clean<span class="w"> </span>all
 <a id="__codelineno-15-3" name="__codelineno-15-3"></a>yum<span class="w"> </span>makecache
 </code></pre></div></td></tr></table></div>
 <h3 id="3kubeadmkubeletkubectl">3.安装kubeadm/kubelet/kubectl<a class="headerlink" href="#3kubeadmkubeletkubectl" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
@@ -7454,7 +7454,7 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 <a id="__codelineno-16-10" name="__codelineno-16-10"></a>kubectl<span class="w"> </span>version<span class="w"> </span>--client
 </code></pre></div></td></tr></table></div>
 <h3 id="4kubelet">4.设置kubelet服务开机启动<a class="headerlink" href="#4kubelet" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>kubelet<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>kubelet
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>kubelet<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>kubelet
 </code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="step4">STEP4: 初始化集群<a class="headerlink" href="#step4" title="Permanent link">&para;</a></h2>
@@ -7466,7 +7466,7 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 </blockquote>
 <h3 id="yaml">方式一：配置yaml的方式<a class="headerlink" href="#yaml" title="Permanent link">&para;</a></h3>
 <h4 id="1_1">1.导出默认的初始化配置：<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>$<span class="w"> </span>kubeadm<span class="w"> </span>config<span class="w"> </span>print<span class="w"> </span>init-defaults<span class="w"> </span>&gt;<span class="w"> </span>kubeadm.yaml
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>$<span class="w"> </span>kubeadm<span class="w"> </span>config<span class="w"> </span>print<span class="w"> </span>init-defaults<span class="w"> </span>&gt;<span class="w"> </span>kubeadm.yaml
 </code></pre></div></td></tr></table></div>
 <h4 id="2">2.根据需求修改配置<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
 <blockquote>
@@ -7475,7 +7475,7 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 <li>安装 flannel 网络插件,需要将 networking.podSubnet 设置为<code>10.244.0.0/16</code>：</li>
 </ul>
 </blockquote>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">YAML</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-19-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-19-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-19-4"> 4</a></span>
@@ -7562,7 +7562,7 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 <a id="__codelineno-19-43" name="__codelineno-19-43"></a><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ipvs</span><span class="w">  </span><span class="c1"># kube-proxy 模式</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="3">3.执行初始化<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-20-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-20-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-20-4"> 4</a></span>
@@ -7601,7 +7601,7 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 <a id="__codelineno-20-19" name="__codelineno-20-19"></a><span class="w">    </span>--discovery-token-ca-cert-hash<span class="w"> </span>sha256:22a3006ef3935419f13f3da59592f2450da4fd33035f81bd0d8048efd0cb38aa<span class="w"> </span>
 </code></pre></div></td></tr></table></div>
 <h3 id="_1">方式二：使用命令行指定配置参数方式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
 <span class="normal"><a href="#__codelineno-21-2">2</a></span>
 <span class="normal"><a href="#__codelineno-21-3">3</a></span>
 <span class="normal"><a href="#__codelineno-21-4">4</a></span>
@@ -7615,7 +7615,7 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>参数说明：
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
 <span class="normal"><a href="#__codelineno-22-2">2</a></span>
 <span class="normal"><a href="#__codelineno-22-3">3</a></span>
 <span class="normal"><a href="#__codelineno-22-4">4</a></span>
@@ -7627,7 +7627,7 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 </code></pre></div></td></tr></table></div></li>
 </ul>
 <h3 id="kubeconfig">拷贝 kubeconfig 文件<a class="headerlink" href="#kubeconfig" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
 <span class="normal"><a href="#__codelineno-23-2">2</a></span>
 <span class="normal"><a href="#__codelineno-23-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$HOME</span>/.kube
 <a id="__codelineno-23-2" name="__codelineno-23-2"></a>$<span class="w"> </span>sudo<span class="w"> </span>cp<span class="w"> </span>-i<span class="w"> </span>/etc/kubernetes/admin.conf<span class="w"> </span><span class="nv">$HOME</span>/.kube/config
@@ -7636,7 +7636,7 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 <h3 id="_2">查看节点信息<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>状态为NoteReady的原因是没有安装网卡
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
 <span class="normal"><a href="#__codelineno-24-2">2</a></span>
 <span class="normal"><a href="#__codelineno-24-3">3</a></span>
 <span class="normal"><a href="#__codelineno-24-4">4</a></span>
@@ -7661,7 +7661,7 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 <li>注意:node节点不需要执行init的操作</li>
 </ul>
 <h3 id="2join">2.执行join操作<a class="headerlink" href="#2join" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-25-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-25-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-25-4"> 4</a></span>
@@ -7708,7 +7708,7 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 <h3 id="3master">3.在master查看节点信息<a class="headerlink" href="#3master" title="Permanent link">&para;</a></h3>
 <ul>
 <li>状态为NoteReady的原因是没有安装网卡
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span>
 <span class="normal"><a href="#__codelineno-26-2">2</a></span>
 <span class="normal"><a href="#__codelineno-26-3">3</a></span>
 <span class="normal"><a href="#__codelineno-26-4">4</a></span>
@@ -7735,7 +7735,7 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 <blockquote>
 <p>当我们部署完网络插件后执行 ifconfig 命令，正常会看到新增的<code>cni0</code>与<code>flannel1</code>这两个虚拟设备，但是如果没有看到<code>cni0</code>这个设备也不用太担心，我们可以观察<code>/var/lib/cni</code>目录是否存在，如果不存在并不是说部署有问题，而是该节点上暂时还没有应用运行，我们只需要在该节点上运行一个 Pod 就可以看到该目录会被创建，并且<code>cni0</code>设备也会被创建出来。</p>
 </blockquote>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-27-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-27-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-27-4"> 4</a></span>
@@ -7770,7 +7770,7 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 <h3 id="2master">2.再次在master查看节点信息<a class="headerlink" href="#2master" title="Permanent link">&para;</a></h3>
 <ul>
 <li>状态为NoteReady的原因是没有安装网卡
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span>
 <span class="normal"><a href="#__codelineno-28-2">2</a></span>
 <span class="normal"><a href="#__codelineno-28-3">3</a></span>
 <span class="normal"><a href="#__codelineno-28-4">4</a></span>
@@ -7789,7 +7789,7 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 <h2 id="_3">备注内容：<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="_4">重置的方法：<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>如果你的集群安装过程中遇到了其他问题，我们可以使用下面的命令来进行重置：
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span>
 <span class="normal"><a href="#__codelineno-29-2">2</a></span>
 <span class="normal"><a href="#__codelineno-29-3">3</a></span>
 <span class="normal"><a href="#__codelineno-29-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a>$<span class="w"> </span>kubeadm<span class="w"> </span>reset
@@ -7799,7 +7799,7 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 </code></pre></div></td></tr></table></div></p>
 <hr />
 <h3 id="_5">彻底卸载的方法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-30-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-30-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-30-4"> 4</a></span>
@@ -7835,39 +7835,39 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 <ul>
 <li>
 <p>下载安装
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a>kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.3/aio/deploy/recommended.yaml
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a>kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.3/aio/deploy/recommended.yaml
 </code></pre></div></td></tr></table></div></p>
 </li>
 <li>
 <p>查看是否安装成功
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-32-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>po<span class="w"> </span>--all-namespaces<span class="p">|</span>grep<span class="w"> </span>dashboard
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-32-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>po<span class="w"> </span>--all-namespaces<span class="p">|</span>grep<span class="w"> </span>dashboard
 </code></pre></div></td></tr></table></div></p>
 </li>
 <li>
 <p>修改node为NodePort模式
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-33-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a>kubectl<span class="w"> </span>patch<span class="w"> </span>svc<span class="w"> </span>-n<span class="w"> </span>kubernetes-dashboard<span class="w"> </span>kubernetes-dashboard<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;{&quot;spec&quot;:{&quot;type&quot;:&quot;NodePort&quot;}}&#39;</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-33-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a>kubectl<span class="w"> </span>patch<span class="w"> </span>svc<span class="w"> </span>-n<span class="w"> </span>kubernetes-dashboard<span class="w"> </span>kubernetes-dashboard<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;{&quot;spec&quot;:{&quot;type&quot;:&quot;NodePort&quot;}}&#39;</span>
 </code></pre></div></td></tr></table></div></p>
 </li>
 <li>
 <p>查看服务 svc是service是缩写
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-34-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>svc<span class="w"> </span>-n<span class="w"> </span>kubernetes-dashboard
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-34-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>svc<span class="w"> </span>-n<span class="w"> </span>kubernetes-dashboard
 </code></pre></div></td></tr></table></div></p>
 </li>
 <li>
 <p>访问浏览器,使用https的方式访问
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-35-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a>https://192.168.33.130:32005/
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-35-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a>https://192.168.33.130:32005/
 </code></pre></div></td></tr></table></div></p>
 </li>
 <li>
 <p>输入刚刚初始化生成的token: tsmqw9.wbp9qzvd2owjgj6s
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-36-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-36-1">1</a></span>
 <span class="normal"><a href="#__codelineno-36-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a>kubeadm join 192.168.33.132:6443 --token  \
 <a id="__codelineno-36-2" name="__codelineno-36-2"></a>    --discovery-token-ca-cert-hash sha256:5ca47847041f5f152d818e38355a8972174413cdb9f0f515393ffce773a5a2db
 </code></pre></div></td></tr></table></div></p>
 </li>
 <li>
 <p>创建dashboard管理用户及token
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-37-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-37-1">1</a></span>
 <span class="normal"><a href="#__codelineno-37-2">2</a></span>
 <span class="normal"><a href="#__codelineno-37-3">3</a></span>
 <span class="normal"><a href="#__codelineno-37-4">4</a></span>
@@ -7888,7 +7888,7 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 </li>
 <li>
 <p>下列为安装dashboard时执行步骤的log，供参考
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-38-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-38-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-38-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-38-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-38-4"> 4</a></span>
@@ -8040,10 +8040,10 @@ bridge-nf 使得 netfilter 可以对 Linux 网桥上的 IPv4/ARP/IPv6 包过滤�
 <blockquote>
 <p>discovery-token-ca-cert-hash 的值是不会变的，想要查看则执行：</p>
 </blockquote>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-39-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1"></a>openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2&gt;/dev/null | openssl dgst -sha256 -hex | sed &#39;s/^.* //&#39;
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-39-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1"></a>openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2&gt;/dev/null | openssl dgst -sha256 -hex | sed &#39;s/^.* //&#39;
 </code></pre></div></td></tr></table></div>
 <h4 id="2_1">2.配置自动补全的命令<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-40-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-40-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-40-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-40-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-40-4"> 4</a></span>

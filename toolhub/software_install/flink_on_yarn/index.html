@@ -24,7 +24,7 @@
     
     
       
-        <title>Flink(On YARN)安装部署 - IceCoffee</title>
+        <title>Flink(On YARN)安装部署 - IceCoffee[空谷幽兰]</title>
       
     
     
@@ -114,7 +114,7 @@ but is high on our list for inclusion in a future release. -->
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="IceCoffee" class="md-header__button md-logo" aria-label="IceCoffee" data-md-component="logo">
+    <a href="../../.." title="IceCoffee[空谷幽兰]" class="md-header__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
   <img src="../../../customize/assets/head.png" alt="logo">
 
@@ -127,7 +127,7 @@ but is high on our list for inclusion in a future release. -->
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            IceCoffee
+            IceCoffee[空谷幽兰]
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -464,7 +464,7 @@ but is high on our list for inclusion in a future release. -->
   
     
   
-  标签
+  标签分类
 
         </a>
       </li>
@@ -494,12 +494,12 @@ but is high on our list for inclusion in a future release. -->
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="IceCoffee" class="md-nav__button md-logo" aria-label="IceCoffee" data-md-component="logo">
+    <a href="../../.." title="IceCoffee[空谷幽兰]" class="md-nav__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
   <img src="../../../customize/assets/head.png" alt="logo">
 
     </a>
-    IceCoffee
+    IceCoffee[空谷幽兰]
   </label>
   
     <div class="md-nav__source">
@@ -6172,7 +6172,7 @@ but is high on our list for inclusion in a future release. -->
               
   
   <span class="md-ellipsis">
-    标签
+    标签分类
   </span>
   
 
@@ -6183,7 +6183,7 @@ but is high on our list for inclusion in a future release. -->
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            标签
+            标签分类
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -6384,26 +6384,26 @@ but is high on our list for inclusion in a future release. -->
 </table>
 <h3 id="flink">Flink部署<a class="headerlink" href="#flink" title="Permanent link">&para;</a></h3>
 <h4 id="step1">step1: 解压安装包<a class="headerlink" href="#step1" title="Permanent link">&para;</a></h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo<span class="w"> </span>tar<span class="w"> </span>-zxvf<span class="w"> </span>/data/software/flink-1.15.3-bin-scala_2.12.tgz<span class="w"> </span>-C<span class="w"> </span>/data/workspace
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>zhongche:zhongche<span class="w"> </span>/data/workspace/flink-1.15.3/
 </code></pre></div></td></tr></table></div>
 <h4 id="step2-flink">step2: 配置 Flink 环境变量<a class="headerlink" href="#step2-flink" title="Permanent link">&para;</a></h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>vim<span class="w"> </span>~/.bashrc
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>vim<span class="w"> </span>~/.bashrc
 </code></pre></div></td></tr></table></div>
 <p>​     配置内容如下：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># FLINK</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">FLINK_HOME</span><span class="o">=</span>/data/workspace/flink-1.15.3
 <a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$FLINK_HOME</span>/bin
 </code></pre></div></td></tr></table></div>
 <p>​     生效配置：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
 </code></pre></div></td></tr></table></div>
 <h4 id="step3-flink-confyaml">step3: 配置flink-conf.yaml文件<a class="headerlink" href="#step3-flink-confyaml" title="Permanent link">&para;</a></h4>
 <p>在${FLINK_HOME}/conf 路径下配置flink-conf.yaml文件，配置项如下：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
@@ -6552,10 +6552,10 @@ but is high on our list for inclusion in a future release. -->
 <a id="__codelineno-4-74" name="__codelineno-4-74"></a>classloader.check-leaked-classloader:<span class="w"> </span><span class="nb">false</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="step4-flink_homebinflink">step4: 在$FLINK_HOME/bin/flink中添加如下配置<a class="headerlink" href="#step4-flink_homebinflink" title="Permanent link">&para;</a></h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HADOOP_CLASSPATH</span><span class="o">=</span><span class="sb">`</span>hadoop<span class="w"> </span>classpath<span class="sb">`</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HADOOP_CLASSPATH</span><span class="o">=</span><span class="sb">`</span>hadoop<span class="w"> </span>classpath<span class="sb">`</span>
 </code></pre></div></td></tr></table></div>
 <h4 id="step5-flink">step5: 将Flink 跟目录分发至各服务器节点<a class="headerlink" href="#step5-flink" title="Permanent link">&para;</a></h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
@@ -6594,7 +6594,7 @@ but is high on our list for inclusion in a future release. -->
 <a id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
 </code></pre></div></td></tr></table></div>
 <h4 id="step6">step6: 创建相关目录<a class="headerlink" href="#step6" title="Permanent link">&para;</a></h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
 <span class="normal"><a href="#__codelineno-7-2">2</a></span>
 <span class="normal"><a href="#__codelineno-7-3">3</a></span>
 <span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="o">[</span>zhongche@node73<span class="w"> </span>flink-1.15.3<span class="o">]</span>$<span class="w"> </span>hdfs<span class="w"> </span>dfs<span class="w"> </span>-mkdir<span class="w"> </span>-p<span class="w"> </span>/flink_1.15/checkpoints
@@ -6603,9 +6603,9 @@ but is high on our list for inclusion in a future release. -->
 <a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="o">[</span>zhongche@node73<span class="w"> </span>flink-1.15.3<span class="o">]</span>$<span class="w"> </span>hdfs<span class="w"> </span>dfs<span class="w"> </span>-mkdir<span class="w"> </span>-p<span class="w"> </span>/flink_1.15/yarn/ha
 </code></pre></div></td></tr></table></div>
 <p>测试代码：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nv">$FLINK_HOME</span>/bin/flink<span class="w"> </span>run<span class="w"> </span>-m<span class="w"> </span>yarn-cluster<span class="w"> </span>-yjm<span class="w"> </span><span class="m">1024</span><span class="w"> </span>-ytm<span class="w"> </span><span class="m">1024</span><span class="w"> </span><span class="nv">$FLINK_HOME</span>/examples/batch/WordCount.jar
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nv">$FLINK_HOME</span>/bin/flink<span class="w"> </span>run<span class="w"> </span>-m<span class="w"> </span>yarn-cluster<span class="w"> </span>-yjm<span class="w"> </span><span class="m">1024</span><span class="w"> </span>-ytm<span class="w"> </span><span class="m">1024</span><span class="w"> </span><span class="nv">$FLINK_HOME</span>/examples/batch/WordCount.jar
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-9-4"> 4</a></span>

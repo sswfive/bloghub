@@ -24,7 +24,7 @@
     
     
       
-        <title>Docker实用技巧 - IceCoffee</title>
+        <title>Docker实用技巧 - IceCoffee[空谷幽兰]</title>
       
     
     
@@ -114,7 +114,7 @@ but is high on our list for inclusion in a future release. -->
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../.." title="IceCoffee" class="md-header__button md-logo" aria-label="IceCoffee" data-md-component="logo">
+    <a href="../../../.." title="IceCoffee[空谷幽兰]" class="md-header__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
   <img src="../../../../customize/assets/head.png" alt="logo">
 
@@ -127,7 +127,7 @@ but is high on our list for inclusion in a future release. -->
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            IceCoffee
+            IceCoffee[空谷幽兰]
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -464,7 +464,7 @@ but is high on our list for inclusion in a future release. -->
   
     
   
-  标签
+  标签分类
 
         </a>
       </li>
@@ -494,12 +494,12 @@ but is high on our list for inclusion in a future release. -->
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="IceCoffee" class="md-nav__button md-logo" aria-label="IceCoffee" data-md-component="logo">
+    <a href="../../../.." title="IceCoffee[空谷幽兰]" class="md-nav__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
   <img src="../../../../customize/assets/head.png" alt="logo">
 
     </a>
-    IceCoffee
+    IceCoffee[空谷幽兰]
   </label>
   
     <div class="md-nav__source">
@@ -6132,7 +6132,7 @@ but is high on our list for inclusion in a future release. -->
               
   
   <span class="md-ellipsis">
-    标签
+    标签分类
   </span>
   
 
@@ -6143,7 +6143,7 @@ but is high on our list for inclusion in a future release. -->
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            标签
+            标签分类
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -6280,12 +6280,12 @@ but is high on our list for inclusion in a future release. -->
 <p>一键load文件夹里的说用镜像</p>
 </blockquote>
 <h3 id="_1">方式一：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="w"> </span>ls<span class="w"> </span>-F<span class="w"> </span>/data/package_3th/*.tar<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{cmd=&quot;docker load -i &quot;$0;print(cmd);system(cmd)}&#39;</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w"> </span><span class="c1"># /data/package_3th 为镜像的文件夹</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="_2">方式二：<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
@@ -6310,7 +6310,7 @@ but is high on our list for inclusion in a future release. -->
 <blockquote>
 <p>在runlike传递一个容器名称，就会直接打印出该容器的运行命令。<code>runlike</code>使用起来非常方便，可以直接通过<code>pip</code>安装，也可以通过容器方式免安装使用:</p>
 </blockquote>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span>
 <span class="normal"><a href="#__codelineno-2-4">4</a></span>
@@ -6324,7 +6324,7 @@ but is high on our list for inclusion in a future release. -->
 <blockquote>
 <p>通过 <strong>whaler</strong>[2] 来快速的导出. 这里我们依旧不安装，通过容器化的方式使用dfimage命令，便于使用，我们将该命令写成命令别名：</p>
 </blockquote>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># alias export docker image to dockerfile</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2"></a>$<span class="w"> </span><span class="nb">alias</span><span class="w"> </span><span class="nv">whaler</span><span class="o">=</span><span class="s2">&quot;docker run -t --rm -v /var/run/docker.sock:/var/run/docker.sock:ro pegleg/whaler&quot;</span>
 </code></pre></div></td></tr></table></div>

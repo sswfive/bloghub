@@ -24,7 +24,7 @@
     
     
       
-        <title>使用pypi进行python包的发布 - IceCoffee</title>
+        <title>使用pypi进行python包的发布 - IceCoffee[空谷幽兰]</title>
       
     
     
@@ -114,7 +114,7 @@ but is high on our list for inclusion in a future release. -->
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../.." title="IceCoffee" class="md-header__button md-logo" aria-label="IceCoffee" data-md-component="logo">
+    <a href="../../../.." title="IceCoffee[空谷幽兰]" class="md-header__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
   <img src="../../../../customize/assets/head.png" alt="logo">
 
@@ -127,7 +127,7 @@ but is high on our list for inclusion in a future release. -->
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            IceCoffee
+            IceCoffee[空谷幽兰]
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -464,7 +464,7 @@ but is high on our list for inclusion in a future release. -->
   
     
   
-  标签
+  标签分类
 
         </a>
       </li>
@@ -494,12 +494,12 @@ but is high on our list for inclusion in a future release. -->
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="IceCoffee" class="md-nav__button md-logo" aria-label="IceCoffee" data-md-component="logo">
+    <a href="../../../.." title="IceCoffee[空谷幽兰]" class="md-nav__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
   <img src="../../../../customize/assets/head.png" alt="logo">
 
     </a>
-    IceCoffee
+    IceCoffee[空谷幽兰]
   </label>
   
     <div class="md-nav__source">
@@ -6236,7 +6236,7 @@ but is high on our list for inclusion in a future release. -->
               
   
   <span class="md-ellipsis">
-    标签
+    标签分类
   </span>
   
 
@@ -6247,7 +6247,7 @@ but is high on our list for inclusion in a future release. -->
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            标签
+            标签分类
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -6483,7 +6483,7 @@ but is high on our list for inclusion in a future release. -->
 
 <h1 id="pypipython">使用pypi进行python包的发布<a class="headerlink" href="#pypipython" title="Permanent link">&para;</a></h1>
 <p>发布pypi python包，打包软件包时，主要依赖setuptools。
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>setuptools
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>setuptools
 </code></pre></div></td></tr></table></div></p>
 <h2 id="pypi">一、注册pypi账号<a class="headerlink" href="#pypi" title="Permanent link">&para;</a></h2>
 <p><a href="https://pypi.python.org/pypi">pypi register</a></p>
@@ -6496,13 +6496,13 @@ but is high on our list for inclusion in a future release. -->
 <p>略</p>
 <h2 id="setup">三、准备setup文件（全部放在源码根目录）<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
 <h3 id="1setupcfg">1、准备setup.cfg<a class="headerlink" href="#1setupcfg" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="o">[</span>bdist_wheel<span class="o">]</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nv">universal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="2readmerst">2、准备README.rst，<a class="headerlink" href="#2readmerst" title="Permanent link">&para;</a></h3>
 <p>具体语法可以参考<a href="http://rest-sphinx-memo.readthedocs.io/en/latest/ReST.html">http://rest-sphinx-memo.readthedocs.io/en/latest/ReST.html</a>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
@@ -6573,7 +6573,7 @@ but is high on our list for inclusion in a future release. -->
 <li>long_description：必须是rst（reStructuredText）格式，这个内容会显示在pypi包首页，具体语法可以参考http://restsphinxmemo.readthedocs.io/en/latest/ReST.html</li>
 <li>install_requires：申明依赖包。安装包是pip会自动安装</li>
 <li>packages = findpackages()，这个参数是导入目录下的所有_init.py包
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
@@ -6695,7 +6695,7 @@ but is high on our list for inclusion in a future release. -->
 <h2 id="_1">四、开始打包<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>（到源码根目录打包，成功执行打包命令会生成一个dist文件夹）</p>
 <h3 id="1wheelswhl">1、将源码打包为wheels(whl)格式<a class="headerlink" href="#1wheelswhl" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
 <span class="normal"><a href="#__codelineno-4-2">2</a></span>
 <span class="normal"><a href="#__codelineno-4-3">3</a></span>
 <span class="normal"><a href="#__codelineno-4-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>python<span class="w"> </span>setup.py<span class="w"> </span>bdist_wheel<span class="w"> </span>--universal
@@ -6704,28 +6704,28 @@ but is high on our list for inclusion in a future release. -->
 <a id="__codelineno-4-4" name="__codelineno-4-4"></a>pip<span class="w"> </span>install<span class="w"> </span>xx.whl
 </code></pre></div></td></tr></table></div>
 <h3 id="2targz">2、将源码打包为tar.gz格式<a class="headerlink" href="#2targz" title="Permanent link">&para;</a></h3>
-<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>python<span class="w"> </span>setup.py<span class="w"> </span>sdist<span class="w"> </span>build
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>python<span class="w"> </span>setup.py<span class="w"> </span>sdist<span class="w"> </span>build
 </code></pre></div></td></tr></table></div>
 3、将源码打包为egg格式
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>python<span class="w"> </span>setup.py<span class="w"> </span>bdist_egg
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>python<span class="w"> </span>setup.py<span class="w"> </span>bdist_egg
 </code></pre></div></td></tr></table></div></p>
 <h2 id="_2">五、上传生成的包<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="1twinetwine">1、使用twine上传，先安装twine<a class="headerlink" href="#1twinetwine" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>pip<span class="w"> </span>install<span class="w"> </span>twine
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>pip<span class="w"> </span>install<span class="w"> </span>twine
 </code></pre></div></td></tr></table></div>
 <h3 id="2">2、上传，会提示输入用户名和密码<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>twine<span class="w"> </span>upload<span class="w"> </span>dist/*
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>twine<span class="w"> </span>upload<span class="w"> </span>dist/*
 </code></pre></div></td></tr></table></div>
 <h3 id="3pypi">3、上传成功可以到自己的pypi仓库查看<a class="headerlink" href="#3pypi" title="Permanent link">&para;</a></h3>
 <h2 id="_3">六、使用<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
 <span class="normal"><a href="#__codelineno-9-2">2</a></span>
 <span class="normal"><a href="#__codelineno-9-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>pip<span class="w"> </span>search<span class="w"> </span>xx
 <a id="__codelineno-9-2" name="__codelineno-9-2"></a>
 <a id="__codelineno-9-3" name="__codelineno-9-3"></a>pip<span class="w"> </span>install<span class="w"> </span>xx
 </code></pre></div></td></tr></table></div>
 <h2 id="_4">七、其他<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
@@ -6771,7 +6771,7 @@ but is high on our list for inclusion in a future release. -->
 <p>install_requires 是这个库所依赖的其它库，当别人使用 pip 等工具安装你的包时，会自动安装你所依赖的包。console_scripts 是这个包所提供的终端命令，比如我希望在安装这个包后可以使用「 jujube 」和「 pill 」两个命令，则按照 setup 文件的写法，当我在终端输入「 jujube 」的时候，将会执行 jujubepill 包下（__init_ 中）的 jujube 函数。
 <strong>init</strong>.py 文件如下：</p>
 </blockquote>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-11-4"> 4</a></span>

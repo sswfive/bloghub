@@ -24,7 +24,7 @@
     
     
       
-        <title>Hadoop安装部署 - IceCoffee</title>
+        <title>Hadoop安装部署 - IceCoffee[空谷幽兰]</title>
       
     
     
@@ -114,7 +114,7 @@ but is high on our list for inclusion in a future release. -->
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="IceCoffee" class="md-header__button md-logo" aria-label="IceCoffee" data-md-component="logo">
+    <a href="../../.." title="IceCoffee[空谷幽兰]" class="md-header__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
   <img src="../../../customize/assets/head.png" alt="logo">
 
@@ -127,7 +127,7 @@ but is high on our list for inclusion in a future release. -->
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            IceCoffee
+            IceCoffee[空谷幽兰]
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -464,7 +464,7 @@ but is high on our list for inclusion in a future release. -->
   
     
   
-  标签
+  标签分类
 
         </a>
       </li>
@@ -494,12 +494,12 @@ but is high on our list for inclusion in a future release. -->
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="IceCoffee" class="md-nav__button md-logo" aria-label="IceCoffee" data-md-component="logo">
+    <a href="../../.." title="IceCoffee[空谷幽兰]" class="md-nav__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
   <img src="../../../customize/assets/head.png" alt="logo">
 
     </a>
-    IceCoffee
+    IceCoffee[空谷幽兰]
   </label>
   
     <div class="md-nav__source">
@@ -6208,7 +6208,7 @@ but is high on our list for inclusion in a future release. -->
               
   
   <span class="md-ellipsis">
-    标签
+    标签分类
   </span>
   
 
@@ -6219,7 +6219,7 @@ but is high on our list for inclusion in a future release. -->
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            标签
+            标签分类
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -6505,15 +6505,15 @@ but is high on our list for inclusion in a future release. -->
 </table>
 <h5 id="hadoop_1">Hadoop部署文档<a class="headerlink" href="#hadoop_1" title="Permanent link">&para;</a></h5>
 <h6 id="step1">step1: 解压安装包<a class="headerlink" href="#step1" title="Permanent link">&para;</a></h6>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo<span class="w"> </span>tar<span class="w"> </span>-zxvf<span class="w"> </span>/data/software/hadoop-3.2.4.tar.gz<span class="w"> </span>-C<span class="w"> </span>/data/workspace/hadoop-3.2.4
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>demouser:demouser<span class="w"> </span>/data/workspace
 </code></pre></div></td></tr></table></div>
 <h6 id="step2-hadoop">step2: 配置Hadoop环境变量<a class="headerlink" href="#step2-hadoop" title="Permanent link">&para;</a></h6>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>vim<span class="w"> </span>~/.bashrc
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>vim<span class="w"> </span>~/.bashrc
 </code></pre></div></td></tr></table></div>
 <p>​     配置内容如下：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span>
 <span class="normal"><a href="#__codelineno-2-4">4</a></span>
@@ -6524,11 +6524,11 @@ but is high on our list for inclusion in a future release. -->
 <a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HADOOP_HOME</span>/bin
 </code></pre></div></td></tr></table></div>
 <p>​     生效配置：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
 </code></pre></div></td></tr></table></div>
 <h6 id="step3-core-sitexml">step3: 配置core-site.xml文件<a class="headerlink" href="#step3-core-sitexml" title="Permanent link">&para;</a></h6>
 <p>在${HADOOP_HOME}/etc/hadoop路径下配置core-site.xml文件，配置项如下：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">XML</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
@@ -6662,7 +6662,7 @@ but is high on our list for inclusion in a future release. -->
 </code></pre></div></td></tr></table></div>
 <h6 id="step4-hdfs-sitexml">step4: 配置hdfs-site.xml文件<a class="headerlink" href="#step4-hdfs-sitexml" title="Permanent link">&para;</a></h6>
 <p>在${HADOOP_HOME}/etc/hadoop路径下配置hdfs-site.xml文件，配置项如下：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">  1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">XML</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">  1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">  2</a></span>
 <span class="normal"><a href="#__codelineno-5-3">  3</a></span>
 <span class="normal"><a href="#__codelineno-5-4">  4</a></span>
@@ -6924,7 +6924,7 @@ but is high on our list for inclusion in a future release. -->
 </code></pre></div></td></tr></table></div>
 <h6 id="step5-hadoop-envsh">step5: 配置hadoop-env.sh文件<a class="headerlink" href="#step5-hadoop-envsh" title="Permanent link">&para;</a></h6>
 <p>在${HADOOP_HOME}/etc/hadoop路径下配置hadoop-env.sh文件，配置项如下：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
@@ -6948,7 +6948,7 @@ but is high on our list for inclusion in a future release. -->
 </code></pre></div></td></tr></table></div>
 <h6 id="step6-hadoop-pidjvm">step6: 修改hadoop pid、jvm的配置<a class="headerlink" href="#step6-hadoop-pidjvm" title="Permanent link">&para;</a></h6>
 <p>在${HADOOP_HOME}/etc/hadoop路径下配置 yarn-env.sh 文件，配置项如下：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
 <span class="normal"><a href="#__codelineno-7-2">2</a></span>
 <span class="normal"><a href="#__codelineno-7-3">3</a></span>
 <span class="normal"><a href="#__codelineno-7-4">4</a></span>
@@ -6959,7 +6959,7 @@ but is high on our list for inclusion in a future release. -->
 <a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">YARN_NODEMANAGER_OPTS</span><span class="o">=</span><span class="s2">&quot;-Dnm.audit.logger=INFO,NMAUDIT -Xmx4096m&quot;</span>
 </code></pre></div></td></tr></table></div>
 <p>在${HADOOP_HOME}/etc/hadoop路径下配置 mapred-env.sh 文件，配置项如下：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
 <span class="normal"><a href="#__codelineno-8-2">2</a></span>
 <span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HADOOP_MAPRED_PID_DIR</span><span class="o">=</span>/data/workspace/hadoop-3.2.4/pid
 <a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="c1"># JVM</span>
@@ -6967,7 +6967,7 @@ but is high on our list for inclusion in a future release. -->
 </code></pre></div></td></tr></table></div>
 <h6 id="step7-datanode">step7: 配置DataNode节点列表<a class="headerlink" href="#step7-datanode" title="Permanent link">&para;</a></h6>
 <p>在${HADOOP_HOME}/etc/hadoop/workers 文件中配置DataNode节点列表，内容如下：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
 <span class="normal"><a href="#__codelineno-9-2">2</a></span>
 <span class="normal"><a href="#__codelineno-9-3">3</a></span>
 <span class="normal"><a href="#__codelineno-9-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>node73
@@ -6976,7 +6976,7 @@ but is high on our list for inclusion in a future release. -->
 <a id="__codelineno-9-4" name="__codelineno-9-4"></a>node76
 </code></pre></div></td></tr></table></div>
 <h6 id="step8">step8: 创建目录<a class="headerlink" href="#step8" title="Permanent link">&para;</a></h6>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
 <span class="normal"><a href="#__codelineno-10-2">2</a></span>
 <span class="normal"><a href="#__codelineno-10-3">3</a></span>
 <span class="normal"><a href="#__codelineno-10-4">4</a></span>
@@ -6989,7 +6989,7 @@ but is high on our list for inclusion in a future release. -->
 <a id="__codelineno-10-6" name="__codelineno-10-6"></a>mkdir -p /data/workspace/hadoop-3.2.4/data/hdfs/name
 </code></pre></div></td></tr></table></div>
 <h6 id="step9-hadoop">step9: 将Hadoop跟目录分发至各服务器节点<a class="headerlink" href="#step9-hadoop" title="Permanent link">&para;</a></h6>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
@@ -7034,19 +7034,19 @@ but is high on our list for inclusion in a future release. -->
 <h6 id="step10">step10: 启动服务<a class="headerlink" href="#step10" title="Permanent link">&para;</a></h6>
 <p>Hadoop HA模式在首次启动时要保证zk是启动状态，然后一定需要注意顺序，主要步骤如下：</p>
 <p>①在某一个namenode节点执行如下命令，创建命名空间，比如这里我们对 node73 节点进行如下操作。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>hdfs<span class="w"> </span>zkfc<span class="w"> </span>-formatZK
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>hdfs<span class="w"> </span>zkfc<span class="w"> </span>-formatZK
 </code></pre></div></td></tr></table></div>
 <p>②在每个journalnode节点用如下命令启动journalnode（进程名为JournalNode），我们在node73,node74,node75这三个节点进行如下操作。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/sbin/hadoop-daemon.sh<span class="w"> </span>start<span class="w"> </span>journalnode
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/sbin/hadoop-daemon.sh<span class="w"> </span>start<span class="w"> </span>journalnode
 </code></pre></div></td></tr></table></div>
 <p>③在主namenode节点格式化namenode和journalnode目录，这里我们对node73做操作。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>hdfs<span class="w"> </span>namenode<span class="w"> </span>-format<span class="w"> </span>ns
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>hdfs<span class="w"> </span>namenode<span class="w"> </span>-format<span class="w"> </span>ns
 </code></pre></div></td></tr></table></div>
 <p>④在主namenode节点启动namenode进程，这里对node73做操作。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/sbin/hadoop-daemon.sh<span class="w"> </span>start<span class="w"> </span>namenode
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/sbin/hadoop-daemon.sh<span class="w"> </span>start<span class="w"> </span>namenode
 </code></pre></div></td></tr></table></div>
 <p>⑤在备namenode节点执行如下命令，在node74做操作。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
 <span class="normal"><a href="#__codelineno-16-2">2</a></span>
 <span class="normal"><a href="#__codelineno-16-3">3</a></span>
 <span class="normal"><a href="#__codelineno-16-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="c1"># 把备namenode节点的目录格式化并把元数据从主namenode节点copy过来，并且这个命令不会把journalnode目录再格式化了！</span>
@@ -7055,13 +7055,13 @@ but is high on our list for inclusion in a future release. -->
 <a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/sbin/hadoop-daemon.sh<span class="w"> </span>start<span class="w"> </span>namenode
 </code></pre></div></td></tr></table></div>
 <p>⑥在两个namenode节点都执行以下命令，启动zkfc（进程名为DFSZKFailoverController），在node73,node74两个节点做操作。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/sbin/hadoop-daemon.sh<span class="w"> </span>start<span class="w"> </span>zkfc
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/sbin/hadoop-daemon.sh<span class="w"> </span>start<span class="w"> </span>zkfc
 </code></pre></div></td></tr></table></div>
 <p>⑦在所有datanode节点都执行以下命令启动datanode。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/sbin/hadoop-daemon.sh<span class="w"> </span>start<span class="w"> </span>datanode
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/sbin/hadoop-daemon.sh<span class="w"> </span>start<span class="w"> </span>datanode
 </code></pre></div></td></tr></table></div>
 <p>⑧配置完HA之后可以下查看下两台NameNode的状态是否正常，命令如下：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
 <span class="normal"><a href="#__codelineno-19-2">2</a></span>
 <span class="normal"><a href="#__codelineno-19-3">3</a></span>
 <span class="normal"><a href="#__codelineno-19-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="o">[</span>demouser@node73<span class="w"> </span>flink-1.15.3<span class="o">]</span>$<span class="w"> </span>hdfs<span class="w"> </span>haadmin<span class="w"> </span>-getServiceState<span class="w"> </span>nn1
@@ -7071,30 +7071,30 @@ but is high on our list for inclusion in a future release. -->
 </code></pre></div></td></tr></table></div>
 <h5 id="hdfs">HDFS运维命令<a class="headerlink" href="#hdfs" title="Permanent link">&para;</a></h5>
 <p>（1）启停存储管理进程。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
 <span class="normal"><a href="#__codelineno-20-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/sbin/hadoop-daemon.sh<span class="w"> </span>stop<span class="w"> </span>datanode
 <a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/sbin/hadoop-daemon.sh<span class="w"> </span>start<span class="w"> </span>datanode
 </code></pre></div></td></tr></table></div>
 <p>（2）启停元数据管理进程。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
 <span class="normal"><a href="#__codelineno-21-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/sbin/hadoop-daemon.sh<span class="w"> </span>stop<span class="w"> </span>namenode
 <a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/sbin/hadoop-daemon.sh<span class="w"> </span>start<span class="w"> </span>namenode
 </code></pre></div></td></tr></table></div>
 <p>（3）启停HDFS集群。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
 <span class="normal"><a href="#__codelineno-22-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/sbin/stop-dfs.sh
 <a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/sbin/start-dfs.sh
 </code></pre></div></td></tr></table></div>
 <p>（4）查看HDFS HA NameNode状态。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
 <span class="normal"><a href="#__codelineno-23-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a>hdfs<span class="w"> </span>haadmin<span class="w"> </span>-getServiceState<span class="w"> </span>nn1
 <a id="__codelineno-23-2" name="__codelineno-23-2"></a>hdfs<span class="w"> </span>haadmin<span class="w"> </span>-getServiceState<span class="w"> </span>nn2
 </code></pre></div></td></tr></table></div>
 <p>（5）查看NameNode日志。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a>tail<span class="w"> </span>-1000f<span class="w"> </span><span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/logs/hadoop-xxx-namenode-xxx.log
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a>tail<span class="w"> </span>-1000f<span class="w"> </span><span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/logs/hadoop-xxx-namenode-xxx.log
 </code></pre></div></td></tr></table></div>
 <p>（6）查看DataNode日志。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a>tail<span class="w"> </span>-1000f<span class="w"> </span><span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/logs/hadoop-xxx-datanode-xxx.log
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a>tail<span class="w"> </span>-1000f<span class="w"> </span><span class="si">${</span><span class="nv">HADOOP_HOME</span><span class="si">}</span>/logs/hadoop-xxx-datanode-xxx.log
 </code></pre></div></td></tr></table></div>
 
 

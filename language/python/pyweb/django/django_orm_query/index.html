@@ -24,7 +24,7 @@
     
     
       
-        <title>django中ORM查询方法总结 - IceCoffee</title>
+        <title>django中ORM查询方法总结 - IceCoffee[空谷幽兰]</title>
       
     
     
@@ -114,7 +114,7 @@ but is high on our list for inclusion in a future release. -->
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../../.." title="IceCoffee" class="md-header__button md-logo" aria-label="IceCoffee" data-md-component="logo">
+    <a href="../../../../.." title="IceCoffee[空谷幽兰]" class="md-header__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
   <img src="../../../../../customize/assets/head.png" alt="logo">
 
@@ -127,7 +127,7 @@ but is high on our list for inclusion in a future release. -->
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            IceCoffee
+            IceCoffee[空谷幽兰]
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -464,7 +464,7 @@ but is high on our list for inclusion in a future release. -->
   
     
   
-  标签
+  标签分类
 
         </a>
       </li>
@@ -494,12 +494,12 @@ but is high on our list for inclusion in a future release. -->
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../.." title="IceCoffee" class="md-nav__button md-logo" aria-label="IceCoffee" data-md-component="logo">
+    <a href="../../../../.." title="IceCoffee[空谷幽兰]" class="md-nav__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
   <img src="../../../../../customize/assets/head.png" alt="logo">
 
     </a>
-    IceCoffee
+    IceCoffee[空谷幽兰]
   </label>
   
     <div class="md-nav__source">
@@ -6233,7 +6233,7 @@ but is high on our list for inclusion in a future release. -->
               
   
   <span class="md-ellipsis">
-    标签
+    标签分类
   </span>
   
 
@@ -6244,7 +6244,7 @@ but is high on our list for inclusion in a future release. -->
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            标签
+            标签分类
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -6683,7 +6683,7 @@ but is high on our list for inclusion in a future release. -->
 <strong>正向查询</strong>:外键所在的表去查外键关联的表.
 <strong>逆向查询</strong>:一个表去查另外一个外键关联到当前这个表的表.
 例子:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
@@ -6735,20 +6735,20 @@ but is high on our list for inclusion in a future release. -->
 </code></pre></div></td></tr></table></div>
 <p>从Book表去查Publisher查叫做正向查询,从Publisher表去查Book叫做反向查询.</p>
 <p>正向查询,在当前表内查到结果之后,直接调用外键对应的属性,就可以得到指向的外键对象.由于这里是一对多的,正向查询回去的结果就是对应的对象,不是QuerySet.例子:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span>
 <span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">book_obj</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">ret</span> <span class="o">=</span> <span class="n">book_obj</span><span class="o">.</span><span class="n">publisher</span>  <span class="c1"># 和我这本书关联的出版社对象</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
 <p>结果直接就是书对应的出版社对象.如果想查对应的出版社的名称,由于查到了对象,可以再取名称,但有简单的方法来查外键对应的具体字段:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">ret</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values_list</span><span class="p">(</span><span class="s2">&quot;publisher__name&quot;</span><span class="p">)</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>双下划线就表示跨了表,前边的publisher是表名,后边是表示字段名.由于是拿到具体值,所以只能在values和values_list里应用该方法.</p>
 <p>反向查询,如果要查一个出版社所有的书,有个特殊的方法是表名+_set来反着找”一对多”里的”多”,来看例子:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
 <span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">publisher_obj</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Publisher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>  <span class="c1"># 找到第一个出版社对象</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">books</span> <span class="o">=</span> <span class="n">publisher_obj</span><span class="o">.</span><span class="n">book_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>  <span class="c1"># 找到第一个出版社出版的所有书</span>
@@ -6756,11 +6756,11 @@ but is high on our list for inclusion in a future release. -->
 </code></pre></div></td></tr></table></div>
 <p>这里的book是表名,后边加上_set就表示来反着找,结果是一个QuerySet,可以把book表里由第一个出版社出版的所有书都找到.
 如果在book表的外键里给外键指定了related_name,那么此时就不要用表名,直接用related_name的名字就可以了.比如指定了related_name为all_books.上边例子的第二句话就可以改写成:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">books</span> <span class="o">=</span> <span class="n">publisher_obj</span><span class="o">.</span><span class="n">allbook</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">books</span> <span class="o">=</span> <span class="n">publisher_obj</span><span class="o">.</span><span class="n">allbook</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p>注意,如果起了外键别名,再使用原表名_set会报错.实际上别名代替了原来对象上的表名_set方法.
 同样,也可以直接查字段,也是用双下划线来连接表名和字段.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">ret</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Publisher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values_list</span><span class="p">(</span><span class="s2">&quot;book__title&quot;</span><span class="p">)</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -6770,30 +6770,30 @@ but is high on our list for inclusion in a future release. -->
 <p>在ORM中,多对多以及外键的反向查询(结果集都是取到多个对象的时候),内部都是通过一个叫做 RelatedManager类的实例,即关联上下文管理器来操作的.
 比如在外键的例子中,如果打印<code>publisher_obj.allbook</code>,可以看到结果是一个 RelatedManager类.针对这个类,像.all()就是取全部结果,除此之外,针对这个类还有一些特殊的操作:</p>
 <p><strong><code>create()</code></strong> 用于从创建一对多关系</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">models</span><span class="o">.</span><span class="n">Author</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">book_set</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;番茄物语&quot;</span><span class="p">,</span> <span class="n">publish_date</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">models</span><span class="o">.</span><span class="n">Author</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">book_set</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;番茄物语&quot;</span><span class="p">,</span> <span class="n">publish_date</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())</span>
 </code></pre></div></td></tr></table></div>
 <p>通过Author.objects.first()取到一个具体的作者对象,然后.book_set取到上下文管理器对象,然后对这个对象进行.create方法,结果是先在book表内建立一本书,然后在多对多的表内建立这本书与这个作者的关系.</p>
 <p><strong><code>add()</code></strong> 操作一个已经存在的对象,将对象添加到对应关系里</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
 <span class="normal"><a href="#__codelineno-7-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">new_book</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span> <span class="s1">&#39;新的书&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>  <span class="c1"># 在book表内建立一本新书</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">models</span><span class="o">.</span><span class="n">Author</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">book_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_book</span><span class="p">)</span>  <span class="c1"># 在多对多表内添加一行,记录第一个作者和这本新书的对应关系.</span>
 </code></pre></div></td></tr></table></div>
 <p>add的参数可以是对象,可以是解开的QeurySet对象(<em>ret),也可以是一个数字表示id或者拆解开的列表id,如add(</em>[3,12,19]).</p>
 <p><strong><code>set()</code></strong> 一次性在多对多表里设置一组对应关系
 在之前的项目中已经使用过set了,其结果就是将对应的一组id或者对象代表的内容,在多对多表里去当前对象联系起来/</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
 <span class="normal"><a href="#__codelineno-8-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">book_obj</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">book_obj</span><span class="o">.</span><span class="n">authors</span><span class="o">.</span><span class="n">set</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 </code></pre></div></td></tr></table></div>
 <p>这个例子就是将第一本书与id为2,3的作者在多对多表里联系起来.</p>
 <p><strong><code>remove()</code></strong> 移除参数指定的对象与当前对象的对应关系</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
 <span class="normal"><a href="#__codelineno-9-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">book_obj</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">book_obj</span><span class="o">.</span><span class="n">authors</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>remove接受的参数和add一样.</p>
 <p><strong><code>clear()</code></strong> 表示清除当前对象在多对多表里对应某个表的全部对应关系.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
 <span class="normal"><a href="#__codelineno-10-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">book_obj</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="n">book_obj</span><span class="o">.</span><span class="n">authors</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -6807,10 +6807,10 @@ but is high on our list for inclusion in a future release. -->
 <h3 id="_5"><strong>聚合函数</strong><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>聚合函数的方法是<code>aggregate()</code>,在使用这个方法之后,查询语句就结束了,这个方法返回一个字典,里边包含着使用聚合函数的结果.
 在使用聚合函数之前,必须导入对应的聚合函数模块:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>from django.db.models import Avg, Sum, Max, Min, Count
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>from django.db.models import Avg, Sum, Max, Min, Count
 </code></pre></div></td></tr></table></div>
 <p>这些函数的参数都是字段名称.对于生成的结果字典,如果没有指定名称,则Django会自动设置一个名称.如果指定了名称,就会使用指定的名称,然后再从字典里取数即可:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
 <span class="normal"><a href="#__codelineno-12-2">2</a></span>
 <span class="normal"><a href="#__codelineno-12-3">3</a></span>
 <span class="normal"><a href="#__codelineno-12-4">4</a></span>
@@ -6831,19 +6831,19 @@ but is high on our list for inclusion in a future release. -->
 比如在自己编写的行政物品管理系统内,需要列出每一种物品的结余,即通过物品列表查到每一种物品对应的所有出入库记录,再将出库和入库记录求和分别求和并相减.
 用SQL语句是先通过move的item_id连表,然后按照item_id分组并对in_num和out_num字段进行求和再相减.
 在ORM里,通过物品列表的这一段写在前边,到外键所在的表去查询,则将外键所在的表及字段名称写在annotate内部的聚合函数内,即像这样:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">ret</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Items</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">num_balance</span><span class="o">=</span><span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;moves__in_num&quot;</span><span class="p">)</span> <span class="o">-</span> <span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;moves__out_num&quot;</span><span class="p">))</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">ret</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Items</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">num_balance</span><span class="o">=</span><span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;moves__in_num&quot;</span><span class="p">)</span> <span class="o">-</span> <span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;moves__out_num&quot;</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
 <p>前边的<code>ret = models.Items.objects.all()</code>表示按照所有的物品分组.由于是正向查询即通过物品查余额,所以<code>moves__in_num</code>和<code>moves__out_num</code>其中采取表名__字段名的写法.<code>.annotate</code>就表示按照之前的对象分组并且按照参数中的某个字段进行处理,这里是分组以后对分组的in_num求和再减去out_num的求和,就得到了按照物品分组的余额.这里是反向操作,直接使用小写的类名即可,不用加__set,如果是正向,用外键也可以.(当然一般分组不会用正向查询)
 ret是一个QuerySet,其中的每一个元素就是一个对象,表示一行经过分组过后的数据,这一行里的属性包括Items表里的全部属性,以及自定义的num_balance属性.</p>
 <p>这里直接就使用了跨表查询,如果想在同一个表内,按照某一个字段进行分组,像上边例子里的<code>models.Items.objects.all()</code>的部分,就需要改成当前表里字段的用values的查询结果,也就是告诉ORM按照哪个字段来分组.
 在自己编写的进销存系统中,查询moves表按照item_id分类的in_sum字段的和:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">ret</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Moves</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s2">&quot;item_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">insum</span> <span class="o">=</span> <span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;in_num&quot;</span><span class="p">))</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">ret</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Moves</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s2">&quot;item_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">insum</span> <span class="o">=</span> <span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;in_num&quot;</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
 <p>这个就是先用了item_id过滤出内容,结果的QuerySet里只包括item_id字段的值,然后在对其进行分组并对对应的in_num字段求和,求和的结果放到每一个结果里的insum字段名中.
 ret实际上就是一个分组并且计算过的表的每一行内容的QuerySet,再从里边取出每一行进行操作和展示即可.</p>
 <p>分组的操作不是太直观,用<a href="http://www.cnblogs.com/liwenzhou/p/8660826.html">这里</a>分组的例子举一个例子:
 在一张表内进行分组,用SQL语句比较直观:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">select</span> <span class="n">dept</span><span class="p">,</span><span class="n">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">employee</span> <span class="n">group</span> <span class="n">by</span> <span class="n">dept</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">select</span> <span class="n">dept</span><span class="p">,</span><span class="n">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">employee</span> <span class="n">group</span> <span class="n">by</span> <span class="n">dept</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>如果换成ORM,首先明确是要查那张表.这个查询只在一个表内查询,查询的结果包括dept和AVG(salary),group by 后边是dept.
 这说明按照dept先分组,然后对于聚合后的结果,用avg对salary求平均数,最后返回分组后的部门和结果.</p>
@@ -6854,11 +6854,11 @@ objects是中间件的名称,不用管
 .all表示SELECT *
 如果是要取具体的字段,就用values(“字段名”),比如values(“dept”)就相当于 SELECT dept.
 可见,如果想要达到select dept,AVG(salary) from employee的效果,我的ORM语句对应的部分是:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="n">models</span><span class="o">.</span><span class="n">Employee</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s2">&quot;dept,&quot;</span><span class="n">平均数的别名</span><span class="s2">&quot;)</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="n">models</span><span class="o">.</span><span class="n">Employee</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s2">&quot;dept,&quot;</span><span class="n">平均数的别名</span><span class="s2">&quot;)</span>
 </code></pre></div></td></tr></table></div>
 <p>现在平均数的别名还不知道,继续往下看分组:</p>
 <p><strong>第二步:分组与聚合处理</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>models.Employee.objects.values(&quot;dept,&quot;平均数的别名&quot;).annotate()
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>models.Employee.objects.values(&quot;dept,&quot;平均数的别名&quot;).annotate()
 </code></pre></div></td></tr></table></div>
 <p>这里的annotate()如果不传参数,表示按照.all()全部分组,一般不这样使用..annotate之前的value表示GROUP BY之后的内容,所以<code>values("dept").annotate(my_avg=Avg("salary"))</code>就表示按照dept进行分组,然后对salary进行求和,得到分组的结果.</p>
 <p><strong>第三步:取分组后结果</strong>
@@ -6870,7 +6870,7 @@ ORM语句橙色的部分其实也涵盖了SQL语句中的Avg(salary),这是因�
 <p>第二个例子是连表查询,dept_id外键关联到dept表.
 如果想得到和上边例子一样的结果,在SQL中就是先连表再查询,到了ORM里,其实就是通过外键进行的双下划线查询去跨表:
 <code>select dept.name,AVG(salary) from employee inner join dept on (employee.dept_id=dept.id) group by dept_id</code>;</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">models</span><span class="o">.</span><span class="n">Dept</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">avg</span><span class="o">=</span><span class="n">Avg</span><span class="p">(</span><span class="s2">&quot;employee__salary&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;avg&quot;</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">models</span><span class="o">.</span><span class="n">Dept</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">avg</span><span class="o">=</span><span class="n">Avg</span><span class="p">(</span><span class="s2">&quot;employee__salary&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;avg&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>ORM里从Dept表发起查询并且分组,由于dept_id和dept.name是一一对应的,所以从Dept发起查询后直接接.annotate就可以.后边的对应关系中从dept跨表到employee就相当于连表,然后对salary进行Avg操作,其他的对应关系和上边类似.</p>
 <h2 id="fq"><strong>F查询和Q查询</strong><a class="headerlink" href="#fq" title="Permanent link">&para;</a></h2>
@@ -6878,21 +6878,21 @@ ORM语句橙色的部分其实也涵盖了SQL语句中的Avg(salary),这是因�
 <h3 id="f"><strong>F查询</strong><a class="headerlink" href="#f" title="Permanent link">&para;</a></h3>
 <p>在之前的查询条件中,使用的都是诸如<code>.filter(id__gt=3)</code>这种将字段值与常量进行比较的条件,如果需要对两个字段做比较,显然在Python中不能写成<code>.filter(id__gt=item_id)</code>,因为item_id并没有在python程序中定义.这个时候就要使用F查询来替代对应的字段,,只要给F的参数传入字段名称即可.
 比如在自行编写的行政物品查询系统中,如果要查询所有入库 大于 出库的单据,就写成:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">ret</span> <span class="o">=</span> <span class="n">ret_temp</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Moves</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">in_num__gte</span><span class="o">=</span><span class="n">F</span><span class="p">(</span><span class="s2">&quot;out_num&quot;</span><span class="p">))</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">ret</span> <span class="o">=</span> <span class="n">ret_temp</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Moves</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">in_num__gte</span><span class="o">=</span><span class="n">F</span><span class="p">(</span><span class="s2">&quot;out_num&quot;</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
 <p>在一张表用自身数据做控制的时候,就要用到F查询,经常在各种内容管理系统中使用,比如列出点赞数高于踩数的条目等等.
 除了进行比较之外,F查询在根据自己的字段值更新值的时候比较常用,比如要在出入库表上的出库数字增加10:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">models</span><span class="o">.</span><span class="n">Moves</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">in_num</span> <span class="o">=</span> <span class="n">F</span><span class="p">(</span><span class="s2">&quot;in_num&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">models</span><span class="o">.</span><span class="n">Moves</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">in_num</span> <span class="o">=</span> <span class="n">F</span><span class="p">(</span><span class="s2">&quot;in_num&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>这里要注意的就是update方法,仅可以使用在QuerySet上,单个对象(行数据)没有该方法.该方法返回的是受影响的行数.</p>
 <h3 id="q"><strong>Q查询</strong><a class="headerlink" href="#q" title="Permanent link">&para;</a></h3>
 <p>Q查询是为了解决条件查询的时候方便使用or 等逻辑符的问题,将条件独立出来,然后用逻辑运算符连结来得到最终条件.
 默认情况下,filter等条件查询内部可以使用多个条件语句,用逗号分割,这些条件之间是and的关系,比如查询每一张出入库单,要求出库大于入库而且入库大于50,就可以写成:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">ret_temp</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Moves</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">in_num__gte</span><span class="o">=</span><span class="n">F</span><span class="p">(</span><span class="s2">&quot;out_num&quot;</span><span class="p">),</span> <span class="n">in_num__gt</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">ret_temp</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Moves</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">in_num__gte</span><span class="o">=</span><span class="n">F</span><span class="p">(</span><span class="s2">&quot;out_num&quot;</span><span class="p">),</span> <span class="n">in_num__gt</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>其中的<code>in_num__gte=F("out_num")</code>和<code>in_num__gt=50</code>是and关系.如果要改成or关系,就要使用Q对象将条件独立出来,然后用&amp;(表示and)和|(表示or)还有~(表示取反)来连结各个Q对象.
 如果要查询入库小于出库或者出库大于20的单据:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
 <span class="normal"><a href="#__codelineno-22-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">F</span><span class="p">,</span><span class="n">Q</span>
 <a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="n">ret_temp</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Moves</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">in_num__lte</span><span class="o">=</span><span class="n">F</span><span class="p">(</span><span class="s2">&quot;out_num&quot;</span><span class="p">))</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">out_num__gt</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
@@ -7035,7 +7035,7 @@ ORM语句橙色的部分其实也涵盖了SQL语句中的Avg(salary),这是因�
 <h1 id="_7"><strong>补充部分</strong><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
 <h3 id="sql"><strong>查看实际生成的SQL语句</strong><a class="headerlink" href="#sql" title="Permanent link">&para;</a></h3>
 <p>在使用ORM的时候,有的时候需要知道实际生成的SQL语句,将如下部分复制到settings.py中,设置DEBUG=True,每次执行ORM操作的时候,就可以在python console中看到实际的SQL语句.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-23-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-23-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-23-4"> 4</a></span>
@@ -7072,7 +7072,7 @@ ORM语句橙色的部分其实也涵盖了SQL语句中的Avg(salary),这是因�
 <h3 id="pythondjango"><strong>在python程序中调用Django环境</strong><a class="headerlink" href="#pythondjango" title="Permanent link">&para;</a></h3>
 <p>一般来说我们在启动Django程序的时候才运行在Django环境中,单独写一个py文件,导入Django的库是无法进行操作的.
 实际上Django环境是写在Django_admin等内容中的,直接使用会提示导入环境配置文件,只要根据提示操作即可,这里提供直接可供粘贴的代码:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-24-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-24-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-24-4"> 4</a></span>

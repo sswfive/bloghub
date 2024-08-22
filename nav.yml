@@ -2,7 +2,7 @@
 nav:
   - 首页: 
     - index.md
-    # - 文章列表: home
+    - 文章归档: postlist.md
     # - 标签分类: tags/index.md
     - 个人主页: about/profile.md
   - Python编程:

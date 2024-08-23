@@ -120,6 +120,7 @@ tags:
 ## 简历模板
 
 - [LapisCV](https://github.com/BingyanStudio/LapisCV): 一款开箱即用的简历模板（提供 Obsidian 和 Typora 的简历模板），它基于 Markdown 格式、编辑方便、所见即所得，设计简洁且正式，借助编辑器可直接导出 PDF 格式的简历。
+- [热速美斯](https://www.resumeis.com/home)：一个免费的简历制作网站，可以自由拖拽，帮助你制作一份精美简历。
 
 ## 资源处理
 

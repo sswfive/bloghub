@@ -83,6 +83,7 @@ nav:
 
   - 云原生技术:
     - Kubernetes:
+      - notehub\cloud\k8s\k8stools\tool_ktconnect.md
       - notehub/cloud/k8s/helm_usage.md
       - notehub/cloud/k8s/k8s_cluster_deploy.md
       - notehub/cloud/k8s/k8s_common_cmd.md

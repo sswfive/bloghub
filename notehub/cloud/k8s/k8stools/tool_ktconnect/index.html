@@ -13,6 +13,10 @@
         <link rel="canonical" href="https://sswfive.github.io/bloghub/notehub/cloud/k8s/k8stools/tool_ktconnect/">
       
       
+        <link rel="prev" href="../../../../modelops/ml_basic/model_evalution/">
+      
+      
+        <link rel="next" href="../../helm_usage/">
       
       
       <link rel="icon" href="../../../../../customize/assets/head.png">
@@ -331,17 +335,21 @@ but is high on our list for inclusion in a future release. -->
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../tool_ktconnect.md" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
     
@@ -2363,8 +2371,10 @@ but is high on our list for inclusion in a future release. -->
       
   
   
+    
   
   
+  
     
     
       
@@ -2377,17 +2387,20 @@ but is high on our list for inclusion in a future release. -->
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -2398,7 +2411,7 @@ but is high on our list for inclusion in a future release. -->
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             云原生技术
@@ -2409,8 +2422,10 @@ but is high on our list for inclusion in a future release. -->
                 
   
   
+    
   
   
+  
     
     
       
@@ -2446,11 +2461,11 @@ but is high on our list for inclusion in a future release. -->
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
         
           
           <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
@@ -2464,7 +2479,7 @@ but is high on our list for inclusion in a future release. -->
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_1">
             <span class="md-nav__icon md-icon"></span>
             Kubernetes
@@ -2475,18 +2490,141 @@ but is high on our list for inclusion in a future release. -->
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../tool_ktconnect.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    k8s实用工具之ktconnect
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    None
+    k8s实用工具之ktconnect
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      概述
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="安装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1kubectl-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      1、下载kubectl client 命令行工具
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2、配置环境变量并验证
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3k8sconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      3、配置K8S集群的config
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4k8s" class="md-nav__link">
+    <span class="md-ellipsis">
+      4、验证是否能连接到k8s集群
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5ktconnect" class="md-nav__link">
+    <span class="md-ellipsis">
+      5、下载ktconnect并配置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6、验证是否安装成功
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7、启动
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3659,6 +3797,27 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
+      <a href="../../../../codecore/data_struct/data_struct_and_algo_learn_materials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构和算法学习资料
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../codecore/data_struct/algo_recursion/" class="md-nav__link">
         
   
@@ -3706,27 +3865,6 @@ but is high on our list for inclusion in a future release. -->
   
   <span class="md-ellipsis">
     复杂度分析与大O表示法
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../codecore/data_struct/codecore_learn_docs/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    数据结构算法学习资料
   </span>
   
 
@@ -5602,6 +5740,61 @@ but is high on our list for inclusion in a future release. -->
 
   <!-- Link to previous and/or next page -->
   
+    
+      
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="页脚"
+        
+      >
+
+        <!-- Link to previous page -->
+        
+          
+          <a
+            href="../../../../modelops/ml_basic/model_evalution/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="上一页: 机器学习模型的评估方法"
+          >
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                机器学习模型的评估方法
+              </div>
+            </div>
+            
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          
+          <a
+            href="../../helm_usage/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="下一页: k8s包管理工具helm的使用"
+          >
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                k8s包管理工具helm的使用
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
 

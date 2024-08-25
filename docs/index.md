@@ -6,6 +6,7 @@ title: Home
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
 <!-- 可选一言 -->
+
 <center>
 <font  color= #608DBD size=5>
 <p id="hitokoto">

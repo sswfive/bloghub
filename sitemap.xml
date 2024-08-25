@@ -16,6 +16,36 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/helm_usage/</loc>
+         <lastmod>2024-08-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/k8s_common_cmd/</loc>
+         <lastmod>2024-08-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/k8s_core_name/</loc>
+         <lastmod>2024-08-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/ktconnect_usage/</loc>
+         <lastmod>2024-08-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1194/</loc>
+         <lastmod>2024-08-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1279/</loc>
+         <lastmod>2024-08-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://sswfive.github.io/bloghub/thinking/</loc>
          <lastmod>2024-08-25</lastmod>
          <changefreq>daily</changefreq>

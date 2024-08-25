@@ -1,0 +1,3194 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="AstonWang">
+      
+      
+        <link rel="canonical" href="https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/k8s_common_cmd/">
+      
+      
+        <link rel="prev" href="../k8s_core_name/">
+      
+      
+        <link rel="next" href="../kubeadm_deploy_k8s_cluster_v1194/">
+      
+      
+      <link rel="icon" href="../../../../customize/assets/head.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.32">
+    
+    
+      
+        <title>k8s常用命令总结 - IceCoffee[空谷幽兰]</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+
+      
+    
+<!-- 数学公式格式支持，用html嵌入的方式支持数学公式自动换行，mathjax似乎要支持但是现在还没实现。
+Automatic line breaking has not yet been implemented in MathJax version 3, 
+but is high on our list for inclusion in a future release. -->
+
+
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../customize/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../../customize/stylesheets/customize.css">
+    
+      <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config",""),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="IceCoffee[空谷幽兰]" class="md-header__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
+      
+  <img src="../../../../customize/assets/head.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IceCoffee[空谷幽兰]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              k8s常用命令总结
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="关闭自动模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="关闭自动模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="blue"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sswfive/bloghub" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bloghub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+    
+  
+  HelloWorld
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../language/python/index.md" class="md-tabs__link">
+          
+  
+    
+  
+  Python编程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../language/golang/go_learn_docs.md" class="md-tabs__link">
+          
+  
+    
+  
+  Go编程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../modelops/ml_basic/data_mining.md" class="md-tabs__link">
+          
+  
+    
+  
+  AIOps技术
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../helm_usage/" class="md-tabs__link">
+          
+  
+    
+  
+  云原生技术
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../index.md" class="md-tabs__link">
+          
+  
+    
+  
+  综合知识库
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../toolhub/ai_tools.md" class="md-tabs__link">
+          
+  
+    
+  
+  工具小栈
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../solutionhub/index.md" class="md-tabs__link">
+          
+  
+    
+  
+  迎刃而解
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../thinking/" class="md-tabs__link">
+          
+  
+    
+  
+  随思一言
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../tags/" class="md-tabs__link">
+          
+  
+    
+  
+  标签分类
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="IceCoffee[空谷幽兰]" class="md-nav__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
+      
+  <img src="../../../../customize/assets/head.png" alt="logo">
+
+    </a>
+    IceCoffee[空谷幽兰]
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sswfive/bloghub" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bloghub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    HelloWorld
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            HelloWorld
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../postlist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    文章归档
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/profile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    个人主页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python编程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Python编程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../language/python/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Go编程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Go编程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../language/golang/go_learn_docs.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AIOps技术
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            AIOps技术
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../modelops/ml_basic/data_mining.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    云原生技术
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            云原生技术
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Kubernetes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Kubernetes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../helm_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s包管理工具Helm的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubeadm_deploy_k8s_cluster_v1279/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    kubeadm部署k8s集群指南(v1.27.9)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ktconnect_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s实用工具之KtConnect
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../k8s_core_name/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s核心概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    k8s常用命令总结
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    k8s常用命令总结
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 创建/删除资源
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 查看资源
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 查看资源">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 nodes相关命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-pod" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 pod相关命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 deployments相关命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 logs相关命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-exec" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 exec 相关命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 namespace 操作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 其他命令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 部署命令集
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 部署命令集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-rollout" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 rollout命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 scale命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-autoscale" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 autoscale命令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 集群管理命令
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 集群管理命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-cordon-uncordon" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 cordon &amp; uncordon命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-taint" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 taint命令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 其它
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      未归档命令大综合
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubeadm_deploy_k8s_cluster_v1194/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    kubeadm部署k8s集群指南(v1.19.4)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DockerCompose
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            DockerCompose
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud/docker_compose/docker_compose_software_usage.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud/docker/docker_arch_and_principle.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    综合知识库
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            综合知识库
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    软件工程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            软件工程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software_engineering/algo_hash.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    大数据技术
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            大数据技术
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../bigdata/spark/spark_distribute_compute.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数据结构与算法
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            数据结构与算法
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../codecore/data_struct/data_struct_and_algo_learn_materials.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    设计模式
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            设计模式
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../codecore/design_patterns/design_patterns_categories.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    工具小栈
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            工具小栈
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../toolhub/ai_tools.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    迎刃而解
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            迎刃而解
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../solutionhub/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../thinking/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    随思一言
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            随思一言
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../thinking/posts/06_learn_top2down_or_bottom2up/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    学习应该自底向上,还是自顶向下
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../thinking/posts/05_personal_focus_and_abandon/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    个人战略上的聚焦和放弃
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../thinking/posts/04_wisdom_of_asking_questions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    提问的智慧
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../thinking/posts/03_learn_open_source_project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何高效学习开源项目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../thinking/posts/02_tech_yiyan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    技术一言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../thinking/posts/01_smart_to_do_things/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何更聪明的做事情
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../tags/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    标签分类
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            标签分类
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 创建/删除资源
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 查看资源
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 查看资源">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 nodes相关命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-pod" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 pod相关命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 deployments相关命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 logs相关命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-exec" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 exec 相关命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 namespace 操作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 其他命令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 部署命令集
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 部署命令集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-rollout" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 rollout命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 scale命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-autoscale" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 autoscale命令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 集群管理命令
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 集群管理命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-cordon-uncordon" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 cordon &amp; uncordon命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-taint" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 taint命令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 其它
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      未归档命令大综合
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../../../tags/#k8s" class="md-tag">K8S</a>
+    
+  
+</nav>
+
+
+  
+    <a href="https://github.com/sswfive/bloghub/edit/main/docs/notehub/cloud_native/k8s/k8s_common_cmd.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/sswfive/bloghub/raw/main/docs/notehub/cloud_native/k8s/k8s_common_cmd.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+  <h1>k8s常用命令总结</h1>
+
+<h2 id="1">1. 创建/删除资源<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>一般会有两种方式：</p>
+<ul>
+<li>通过yaml文件</li>
+<li>命令创建。</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># 通过文件创建一个Deployment</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>kubectl<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>/path/to/deployment.yaml
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>cat<span class="w"> </span>/path/to/deployment.yaml<span class="w"> </span><span class="p">|</span><span class="w"> </span>kubectl<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>-
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1"># 不过一般可能更常用下面的命令来创建资源</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>/path/to/deployment.yaml
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="c1"># 删除资源</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>kubectl<span class="w"> </span>delete<span class="w"> </span>-f<span class="w"> </span>/path/to/deployment.yaml
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>或<span class="w"> </span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>kubectl<span class="w"> </span>delete<span class="w"> </span>pod<span class="w"> </span>pod名称
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="c1"># 通过kubectl命令直接创建</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>kubectl<span class="w"> </span>run<span class="w"> </span>nginx_app<span class="w"> </span>--image<span class="o">=</span>nginx:1.9.1<span class="w"> </span>--replicas<span class="o">=</span><span class="m">3</span>
+</code></pre></div></td></tr></table></div>
+<p>kubectl还提供了一些更新资源的命令，如</p>
+<ul>
+<li>kubectl edit</li>
+<li>kubectl patch</li>
+<li>kubectl replace</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span>
+<span class="normal"><a href="#__codelineno-1-8">8</a></span>
+<span class="normal"><a href="#__codelineno-1-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># kubectl edit：相当于先用get去获取资源，然后进行更新，最后对更新后的资源进行apply</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>kubectl<span class="w"> </span>edit<span class="w"> </span>deployment/nginx_app
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># kubectl patch：使用补丁修改、更新某个资源的字段，比如更新某个node</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>kubectl<span class="w"> </span>patch<span class="w"> </span>node/node-0<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;{&quot;spec&quot;:{&quot;unschedulable&quot;:true}}&#39;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>kubectl<span class="w"> </span>patch<span class="w"> </span>-f<span class="w"> </span>node-0.json<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;{&quot;spec&quot;: {&quot;unschedulable&quot;: &quot;true&quot;}}&#39;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="c1"># kubectl replace：使用配置文件来替换资源</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>kubectl<span class="w"> </span>replace<span class="w"> </span>-f<span class="w"> </span>/path/to/new_nginx_app.yaml
+</code></pre></div></td></tr></table></div>
+<h2 id="2">2. 查看资源<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>获取不同种类资源的信息。</p>
+<h3 id="21-nodes">2.1 nodes相关命令<a class="headerlink" href="#21-nodes" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>nodes<span class="w">  </span><span class="c1"># 查看集群的信息</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="22-pod">2.2 pod相关命令<a class="headerlink" href="#22-pod" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w">  </span><span class="c1"># 查看pods </span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-o<span class="w"> </span>wide<span class="w">  </span><span class="c1"># 查看指定pod的详细信息</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>--all-namespaces<span class="w">  </span><span class="c1"># 查看所有命名空间的pods</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>或者
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-A
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>命名空间名<span class="w"> </span>pod名称
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="c1"># kubectl describe 资源类型 资源名称  </span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a>kubectl<span class="w"> </span>describe<span class="w"> </span>pod<span class="w"> </span>nginx-XXXXXX<span class="w">  </span><span class="c1"># 查看名称为nginx-XXXXXX的Pod的信息</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a>kubectl<span class="w"> </span>delete<span class="w"> </span>pod<span class="w"> </span>pod名<span class="w"> </span>--grace-period<span class="o">=</span><span class="m">0</span><span class="w"> </span>--force<span class="w">  </span><span class="c1"># 强制删除一个pod(适用于普通delete无法删除的场景)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="23-deployments">2.3 deployments相关命令<a class="headerlink" href="#23-deployments" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span>
+<span class="normal"><a href="#__codelineno-4-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>deployments-A<span class="w">  </span><span class="c1"># 查看所有空间的deployments</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>或者
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>kubectl<span class="w"> </span>get<span class="w"> </span>deployments<span class="w"> </span>--all-namespaces
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>kubectl<span class="w"> </span>get<span class="w"> </span>deployments<span class="w"> </span>-n<span class="w"> </span>kube-system<span class="w">  </span><span class="c1"># 查看指定命名空间的deployments</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>kubectl<span class="w"> </span>describe<span class="w"> </span>deployment<span class="w"> </span>nginx<span class="w">  </span><span class="c1">#查看名称为nginx的Deployment的信息</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="24-logs">2.4  logs相关命令<a class="headerlink" href="#24-logs" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span>
+<span class="normal"><a href="#__codelineno-5-8">8</a></span>
+<span class="normal"><a href="#__codelineno-5-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>kubectl<span class="w"> </span>logs<span class="w"> </span>-<span class="w"> </span>查看pod中的容器的打印日志
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="o">(</span>和命令docker<span class="w"> </span>logs<span class="w"> </span>类似<span class="o">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="c1"># kubectl logs Pod名称</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="c1">#查看名称为nginx-pod-XXXXXXX的Pod内的容器打印的日志</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>kubectl<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>nginx-pod-XXXXXXX
+</code></pre></div></td></tr></table></div>
+<h3 id="25-exec">2.5  exec 相关命令<a class="headerlink" href="#25-exec" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span>
+<span class="normal"><a href="#__codelineno-6-6">6</a></span>
+<span class="normal"><a href="#__codelineno-6-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>kubectl<span class="w"> </span><span class="nb">exec</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>-<span class="w"> </span>在pod中的容器环境内执行命令<span class="o">(</span>和命令docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>类似<span class="o">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="c1"># kubectl exec Pod名称 操作命令</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="c1"># 在名称为nginx-pod-xxxxxx的Pod中运行bash</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>kubectl<span class="w"> </span>exec-it<span class="w"> </span>nginx-pod-xxxxxx<span class="w"> </span>/bin/bash
+</code></pre></div></td></tr></table></div>
+<h3 id="26-namespace">2.6 namespace 操作<a class="headerlink" href="#26-namespace" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>kubectl<span class="w"> </span>delete<span class="w"> </span>namespace<span class="w"> </span>名称<span class="w">  </span><span class="c1"># 删除指定namespace </span>
+</code></pre></div></td></tr></table></div>
+<h3 id="26">2.6 其他命令<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># 指定资源的信息，格式：kubectl get &lt;resource_type&gt;/&lt;resource_name&gt;，比如获取deployment nginx_app的信息</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>kubectl<span class="w"> </span>get<span class="w"> </span>deployment/nginx_app<span class="w"> </span>-o<span class="w"> </span>wide
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="c1"># 也可以对指定的资源进行格式化输出，比如输出格式为json、yaml等</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>kubectl<span class="w"> </span>get<span class="w"> </span>deployment/nginx_app<span class="w"> </span>-o<span class="w"> </span>json
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="c1"># 还可以对输出结果进行自定义，比如对pod只输出容器名称和镜像名称</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>httpd-app-5bc589d9f7-rnhj7<span class="w"> </span>-o<span class="w"> </span>custom-columns<span class="o">=</span>CONTAINER:.spec.containers<span class="o">[</span><span class="m">0</span><span class="o">]</span>.name,IMAGE:.spec.containers<span class="o">[</span><span class="m">0</span><span class="o">]</span>.image
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="c1"># 获取某个特定key的值还可以输入如下命令得到，此目录参照go template的用法，且命令结尾&#39;\n&#39;是为了输出结果换行</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>httpd-app-5bc589d9f7-rnhj7<span class="w"> </span>-o<span class="w"> </span>template<span class="w"> </span>--template<span class="o">=</span><span class="s1">&#39;{{(index spec.containers 0).name}}{{&quot;\n&quot;}}&#39;</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="c1">#其他更多命令使用kubectl get --help查看</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="3">3. 部署命令集<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>部署命令包括资源的运行管理命令、扩容和缩容命令和自动扩缩容命令。</p>
+<h3 id="31-rollout">3.1 rollout命令<a class="headerlink" href="#31-rollout" title="Permanent link">&para;</a></h3>
+<p>管理资源的运行，比如eployment、Daemonet、StatefulSet等资源。</p>
+<ul>
+<li>查看部署状态：比如更新deployment/nginx_app中容器的镜像后查看其更新的状态。</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>kubectl<span class="w"> </span><span class="nb">set</span><span class="w"> </span>image<span class="w"> </span>deployment/nginx_app<span class="w"> </span><span class="nv">nginx</span><span class="o">=</span>nginx:1.9.1
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>kubectl<span class="w"> </span>rollout<span class="w"> </span>status<span class="w"> </span>deployment/nginx_app
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>资源的暂停及恢复：发出一次或多次更新前暂停一个 Deployment，然后再恢复它，这样就能在Deployment暂停期间进行多次修复工作，而不会发出不必要的 rollout。</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="c1"># 暂停</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>kubectl<span class="w"> </span>rollout<span class="w"> </span>pause<span class="w"> </span>deployment/nginx_app
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="c1"># 完成所有的更新操作命令后进行恢复</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>kubectl<span class="w"> </span>rollout<span class="w"> </span>resume<span class="w"> </span>deployment/nginx_app
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>回滚：如上对一个Deployment的image做了更新，但是如果遇到更新失败或误更新等情况时可以对其进行回滚。</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span>
+<span class="normal"><a href="#__codelineno-11-5">5</a></span>
+<span class="normal"><a href="#__codelineno-11-6">6</a></span>
+<span class="normal"><a href="#__codelineno-11-7">7</a></span>
+<span class="normal"><a href="#__codelineno-11-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="c1"># 回滚之前先查看历史版本信息</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>kubectl<span class="w"> </span>rollout<span class="w"> </span><span class="nb">history</span><span class="w"> </span>deployment/nginx_app
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="c1"># 回滚</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>kubectl<span class="w"> </span>rollout<span class="w"> </span>undo<span class="w"> </span>deployment/nginx_app
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="c1"># 当然也可以指定版本号回滚至指定版本</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a>kubectl<span class="w"> </span>rollout<span class="w"> </span>undo<span class="w"> </span>deployment/nginx_app<span class="w"> </span>--to-revision<span class="o">=</span>&lt;version_index&gt;
+</code></pre></div></td></tr></table></div>
+<h3 id="32-scale">3.2 scale命令<a class="headerlink" href="#32-scale" title="Permanent link">&para;</a></h3>
+<p>对一个Deployment、RS、StatefulSet进行扩/缩容。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">4</a></span>
+<span class="normal"><a href="#__codelineno-12-5">5</a></span>
+<span class="normal"><a href="#__codelineno-12-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1"># 扩容</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>kubectl<span class="w"> </span>scale<span class="w"> </span>deployment/nginx_app<span class="w"> </span>--replicas<span class="o">=</span><span class="m">5</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="c1"># 如果是缩容，把对应的副本数设置的比当前的副本数小即可</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="c1"># 另外，还可以针对当前的副本数目做条件限制，比如当前副本数是5则进行缩容至副本数目为3</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>kubectl<span class="w"> </span>scale<span class="w"> </span>--current-replicas<span class="o">=</span><span class="m">5</span><span class="w"> </span>--replicas<span class="o">=</span><span class="m">3</span><span class="w"> </span>deployment/nginx_app
+</code></pre></div></td></tr></table></div>
+<h3 id="33-autoscale">3.3 autoscale命令<a class="headerlink" href="#33-autoscale" title="Permanent link">&para;</a></h3>
+<p>通过创建一个autoscaler，可以自动选择和设置在K8s集群中Pod的数量。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="c1"># 基于CPU的使用率创建3-10个pod</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>kubectl<span class="w"> </span>autoscale<span class="w"> </span>deployment/nginx_app<span class="w"> </span>--min<span class="o">=</span><span class="m">3</span><span class="w"> </span>--max<span class="o">=</span><span class="m">10</span><span class="w"> </span>--cpu_percent<span class="o">=</span><span class="m">80</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="4">4. 集群管理命令<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41-cordon-uncordon">4.1 cordon &amp; uncordon命令<a class="headerlink" href="#41-cordon-uncordon" title="Permanent link">&para;</a></h3>
+<p>设置是否能够将pod调度到该节点上。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span>
+<span class="normal"><a href="#__codelineno-14-5">5</a></span>
+<span class="normal"><a href="#__codelineno-14-6">6</a></span>
+<span class="normal"><a href="#__codelineno-14-7">7</a></span>
+<span class="normal"><a href="#__codelineno-14-8">8</a></span>
+<span class="normal"><a href="#__codelineno-14-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="c1"># 不可调度</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>kubectl<span class="w"> </span>cordon<span class="w"> </span>node-0
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="c1"># 当某个节点需要维护时，可以驱逐该节点上的所有pods(会删除节点上的pod，并且自动通过上面命令设置</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="c1"># 该节点不可调度，然后在其他可用节点重新启动pods)</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>kubectl<span class="w"> </span>drain<span class="w"> </span>node-0
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a>
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="c1"># 待其维护完成后，可再设置该节点为可调度</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9"></a>kubectl<span class="w"> </span>uncordon<span class="w"> </span>node-0
+</code></pre></div></td></tr></table></div>
+<h3 id="42-taint">4.2 taint命令<a class="headerlink" href="#42-taint" title="Permanent link">&para;</a></h3>
+<p>目前仅能作用于节点资源，一般这个命令通常会结合pod的tolerations字段结合使用，对于没有设置对应toleration的pod是不会调度到有该taint的节点上的，这样就可以避免pod被调度到不合适的节点上。一个节点的taint一般会包括key、value和effect(effect只能在NoSchedule, PreferNoSchedule, NoExecute中取值)。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span>
+<span class="normal"><a href="#__codelineno-15-4">4</a></span>
+<span class="normal"><a href="#__codelineno-15-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="c1"># 设置taint</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>kubecl<span class="w"> </span>taint<span class="w"> </span>nodes<span class="w"> </span>node-0<span class="w"> </span><span class="nv">key1</span><span class="o">=</span>value1:NoSchedule
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="c1"># 移除taint</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a>kubecl<span class="w"> </span>taint<span class="w"> </span>nodes<span class="w"> </span>node-0<span class="w"> </span>key1:NoSchedule-
+</code></pre></div></td></tr></table></div>
+<p>如果pod想要被调度到上述设置了taint的节点node-0上，则需要在该pod的spec的tolerations字段设置：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">YAML</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-16-10">10</a></span>
+<span class="normal"><a href="#__codelineno-16-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="nt">tolerations</span><span class="p">:</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;key1&quot;</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">  </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Equal&quot;</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;value1&quot;</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="w">  </span><span class="nt">effect</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;NoSchedule&quot;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="c1"># 或者</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="nt">tolerations</span><span class="p">:</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;key1&quot;</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="w">  </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Exists&quot;</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="w">  </span><span class="nt">effect</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;NoSchedule&quot;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="5">5. 其它<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-17-10">10</a></span>
+<span class="normal"><a href="#__codelineno-17-11">11</a></span>
+<span class="normal"><a href="#__codelineno-17-12">12</a></span>
+<span class="normal"><a href="#__codelineno-17-13">13</a></span>
+<span class="normal"><a href="#__codelineno-17-14">14</a></span>
+<span class="normal"><a href="#__codelineno-17-15">15</a></span>
+<span class="normal"><a href="#__codelineno-17-16">16</a></span>
+<span class="normal"><a href="#__codelineno-17-17">17</a></span>
+<span class="normal"><a href="#__codelineno-17-18">18</a></span>
+<span class="normal"><a href="#__codelineno-17-19">19</a></span>
+<span class="normal"><a href="#__codelineno-17-20">20</a></span>
+<span class="normal"><a href="#__codelineno-17-21">21</a></span>
+<span class="normal"><a href="#__codelineno-17-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="c1"># 映射端口允许外部访问</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a>kubectl<span class="w"> </span>expose<span class="w"> </span>deployment/nginx_app<span class="w"> </span>--type<span class="o">=</span><span class="s1">&#39;NodePort&#39;</span><span class="w"> </span>--port<span class="o">=</span><span class="m">80</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="c1"># 然后通过kubectl get services -o wide来查看被随机映射的端口</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="c1"># 如此就可以通过node的外部IP和端口来访问nginx服务了</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="c1"># 转发本地端口访问Pod的应用服务程序</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a>kubectl<span class="w"> </span>port-forward<span class="w"> </span>nginx_app_pod_0<span class="w"> </span><span class="m">8090</span>:80
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="c1"># 如此，本地可以访问：curl -i localhost:8090</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9"></a>
+<a id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="c1"># 在创建或启动某些资源的时候没有达到预期结果，可以使用如下命令先简单进行故障定位</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11"></a>kubectl<span class="w"> </span>describe<span class="w"> </span>deployment/nginx_app
+<a id="__codelineno-17-12" name="__codelineno-17-12"></a>kubectl<span class="w"> </span>logs<span class="w"> </span>nginx_pods
+<a id="__codelineno-17-13" name="__codelineno-17-13"></a>kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nginx_pod<span class="w"> </span>-c<span class="w"> </span>nginx-app<span class="w"> </span>&lt;command&gt;
+<a id="__codelineno-17-14" name="__codelineno-17-14"></a>
+<a id="__codelineno-17-15" name="__codelineno-17-15"></a><span class="c1"># 集群内部调用接口(比如用curl命令)，可以采用代理的方式，根据返回的ip及端口作为baseurl</span>
+<a id="__codelineno-17-16" name="__codelineno-17-16"></a>kubectl<span class="w"> </span>proxy<span class="w"> </span><span class="p">&amp;</span>
+<a id="__codelineno-17-17" name="__codelineno-17-17"></a>
+<a id="__codelineno-17-18" name="__codelineno-17-18"></a><span class="c1"># 查看K8s支持的完整资源列表</span>
+<a id="__codelineno-17-19" name="__codelineno-17-19"></a>kubectl<span class="w"> </span>api-resources
+<a id="__codelineno-17-20" name="__codelineno-17-20"></a>
+<a id="__codelineno-17-21" name="__codelineno-17-21"></a><span class="c1"># 查看K8s支持的api版本</span>
+<a id="__codelineno-17-22" name="__codelineno-17-22"></a>kubectl<span class="w"> </span>api-versions
+</code></pre></div></td></tr></table></div>
+<h2 id="_1">未归档命令大综合<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-18-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-18-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-18-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-18-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-18-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-18-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-18-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-18-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-18-10">10</a></span>
+<span class="normal"><a href="#__codelineno-18-11">11</a></span>
+<span class="normal"><a href="#__codelineno-18-12">12</a></span>
+<span class="normal"><a href="#__codelineno-18-13">13</a></span>
+<span class="normal"><a href="#__codelineno-18-14">14</a></span>
+<span class="normal"><a href="#__codelineno-18-15">15</a></span>
+<span class="normal"><a href="#__codelineno-18-16">16</a></span>
+<span class="normal"><a href="#__codelineno-18-17">17</a></span>
+<span class="normal"><a href="#__codelineno-18-18">18</a></span>
+<span class="normal"><a href="#__codelineno-18-19">19</a></span>
+<span class="normal"><a href="#__codelineno-18-20">20</a></span>
+<span class="normal"><a href="#__codelineno-18-21">21</a></span>
+<span class="normal"><a href="#__codelineno-18-22">22</a></span>
+<span class="normal"><a href="#__codelineno-18-23">23</a></span>
+<span class="normal"><a href="#__codelineno-18-24">24</a></span>
+<span class="normal"><a href="#__codelineno-18-25">25</a></span>
+<span class="normal"><a href="#__codelineno-18-26">26</a></span>
+<span class="normal"><a href="#__codelineno-18-27">27</a></span>
+<span class="normal"><a href="#__codelineno-18-28">28</a></span>
+<span class="normal"><a href="#__codelineno-18-29">29</a></span>
+<span class="normal"><a href="#__codelineno-18-30">30</a></span>
+<span class="normal"><a href="#__codelineno-18-31">31</a></span>
+<span class="normal"><a href="#__codelineno-18-32">32</a></span>
+<span class="normal"><a href="#__codelineno-18-33">33</a></span>
+<span class="normal"><a href="#__codelineno-18-34">34</a></span>
+<span class="normal"><a href="#__codelineno-18-35">35</a></span>
+<span class="normal"><a href="#__codelineno-18-36">36</a></span>
+<span class="normal"><a href="#__codelineno-18-37">37</a></span>
+<span class="normal"><a href="#__codelineno-18-38">38</a></span>
+<span class="normal"><a href="#__codelineno-18-39">39</a></span>
+<span class="normal"><a href="#__codelineno-18-40">40</a></span>
+<span class="normal"><a href="#__codelineno-18-41">41</a></span>
+<span class="normal"><a href="#__codelineno-18-42">42</a></span>
+<span class="normal"><a href="#__codelineno-18-43">43</a></span>
+<span class="normal"><a href="#__codelineno-18-44">44</a></span>
+<span class="normal"><a href="#__codelineno-18-45">45</a></span>
+<span class="normal"><a href="#__codelineno-18-46">46</a></span>
+<span class="normal"><a href="#__codelineno-18-47">47</a></span>
+<span class="normal"><a href="#__codelineno-18-48">48</a></span>
+<span class="normal"><a href="#__codelineno-18-49">49</a></span>
+<span class="normal"><a href="#__codelineno-18-50">50</a></span>
+<span class="normal"><a href="#__codelineno-18-51">51</a></span>
+<span class="normal"><a href="#__codelineno-18-52">52</a></span>
+<span class="normal"><a href="#__codelineno-18-53">53</a></span>
+<span class="normal"><a href="#__codelineno-18-54">54</a></span>
+<span class="normal"><a href="#__codelineno-18-55">55</a></span>
+<span class="normal"><a href="#__codelineno-18-56">56</a></span>
+<span class="normal"><a href="#__codelineno-18-57">57</a></span>
+<span class="normal"><a href="#__codelineno-18-58">58</a></span>
+<span class="normal"><a href="#__codelineno-18-59">59</a></span>
+<span class="normal"><a href="#__codelineno-18-60">60</a></span>
+<span class="normal"><a href="#__codelineno-18-61">61</a></span>
+<span class="normal"><a href="#__codelineno-18-62">62</a></span>
+<span class="normal"><a href="#__codelineno-18-63">63</a></span>
+<span class="normal"><a href="#__codelineno-18-64">64</a></span>
+<span class="normal"><a href="#__codelineno-18-65">65</a></span>
+<span class="normal"><a href="#__codelineno-18-66">66</a></span>
+<span class="normal"><a href="#__codelineno-18-67">67</a></span>
+<span class="normal"><a href="#__codelineno-18-68">68</a></span>
+<span class="normal"><a href="#__codelineno-18-69">69</a></span>
+<span class="normal"><a href="#__codelineno-18-70">70</a></span>
+<span class="normal"><a href="#__codelineno-18-71">71</a></span>
+<span class="normal"><a href="#__codelineno-18-72">72</a></span>
+<span class="normal"><a href="#__codelineno-18-73">73</a></span>
+<span class="normal"><a href="#__codelineno-18-74">74</a></span>
+<span class="normal"><a href="#__codelineno-18-75">75</a></span>
+<span class="normal"><a href="#__codelineno-18-76">76</a></span>
+<span class="normal"><a href="#__codelineno-18-77">77</a></span>
+<span class="normal"><a href="#__codelineno-18-78">78</a></span>
+<span class="normal"><a href="#__codelineno-18-79">79</a></span>
+<span class="normal"><a href="#__codelineno-18-80">80</a></span>
+<span class="normal"><a href="#__codelineno-18-81">81</a></span>
+<span class="normal"><a href="#__codelineno-18-82">82</a></span>
+<span class="normal"><a href="#__codelineno-18-83">83</a></span>
+<span class="normal"><a href="#__codelineno-18-84">84</a></span>
+<span class="normal"><a href="#__codelineno-18-85">85</a></span>
+<span class="normal"><a href="#__codelineno-18-86">86</a></span>
+<span class="normal"><a href="#__codelineno-18-87">87</a></span>
+<span class="normal"><a href="#__codelineno-18-88">88</a></span>
+<span class="normal"><a href="#__codelineno-18-89">89</a></span>
+<span class="normal"><a href="#__codelineno-18-90">90</a></span>
+<span class="normal"><a href="#__codelineno-18-91">91</a></span>
+<span class="normal"><a href="#__codelineno-18-92">92</a></span>
+<span class="normal"><a href="#__codelineno-18-93">93</a></span>
+<span class="normal"><a href="#__codelineno-18-94">94</a></span>
+<span class="normal"><a href="#__codelineno-18-95">95</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="c1"># 查看具体pods，记得后边跟namespace名字哦</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w">  </span>kubernetes-dashboard-76479d66bb-nj8wr<span class="w"> </span>--namespace<span class="o">=</span>kube-system
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="c1"># 查看pods具体信息</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-o<span class="w"> </span>wide<span class="w"> </span>kubernetes-dashboard-76479d66bb-nj8wr<span class="w"> </span>--namespace<span class="o">=</span>kube-system
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="c1"># 查看集群健康状态</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6"></a>kubectl<span class="w"> </span>get<span class="w"> </span>cs
+<a id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="c1"># 获取所有deployment</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8"></a>kubectl<span class="w"> </span>get<span class="w"> </span>deployment<span class="w"> </span>--all-namespaces
+<a id="__codelineno-18-9" name="__codelineno-18-9"></a><span class="c1"># 列出该 namespace 中的所有 pod 包括未初始化的</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>--include-uninitialized
+<a id="__codelineno-18-11" name="__codelineno-18-11"></a><span class="c1"># 查看deployment()</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12"></a>kubectl<span class="w"> </span>get<span class="w"> </span>deployment<span class="w"> </span>nginx-app
+<a id="__codelineno-18-13" name="__codelineno-18-13"></a><span class="c1"># 查看rc和servers</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14"></a>kubectl<span class="w"> </span>get<span class="w"> </span>rc,services
+<a id="__codelineno-18-15" name="__codelineno-18-15"></a><span class="c1"># 查看pods结构信息（重点，通过这个看日志分析错误）</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16"></a><span class="c1"># 对控制器和服务，node同样有效</span>
+<a id="__codelineno-18-17" name="__codelineno-18-17"></a>kubectl<span class="w"> </span>describe<span class="w"> </span>pods<span class="w"> </span>xxxxpodsname<span class="w"> </span>--namespace<span class="o">=</span>xxxnamespace
+<a id="__codelineno-18-18" name="__codelineno-18-18"></a><span class="c1"># 其他控制器类似吧，就是kubectl get 控制器 控制器具体名称</span>
+<a id="__codelineno-18-19" name="__codelineno-18-19"></a><span class="c1"># 查看pod日志</span>
+<a id="__codelineno-18-20" name="__codelineno-18-20"></a>kubectl<span class="w"> </span>logs<span class="w"> </span><span class="nv">$POD_NAME</span>
+<a id="__codelineno-18-21" name="__codelineno-18-21"></a><span class="c1"># 查看pod变量</span>
+<a id="__codelineno-18-22" name="__codelineno-18-22"></a>kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>my-nginx-5j8ok<span class="w"> </span>--<span class="w"> </span>printenv<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>SERVICE
+<a id="__codelineno-18-23" name="__codelineno-18-23"></a><span class="c1"># 集群</span>
+<a id="__codelineno-18-24" name="__codelineno-18-24"></a>kubectl<span class="w"> </span>get<span class="w"> </span>cs<span class="w">           </span><span class="c1"># 集群健康情况</span>
+<a id="__codelineno-18-25" name="__codelineno-18-25"></a>kubectl<span class="w"> </span>cluster-info<span class="w">     </span><span class="c1"># 集群核心组件运行情况</span>
+<a id="__codelineno-18-26" name="__codelineno-18-26"></a>kubectl<span class="w"> </span>get<span class="w"> </span>namespaces<span class="w">    </span><span class="c1"># 表空间名</span>
+<a id="__codelineno-18-27" name="__codelineno-18-27"></a>kubectl<span class="w"> </span>version<span class="w">           </span><span class="c1"># 版本</span>
+<a id="__codelineno-18-28" name="__codelineno-18-28"></a>kubectl<span class="w"> </span>api-versions<span class="w">      </span><span class="c1"># API</span>
+<a id="__codelineno-18-29" name="__codelineno-18-29"></a>kubectl<span class="w"> </span>get<span class="w"> </span>events<span class="w">       </span><span class="c1"># 查看事件</span>
+<a id="__codelineno-18-30" name="__codelineno-18-30"></a>kubectl<span class="w"> </span>get<span class="w"> </span>nodes<span class="w">      </span>//获取全部节点
+<a id="__codelineno-18-31" name="__codelineno-18-31"></a>kubectl<span class="w"> </span>delete<span class="w"> </span>node<span class="w"> </span>k8s2<span class="w">  </span>//删除节点
+<a id="__codelineno-18-32" name="__codelineno-18-32"></a>kubectl<span class="w"> </span>rollout<span class="w"> </span>status<span class="w"> </span>deploy<span class="w"> </span>nginx-test
+<a id="__codelineno-18-33" name="__codelineno-18-33"></a><span class="c1"># 创建</span>
+<a id="__codelineno-18-34" name="__codelineno-18-34"></a>kubectl<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>./nginx.yaml<span class="w">           </span><span class="c1"># 创建资源</span>
+<a id="__codelineno-18-35" name="__codelineno-18-35"></a>kubectl<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>.<span class="w">                            </span><span class="c1"># 创建当前目录下的所有yaml资源</span>
+<a id="__codelineno-18-36" name="__codelineno-18-36"></a>kubectl<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>./nginx1.yaml<span class="w"> </span>-f<span class="w"> </span>./mysql2.yaml<span class="w">     </span><span class="c1"># 使用多个文件创建资源</span>
+<a id="__codelineno-18-37" name="__codelineno-18-37"></a>kubectl<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>./dir<span class="w">                        </span><span class="c1"># 使用目录下的所有清单文件来创建资源</span>
+<a id="__codelineno-18-38" name="__codelineno-18-38"></a>kubectl<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>https://git.io/vPieo<span class="w">         </span><span class="c1"># 使用 url 来创建资源</span>
+<a id="__codelineno-18-39" name="__codelineno-18-39"></a>kubectl<span class="w"> </span>run<span class="w"> </span>-i<span class="w"> </span>--tty<span class="w"> </span>busybox<span class="w"> </span>--image<span class="o">=</span>busybox<span class="w">    </span>----创建带有终端的pod
+<a id="__codelineno-18-40" name="__codelineno-18-40"></a>kubectl<span class="w"> </span>run<span class="w"> </span>nginx<span class="w"> </span>--image<span class="o">=</span>nginx<span class="w">                </span><span class="c1"># 启动一个 nginx 实例</span>
+<a id="__codelineno-18-41" name="__codelineno-18-41"></a>kubectl<span class="w"> </span>run<span class="w"> </span>mybusybox<span class="w"> </span>--image<span class="o">=</span>busybox<span class="w"> </span>--replicas<span class="o">=</span><span class="m">5</span><span class="w">    </span>----启动多个pod
+<a id="__codelineno-18-42" name="__codelineno-18-42"></a>kubectl<span class="w"> </span>explain<span class="w"> </span>pods,svc<span class="w">                       </span><span class="c1"># 获取 pod 和 svc 的文档</span>
+<a id="__codelineno-18-43" name="__codelineno-18-43"></a><span class="c1"># 更新</span>
+<a id="__codelineno-18-44" name="__codelineno-18-44"></a>kubectl<span class="w"> </span>rolling-update<span class="w"> </span>python-v1<span class="w"> </span>-f<span class="w"> </span>python-v2.json<span class="w">           </span><span class="c1"># 滚动更新 pod frontend-v1</span>
+<a id="__codelineno-18-45" name="__codelineno-18-45"></a>kubectl<span class="w"> </span>rolling-update<span class="w"> </span>python-v1<span class="w"> </span>python-v2<span class="w"> </span>--image<span class="o">=</span>image:v2<span class="w">  </span><span class="c1"># 更新资源名称并更新镜像</span>
+<a id="__codelineno-18-46" name="__codelineno-18-46"></a>kubectl<span class="w"> </span>rolling-update<span class="w"> </span>python<span class="w"> </span>--image<span class="o">=</span>image:v2<span class="w">                 </span><span class="c1"># 更新 frontend pod 中的镜像</span>
+<a id="__codelineno-18-47" name="__codelineno-18-47"></a>kubectl<span class="w"> </span>rolling-update<span class="w"> </span>python-v1<span class="w"> </span>python-v2<span class="w"> </span>--rollback<span class="w">        </span><span class="c1"># 退出已存在的进行中的滚动更新</span>
+<a id="__codelineno-18-48" name="__codelineno-18-48"></a>cat<span class="w"> </span>pod.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>kubectl<span class="w"> </span>replace<span class="w"> </span>-f<span class="w"> </span>-<span class="w">                              </span><span class="c1"># 基于 stdin 输入的 JSON 替换 pod</span>
+<a id="__codelineno-18-49" name="__codelineno-18-49"></a>强制替换，删除后重新创建资源。会导致服务中断。
+<a id="__codelineno-18-50" name="__codelineno-18-50"></a>kubectl<span class="w"> </span>replace<span class="w"> </span>--force<span class="w"> </span>-f<span class="w"> </span>./pod.json
+<a id="__codelineno-18-51" name="__codelineno-18-51"></a>为<span class="w"> </span>nginx<span class="w"> </span>RC<span class="w"> </span>创建服务，启用本地<span class="w"> </span><span class="m">80</span><span class="w"> </span>端口连接到容器上的<span class="w"> </span><span class="m">8000</span><span class="w"> </span>端口
+<a id="__codelineno-18-52" name="__codelineno-18-52"></a>kubectl<span class="w"> </span>expose<span class="w"> </span>rc<span class="w"> </span>nginx<span class="w"> </span>--port<span class="o">=</span><span class="m">80</span><span class="w"> </span>--target-port<span class="o">=</span><span class="m">8000</span>
+<a id="__codelineno-18-53" name="__codelineno-18-53"></a>
+<a id="__codelineno-18-54" name="__codelineno-18-54"></a>更新单容器<span class="w"> </span>pod<span class="w"> </span>的镜像版本（tag）到<span class="w"> </span>v4
+<a id="__codelineno-18-55" name="__codelineno-18-55"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>nginx-pod<span class="w"> </span>-o<span class="w"> </span>yaml<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/\(image: myimage\):.*$/\1:v4/&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>kubectl<span class="w"> </span>replace<span class="w"> </span>-f<span class="w"> </span>-
+<a id="__codelineno-18-56" name="__codelineno-18-56"></a>kubectl<span class="w"> </span>label<span class="w"> </span>pods<span class="w"> </span>nginx-pod<span class="w"> </span>new-label<span class="o">=</span>awesome<span class="w">                      </span><span class="c1"># 添加标签</span>
+<a id="__codelineno-18-57" name="__codelineno-18-57"></a>kubectl<span class="w"> </span>annotate<span class="w"> </span>pods<span class="w"> </span>nginx-pod<span class="w"> </span>icon-url<span class="o">=</span>http://goo.gl/XXBTWq<span class="w">       </span><span class="c1"># 添加注解</span>
+<a id="__codelineno-18-58" name="__codelineno-18-58"></a>kubectl<span class="w"> </span>autoscale<span class="w"> </span>deployment<span class="w"> </span>foo<span class="w"> </span>--min<span class="o">=</span><span class="m">2</span><span class="w"> </span>--max<span class="o">=</span><span class="m">10</span><span class="w">                </span><span class="c1"># 自动扩展 deployment “foo”</span>
+<a id="__codelineno-18-59" name="__codelineno-18-59"></a><span class="c1"># 编辑资源</span>
+<a id="__codelineno-18-60" name="__codelineno-18-60"></a>kubectl<span class="w"> </span>edit<span class="w"> </span>svc/docker-registry<span class="w">                      </span><span class="c1"># 编辑名为 docker-registry 的 service</span>
+<a id="__codelineno-18-61" name="__codelineno-18-61"></a><span class="nv">KUBE_EDITOR</span><span class="o">=</span><span class="s2">&quot;nano&quot;</span><span class="w"> </span>kubectl<span class="w"> </span>edit<span class="w"> </span>svc/docker-registry<span class="w">   </span><span class="c1"># 使用其它编辑器</span>
+<a id="__codelineno-18-62" name="__codelineno-18-62"></a><span class="c1"># 动态伸缩pod</span>
+<a id="__codelineno-18-63" name="__codelineno-18-63"></a>kubectl<span class="w"> </span>scale<span class="w"> </span>--replicas<span class="o">=</span><span class="m">3</span><span class="w"> </span>rs/foo<span class="w">                                 </span><span class="c1"># 将foo副本集变成3个</span>
+<a id="__codelineno-18-64" name="__codelineno-18-64"></a>kubectl<span class="w"> </span>scale<span class="w"> </span>--replicas<span class="o">=</span><span class="m">3</span><span class="w"> </span>-f<span class="w"> </span>foo.yaml<span class="w">                            </span><span class="c1"># 缩放“foo”中指定的资源。</span>
+<a id="__codelineno-18-65" name="__codelineno-18-65"></a>kubectl<span class="w"> </span>scale<span class="w"> </span>--current-replicas<span class="o">=</span><span class="m">2</span><span class="w"> </span>--replicas<span class="o">=</span><span class="m">3</span><span class="w"> </span>deployment/mysql<span class="w">  </span><span class="c1"># 将deployment/mysql从2个变成3个</span>
+<a id="__codelineno-18-66" name="__codelineno-18-66"></a>kubectl<span class="w"> </span>scale<span class="w"> </span>--replicas<span class="o">=</span><span class="m">5</span><span class="w"> </span>rc/foo<span class="w"> </span>rc/bar<span class="w"> </span>rc/baz<span class="w">                   </span><span class="c1"># 变更多个控制器的数量</span>
+<a id="__codelineno-18-67" name="__codelineno-18-67"></a>kubectl<span class="w"> </span>rollout<span class="w"> </span>status<span class="w"> </span>deploy<span class="w"> </span>deployment/mysql<span class="w">                         </span><span class="c1"># 查看变更进度</span>
+<a id="__codelineno-18-68" name="__codelineno-18-68"></a><span class="c1"># 删除</span>
+<a id="__codelineno-18-69" name="__codelineno-18-69"></a>kubectl<span class="w"> </span>delete<span class="w"> </span>-f<span class="w"> </span>./pod.json<span class="w">                                              </span><span class="c1"># 删除 pod.json 文件中定义的类型和名称的 pod</span>
+<a id="__codelineno-18-70" name="__codelineno-18-70"></a>kubectl<span class="w"> </span>delete<span class="w"> </span>pod,service<span class="w"> </span>baz<span class="w"> </span>foo<span class="w">                                        </span><span class="c1"># 删除名为“baz”的 pod 和名为“foo”的 service</span>
+<a id="__codelineno-18-71" name="__codelineno-18-71"></a>kubectl<span class="w"> </span>delete<span class="w"> </span>pods,services<span class="w"> </span>-l<span class="w"> </span><span class="nv">name</span><span class="o">=</span>myLabel<span class="w">                              </span><span class="c1"># 删除具有 name=myLabel 标签的 pod 和 serivce</span>
+<a id="__codelineno-18-72" name="__codelineno-18-72"></a>kubectl<span class="w"> </span>delete<span class="w"> </span>pods,services<span class="w"> </span>-l<span class="w"> </span><span class="nv">name</span><span class="o">=</span>myLabel<span class="w"> </span>--include-uninitialized<span class="w">      </span><span class="c1"># 删除具有 name=myLabel 标签的 pod 和 service，包括尚未初始化的</span>
+<a id="__codelineno-18-73" name="__codelineno-18-73"></a>kubectl<span class="w"> </span>-n<span class="w"> </span>my-ns<span class="w"> </span>delete<span class="w"> </span>po,svc<span class="w"> </span>--all<span class="w"> </span><span class="c1"># 删除 my-ns namespace下的所有 pod 和 serivce，包括尚未初始化的</span>
+<a id="__codelineno-18-74" name="__codelineno-18-74"></a>kubectl<span class="w"> </span>delete<span class="w"> </span>pods<span class="w"> </span>prometheus-7fcfcb9f89-qkkf7<span class="w"> </span>--grace-period<span class="o">=</span><span class="m">0</span><span class="w"> </span>--force<span class="w"> </span>强制删除
+<a id="__codelineno-18-75" name="__codelineno-18-75"></a>
+<a id="__codelineno-18-76" name="__codelineno-18-76"></a><span class="c1"># 交互</span>
+<a id="__codelineno-18-77" name="__codelineno-18-77"></a>kubectl<span class="w"> </span>logs<span class="w"> </span>nginx-pod<span class="w">                                 </span><span class="c1"># dump 输出 pod 的日志（stdout）</span>
+<a id="__codelineno-18-78" name="__codelineno-18-78"></a>kubectl<span class="w"> </span>logs<span class="w"> </span>nginx-pod<span class="w"> </span>-c<span class="w"> </span>my-container<span class="w">                 </span><span class="c1"># dump 输出 pod 中容器的日志（stdout，pod 中有多个容器的情况下使用）</span>
+<a id="__codelineno-18-79" name="__codelineno-18-79"></a>kubectl<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>nginx-pod<span class="w">                              </span><span class="c1"># 流式输出 pod 的日志（stdout）</span>
+<a id="__codelineno-18-80" name="__codelineno-18-80"></a>kubectl<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>nginx-pod<span class="w"> </span>-c<span class="w"> </span>my-container<span class="w">              </span><span class="c1"># 流式输出 pod 中容器的日志（stdout，pod 中有多个容器的情况下使用）</span>
+<a id="__codelineno-18-81" name="__codelineno-18-81"></a>kubectl<span class="w"> </span>run<span class="w"> </span>-i<span class="w"> </span>--tty<span class="w"> </span>busybox<span class="w"> </span>--image<span class="o">=</span>busybox<span class="w"> </span>--<span class="w"> </span>sh<span class="w">  </span><span class="c1"># 交互式 shell 的方式运行 pod</span>
+<a id="__codelineno-18-82" name="__codelineno-18-82"></a>kubectl<span class="w"> </span>attach<span class="w"> </span>nginx-pod<span class="w"> </span>-i<span class="w">                            </span><span class="c1"># 连接到运行中的容器</span>
+<a id="__codelineno-18-83" name="__codelineno-18-83"></a>kubectl<span class="w"> </span>port-forward<span class="w"> </span>nginx-pod<span class="w"> </span><span class="m">5000</span>:6000<span class="w">               </span><span class="c1"># 转发 pod 中的 6000 端口到本地的 5000 端口</span>
+<a id="__codelineno-18-84" name="__codelineno-18-84"></a>kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nginx-pod<span class="w"> </span>--<span class="w"> </span>ls<span class="w"> </span>/<span class="w">                         </span><span class="c1"># 在已存在的容器中执行命令（只有一个容器的情况下）</span>
+<a id="__codelineno-18-85" name="__codelineno-18-85"></a>kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nginx-pod<span class="w"> </span>-c<span class="w"> </span>my-container<span class="w"> </span>--<span class="w"> </span>ls<span class="w"> </span>/<span class="w">         </span><span class="c1"># 在已存在的容器中执行命令（pod 中有多个容器的情况下）</span>
+<a id="__codelineno-18-86" name="__codelineno-18-86"></a>kubectl<span class="w"> </span>top<span class="w"> </span>pod<span class="w"> </span>POD_NAME<span class="w"> </span>--containers<span class="w">               </span><span class="c1"># 显示指定 pod和容器的指标度量</span>
+<a id="__codelineno-18-87" name="__codelineno-18-87"></a><span class="c1"># 调度配置</span>
+<a id="__codelineno-18-88" name="__codelineno-18-88"></a>$<span class="w"> </span>kubectl<span class="w"> </span>cordon<span class="w"> </span>k8s-node<span class="w">                                                </span><span class="c1"># 标记 my-node 不可调度</span>
+<a id="__codelineno-18-89" name="__codelineno-18-89"></a>$<span class="w"> </span>kubectl<span class="w"> </span>drain<span class="w"> </span>k8s-node<span class="w">                                                 </span><span class="c1"># 清空 my-node 以待维护</span>
+<a id="__codelineno-18-90" name="__codelineno-18-90"></a>$<span class="w"> </span>kubectl<span class="w"> </span>uncordon<span class="w"> </span>k8s-node<span class="w">                                              </span><span class="c1"># 标记 my-node 可调度</span>
+<a id="__codelineno-18-91" name="__codelineno-18-91"></a>$<span class="w"> </span>kubectl<span class="w"> </span>top<span class="w"> </span>node<span class="w"> </span>k8s-node<span class="w">                                              </span><span class="c1"># 显示 my-node 的指标度量</span>
+<a id="__codelineno-18-92" name="__codelineno-18-92"></a>$<span class="w"> </span>kubectl<span class="w"> </span>cluster-info<span class="w"> </span>dump<span class="w">                                             </span><span class="c1"># 将当前集群状态输出到 stdout                                    </span>
+<a id="__codelineno-18-93" name="__codelineno-18-93"></a>$<span class="w"> </span>kubectl<span class="w"> </span>cluster-info<span class="w"> </span>dump<span class="w"> </span>--output-directory<span class="o">=</span>/path/to/cluster-state<span class="w">   </span><span class="c1"># 将当前集群状态输出到 /path/to/cluster-state</span>
+<a id="__codelineno-18-94" name="__codelineno-18-94"></a><span class="c1">#如果该键和影响的污点（taint）已存在，则使用指定的值替换</span>
+<a id="__codelineno-18-95" name="__codelineno-18-95"></a>$<span class="w"> </span>kubectl<span class="w"> </span>taint<span class="w"> </span>nodes<span class="w"> </span>foo<span class="w"> </span><span class="nv">dedicated</span><span class="o">=</span>special-user:NoSchedule
+</code></pre></div></td></tr></table></div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-25</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-25</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <!-- Footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    
+      
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="页脚"
+        
+      >
+
+        <!-- Link to previous page -->
+        
+          
+          <a
+            href="../k8s_core_name/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="上一页: k8s核心概念"
+          >
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                k8s核心概念
+              </div>
+            </div>
+            
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          
+          <a
+            href="../kubeadm_deploy_k8s_cluster_v1194/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="下一页: kubeadm部署k8s集群指南(v1.19.4)"
+          >
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                kubeadm部署k8s集群指南(v1.19.4)
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid" style="display: flex; justify-content: center; ">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2017~2024 AstonWang/All Rights Reserved.
+    </div>
+  
+  
+</div>
+
+      <font color="#B9B9B9">
+      <div class="md-footer-meta__inner md-grid" style="display: flex; justify-content: center; "></div>
+        <div id='box11' style="font-size: 14px;"> &nbsp;| &nbsp; 本站已经运行: <span id="timer"></span></div>
+      </font>
+
+    <!-- 本站访问量：<script async src="//finicounter.eu.org/finicounter.js"></script> -->
+    <!-- <span id="finicount_views"></span>    &nbsp;|&nbsp; -->
+    <!-- <footer> -->
+      <!-- <a href="https://icp.gov.moe/?keyword=20230640" target="_blank">萌ICP备20230640号</a> -->
+    <!-- </footer> -->
+  </div>
+      </font>
+   
+    <!-- <font color="#B9B9B9">
+      <div class="footer-visit-count" style="display: flex; justify-content: center; align-items: center;">
+    本站访问量：<script async src="//finicounter.eu.org/finicounter.js"></script>
+    <span id="finicount_views"></span>    &nbsp;|&nbsp;
+    <footer>
+      <a href="https://icp.gov.moe/?keyword=20230640" target="_blank">萌ICP备20230640号</a>
+    </footer>
+  </div>
+      </font> -->
+
+      <style>
+        .footer-visit-count {
+            height: fit-content;
+            min-height: 55px; /* 根据实际情况调整此高度 */
+        }
+        </style>
+      
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+  function timingTime(){
+    let start = '2024-06-28 00:00:00'
+    let startTime = new Date(start).getTime()
+    let currentTime = new Date().getTime()
+    let difference = currentTime - startTime
+    let m =  Math.floor(difference / (1000))
+    let mm = m % 60  // 秒
+    let f = Math.floor(m / 60)
+    let ff = f % 60 // 分钟
+    let s = Math.floor(f/ 60) // 小时
+    let ss = s % 24
+    let day = Math.floor(s  / 24 ) // 天数
+    return day + "天" + ss + "时" + ff + "分" + mm +'秒'
+  }
+  setInterval(()=>{
+    document.getElementById('timer').innerHTML = timingTime()
+  },1000)
+  });
+</script>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["announce.dismiss", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.footer", "navigation.path", "search.suggest", "search.highlight", "search.share", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.action.edit", "content.action.view", "content.code.annotate", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.471ce7a9.min.js"></script>
+      
+        <script src="../../../../customize/javascripts/extra.js"></script>
+      
+        <script src="../../../../customize/javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.0.2/dist/add-html-label-6e56ed67.min.js"></script>
+      
+    
+  </body>
+</html>

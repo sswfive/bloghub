@@ -10,28 +10,28 @@
         <meta name="author" content="AstonWang">
       
       
-        <link rel="canonical" href="https://sswfive.github.io/bloghub/thinking/posts/05_personal_focus_and_abandon/">
+        <link rel="canonical" href="https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/k8s_dashboard/">
       
       
-        <link rel="prev" href="../06_learn_top2down_or_bottom2up/">
+        <link rel="prev" href="../k8s_storageclass_nfs/">
       
       
-        <link rel="next" href="../04_wisdom_of_asking_questions/">
+        <link rel="next" href="../k8s_usage_skills/">
       
       
-      <link rel="icon" href="../../../customize/assets/head.png">
+      <link rel="icon" href="../../../../customize/assets/head.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.32">
     
     
       
-        <title>个人战略上的聚焦和放弃 - IceCoffee[空谷幽兰]</title>
+        <title>k8s的Dashboard安装 - IceCoffee[空谷幽兰]</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -56,15 +56,15 @@ but is high on our list for inclusion in a future release. -->
       
     
     
-      <link rel="stylesheet" href="../../../customize/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../customize/stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../../../customize/stylesheets/customize.css">
+      <link rel="stylesheet" href="../../../../customize/stylesheets/customize.css">
     
       <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -99,6 +99,11 @@ but is high on our list for inclusion in a future release. -->
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#k8sdashboard" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -109,9 +114,9 @@ but is high on our list for inclusion in a future release. -->
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="IceCoffee[空谷幽兰]" class="md-header__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
+    <a href="../../../.." title="IceCoffee[空谷幽兰]" class="md-header__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
-  <img src="../../../customize/assets/head.png" alt="logo">
+  <img src="../../../../customize/assets/head.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -128,7 +133,7 @@ but is high on our list for inclusion in a future release. -->
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              个人战略上的聚焦和放弃
+              k8s的Dashboard安装
             
           </span>
         </div>
@@ -254,7 +259,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../.." class="md-tabs__link">
+        <a href="../../../.." class="md-tabs__link">
           
   
     
@@ -274,7 +279,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../language/python/index.md" class="md-tabs__link">
+        <a href="../../../../language/python/index.md" class="md-tabs__link">
           
   
     
@@ -294,7 +299,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../language/golang/go_learn_docs.md" class="md-tabs__link">
+        <a href="../../../../language/golang/go_learn_docs.md" class="md-tabs__link">
           
   
     
@@ -314,7 +319,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../notehub/modelops/ml_basic/data_mining.md" class="md-tabs__link">
+        <a href="../../../modelops/ml_basic/data_mining.md" class="md-tabs__link">
           
   
     
@@ -330,17 +335,21 @@ but is high on our list for inclusion in a future release. -->
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../notehub/cloud_native/k8s/helm_usage/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../helm_usage/" class="md-tabs__link">
           
   
     
@@ -369,7 +378,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../notehub/index.md" class="md-tabs__link">
+        <a href="../../../index.md" class="md-tabs__link">
           
   
     
@@ -392,7 +401,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../toolhub/ai_tools.md" class="md-tabs__link">
+        <a href="../../../../toolhub/ai_tools.md" class="md-tabs__link">
           
   
     
@@ -412,7 +421,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../solutionhub/index.md" class="md-tabs__link">
+        <a href="../../../../solutionhub/index.md" class="md-tabs__link">
           
   
     
@@ -428,13 +437,11 @@ but is high on our list for inclusion in a future release. -->
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../../thinking/" class="md-tabs__link">
           
   
     
@@ -454,7 +461,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../tags/" class="md-tabs__link">
+        <a href="../../../../tags/" class="md-tabs__link">
           
   
     
@@ -489,9 +496,9 @@ but is high on our list for inclusion in a future release. -->
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="IceCoffee[空谷幽兰]" class="md-nav__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
+    <a href="../../../.." title="IceCoffee[空谷幽兰]" class="md-nav__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
-  <img src="../../../customize/assets/head.png" alt="logo">
+  <img src="../../../../customize/assets/head.png" alt="logo">
 
     </a>
     IceCoffee[空谷幽兰]
@@ -543,7 +550,7 @@ but is high on our list for inclusion in a future release. -->
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../.." class="md-nav__link ">
+            <a href="../../../.." class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -576,7 +583,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../postlist/" class="md-nav__link">
+      <a href="../../../../postlist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -597,7 +604,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../about/profile/" class="md-nav__link">
+      <a href="../../../../about/profile/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -667,7 +674,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../language/python/index.md" class="md-nav__link">
+      <a href="../../../../language/python/index.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -737,7 +744,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../language/golang/go_learn_docs.md" class="md-nav__link">
+      <a href="../../../../language/golang/go_learn_docs.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -807,7 +814,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../notehub/modelops/ml_basic/data_mining.md" class="md-nav__link">
+      <a href="../../../modelops/ml_basic/data_mining.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -832,8 +839,10 @@ but is high on our list for inclusion in a future release. -->
       
   
   
+    
   
   
+  
     
     
       
@@ -846,17 +855,20 @@ but is high on our list for inclusion in a future release. -->
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -867,7 +879,7 @@ but is high on our list for inclusion in a future release. -->
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             云原生技术
@@ -878,8 +890,10 @@ but is high on our list for inclusion in a future release. -->
                 
   
   
+    
   
   
+  
     
     
       
@@ -907,11 +921,11 @@ but is high on our list for inclusion in a future release. -->
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
         
           
           <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
@@ -925,7 +939,7 @@ but is high on our list for inclusion in a future release. -->
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_1">
             <span class="md-nav__icon md-icon"></span>
             Kubernetes
@@ -939,7 +953,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../notehub/cloud_native/k8s/helm_usage/" class="md-nav__link">
+      <a href="../helm_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -960,7 +974,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1279/" class="md-nav__link">
+      <a href="../kubeadm_deploy_k8s_cluster_v1279/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -981,7 +995,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../notehub/cloud_native/k8s/ktconnect_usage/" class="md-nav__link">
+      <a href="../ktconnect_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1002,7 +1016,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../notehub/cloud_native/k8s/k8s_storageclass_nfs/" class="md-nav__link">
+      <a href="../k8s_storageclass_nfs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1020,10 +1034,19 @@ but is high on our list for inclusion in a future release. -->
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../notehub/cloud_native/k8s/k8s_dashboard/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1032,6 +1055,7 @@ but is high on our list for inclusion in a future release. -->
   
 
       </a>
+      
     </li>
   
 
@@ -1044,7 +1068,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../notehub/cloud_native/k8s/k8s_usage_skills/" class="md-nav__link">
+      <a href="../k8s_usage_skills/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1065,7 +1089,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../notehub/cloud_native/k8s/k8s_core_name/" class="md-nav__link">
+      <a href="../k8s_core_name/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1086,7 +1110,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../notehub/cloud_native/k8s/k8s_common_cmd/" class="md-nav__link">
+      <a href="../k8s_common_cmd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1107,7 +1131,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1194/" class="md-nav__link">
+      <a href="../kubeadm_deploy_k8s_cluster_v1194/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1178,7 +1202,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../notehub/cloud/docker_compose/docker_compose_software_usage.md" class="md-nav__link">
+      <a href="../../../cloud/docker_compose/docker_compose_software_usage.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1249,7 +1273,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../notehub/cloud/docker/docker_arch_and_principle.md" class="md-nav__link">
+      <a href="../../../cloud/docker/docker_arch_and_principle.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1377,7 +1401,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../notehub/index.md" class="md-nav__link">
+      <a href="../../../index.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1398,7 +1422,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../notehub/software_engineering/algo_hash.md" class="md-nav__link">
+      <a href="../../../software_engineering/algo_hash.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1469,7 +1493,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../notehub/bigdata/spark/spark_distribute_compute.md" class="md-nav__link">
+      <a href="../../../bigdata/spark/spark_distribute_compute.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1540,7 +1564,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../notehub/codecore/data_struct/data_struct_and_algo_learn_materials.md" class="md-nav__link">
+      <a href="../../../codecore/data_struct/data_struct_and_algo_learn_materials.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1611,7 +1635,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../notehub/codecore/design_patterns/design_patterns_categories.md" class="md-nav__link">
+      <a href="../../../codecore/design_patterns/design_patterns_categories.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1689,7 +1713,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../toolhub/ai_tools.md" class="md-nav__link">
+      <a href="../../../../toolhub/ai_tools.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1759,7 +1783,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../solutionhub/index.md" class="md-nav__link">
+      <a href="../../../../solutionhub/index.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1784,8 +1808,6 @@ but is high on our list for inclusion in a future release. -->
       
   
   
-    
-  
   
   
     
@@ -1810,22 +1832,19 @@ but is high on our list for inclusion in a future release. -->
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../../../thinking/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1836,13 +1855,13 @@ but is high on our list for inclusion in a future release. -->
             </a>
             
               
-              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="">
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             随思一言
@@ -1858,7 +1877,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../06_learn_top2down_or_bottom2up/" class="md-nav__link">
+      <a href="../../../../thinking/posts/06_learn_top2down_or_bottom2up/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1876,17 +1895,10 @@ but is high on our list for inclusion in a future release. -->
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../thinking/posts/05_personal_focus_and_abandon/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1895,7 +1907,6 @@ but is high on our list for inclusion in a future release. -->
   
 
       </a>
-      
     </li>
   
 
@@ -1908,7 +1919,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../04_wisdom_of_asking_questions/" class="md-nav__link">
+      <a href="../../../../thinking/posts/04_wisdom_of_asking_questions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1929,7 +1940,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../03_learn_open_source_project/" class="md-nav__link">
+      <a href="../../../../thinking/posts/03_learn_open_source_project/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1950,7 +1961,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../02_tech_yiyan/" class="md-nav__link">
+      <a href="../../../../thinking/posts/02_tech_yiyan/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1971,7 +1982,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../01_smart_to_do_things/" class="md-nav__link">
+      <a href="../../../../thinking/posts/01_smart_to_do_things/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2020,7 +2031,7 @@ but is high on our list for inclusion in a future release. -->
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tags/" class="md-nav__link ">
+            <a href="../../../../tags/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2065,6 +2076,8 @@ but is high on our list for inclusion in a future release. -->
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -2083,14 +2096,14 @@ but is high on our list for inclusion in a future release. -->
     
     
     
-      <a href="../../../tags/#thinking" class="md-tag">Thinking</a>
+      <a href="../../../../tags/#k8s" class="md-tag">K8S</a>
     
   
 </nav>
 
 
   
-    <a href="https://github.com/sswfive/bloghub/edit/main/docs/thinking/posts/05_personal_focus_and_abandon.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/sswfive/bloghub/edit/main/docs/notehub/cloud_native/k8s/k8s_dashboard.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -2099,78 +2112,148 @@ but is high on our list for inclusion in a future release. -->
     
       
     
-    <a href="https://github.com/sswfive/bloghub/raw/main/docs/thinking/posts/05_personal_focus_and_abandon.md" title="查看本页的源代码" class="md-content__button md-icon">
+    <a href="https://github.com/sswfive/bloghub/raw/main/docs/notehub/cloud_native/k8s/k8s_dashboard.md" title="查看本页的源代码" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-  <h1>个人战略上的聚焦和放弃</h1>
-
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>俗话说：有舍才有得！！！</p>
-</div>
-<p><strong>何为战略？战略其实就是决定该做什么，不该做什么！！！</strong></p>
-<p>最近一段时间以来，越发感觉自己在工作上越来越累，不经意间，想起来了曾经读过的一本书，觉得挺符合当下自己的现状的，书中的内容大概是这样的：</p>
-<ul>
-<li>在工作中，必须要意识到，一个人很难在多个有挑战的任务上，全部实现突破，如果不去区分工作的重点，就很有可能引发种种连锁问题，好一点的情况是，把任务都完成了，累的够呛，但全部都没有亮点和突破，流于平庸；坏一点的情况是，高估了自己的执行能力，多个任务严重Delay，产生协作问题，也非常影响自身的心态。</li>
-</ul>
-<p>感触真的非常深，的确是如此。</p>
-<p>为了快速调整好自己的心态和状态，在深度思考后，学会聚焦，做好聚焦的想法就产生了，因为只有将更多精力聚焦到更少更有意义的事上，通常这样做事的效果一般都不会差。</p>
-<p>那么如何去做好聚焦呢，可能大家都明白聚焦其实是不难的，难的舍弃，有舍才有得嘛，只有舍弃掉90%的干扰事项的人，才可能真正的聚焦到那10%的核心任务上，我记得曾有人给他提炼为：舍九取一。</p>
-<p>结合自己当前工作的内容，主要有两个方向开始去实施聚焦。</p>
-<p><strong>个人成长的聚焦，做更优秀的自己。</strong></p>
-<blockquote>
-<p><strong>优秀的定义：做同样的事情，表现的就是比别人好！</strong></p>
-</blockquote>
-<ul>
-<li>角色：【Do】  <ul>
-<li>有目标的执行，用目标指引自己的学习（费曼学习法），找到工作的重点，找重点其实就是在聚焦；</li>
-<li>找到目标后，要坚持，目标可以很小，但长年坚持下来，优秀就会变成一种习惯，积累的多了，更大的目标也就实现了。</li>
-</ul>
-</li>
-<li>目标：T型发展<ul>
-<li>聚焦方向：首先要在某个维度上做到尽可能的好，必须意识到，想要做好广度，必须先做好深度，因为广度永远都是深度的附属品，没有深度的广度，一切都只会浮于表面，时间一久，只会麻痹自己。</li>
-</ul>
-</li>
-<li>实践：<ul>
-<li>定期整理更新自己的事项清单，按优先级排序，使用单点突破的思想， 先去做最上面的事项（目标要具体），确立目标，设定DeadLine（要有具体时间节点）， 然后聚焦的去做去学，没有目标的学习，就不可能在短时间内实现突破，毕竟人的精力都是有限的。</li>
-<li>在一定时间内，只将注意力聚焦到一个（最多两个）事情上。这种策略很重要。</li>
-</ul>
-</li>
-<li>大道至简：<ul>
-<li>聚焦不但会影响成长的速度，还会影响成长的质量；</li>
-<li><strong><em>这个社会不会奖励面面俱到，但每项都很平庸的人，光环永远都属于那些有明显优势，有明显长处的人。</em></strong></li>
-</ul>
-</li>
-</ul>
-<p><strong>技术管理的聚焦，让团队更好的运转起来。</strong></p>
-<blockquote>
-<p>管理的本质：最大限度的激发团队的协同，使之价值最大化。</p>
-</blockquote>
-<ul>
-<li>角色：【Manage】<ul>
-<li>协调团队完成任务。</li>
-</ul>
-</li>
-<li>目标：<ul>
-<li>让团队在组织中发挥更大的价值</li>
-</ul>
-</li>
-<li>实践：<ul>
-<li>技术管理，只有打好了技术基础后（如何定义技术基础OK: 当技术深度，足以辅助团队做技术选型和决策是，就可以聚焦技术管理工作了），技术管理的工作才能更好的聚焦。</li>
-<li>管理工作的聚焦，其实就是找到最重要的那个任务，去更快更好的突破它，然后下一个，再下一个。</li>
-<li>培养自己和团队的全局思维，只有看到全局，才能做好聚焦，看清问题的全貌，是做好聚焦的大前提。</li>
-<li>日常突破中，学以致用非常重要，学了就要马上用，学了不用等于白学。</li>
-</ul>
-</li>
-<li>大道至简：<ul>
-<li>越来越认知到：很多工作的价值，是需要靠团队的力量来实现，个人的能力再强有时候也是于事无济，因为再优秀的奖励，也得需要有得力的干将来辅助。</li>
-</ul>
-</li>
-</ul>
+<h1 id="k8sdashboard">k8s的Dashboard安装<a class="headerlink" href="#k8sdashboard" title="Permanent link">&para;</a></h1>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span>
+<span class="normal"><a href="#__codelineno-0-42">42</a></span>
+<span class="normal"><a href="#__codelineno-0-43">43</a></span>
+<span class="normal"><a href="#__codelineno-0-44">44</a></span>
+<span class="normal"><a href="#__codelineno-0-45">45</a></span>
+<span class="normal"><a href="#__codelineno-0-46">46</a></span>
+<span class="normal"><a href="#__codelineno-0-47">47</a></span>
+<span class="normal"><a href="#__codelineno-0-48">48</a></span>
+<span class="normal"><a href="#__codelineno-0-49">49</a></span>
+<span class="normal"><a href="#__codelineno-0-50">50</a></span>
+<span class="normal"><a href="#__codelineno-0-51">51</a></span>
+<span class="normal"><a href="#__codelineno-0-52">52</a></span>
+<span class="normal"><a href="#__codelineno-0-53">53</a></span>
+<span class="normal"><a href="#__codelineno-0-54">54</a></span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span>
+<span class="normal"><a href="#__codelineno-0-56">56</a></span>
+<span class="normal"><a href="#__codelineno-0-57">57</a></span>
+<span class="normal"><a href="#__codelineno-0-58">58</a></span>
+<span class="normal"><a href="#__codelineno-0-59">59</a></span>
+<span class="normal"><a href="#__codelineno-0-60">60</a></span>
+<span class="normal"><a href="#__codelineno-0-61">61</a></span>
+<span class="normal"><a href="#__codelineno-0-62">62</a></span>
+<span class="normal"><a href="#__codelineno-0-63">63</a></span>
+<span class="normal"><a href="#__codelineno-0-64">64</a></span>
+<span class="normal"><a href="#__codelineno-0-65">65</a></span>
+<span class="normal"><a href="#__codelineno-0-66">66</a></span>
+<span class="normal"><a href="#__codelineno-0-67">67</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># step1:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>wget<span class="w"> </span>https://raw.githubusercontent.com/kubernetes/dashboard/v2.2.0/aio/deploy/recommended.yaml
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>vim<span class="w"> </span>recommended.yaml
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># 修改Service为NodePort类型</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>---
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>......
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>kind:<span class="w"> </span>Service
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>apiVersion:<span class="w"> </span>v1
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>metadata:
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">  </span>labels:
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span>k8s-app:<span class="w"> </span>kubernetes-dashboard
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">  </span>name:<span class="w"> </span>kubernetes-dashboard
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">  </span>namespace:<span class="w"> </span>kubernetes-dashboard
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>spec:
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">  </span>ports:
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">    </span>-<span class="w"> </span>port:<span class="w"> </span><span class="m">443</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">      </span>targetPort:<span class="w"> </span><span class="m">8443</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">  </span>selector:
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">    </span>k8s-app:<span class="w"> </span>kubernetes-dashboard
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">  </span>type:<span class="w"> </span>NodePort<span class="w">  </span><span class="c1"># 加上type=NodePort变成NodePort类型的服务</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>---
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="c1"># step2:</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="c1"># 创建</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>recommended.yaml<span class="w"> </span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="c1"># 查看pod的状态</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>kubernetes-dashboard<span class="w"> </span>-l<span class="w"> </span>k8s-app<span class="o">=</span>kubernetes-dashboard
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="c1"># 查看svc分配的端口(note:访问时需要使用https)</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>kubectl<span class="w"> </span>get<span class="w"> </span>svc<span class="w"> </span>-n<span class="w"> </span>kubernetes-dashboard
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="c1"># step3:</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="c1"># 创建一个具有全局所有权限的用户来登录Dashboard：(dashboard-admin.yaml)</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>---
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>kind:<span class="w"> </span>ClusterRoleBinding
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>apiVersion:<span class="w"> </span>rbac.authorization.k8s.io/v1beta1
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>metadata:
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">  </span>name:<span class="w"> </span>admin
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">  </span>annotations:
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="w">    </span>rbac.authorization.kubernetes.io/autoupdate:<span class="w"> </span><span class="s2">&quot;true&quot;</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>roleRef:
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">  </span>kind:<span class="w"> </span>ClusterRole
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="w">  </span>name:<span class="w"> </span>cluster-admin
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">  </span>apiGroup:<span class="w"> </span>rbac.authorization.k8s.io
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>subjects:
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>-<span class="w"> </span>kind:<span class="w"> </span>ServiceAccount
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">  </span>name:<span class="w"> </span>admin
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="w">  </span>namespace:<span class="w"> </span>kubernetes-dashboard
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>---
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>apiVersion:<span class="w"> </span>v1
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>kind:<span class="w"> </span>ServiceAccount
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>metadata:
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="w">  </span>name:<span class="w"> </span>admin
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="w">  </span>namespace:<span class="w"> </span>kubernetes-dashboard
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>---
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="c1"># 创建</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>admin.yaml
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="c1"># 查看secret</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>kubectl<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>-n<span class="w"> </span>kubernetes-dashboard<span class="p">|</span>grep<span class="w"> </span>admin-token
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="c1"># 会生成一串很长的base64后的字符串（echo &lt;token值&gt; | base64 -d ）</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>kubectl<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>&lt;secret名称&gt;<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">={</span>.data.token<span class="o">}</span><span class="w"> </span>-n<span class="w"> </span>kubernetes-dashboard<span class="w"> </span><span class="p">|</span>base64<span class="w"> </span>-d
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="c1"># 用上面的 base64 解码后的字符串作为 token 登录 Dashboard 即可</span>
+</code></pre></div></td></tr></table></div>
 
 
 
@@ -2193,7 +2276,7 @@ but is high on our list for inclusion in a future release. -->
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-25</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-26</span>
   </span>
 
     
@@ -2203,7 +2286,7 @@ but is high on our list for inclusion in a future release. -->
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-25</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-26</span>
   </span>
 
     
@@ -2252,9 +2335,9 @@ but is high on our list for inclusion in a future release. -->
         
           
           <a
-            href="../06_learn_top2down_or_bottom2up/"
+            href="../k8s_storageclass_nfs/"
             class="md-footer__link md-footer__link--prev"
-            aria-label="上一页: 学习应该自底向上,还是自顶向下"
+            aria-label="上一页: k8s的storageclass-nfs安装和使用"
           >
             <div class="md-footer__button md-icon">
               
@@ -2265,7 +2348,7 @@ but is high on our list for inclusion in a future release. -->
                 上一页
               </span>
               <div class="md-ellipsis">
-                学习应该自底向上,还是自顶向下
+                k8s的storageclass-nfs安装和使用
               </div>
             </div>
             
@@ -2276,16 +2359,16 @@ but is high on our list for inclusion in a future release. -->
         
           
           <a
-            href="../04_wisdom_of_asking_questions/"
+            href="../k8s_usage_skills/"
             class="md-footer__link md-footer__link--next"
-            aria-label="下一页: 提问的智慧"
+            aria-label="下一页: k8s实用小技巧"
           >
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                提问的智慧
+                k8s实用小技巧
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2373,14 +2456,14 @@ but is high on our list for inclusion in a future release. -->
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.footer", "navigation.path", "search.suggest", "search.highlight", "search.share", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.action.edit", "content.action.view", "content.code.annotate", "toc.follow"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["announce.dismiss", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.footer", "navigation.path", "search.suggest", "search.highlight", "search.share", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.action.edit", "content.action.view", "content.code.annotate", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.471ce7a9.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.471ce7a9.min.js"></script>
       
-        <script src="../../../customize/javascripts/extra.js"></script>
+        <script src="../../../../customize/javascripts/extra.js"></script>
       
-        <script src="../../../customize/javascripts/mathjax.js"></script>
+        <script src="../../../../customize/javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

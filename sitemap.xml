@@ -2,87 +2,102 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://sswfive.github.io/bloghub/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/postlist/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/about/profile/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/helm_usage/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/k8s_common_cmd/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/k8s_core_name/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/k8s_dashboard/</loc>
+         <lastmod>2024-08-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/k8s_storageclass_nfs/</loc>
+         <lastmod>2024-08-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/k8s_usage_skills/</loc>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/ktconnect_usage/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1194/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1279/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/thinking/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/thinking/posts/01_smart_to_do_things/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/thinking/posts/02_tech_yiyan/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/thinking/posts/03_learn_open_source_project/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/thinking/posts/04_wisdom_of_asking_questions/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/thinking/posts/05_personal_focus_and_abandon/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/thinking/posts/06_learn_top2down_or_bottom2up/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/tags/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

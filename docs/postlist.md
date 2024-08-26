@@ -24,6 +24,9 @@ title: 文章归档
 
 
 === "2021"
+    - 2021-07-10 [k8s的storageclass-nfs安装和使用](./notehub/cloud_native/k8s/k8s_storageclass_nfs.md)
+    - 2021-07-08 [k8s的Dashboard安装](./notehub/cloud_native/k8s/k8s_dashboard.md)
+    - 2021-03-18 [k8s实用小技巧](./notehub/cloud_native/k8s/k8s_usage_skills.md)
     - 2021-03-18 [k8s核心概念](./notehub/cloud_native/k8s/k8s_core_name.md)
     - 2021-03-09 [k8s常用命令总结](./notehub/cloud_native/k8s/k8s_common_cmd.md)
     - 2021-03-02 [k8s集群部署指南(v1.19.4)](./notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1194.md) 

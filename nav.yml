@@ -79,11 +79,21 @@ nav:
       - toolbox/dev_software/zabbix.md
       - toolbox/dev_software/java.md
 
-
-    
-
   - 迎刃而解:
-    - solutionhub/index.md
+    - notehub/solution/index.md
+    - Ops手记:
+      - notehub/solution/opshub/centos_yum_source_delete_solution.md
+      - notehub/solution/opshub/mac_brew_service_error_solution.md
+      - notehub/solution/opshub/server_disk_full_solution.md
+      - notehub/solution/opshub/win10_git_chinese_solution.md
+      - notehub/solution/bughub/window_install_pip_bug.md
+    - Bug记录:
+      - notehub/solution/bughub/conda_rename_env_bug.md
+      - notehub/solution/bughub/jupyter_asyncio_run_bug.md
+      - notehub/solution/bughub/jupyter_matplotlib_font_bug.md
+      - notehub/solution/bughub/jupyterhub_deploy_bug.md
+      - notehub/solution/bughub/rsa_encryption_bug.md
+    
    
    
   - 随思一言:

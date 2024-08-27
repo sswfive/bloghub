@@ -27,22 +27,29 @@ title: 文章归档
     - 2023-07-20 [Redis主从-哨兵部署](./toolbox/dev_software/redis.md)
     - 2023-07-20 [Nginx部署](./toolbox/dev_software/nginx.md)
     - 2023-06-15 [个人战略上的聚焦和放弃](./thinking/posts/05_personal_focus_and_abandon.md) 
+    - 2023-05-06 [Mac使用brew services报错](./notehub/solution/opshub/mac_brew_service_error_solution.md)
     - 2023-04-15 [gitflow的使用](./toolbox/git/gitflow_usage.md)
+    - 2023-04-06 [ win10的cmd中操作git中文乱码解决方法](./notehub/solution/opshub/win10_git_chinese_solution.md)
     - 2023-04-02 [git常用软件安装](./toolbox/git/git_common_install.md)
     - 2023-03-08 [git实用配置](./toolbox/git/git_config.md)
     - 2023-03-05 [git使用总结](./toolbox/git/git_usage_summary.md)
     - 2023-02-11 [Mac常用快捷键](./toolbox/macos_quickly_key.md)
     
 
-
 === "2022"
     - 2022-11-10 [提问的智慧](./thinking/posts/04_wisdom_of_asking_questions.md)
     - 2022-10-18 [如何高效学习开源项目](./thinking/posts/03_learn_open_source_project.md) 
+    - 2022-09-26 [Jupyter matplotlib画图中文字体缺失](./notehub/solution/bughub/jupyter_matplotlib_font_bug.md)
+    - 2022-08-30 [Jupyter运行asyncio run报错](./notehub/solution/bughub/jupyter_asyncio_run_bug.md)
     - 2022-07-31 [甄选实用软件](./toolbox/tools_common.md)
+    - 2022-07-28 [多语言之间的RSA加解密问题](./notehub/solution/bughub/rsa_encryption_bug.md)
+    - 2022-07-08 [Conda修改虚拟环境名导致异常](./notehub/solution/bughub/conda_rename_env_bug.md)
+    - 2022-07-06 [Centos的yum源误删解决方法](./notehub/solution/opshub/centos_yum_source_delete_solution.md)
     - 2022-05-01 [技术一言](./thinking/posts/02_tech_yiyan.md)
+    - 2022-02-06 [服务器磁盘空间满的解决办法](./notehub/solution/opshub/server_disk_full_solution.md)
     - 2022-02-03 [如何更聪明的做事情](./thinking/posts/01_smart_to_do_things.md) 
-
-
+    - 2022-01-05 [ window环境中pip安装报错](./notehub/solution/bughub/window_install_pip_bug.md)
+    - 2022-01-02 [Jupyterhub离线部署踩坑总结](./notehub/solution/bughub/jupyterhub_deploy_bug.md)
 
 === "2021"
     - 2021-10-06 [RabbitMQ介绍和使用](./toolbox/dev_software/rabbitmq.md)

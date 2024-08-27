@@ -53,7 +53,33 @@ nav:
       - notehub/codecore/design_patterns/design_patterns_categories.md
 
   - 工具小栈:
-    - toolhub/ai_tools.md
+    - toolbox/tools_ai.md
+    - toolbox/tools_common.md
+    - toolbox/tools_cheatsheet.md
+    - toolbox/tools_plugin.md
+    - toolbox/macos_quickly_key.md
+    - Git:
+      - toolbox/git/git_usage_summary.md
+      - toolbox/git/git_config.md
+      - toolbox/git/git_common_install.md
+      - toolbox/git/gitflow_usage.md
+    - 开发软件安装:
+      - toolbox/dev_software/etcd.md
+      - toolbox/dev_software/flink_on_yarn.md
+      - toolbox/dev_software/spark_on_yarn.md
+      - toolbox/dev_software/YARN.md
+      - toolbox/dev_software/kafka.md
+      - toolbox/dev_software/zookeeper.md
+      - toolbox/dev_software/hadoop.md
+      - toolbox/dev_software/mongodb.md
+      - toolbox/dev_software/nginx.md
+      - toolbox/dev_software/postgresql.md
+      - toolbox/dev_software/rabbitmq.md
+      - toolbox/dev_software/redis.md
+      - toolbox/dev_software/zabbix.md
+      - toolbox/dev_software/java.md
+
+
     
 
   - 迎刃而解:

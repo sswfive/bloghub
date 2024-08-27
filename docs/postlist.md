@@ -5,6 +5,7 @@ title: 文章归档
     有人说：种一颗树，最好的时间是十年前，其次是现在...
 
 === "2024"
+    - 2024-08-21 [Docker镜像无法拉取问题的解决方案](./notehub/cloud_native/docker/docker_image_pull_problem_for_solution.md)
     - 2024-08-18 [k8s包管理工具Helm的使用](./notehub/cloud_native/k8s/helm_usage.md)
     - 2024-08-16 [K8S集群部署指南(v1.27.9)](./notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1279.md)
     - 2024-07-30 [甄选GPT-AI工具](./toolbox/tools_ai.md)
@@ -21,11 +22,13 @@ title: 文章归档
     - 2023-08-14 [kafka安装部署](./toolbox/dev_software/kafka.md)
     - 2023-08-14 [Zookeeper安装部署](./toolbox/dev_software/zookeeper.md)
     - 2023-08-13 [Java环境安装](./toolbox/dev_software/java.md)
+    - 2023-08-02 [dockerignore文件](./notehub/cloud_native/docker/dockerignore_template.md)
     - 2022-07-28 [Mongodb的安装指南](./toolbox/dev_software/mongodb.md)
     - 2023-07-20 [PostgreSQL主从部署](./toolbox/dev_software/postgresql.md)
     - 2023-07-20 [Etcd集群部署](./toolbox/dev_software/etcd.md)
     - 2023-07-20 [Redis主从-哨兵部署](./toolbox/dev_software/redis.md)
     - 2023-07-20 [Nginx部署](./toolbox/dev_software/nginx.md)
+    - 2023-07-19 [查看Docker容器启动的详细命令及参数]
     - 2023-06-15 [个人战略上的聚焦和放弃](./thinking/posts/05_personal_focus_and_abandon.md) 
     - 2023-05-06 [Mac使用brew services报错](./notehub/solution/opshub/mac_brew_service_error_solution.md)
     - 2023-04-15 [gitflow的使用](./toolbox/git/gitflow_usage.md)
@@ -46,6 +49,15 @@ title: 文章归档
     - 2022-07-08 [Conda修改虚拟环境名导致异常](./notehub/solution/bughub/conda_rename_env_bug.md)
     - 2022-07-06 [Centos的yum源误删解决方法](./notehub/solution/opshub/centos_yum_source_delete_solution.md)
     - 2022-05-01 [技术一言](./thinking/posts/02_tech_yiyan.md)
+    - 2022-04-25 [docker-compose常用软件安装汇总](./notehub/cloud_native/dockercompose/docker_compose_software_usage.md)
+    - 2022-04-21 [docker-compose使用总结](./notehub/cloud_native/dockercompose/docker_compose_summary.md)
+    - 2022-04-15 [Dockerfile常用命令与编写指南](./notehub/cloud_native/docker/dockerifle_guide.md)
+    - 2022-04-10 [docker-registry搭建与使用](./notehub/cloud_native/docker/docker_registry_usage.md)
+    - 2022-04-04 [Docker常用命令速查](./notehub/cloud_native/docker/docker_command.md)
+    - 2022-04-02 [Docker安装常用软件汇总](./notehub/cloud_native/docker/docker_common_software_install.md)
+    - 2022-04-01 [Docker实用技巧](./notehub/cloud_native/docker/docker_practical_skills.md)
+    2022-04-01 [Docker安装卸载指南](./notehub/cloud_native/docker/docker_install_guide.md)
+    - 2022-03-27 [Docker架构和原理学习](./notehub/cloud_native/docker/docker_arch_and_principle.md)
     - 2022-02-06 [服务器磁盘空间满的解决办法](./notehub/solution/opshub/server_disk_full_solution.md)
     - 2022-02-03 [如何更聪明的做事情](./thinking/posts/01_smart_to_do_things.md) 
     - 2022-01-05 [ window环境中pip安装报错](./notehub/solution/bughub/window_install_pip_bug.md)

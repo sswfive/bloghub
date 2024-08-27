@@ -33,9 +33,19 @@ nav:
       - notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1194.md
      
     - DockerCompose:
-      - notehub/cloud/docker_compose/docker_compose_software_usage.md
+      - notehub/cloud_native/dockercompose/docker_compose_software_usage.md
+      - notehub/cloud_native/dockercompose/docker_compose_summary.md
     - Docker:
-      - notehub/cloud/docker/docker_arch_and_principle.md
+      - notehub/cloud_native/docker/docker_image_pull_problem_for_solution.md
+      - notehub/cloud_native/docker/docker_detail_commands.md
+      - notehub/cloud_native/docker/docker_command.md
+      - notehub/cloud_native/docker/docker_practical_skills.md
+      - notehub/cloud_native/docker/docker_common_software_install.md
+      - notehub/cloud_native/docker/docker_registry_usage.md
+      - notehub/cloud_native/docker/dockerifle_guide.md
+      - notehub/cloud_native/docker/dockerignore_template.md
+      - notehub/cloud_native/docker/docker_install_guide.md
+      - notehub/cloud_native/docker/docker_arch_and_principle.md
       
   
   - 综合知识库:

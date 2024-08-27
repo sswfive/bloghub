@@ -24,8 +24,11 @@ title: 文章归档
 
 
 === "2021"
+    - 2021-07-12 [k8s中etcd挂载内存卷步骤](./notehub/cloud_native/k8s/k8s_ectd_mount_memo.md)
     - 2021-07-10 [k8s的storageclass-nfs安装和使用](./notehub/cloud_native/k8s/k8s_storageclass_nfs.md)
     - 2021-07-08 [k8s的Dashboard安装](./notehub/cloud_native/k8s/k8s_dashboard.md)
+    - 2021-03-22 [k8s部署常见问题汇总](./notehub/cloud_native/k8s/k8s_common_qa.md)
+    - 2021-03-21 [k8s中yaml文件的编写和使用](./notehub/cloud_native/k8s/yaml_usage.md)
     - 2021-03-18 [k8s实用小技巧](./notehub/cloud_native/k8s/k8s_usage_skills.md)
     - 2021-03-18 [k8s核心概念](./notehub/cloud_native/k8s/k8s_core_name.md)
     - 2021-03-09 [k8s常用命令总结](./notehub/cloud_native/k8s/k8s_common_cmd.md)

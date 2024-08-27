@@ -22,8 +22,11 @@ nav:
       - notehub/cloud_native/k8s/helm_usage.md
       - notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1279.md
       - notehub/cloud_native/k8s/ktconnect_usage.md
+      - notehub/cloud_native/k8s/k8s_ectd_mount_memo.md
       - notehub/cloud_native/k8s/k8s_storageclass_nfs.md
       - notehub/cloud_native/k8s/k8s_dashboard.md
+      - notehub/cloud_native/k8s/k8s_common_qa.md
+      - notehub/cloud_native/k8s/yaml_usage.md
       - notehub/cloud_native/k8s/k8s_usage_skills.md
       - notehub/cloud_native/k8s/k8s_core_name.md
       - notehub/cloud_native/k8s/k8s_common_cmd.md

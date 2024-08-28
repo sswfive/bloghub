@@ -11,6 +11,7 @@ nav:
       - python/pybestpractices/py_logger_usage.md
       - python/pybestpractices/docker_build_python_image.md
       - python/pybestpractices/py_data_struct_summary.md
+      - python/pybestpractices/py_security_guide.md
       - python/pybestpractices/py2_py3_update.md
       - python/pybestpractices/coding_standard.md
   

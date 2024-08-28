@@ -59,7 +59,7 @@ title: 文章归档
     - 2022-04-04 [Docker常用命令速查](./notehub/cloud_native/docker/docker_command.md)
     - 2022-04-02 [Docker安装常用软件汇总](./notehub/cloud_native/docker/docker_common_software_install.md)
     - 2022-04-01 [Docker实用技巧](./notehub/cloud_native/docker/docker_practical_skills.md)
-    2022-04-01 [Docker安装卸载指南](./notehub/cloud_native/docker/docker_install_guide.md)
+    - 2022-04-01 [Docker安装卸载指南](./notehub/cloud_native/docker/docker_install_guide.md)
     - 2022-03-27 [Docker架构和原理学习](./notehub/cloud_native/docker/docker_arch_and_principle.md)
     - 2022-02-06 [服务器磁盘空间满的解决办法](./notehub/solution/opshub/server_disk_full_solution.md)
     - 2022-02-03 [如何更聪明的做事情](./thinking/posts/01_smart_to_do_things.md) 

@@ -8,6 +8,7 @@ title: 文章归档
     - 2024-08-21 [Docker镜像无法拉取问题的解决方案](./notehub/cloud_native/docker/docker_image_pull_problem_for_solution.md)
     - 2024-08-18 [k8s包管理工具Helm的使用](./notehub/cloud_native/k8s/helm_usage.md)
     - 2024-08-16 [K8S集群部署指南(v1.27.9)](./notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1279.md)
+    - 2024-07-31 [Python中不同场景中使用日志的方式](./python/pybestpractices/py_logger_usage.md)
     - 2024-07-30 [甄选GPT-AI工具](./toolbox/tools_ai.md)
     - 2024-07-17 [k8s实用工具之KtConnect](./notehub/cloud_native/k8s/ktconnect_usage.md) 
     - 2024-06-18 [常用插件集](./toolbox/tools_plugin.md)
@@ -29,6 +30,7 @@ title: 文章归档
     - 2023-07-20 [Redis主从-哨兵部署](./toolbox/dev_software/redis.md)
     - 2023-07-20 [Nginx部署](./toolbox/dev_software/nginx.md)
     - 2023-07-19 [查看Docker容器启动的详细命令及参数]
+    - 2023-06-18 [Docker构建Python镜像实践指南](./python/pybestpractices/docker_build_python_image.md)
     - 2023-06-15 [个人战略上的聚焦和放弃](./thinking/posts/05_personal_focus_and_abandon.md) 
     - 2023-05-06 [Mac使用brew services报错](./notehub/solution/opshub/mac_brew_service_error_solution.md)
     - 2023-04-15 [gitflow的使用](./toolbox/git/gitflow_usage.md)
@@ -40,6 +42,7 @@ title: 文章归档
     
 
 === "2022"
+    - 2022-12-12 [Python中的数据类型用法剖析](./python/pybestpractices/py_data_struct_summary.md)
     - 2022-11-10 [提问的智慧](./thinking/posts/04_wisdom_of_asking_questions.md)
     - 2022-10-18 [如何高效学习开源项目](./thinking/posts/03_learn_open_source_project.md) 
     - 2022-09-26 [Jupyter matplotlib画图中文字体缺失](./notehub/solution/bughub/jupyter_matplotlib_font_bug.md)
@@ -64,6 +67,7 @@ title: 文章归档
     - 2022-01-02 [Jupyterhub离线部署踩坑总结](./notehub/solution/bughub/jupyterhub_deploy_bug.md)
 
 === "2021"
+    - 2021-12-21 [Python安全指南(摘录)](./python/pybestpractices/py_security_guide.md)
     - 2021-10-06 [RabbitMQ介绍和使用](./toolbox/dev_software/rabbitmq.md)
     - 2021-08-09 [Zabbix常用配置](./toolbox/dev_software/zabbix.md)
     - 2021-07-12 [k8s中etcd挂载内存卷步骤](./notehub/cloud_native/k8s/k8s_ectd_mount_memo.md)
@@ -76,3 +80,6 @@ title: 文章归档
     - 2021-03-09 [k8s常用命令总结](./notehub/cloud_native/k8s/k8s_common_cmd.md)
     - 2021-03-02 [k8s集群部署指南(v1.19.4)](./notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1194.md) 
 
+=== "2020"
+    - 2020-12-22 [Python2到Python3的变化](./python/pybestpractices/py2_py3_update.md)
+    - 2020-11-23 [Python编码规范](./python/pybestpractices/coding_standard.md)

@@ -29,7 +29,7 @@ title: 文章归档
     - 2023-07-20 [Etcd集群部署](./toolbox/dev_software/etcd.md)
     - 2023-07-20 [Redis主从-哨兵部署](./toolbox/dev_software/redis.md)
     - 2023-07-20 [Nginx部署](./toolbox/dev_software/nginx.md)
-    - 2023-07-19 [查看Docker容器启动的详细命令及参数]
+    - 2023-07-19 [查看Docker容器启动的详细命令及参数](./notehub/cloud_native/docker/docker_detail_commands.md)
     - 2023-06-18 [Docker构建Python镜像实践指南](./python/pybestpractices/docker_build_python_image.md)
     - 2023-06-15 [个人战略上的聚焦和放弃](./thinking/posts/05_personal_focus_and_abandon.md) 
     - 2023-05-06 [Mac使用brew services报错](./notehub/solution/opshub/mac_brew_service_error_solution.md)

@@ -1,0 +1,6227 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="AstonWang">
+      
+      
+        <link rel="canonical" href="https://sswfive.github.io/bloghub/golang/gobestpractices/go_code_standard/">
+      
+      
+        <link rel="prev" href="../go_security_guide/">
+      
+      
+        <link rel="next" href="../../gosyntax/go_basics/">
+      
+      
+      <link rel="icon" href="../../../customize/assets/head.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.32">
+    
+    
+      
+        <title>Go编码规范 - IceCoffee[空谷幽兰]</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+
+      
+    
+<!-- 数学公式格式支持，用html嵌入的方式支持数学公式自动换行，mathjax似乎要支持但是现在还没实现。
+Automatic line breaking has not yet been implemented in MathJax version 3, 
+but is high on our list for inclusion in a future release. -->
+
+
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../customize/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../customize/stylesheets/customize.css">
+    
+      <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config",""),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="IceCoffee[空谷幽兰]" class="md-header__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
+      
+  <img src="../../../customize/assets/head.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IceCoffee[空谷幽兰]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Go编码规范
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="关闭自动模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="关闭自动模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="blue"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sswfive/bloghub" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bloghub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  HelloWorld
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../python/" class="md-tabs__link">
+          
+  
+    
+  
+  Python编程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../go_learn_docs/" class="md-tabs__link">
+          
+  
+    
+  
+  Go编程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../notehub/modelops/ml_basic/data_mining.md" class="md-tabs__link">
+          
+  
+    
+  
+  AIOps技术
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../notehub/cloud_native/k8s/helm_usage/" class="md-tabs__link">
+          
+  
+    
+  
+  云原生技术
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../notehub/index.md" class="md-tabs__link">
+          
+  
+    
+  
+  综合知识库
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../toolbox/tools_ai/" class="md-tabs__link">
+          
+  
+    
+  
+  工具小栈
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../notehub/solution/" class="md-tabs__link">
+          
+  
+    
+  
+  迎刃而解
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../thinking/" class="md-tabs__link">
+          
+  
+    
+  
+  随思一言
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../tags/" class="md-tabs__link">
+          
+  
+    
+  
+  标签分类
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="IceCoffee[空谷幽兰]" class="md-nav__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
+      
+  <img src="../../../customize/assets/head.png" alt="logo">
+
+    </a>
+    IceCoffee[空谷幽兰]
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sswfive/bloghub" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bloghub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    HelloWorld
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            HelloWorld
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../postlist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    文章归档
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/profile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    个人主页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../python/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Python编程
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Python编程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    工程实践
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            工程实践
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pybestpractices/py_logger_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python中不同场景中使用日志的方式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pybestpractices/pypi_source_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常用Pypi源汇总及使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pybestpractices/docker_build_python_image/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker构建Python镜像实践指南
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pybestpractices/env_package_selection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python版本及包管理工具选型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pybestpractices/py_data_struct_summary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python中的数据类型用法剖析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pybestpractices/py_security_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python安全指南[摘录]
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pybestpractices/pypi_python_pkg_publish/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用pypi进行python包的发布
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pybestpractices/py_dev_tool_selection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python常用开发工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pybestpractices/jupyter_tool_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jupyter系列工具的使用总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pybestpractices/py2_py3_update/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python2到python3的变化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pybestpractices/conda_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conda的实践应用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pybestpractices/coding_standard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python编码规范
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    常用类库
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            常用类库
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pylibs/awesome_libs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python常用库汇总[awesome]
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pylibs/daily_libs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python每日一库概览[usage]
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pylibs/pyflink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyFlink之分布式计算
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pylibs/mlflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MLflow之模型生命周期管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pylibs/pathlib/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pathlib之使用面向对象的方式操作路径
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pylibs/apscheduler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    APScheduler之定时任务工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pylibs/supervisor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Supervisor之进程管理工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pylibs/subprocess/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    subprocess之子进程管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pylibs/pandas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pandas之数据分析工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pylibs/numpy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Numpy之数据计算工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pylibs/pickle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pickle之数据序列化工具的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pylibs/collections/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python之collections的用法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Django
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Django
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/django/django_orm_fields/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django中ORM字段总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/django/django_orm_query/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django中ORM查询方法总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/django/django_lazyobject_analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django源码学习之LazyObject
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/django/django_websocket_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django中使用websocket
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/django/django_middleware_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django中间件的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/django/django_class_view_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django中类视图的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/django/django_bulk_create/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django批量导入数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/django/django_17_db_migrate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django1.7以前的版本执行数据库迁移
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python语法
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Python语法
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pysyntax/py_gc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python中的GC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pysyntax/py_gil/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python中的GIL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pysyntax/py_mem_manage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python中的内存管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pysyntax/asyncio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python中的Asyncio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pysyntax/futures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python中的Futures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pysyntax/generator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    生成器generator用法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pysyntax/decorator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    装饰器(decorator)用法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pysyntax/iterator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    迭代器iterator用法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pysyntax/closure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    闭包(closure)用法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pysyntax/oop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python中的面向对象编程OOP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pysyntax/def_and_lambda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    def函数与lambda函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pysyntax/property/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python中的property
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pysyntax/deep_copy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python中浅拷贝与深拷贝
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pysyntax/exception/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python异常处理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pysyntax/is_and_equals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python中is和equals的区别
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pysyntax/list_tuple_dict/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python之容器类型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pysyntax/variable_comment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python变量与注释
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/pysyntax/py_basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python基础知识梳理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Go编程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Go编程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../go_learn_docs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go学习资料库
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    工程实践
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            工程实践
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../go_install_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go在不同平台的安装及配置指南
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../go_install_guide_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go环境安装和配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../go_security_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go安全指南[摘录]
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Go编码规范
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Go编码规范
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      我们为什么需要编程规范？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      整洁、一致
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="整洁、一致">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      格式化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      命名
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      函数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      控制结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      注释
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      结构体
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      高效
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      健壮性
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      扩展性
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      工具
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#golangci-lint" class="md-nav__link">
+    <span class="md-ellipsis">
+      golangci-lint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-Commit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#race" class="md-nav__link">
+    <span class="md-ellipsis">
+      并发检测 race
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      覆盖率
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Go语法
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Go语法
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gosyntax/go_basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go的基本知识点
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gosyntax/go_data_struct/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go的基本数据类型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gosyntax/go_data_type/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go的容器数据类型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gosyntax/go_point/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go的指针和结构体
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AIOps技术
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            AIOps技术
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/modelops/ml_basic/data_mining.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    云原生技术
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            云原生技术
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Kubernetes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Kubernetes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/helm_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s包管理工具Helm的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1279/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    kubeadm部署k8s集群指南(v1.27.9)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/ktconnect_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s实用工具之KtConnect
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/k8s_ectd_mount_memo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s中etcd挂载内存卷步骤
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/k8s_storageclass_nfs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s的storageclass-nfs安装和使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/k8s_dashboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s的Dashboard安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/k8s_common_qa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s部署常见问题汇总
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/yaml_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s中yaml文件的编写和使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/k8s_usage_skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s实用小技巧
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/k8s_core_name/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s核心概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/k8s_common_cmd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s常用命令总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1194/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    kubeadm部署k8s集群指南(v1.19.4)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DockerCompose
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            DockerCompose
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/dockercompose/docker_compose_software_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    docker-compose常用软件安装汇总
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/dockercompose/docker_compose_summary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    docker-compose使用总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/docker/docker_image_pull_problem_for_solution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker镜像无法拉取问题的解决方案
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/docker/docker_detail_commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查看Docker容器启动的详细命令及参数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/docker/docker_command/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker常用命令速查
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/docker/docker_practical_skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker实用技巧
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/docker/docker_common_software_install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker安装常用软件汇总
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/docker/docker_registry_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    docker-registry搭建与使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/docker/dockerifle_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dockerfile常用命令与编写指南
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/docker/dockerignore_template/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dockerignore文件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/docker/docker_install_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker安装卸载指南
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/docker/docker_arch_and_principle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker架构和原理学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    综合知识库
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            综合知识库
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    软件工程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            软件工程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/software_engineering/algo_hash.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    大数据技术
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            大数据技术
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/bigdata/spark/spark_distribute_compute.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数据结构与算法
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            数据结构与算法
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/codecore/data_struct/data_struct_and_algo_learn_materials.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    设计模式
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            设计模式
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/codecore/design_patterns/design_patterns_categories.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    工具小栈
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            工具小栈
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/tools_ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    甄选GPT-AI工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/tools_common/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    甄选实用软件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/tools_cheatsheet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常用软件命令速查
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/tools_plugin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常用插件集
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/macos_quickly_key/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mac常用快捷键
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_6" id="__nav_7_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_6">
+            <span class="md-nav__icon md-icon"></span>
+            Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/git/git_usage_summary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git使用总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/git/git_config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git实用配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/git/git_common_install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git常用软件安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/git/gitflow_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    gitflow的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_7" id="__nav_7_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    开发软件安装
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_7">
+            <span class="md-nav__icon md-icon"></span>
+            开发软件安装
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/etcd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Etcd集群部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/flink_on_yarn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flink(On YARN)安装部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/spark_on_yarn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spark(ON YARN）安装部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/YARN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    YARN集群安装部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/kafka/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    kafka安装部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/zookeeper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Zookeeper安装部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/hadoop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hadoop安装部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/mongodb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mongodb的安装指南
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/nginx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nginx部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/postgresql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostgreSQL主从部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/rabbitmq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RabbitMQ介绍和使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/redis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Redis主从-哨兵部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/zabbix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Zabbix常用配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java环境安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../notehub/solution/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    迎刃而解
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            迎刃而解
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ops手记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ops手记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/solution/opshub/centos_yum_source_delete_solution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Centos的yum源误删解决方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/solution/opshub/mac_brew_service_error_solution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mac使用brew services报错
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/solution/opshub/server_disk_full_solution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    服务器磁盘空间满的解决办法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/solution/opshub/win10_git_chinese_solution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    win10的cmd中操作git中文乱码解决方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/solution/bughub/window_install_pip_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    window环境中pip安装报错
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Bug记录
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Bug记录
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/solution/bughub/conda_rename_env_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conda修改虚拟环境名导致异常
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/solution/bughub/jupyter_asyncio_run_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jupyter运行asyncio run报错
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/solution/bughub/jupyter_matplotlib_font_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jupyter matplotlib画图中文字体缺失
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/solution/bughub/jupyterhub_deploy_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jupyterhub离线部署踩坑总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/solution/bughub/rsa_encryption_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    多语言之间的RSA加解密问题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../thinking/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    随思一言
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            随思一言
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../thinking/posts/06_learn_top2down_or_bottom2up/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    学习应该自底向上,还是自顶向下
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../thinking/posts/05_personal_focus_and_abandon/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    个人战略上的聚焦和放弃
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../thinking/posts/04_wisdom_of_asking_questions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    提问的智慧
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../thinking/posts/03_learn_open_source_project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何高效学习开源项目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../thinking/posts/02_tech_yiyan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    技术一言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../thinking/posts/01_smart_to_do_things/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何更聪明的做事情
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../tags/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    标签分类
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            标签分类
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      我们为什么需要编程规范？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      整洁、一致
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="整洁、一致">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      格式化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      命名
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      函数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      控制结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      注释
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      结构体
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      高效
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      健壮性
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      扩展性
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      工具
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#golangci-lint" class="md-nav__link">
+    <span class="md-ellipsis">
+      golangci-lint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-Commit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#race" class="md-nav__link">
+    <span class="md-ellipsis">
+      并发检测 race
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      覆盖率
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../../tags/#go" class="md-tag">Go</a>
+    
+  
+</nav>
+
+
+  
+    <a href="https://github.com/sswfive/bloghub/edit/main/docs/golang/gobestpractices/go_code_standard.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/sswfive/bloghub/raw/main/docs/golang/gobestpractices/go_code_standard.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+  <h1>Go编码规范</h1>
+
+<h2 id="_1">我们为什么需要编程规范？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>编程规范又叫代码规范，是团队之间在程序开发时需要遵守的约定。俗话说，无规矩不成方圆，一个开发团队应该就一种编程规范达成一致。编程规范有很多好处，我们简单说几个最主要的。</p>
+<ul>
+<li>促进团队合作</li>
+</ul>
+<p>现代项目大多是由团队完成的，但是如果每个人书写出的代码风格迥异，最后集成代码时很容易杂乱无章、可读性极差。相反，风格统一的代码将大大提高可读性，易于理解，促进团队协作。</p>
+<ul>
+<li>规避错误</li>
+</ul>
+<p>每一种语言都有容易犯的错误，Go语言也不例外。但是编码规范可以规避掉像Map并发读写等问题。不仅如此，规范的日志处理、错误处理还能够加快我们查找问题的速度。</p>
+<ul>
+<li>提升性能</li>
+</ul>
+<p>优秀的开发者，能够在头脑中想象出不同程序运行的过程和结果，写出高性能的程序非常考验开发者的内功。但每个人的水平都有差异，这一点并不可控。但是如果我们将高性能编程的常见手段归纳整理出来，开发者只需要遵守这些简单的规则，就能够规避性能陷阱、极大提升程序性能。</p>
+<ul>
+<li>便于维护</li>
+</ul>
+<p>我们习惯于关注编写代码的成本，但实际上维护代码的成本要高得多。大部分的项目是在前人的基础上完成开发的。我们在开发代码的时候，也会花大量时间阅读之前的代码。符合规范的代码更容易上手维护、更少出现牵一发动全身的耦合现象、也更容易看出业务处理逻辑。</p>
+<p>知道了编程规范的好处，那我们应该规范什么内容呢？这其实涉及到我们对好代码的定义。针对这个问题，我想每个人都能够说个几句。我认为，好的代码首先是整洁、一致的，同时它还是高效、健壮和可扩展的。</p>
+<p>接下来，我们就从这几个维度聊聊制定Go编码规范的原则和最佳实践。</p>
+<p>再多说一句，有一些规范可以是强制的，因为我们可以通过工具和代码review强制要求用户遵守，还有一些规范是建议的，因为它更具有灵活性，很难被约束。在后面的规范中，[强制 xxx]中的“xxx”代表的就是可强制检查的工具。</p>
+<h2 id="_2">整洁、一致<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>好代码的第一个要求，是整洁和一致。有一句话是这样说的：</p>
+<blockquote>
+<p>Any fool can write code that a computer can understand. Good programmers write code that humans can understand.
+</p>
+</blockquote>
+<p>它的意思是，任何傻瓜都可以编写计算机可以理解的代码，而优秀的程序员编写的是人类可以理解的代码。</p>
+<p>如果我们的代码看起来乱七八糟，就像喝醉的人写的那样，这样不严谨的代码让我们有理由相信，项目的其他各个方面也隐藏着对细节的疏忽，并埋下了重大的隐患。</p>
+<p>阅读整洁的代码就像看到精心设计的手表或汽车一样赏心悦目，因为它凝聚了团队的智慧。</p>
+<p>阅读整洁的代码也像读到的武侠小说，书中的文字被脑中的图像取代，你看到了角色，听到了声音，体验到了悲怆和幽默。</p>
+<p>但是，明白什么是整洁的代码并不意味着你能写出整洁的代码。就好像我们知道如何欣赏一幅画不意味着我们能成为画家。</p>
+<p>整洁的代码包括对格式化、命名、函数等细节的密切关注，更需要在项目中具体实践。接下来我们就来看看整洁代码关注的这些细节和最佳的实践。</p>
+<h3 id="_3"><strong>格式化</strong><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p><strong>代码长度</strong></p>
+<p>代码应该有足够的垂直密度，能够肉眼一次获得到更多的信息。同时，单个函数、单行、单文件也需要限制长度，保证可阅读性和可维护性。</p>
+<p>[强制 lll] 一行内不超过 120 个字符，同时应当避免刻意断行。如果你发现某一行太长了，要么改名，要么调整语义，往往就可以解决问题了。</p>
+<p>[强制 funlen] 单个函数的行数不超过 40 行，过长则表示函数功能不专一、定义不明确、程序结构不合理，不易于理解。当函数过长时，可以提取函数以保持正文小且易读。</p>
+<p>[强制] 单个文件不超过 2000 行，过长说明定义不明确，程序结构划分不合理，不利于维护。</p>
+<p><strong>代码布局</strong></p>
+<p>我们先试想一篇写得很好的报纸文章。在顶部，你希望有一个标题，它会告诉你故事的大致内容，并影响你是否要阅读它。文章的第一段会为你提供整个故事的概要、粗略的概念，但是隐藏了所有细节。继续向下阅读，详细信息会逐步增加。</p>
+<p>[建议]  Go 文件推荐按以下顺序进行布局。</p>
+<p>1.包注释：对整个模块和功能的完整描述，写在文件头部</p>
+<p>2.Package：包名称</p>
+<p>3.Imports：引入的包</p>
+<p>4.Constants：常量定义</p>
+<p>5.Typedefs：类型定义</p>
+<p>6.Globals：全局变量定义</p>
+<p>7.Functions：函数实现</p>
+<p>每个部分之间用一个空行分割。每个部分有多个类型定义或者有多个函数时，也用一个空行分割。示例如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>/*
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>注释
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>*/
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>package http
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>import (
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a> &quot;fmt&quot;
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a> &quot;time&quot;
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>)
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>const (
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a> VERSION = &quot;1.0.0&quot;
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>)
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>type Request struct{
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>}
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>var msg = &quot;HTTP success&quot;
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>func foo() {
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a> //...
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>}
+</code></pre></div></td></tr></table></div>
+<p>[强制 goimports] 当 import 多个包时，应该对包进行分组。同一组的包之间不需要有空行，不同组之间的包需要一个空行。标准库的包应该放在第一组。</p>
+<p><strong>空格与缩进</strong></p>
+<p>为了让阅读代码时视线畅通，自上而下思路不被打断，我们需要使用一些空格和缩进。</p>
+<p>空格是为了分离关注点，将不同的组件分开。缩进是为了处理错误和边缘情况，与正常的代码分隔开。</p>
+<p>较常用的有下面这些规范：</p>
+<p>[强制 gofmt] 注释和声明应该对齐。示例如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>type T struct {
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>    name    string // name of the object
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>    value   int    // its value
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>}
+</code></pre></div></td></tr></table></div>
+<p>[强制 gofmt] 小括号()、中括号[]、大括号{} 内侧都不加空格。</p>
+<p>[强制 gofmt] 逗号、冒号（slice中冒号除外）前都不加空格，后面加 1 个空格。</p>
+<p>[强制 gofmt] 所有二元运算符前后各加一个空格，作为函数参数时除外。例如<code>b := 1 + 2</code>。[强制 gofmt] 使用 Tab 而不是空格进行缩进。</p>
+<p>[强制 nlreturn] return前方需要加一个空行，让代码逻辑更清晰。</p>
+<p>[强制 gofmt] 判断语句、for语句需要缩进1个 Tab，并且右大括号<code>}</code>与对应的 if 关键字垂直对齐。例如：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>if xxx {
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>} else {
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>}
+</code></pre></div></td></tr></table></div>
+<p>[强制 goimports] 当 import 多个包时，应该对包进行分组。同一组的包之间不需要有空行，不同组之间的包需要一个空行。标准库的包应该放在第一组。这同样适用于常量、变量和类型声明：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>import (
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>    &quot;fmt&quot;
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>    &quot;hash/adler32&quot;
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>    &quot;os&quot;
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>    &quot;appengine/foo&quot;
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>    &quot;appengine/user&quot;
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>    &quot;github.com/foo/bar&quot;
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>    &quot;rsc.io/goversion/version&quot;
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>)
+</code></pre></div></td></tr></table></div>
+<p>[推荐] 避免 else 语句中处理错误返回，避免正常的逻辑位于缩进中。如下代码实例，else中进行错误处理，代码逻辑阅读起来比较费劲。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span>
+<span class="normal"><a href="#__codelineno-4-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>if something.OK() {
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>        something.Lock()
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>        defer something.Unlock()
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>        err := something.Do()
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>        if err == nil {
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>                stop := StartTimer()
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>                defer stop()
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>                log.Println(&quot;working...&quot;)
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>                doWork(something)
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>                &lt;-something.Done() // wait for it
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>                log.Println(&quot;finished&quot;)
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>                return nil
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>        } else {
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>                return err
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a>        }
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a>} else {
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a>        return errors.New(&quot;something not ok&quot;)
+<a id="__codelineno-4-18" name="__codelineno-4-18"></a>}
+</code></pre></div></td></tr></table></div>
+<p>如果把上面的代码修改成下面这样会更加清晰：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>if !something.OK() {
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>    return errors.New(&quot;something not ok&quot;)
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>}
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>something.Lock()
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>defer something.Unlock()
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>err := something.Do()
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>if err != nil {
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>    return err
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>}
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>stop := StartTimer()
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>defer stop()
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>log.Println(&quot;working...&quot;)
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>doWork(something)
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>&lt;-something.Done() // wait for it
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>log.Println(&quot;finished&quot;)
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a>return nil
+</code></pre></div></td></tr></table></div>
+<p>[推荐] 函数内不同的业务逻辑处理建议用单个空行加以分割。</p>
+<p>[推荐] 注释之前的空行通常有助于提高可读性——新注释的引入表明新思想的开始。</p>
+<h3 id="_4"><strong>命名</strong><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Good naming is like a good joke. If you have to explain it, it’s not funny.
+                                                                              ———Dave Cheney
+</p>
+</blockquote>
+<p>一个好的名字应该满足几个要素：</p>
+<ul>
+<li>短，容易拼写；</li>
+<li>保持一致性；</li>
+<li>意思准确，容易理解，没有虚假和无意义的信息。</li>
+</ul>
+<p>例如，像下面这样的命名就是让人迷惑的：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>int d; // elapsed time in days
+</code></pre></div></td></tr></table></div>
+<p>[强制 revive] Go中的命名统一使用驼峰式、不要加下划线。</p>
+<p>[强制 revive] 缩写的专有名词应该大写，例如： ServeHTTP、IDProcessor。</p>
+<p>[强制] 区分变量名应该用有意义的名字，而不是使用阿拉伯数字：a1, a2, .. aN。</p>
+<p>[强制] 不要在变量名称中包含你的类型名称。</p>
+<p>[建议]变量的作用域越大，名字应该越长。</p>
+<p>现代 IDE 已经让更改名称变得更容易了，巧妙地使用IDE的功能，能够级联地同时修改多处命名。</p>
+<p><strong>包名</strong></p>
+<p>包名应该简短而清晰。</p>
+<p>[强制] 使用简短的小写字母，不需要下划线或混合大写字母。</p>
+<p>[建议]  合理使用缩写，例如：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>strconv（字符串转换）
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>syscall（系统调用）
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>fmt（格式化的 I/O）
+</code></pre></div></td></tr></table></div>
+<p>[强制] 避免无意义的包名，例如<code>util</code>,<code>common,base</code>等。</p>
+<p><strong>接口命名</strong></p>
+<p>[建议]单方法接口由方法名称加上 -er 后缀或类似修饰来命名。例如：<code>Reader</code>, <code>Writer</code>, <code>Formatter</code>, <code>CloseNotifier</code> ，当一个接口包含多个方法时，请选择一个能够准确描述其用途的名称（例如：net.Conn、http.ResponseWriter、io.ReadWriter）。</p>
+<p><strong>本地变量命名</strong></p>
+<p>[建议]尽可能地短。在这里，i 指代 index，r 指代 reader，b 指代 buffer。</p>
+<p>例如，下面这段代码就可以做一个简化：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>for index := 0; index &lt; len(s); index++ {
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>    //
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>}
+</code></pre></div></td></tr></table></div>
+<p>可以替换为：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>for i := 0; i &lt; len(s); i++ {
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>    //
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>}
+</code></pre></div></td></tr></table></div>
+<p><strong>函数参数命名</strong></p>
+<p>[建议]如果函数参数的类型已经能够看出参数的含义，那么函数参数的命名应该尽量简短：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>func AfterFunc(d Duration, f func()) *Timer
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>func Escape(w io.Writer, s []byte)
+</code></pre></div></td></tr></table></div>
+<p>[建议]如果函数参数的类型不能表达参数的含义，那么函数参数的命名应该尽量准确：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>func Unix(sec, nsec int64) Time
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>func HasPrefix(s, prefix []byte) bool
+</code></pre></div></td></tr></table></div>
+<p><strong>函数返回值命名</strong></p>
+<p>[建议] 对于公开的函数，返回值具有文档意义，应该准确表达含义，如下所示：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>func Copy(dst Writer, src Reader) (written int64, err error)
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>func ScanBytes(data []byte, atEOF bool) (advance int, token []byte, err error)
+</code></pre></div></td></tr></table></div>
+<p><strong>可导出的变量名</strong></p>
+<p>[建议] 由于使用可导出的变量时会带上它所在的包名，因此，不需要对变量重复命名。例如bytes包中的ByteBuffer替换为Buffer，这样在使用时就是bytes.Buffer，显得更简洁。类似的还有把strings.StringReader修改为strings.Reader，把<strong>errors.NewError 修改为errors.New。</strong></p>
+<p><strong>Error值命名</strong></p>
+<p>[建议] 错误类型应该以Error结尾。</p>
+<p>[建议] Error变量名应该以Err开头。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>type ExitError struct {
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>    ...
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>}
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>var ErrFormat = errors.New(&quot;image: unknown format&quot;)
+</code></pre></div></td></tr></table></div>
+<h3 id="_5"><strong>函数</strong><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>[强制 cyclop] 圈复杂度（Cyclomatic complexity）&lt;10。</p>
+<p>[强制 gochecknoinits] 避免使用init函数。</p>
+<p>[强制 revive] Context 应该作为函数的第一个参数。</p>
+<p>[强制] 正常情况下禁用unsafe。</p>
+<p>[强制] 禁止return裸返回，如下例中第一个return：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span>
+<span class="normal"><a href="#__codelineno-14-5">5</a></span>
+<span class="normal"><a href="#__codelineno-14-6">6</a></span>
+<span class="normal"><a href="#__codelineno-14-7">7</a></span>
+<span class="normal"><a href="#__codelineno-14-8">8</a></span>
+<span class="normal"><a href="#__codelineno-14-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>func (f *Filter) Open(name string) (file File, err error) {
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>    for _, c := range f.chain {
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>        file, err = c.Open(name)
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>        if err != nil {
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a>            return
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>        }
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a>    }
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a>    return f.source.Open(name)
+<a id="__codelineno-14-9" name="__codelineno-14-9"></a>}
+</code></pre></div></td></tr></table></div>
+<p>[强制] 不要在循环里面使用defer，除非你真的确定defer的执行流程。</p>
+<p>[强制] 对于通过:=进行变量赋值的场景，禁止出现仅部分变量初始化的情况。例如在下面这个例子中，f函数返回的res是初始化的变量，但是函数返回的err其实复用了之前的err：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>var err error
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>res,err := f()
+</code></pre></div></td></tr></table></div>
+<p>[建议] 函数返回值大于 3 个时，建议通过 struct 进行包装。</p>
+<p>[建议] 函数参数不建议超过 3 个，大于 3 个时建议通过 struct 进行包装。</p>
+<h3 id="_6">控制结构<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>[强制] 禁止使用goto。</p>
+<p>[强制 gosimple] 当一个表达式为 bool 类型时，应该使用 expr 或 !expr 判断，禁止使用 == 或 != 与 true / false 比较。</p>
+<p>[强制 nestif] if 嵌套深度不大于5。</p>
+<h3 id="_7"><strong>方法</strong><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>[强制 revive] receiver 的命名要保持一致，如果你在一个方法中将接收器命名为 "c"，那么在其他方法中不要把它命名为 "cl"。</p>
+<p>[强制] receiver 的名字要尽量简短并有意义，禁止使用 this、self 等。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span>
+<span class="normal"><a href="#__codelineno-16-4">4</a></span>
+<span class="normal"><a href="#__codelineno-16-5">5</a></span>
+<span class="normal"><a href="#__codelineno-16-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>func (c Client) done() error {
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a> // ...
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>}
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a>func (cl Client) call() error {
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a> // ...
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a>}
+</code></pre></div></td></tr></table></div>
+<h3 id="_8">注释<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>Go提供C风格的注释。有/**/ 的块注释和 // 的单行注释两种注释风格。注释主要有下面几个用处。</p>
+<ol>
+<li>注释不仅仅可以提供具体的逻辑细节，还可以提供代码背后的意图和决策。</li>
+<li>帮助澄清一些晦涩的参数或返回值的含义。一般来说，我们会尽量找到一种方法让参数或返回值的名字本身就是清晰的。但是当它是标准库的一部分时，或者在你无法更改的第三方库中，一个清晰的注释会非常有用。</li>
+<li>强调某一个重要的功能。例如，提醒开发者修改了这一处代码必须连带修改另一处代码。</li>
+</ol>
+<p>总之，好的注释给我们讲解了what、how、why，方便后续的代码维护。</p>
+<p>[强制] 无用注释直接删除，无用的代码不应该注释而应该直接删除。即使日后需要，我们也可以通过Git快速找到。</p>
+<p>[强制] 紧跟在代码之后的注释，使用 //。</p>
+<p>[强制] 统一使用中文注释，中英文字符之间严格使用空格分隔。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>// 从 Redis 中批量读取属性，对于没有读取到的 id ， 记录到一个数组里面，准备从 DB 中读取
+</code></pre></div></td></tr></table></div>
+<p>[强制] 注释不需要额外的格式，例如星号横幅。</p>
+<p>[强制] 包、函数、方法和类型的注释说明都是一个完整的句子，以被描述的对象为主语开头。Go源码中都是这样的。</p>
+<p>示例如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span>
+<span class="normal"><a href="#__codelineno-18-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>// queueForIdleConn queues w to receive the next idle connection for w.cm.
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>// As an optimization hint to the caller, queueForIdleConn reports whether
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a>// it successfully delivered an already-idle connection.
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a>func (t *Transport) queueForIdleConn(w *wantConn) (delivered bool)
+</code></pre></div></td></tr></table></div>
+<p>[强制] Go语言提供了<a href="https://tip.golang.org/doc/comment">文档注释工具go doc</a>，可以生成注释和导出函数的文档。文档注释的写法可以参考文稿中的链接。</p>
+<p>[强制 godot] 注释最后应该以句号结尾。</p>
+<p>[建议] 当某个部分等待完成时，可用 <code>TODO:</code> 开头的注释来提醒维护人员。</p>
+<p>[建议] 大部分情况下使用行注释。块注释主要用在包的注释上，不过块注释在表达式中或禁用大量代码时很有用。</p>
+<p>[建议] 当某个部分存在已知问题需要修复或改进时，可用 <code>FIXME:</code> 开头的注释来提醒维护人员。</p>
+<p>[建议] 需要特别说明某个问题时，可用 <code>NOTE:</code> 开头的注释。</p>
+<h3 id="_9">结构体<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>[强制] 不要将 Context 成员添加到 Struct 类型中。</p>
+<h2 id="_10">高效<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>[强制] Map在初始化时需要指定长度<code>make(map[T1]T2, hint)</code>。</p>
+<p>[强制] Slice在初始化时需要指定长度和容量<code>make([]T, length, capacity)</code>。</p>
+<p>我们来看下下面这段程序，它的目的是往切片中循环添加元素。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span>
+<span class="normal"><a href="#__codelineno-19-4">4</a></span>
+<span class="normal"><a href="#__codelineno-19-5">5</a></span>
+<span class="normal"><a href="#__codelineno-19-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>func createSlice(n int) (slice []string) {
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a>   for i := 0; i &lt; n; i++ {
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a>      slice = append(slice, &quot;I&quot;, &quot;love&quot;, &quot;go&quot;)
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a>   }
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a>   return slice
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a>}
+</code></pre></div></td></tr></table></div>
+<p>从功能上来看，这段代码没有问题。但是，这种写法忽略了一个事实，如下图所示，往切片中添加数据时，切片会自动扩容，Go运行时会创建新的内存空间并执行拷贝。</p>
+<p>自动扩容显然是有成本的。在循环操作中执行这样的代码会放大性能损失，减慢程序的运行速度。性能损失的对比可参考<a href="https://github.com/uber-go/guide/blob/master/style.md#prefer-specifying-container-capacity">这篇文章</a>。我们可以改写一下上面这段程序，在初始化时指定合适的切片容量：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span>
+<span class="normal"><a href="#__codelineno-20-5">5</a></span>
+<span class="normal"><a href="#__codelineno-20-6">6</a></span>
+<span class="normal"><a href="#__codelineno-20-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a>func createSlice(n int) []string {
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a>   slice := make([]string, 0, n*3)
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>   for i := 0; i &lt; n; i++ {
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a>      slice = append(slice, &quot;I&quot;, &quot;love&quot;, &quot;go&quot;)
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a>   }
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a>   return slice
+<a id="__codelineno-20-7" name="__codelineno-20-7"></a>}
+</code></pre></div></td></tr></table></div>
+<p>这段代码在一开始就指定了需要的容量，最大程度避免了内存的浪费。同时，运行时不需要再执行自动扩容操作，加速了程序的运行。</p>
+<p>[强制]  time.After()在某些情况下会发生泄露，替换为使用Timer。</p>
+<p>[强制] 数字与字符串转换时，<a href="https://gist.github.com/evalphobia/caee1602969a640a4530">使用strconv，而不是fmt</a>。</p>
+<p>[强制] 读写磁盘时，使用<a href="https://www.instana.com/blog/practical-golang-benchmarks/#file-i-o">读写buffer</a>。</p>
+<p>[建议] 谨慎使用Slice的截断操作和append操作，除非你知道下面的代码输出什么：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span>
+<span class="normal"><a href="#__codelineno-21-3">3</a></span>
+<span class="normal"><a href="#__codelineno-21-4">4</a></span>
+<span class="normal"><a href="#__codelineno-21-5">5</a></span>
+<span class="normal"><a href="#__codelineno-21-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a>x := []int{1, 2, 3, 4}
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a>y := x[:2]
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>fmt.Println(cap(x), cap(y))
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a>y = append(y, 30)
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a>fmt.Println(&quot;x:&quot;, x)
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a>fmt.Println(&quot;y:&quot;, y)
+</code></pre></div></td></tr></table></div>
+<p>[建议] 任何书写的协程，都需要明确协程什么时候退出。</p>
+<p>[建议] 热点代码中，内存分配复用内存可以使用 sync.Pool <a href="https://www.instana.com/blog/practical-golang-benchmarks/#object-creation">提速</a>。</p>
+<p>[建议] 将频繁的字符串拼接操作（+=），替换为<strong>StringBuffer 或 StringBuilder。</strong></p>
+<p>[建议] 使用正则表达式重复匹配时，利用Compile提前编译<a href="https://www.instana.com/blog/practical-golang-benchmarks/#regular-expressions">提速</a>。</p>
+<p>[建议]  当程序严重依赖Map时，Map的Key使用int而不是string将<a href="https://www.instana.com/blog/practical-golang-benchmarks/#map-access">提速</a>。</p>
+<p>[建议]  多读少写的场景，使用读写锁而不是写锁将提速。</p>
+<h2 id="_11">健壮性<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>[强制] 除非出现不可恢复的程序错误，否则不要使用 panic 来处理常规错误，使用 error 和多返回值。</p>
+<p>[强制 <a href="https://revive.run/r#error-strings">revive</a>] 错误信息不应该首字母大写（除专有名词和缩写词外），也不应该以标点符号结束。因为错误信息通常在其他上下文中被打印。</p>
+<p>[强制 <a href="https://golangci-lint.run/usage/linters/#errcheck">errcheck</a>] 不要使用 _ 变量来丢弃 error。如果函数返回 error，应该强制检查。</p>
+<p>[建议] 在处理错误时，如果我们逐层返回相同的错误，那么在最后日志打印时，我们并不知道代码中间的执行路径。例如找不到文件时打印的<code>No such file or directory</code>，这会减慢我们排查问题的速度。因此，在中间处理err时，需要使用fmt.Errorf 或<a href="https://godoc.org/github.com/pkg/errors">第三方包</a>给错误添加额外的上下文信息。像下面这个例子，在fmt.Errorf中，除了实际报错的信息，还加上了授权错误信息<code>authenticate failed</code> ：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span>
+<span class="normal"><a href="#__codelineno-22-3">3</a></span>
+<span class="normal"><a href="#__codelineno-22-4">4</a></span>
+<span class="normal"><a href="#__codelineno-22-5">5</a></span>
+<span class="normal"><a href="#__codelineno-22-6">6</a></span>
+<span class="normal"><a href="#__codelineno-22-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a>func AuthenticateRequest(r *Request) error {
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a>        err := authenticate(r.User)
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a>        if err != nil {
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a>                return fmt.Errorf(&quot;authenticate failed: %v&quot;, err)
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a>        }
+<a id="__codelineno-22-6" name="__codelineno-22-6"></a>        return nil
+<a id="__codelineno-22-7" name="__codelineno-22-7"></a>}
+</code></pre></div></td></tr></table></div>
+<p>当有多个错误需要处理时，可以考虑将fmt.Errorf放入defer中：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-23-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-23-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-23-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-23-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-23-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-23-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-23-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-23-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-23-10">10</a></span>
+<span class="normal"><a href="#__codelineno-23-11">11</a></span>
+<span class="normal"><a href="#__codelineno-23-12">12</a></span>
+<span class="normal"><a href="#__codelineno-23-13">13</a></span>
+<span class="normal"><a href="#__codelineno-23-14">14</a></span>
+<span class="normal"><a href="#__codelineno-23-15">15</a></span>
+<span class="normal"><a href="#__codelineno-23-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a>func DoSomeThings(val1 int, val2 string) (_ string, err error) {
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a>    defer func() {
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a>        if err != nil {
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a>            err = fmt.Errorf(&quot;in DoSomeThings: %w&quot;, err)
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a>        }
+<a id="__codelineno-23-6" name="__codelineno-23-6"></a>    }()
+<a id="__codelineno-23-7" name="__codelineno-23-7"></a>    val3, err := doThing1(val1)
+<a id="__codelineno-23-8" name="__codelineno-23-8"></a>    if err != nil {
+<a id="__codelineno-23-9" name="__codelineno-23-9"></a>        return &quot;&quot;, err
+<a id="__codelineno-23-10" name="__codelineno-23-10"></a>    }
+<a id="__codelineno-23-11" name="__codelineno-23-11"></a>    val4, err := doThing2(val2)
+<a id="__codelineno-23-12" name="__codelineno-23-12"></a>    if err != nil {
+<a id="__codelineno-23-13" name="__codelineno-23-13"></a>        return &quot;&quot;, err
+<a id="__codelineno-23-14" name="__codelineno-23-14"></a>    }
+<a id="__codelineno-23-15" name="__codelineno-23-15"></a>    return doThing3(val3, val4)
+<a id="__codelineno-23-16" name="__codelineno-23-16"></a>}
+</code></pre></div></td></tr></table></div>
+<p>[强制] 利用recover捕获panic时，需要由defer函数直接调用。</p>
+<p>例如，下面例子中的panic是可以被捕获的：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-24-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-24-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-24-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-24-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-24-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-24-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-24-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-24-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-24-10">10</a></span>
+<span class="normal"><a href="#__codelineno-24-11">11</a></span>
+<span class="normal"><a href="#__codelineno-24-12">12</a></span>
+<span class="normal"><a href="#__codelineno-24-13">13</a></span>
+<span class="normal"><a href="#__codelineno-24-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a>package main
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a>import &quot;fmt&quot;
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a>
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a>func printRecover() {
+<a id="__codelineno-24-6" name="__codelineno-24-6"></a>    r := recover()
+<a id="__codelineno-24-7" name="__codelineno-24-7"></a>    fmt.Println(&quot;Recovered:&quot;, r)
+<a id="__codelineno-24-8" name="__codelineno-24-8"></a>}
+<a id="__codelineno-24-9" name="__codelineno-24-9"></a>
+<a id="__codelineno-24-10" name="__codelineno-24-10"></a>func main() {
+<a id="__codelineno-24-11" name="__codelineno-24-11"></a>    defer printRecover()
+<a id="__codelineno-24-12" name="__codelineno-24-12"></a>
+<a id="__codelineno-24-13" name="__codelineno-24-13"></a>    panic(&quot;OMG!&quot;)
+<a id="__codelineno-24-14" name="__codelineno-24-14"></a>}
+</code></pre></div></td></tr></table></div>
+<p>但是下面这个例子中的panic却不能被捕获：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-25-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-25-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-25-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-25-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-25-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-25-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-25-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-25-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-25-10">10</a></span>
+<span class="normal"><a href="#__codelineno-25-11">11</a></span>
+<span class="normal"><a href="#__codelineno-25-12">12</a></span>
+<span class="normal"><a href="#__codelineno-25-13">13</a></span>
+<span class="normal"><a href="#__codelineno-25-14">14</a></span>
+<span class="normal"><a href="#__codelineno-25-15">15</a></span>
+<span class="normal"><a href="#__codelineno-25-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a>package main
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a>
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a>import &quot;fmt&quot;
+<a id="__codelineno-25-4" name="__codelineno-25-4"></a>
+<a id="__codelineno-25-5" name="__codelineno-25-5"></a>func printRecover() {
+<a id="__codelineno-25-6" name="__codelineno-25-6"></a>    r := recover()
+<a id="__codelineno-25-7" name="__codelineno-25-7"></a>    fmt.Println(&quot;Recovered:&quot;, r)
+<a id="__codelineno-25-8" name="__codelineno-25-8"></a>}
+<a id="__codelineno-25-9" name="__codelineno-25-9"></a>
+<a id="__codelineno-25-10" name="__codelineno-25-10"></a>func main() {
+<a id="__codelineno-25-11" name="__codelineno-25-11"></a>    defer func() {
+<a id="__codelineno-25-12" name="__codelineno-25-12"></a>        printRecover()
+<a id="__codelineno-25-13" name="__codelineno-25-13"></a>    }()
+<a id="__codelineno-25-14" name="__codelineno-25-14"></a>
+<a id="__codelineno-25-15" name="__codelineno-25-15"></a>    panic(&quot;OMG!&quot;)
+<a id="__codelineno-25-16" name="__codelineno-25-16"></a>}
+</code></pre></div></td></tr></table></div>
+<p>[强制] 不用重复使用recover，只需要在每一个协程的最上层函数拦截即可。recover只能够捕获当前协程，而不能跨协程捕获panic，下例中的panic就是无法被捕获的。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-26-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-26-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-26-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-26-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-26-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-26-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-26-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-26-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-26-10">10</a></span>
+<span class="normal"><a href="#__codelineno-26-11">11</a></span>
+<span class="normal"><a href="#__codelineno-26-12">12</a></span>
+<span class="normal"><a href="#__codelineno-26-13">13</a></span>
+<span class="normal"><a href="#__codelineno-26-14">14</a></span>
+<span class="normal"><a href="#__codelineno-26-15">15</a></span>
+<span class="normal"><a href="#__codelineno-26-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a>package main
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a>
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a>import &quot;fmt&quot;
+<a id="__codelineno-26-4" name="__codelineno-26-4"></a>
+<a id="__codelineno-26-5" name="__codelineno-26-5"></a>func printRecover() {
+<a id="__codelineno-26-6" name="__codelineno-26-6"></a>    r := recover()
+<a id="__codelineno-26-7" name="__codelineno-26-7"></a>    fmt.Println(&quot;Recovered:&quot;, r)
+<a id="__codelineno-26-8" name="__codelineno-26-8"></a>}
+<a id="__codelineno-26-9" name="__codelineno-26-9"></a>
+<a id="__codelineno-26-10" name="__codelineno-26-10"></a>func main() {
+<a id="__codelineno-26-11" name="__codelineno-26-11"></a>    defer printRecover()
+<a id="__codelineno-26-12" name="__codelineno-26-12"></a>    go func() {
+<a id="__codelineno-26-13" name="__codelineno-26-13"></a>        panic(&quot;OMG!&quot;)
+<a id="__codelineno-26-14" name="__codelineno-26-14"></a>    }()
+<a id="__codelineno-26-15" name="__codelineno-26-15"></a>    // ...
+<a id="__codelineno-26-16" name="__codelineno-26-16"></a>}
+</code></pre></div></td></tr></table></div>
+<p>[强制] 有些特殊的错误是recover不住的，例如Map的并发读写冲突。这种错误可以通过race工具来检查。</p>
+<h2 id="_12">扩展性<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>[建议] 利用接口实现扩展性。接口特别适用于访问外部组件的情况，例如访问数据库、访问下游服务。另外，接口可以方便我们进行功能测试。关于接口的最佳实践，需要单独论述。</p>
+<p>[建议] 使用功能选项模式(options 模式)对一些公共API的构造函数进行扩展，大量第三方库例如gomicro、zap等都使用了这种策略。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span>
+<span class="normal"><a href="#__codelineno-27-2">2</a></span>
+<span class="normal"><a href="#__codelineno-27-3">3</a></span>
+<span class="normal"><a href="#__codelineno-27-4">4</a></span>
+<span class="normal"><a href="#__codelineno-27-5">5</a></span>
+<span class="normal"><a href="#__codelineno-27-6">6</a></span>
+<span class="normal"><a href="#__codelineno-27-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a>db.Open(addr, db.DefaultCache, zap.NewNop())
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a>可以替换为=&gt;
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a>db.Open(
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a>    addr,
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a>    db.WithCache(false),
+<a id="__codelineno-27-6" name="__codelineno-27-6"></a>    db.WithLogger(log),
+<a id="__codelineno-27-7" name="__codelineno-27-7"></a>)
+</code></pre></div></td></tr></table></div>
+<h2 id="_13">工具<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>要人工来保证团队成员遵守了上述的编程规范并不是一件容易的事情。因此，我们有许多静态的和动态的代码分析工具帮助团队识别代码规范的错误，甚至可以发现一些代码的bug。</p>
+<h3 id="golangci-lint">golangci-lint<a class="headerlink" href="#golangci-lint" title="Permanent link">&para;</a></h3>
+<p>golangci-lint 是当前大多数公司采用的静态代码分析工具，词语Linter 指的是一种分析源代码以此标记编程错误、代码缺陷、风格错误的工具。</p>
+<p>而golangci-lint是集合多种Linter的工具。要查看支持的 Linter 列表以及启用/禁用了哪些Linter，可以使用下面的命令：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a>golangci-lint help linters
+</code></pre></div></td></tr></table></div>
+<p>Go语言定义了实现Linter的API，它还提供了golint工具，用于集成了几种常见的Linter。在<a href="https://cs.opensource.google/go/x/tools/+/refs/tags/v0.1.11:go/analysis/passes/unreachable/unreachable.go">源码</a>中，我们可以查看怎么在标准库中实现典型的Linter。</p>
+<p>Linter的实现原理是静态扫描代码的AST（抽象语法树），Linter的标准化意味着我们可以灵活实现自己的Linters。不过golangci-lint里面其实已经集成了包括golint在内的总多Linter，并且有灵活的配置能力。所以在自己写Linter之前，建议先了解golangci-lint现有的能力。</p>
+<p>在大型项目中刚开始使用golang-lint会出现大量的错误，这种情况下我们只希望扫描增量的代码。如下所示，可以通过在<a href="https://golangci-lint.run/usage/configuration/">golangci-lint配置文件</a>中调整new-from-rev参数，配置以当前基准分支为基础实现增量扫描</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span>
+<span class="normal"><a href="#__codelineno-29-2">2</a></span>
+<span class="normal"><a href="#__codelineno-29-3">3</a></span>
+<span class="normal"><a href="#__codelineno-29-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a>linters:
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a> enable-all: true
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a>issues:
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a> new-from-rev: master
+</code></pre></div></td></tr></table></div>
+<h3 id="pre-commit">Pre-Commit<a class="headerlink" href="#pre-commit" title="Permanent link">&para;</a></h3>
+<p>在代码通过Git Commit提交到代码仓库之前，git 提供了一种pre-commit的hook能力，用于执行一些前置脚本。在脚本中加入检查的代码，就可以在本地拦截住一些不符合规范的代码，避免频繁触发CI或者浪费时间。pre-commit的配置和使用方法，可以参考<a href="https://github.com/pingcap/tidb/blob/master/hooks/pre-commit">TiDB</a>。</p>
+<h3 id="race">并发检测 race<a class="headerlink" href="#race" title="Permanent link">&para;</a></h3>
+<p>Go 1.1 提供了强大的检查工具race来排查数据争用问题。race 可以用在多个Go指令中，一旦检测器在程序中找到数据争用，就会打印报告。这份报告包含发生race冲突的协程栈，以及此时正在运行的协程栈。可以在编译时和运行时执行race，方法如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span>
+<span class="normal"><a href="#__codelineno-30-2">2</a></span>
+<span class="normal"><a href="#__codelineno-30-3">3</a></span>
+<span class="normal"><a href="#__codelineno-30-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a>$ go test -race mypkg
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a>$ go run -race mysrc.go
+<a id="__codelineno-30-3" name="__codelineno-30-3"></a>$ go build -race mycmd
+<a id="__codelineno-30-4" name="__codelineno-30-4"></a>$ go install -race mypkg
+</code></pre></div></td></tr></table></div>
+<p>在下面这个例子中， 运行中加入race检查后直接报错。从报错后输出的栈帧信息中，我们能看出具体发生并发冲突的位置。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1">1</a></span>
+<span class="normal"><a href="#__codelineno-31-2">2</a></span>
+<span class="normal"><a href="#__codelineno-31-3">3</a></span>
+<span class="normal"><a href="#__codelineno-31-4">4</a></span>
+<span class="normal"><a href="#__codelineno-31-5">5</a></span>
+<span class="normal"><a href="#__codelineno-31-6">6</a></span>
+<span class="normal"><a href="#__codelineno-31-7">7</a></span>
+<span class="normal"><a href="#__codelineno-31-8">8</a></span>
+<span class="normal"><a href="#__codelineno-31-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a>» go run -race 2_race.go
+<a id="__codelineno-31-2" name="__codelineno-31-2"></a>==================
+<a id="__codelineno-31-3" name="__codelineno-31-3"></a>WARNING: DATA RACE
+<a id="__codelineno-31-4" name="__codelineno-31-4"></a>Read at 0x00000115c1f8 by goroutine 7:
+<a id="__codelineno-31-5" name="__codelineno-31-5"></a>    main.add()
+<a id="__codelineno-31-6" name="__codelineno-31-6"></a>        bookcode/concurrence_control/2_race.go:5 +0x3a
+<a id="__codelineno-31-7" name="__codelineno-31-7"></a>Previous write at 0x00000115c1f8 by goroutine 6:
+<a id="__codelineno-31-8" name="__codelineno-31-8"></a>    main.add()
+<a id="__codelineno-31-9" name="__codelineno-31-9"></a>        bookcode/concurrence_control/2_race.go:5 +0x56
+</code></pre></div></td></tr></table></div>
+<p>第四行Read at 表明读取发生在2_race.go 文件的第5行，而第七行Previous write 表明前一个写入也发生在2_race.go 文件的第5行。这样我们就可以非常快速地定位数据争用问题了。</p>
+<p>竞争检测的成本因程序而异。对于典型的程序，内存使用量可能增加 5~10 倍，执行时间会增加2~20倍。同时，竞争检测器会为当前每个defer和recover语句额外分配8字节。在Goroutine退出前，这些额外分配的字节不会被回收。这意味着，如果有一个长期运行的Goroutine，而且定期有defer 和recover调用，那么程序内存的使用量可能无限增长。（这些内存分配不会显示到 runtime.ReadMemStats或runtime / pprof 的输出。）</p>
+<h3 id="_14">覆盖率<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>一般我们会使用代码覆盖率来判断代码书写的质量，识别无效代码。go tool cover 是go语言提供的识别代码覆盖率的工具，在后面的课程中还会详细介绍。</p>
+<h2 id="_15">总结<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>代码规范可以助力团队协作、帮助我们写出更加简洁、高效、健壮和可扩展的代码。这节课，我列出了一套Go编程规范的最佳实践，并通过golangci-lint等工具对不规范甚至是错误的代码进行了强制检查，保证了代码质量。在后面的开发中，我们将严格按照这个规范编写代码。</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-29</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-29</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <!-- Footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    
+      
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="页脚"
+        
+      >
+
+        <!-- Link to previous page -->
+        
+          
+          <a
+            href="../go_security_guide/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="上一页: Go安全指南[摘录]"
+          >
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Go安全指南[摘录]
+              </div>
+            </div>
+            
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          
+          <a
+            href="../../gosyntax/go_basics/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="下一页: Go的基本知识点"
+          >
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Go的基本知识点
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid" style="display: flex; justify-content: center; ">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2017~2024 AstonWang/All Rights Reserved.
+    </div>
+  
+  
+</div>
+
+      <font color="#B9B9B9">
+      <div class="md-footer-meta__inner md-grid" style="display: flex; justify-content: center; "></div>
+        <div id='box11' style="font-size: 14px;"> &nbsp;| &nbsp; 本站已经运行: <span id="timer"></span></div>
+      </font>
+
+    <!-- 本站访问量：<script async src="//finicounter.eu.org/finicounter.js"></script> -->
+    <!-- <span id="finicount_views"></span>    &nbsp;|&nbsp; -->
+    <!-- <footer> -->
+      <!-- <a href="https://icp.gov.moe/?keyword=20230640" target="_blank">萌ICP备20230640号</a> -->
+    <!-- </footer> -->
+  </div>
+      </font>
+   
+    <!-- <font color="#B9B9B9">
+      <div class="footer-visit-count" style="display: flex; justify-content: center; align-items: center;">
+    本站访问量：<script async src="//finicounter.eu.org/finicounter.js"></script>
+    <span id="finicount_views"></span>    &nbsp;|&nbsp;
+    <footer>
+      <a href="https://icp.gov.moe/?keyword=20230640" target="_blank">萌ICP备20230640号</a>
+    </footer>
+  </div>
+      </font> -->
+
+      <style>
+        .footer-visit-count {
+            height: fit-content;
+            min-height: 55px; /* 根据实际情况调整此高度 */
+        }
+        </style>
+      
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+  function timingTime(){
+    let start = '2024-06-28 00:00:00'
+    let startTime = new Date(start).getTime()
+    let currentTime = new Date().getTime()
+    let difference = currentTime - startTime
+    let m =  Math.floor(difference / (1000))
+    let mm = m % 60  // 秒
+    let f = Math.floor(m / 60)
+    let ff = f % 60 // 分钟
+    let s = Math.floor(f/ 60) // 小时
+    let ss = s % 24
+    let day = Math.floor(s  / 24 ) // 天数
+    return day + "天" + ss + "时" + ff + "分" + mm +'秒'
+  }
+  setInterval(()=>{
+    document.getElementById('timer').innerHTML = timingTime()
+  },1000)
+  });
+</script>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.footer", "navigation.path", "search.suggest", "search.highlight", "search.share", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.action.edit", "content.action.view", "content.code.annotate", "toc.follow"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.471ce7a9.min.js"></script>
+      
+        <script src="../../../customize/javascripts/extra.js"></script>
+      
+        <script src="../../../customize/javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.0.2/dist/add-html-label-6e56ed67.min.js"></script>
+      
+    
+  </body>
+</html>

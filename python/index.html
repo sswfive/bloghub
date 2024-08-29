@@ -10,28 +10,28 @@
         <meta name="author" content="AstonWang">
       
       
-        <link rel="canonical" href="https://sswfive.github.io/bloghub/notehub/solution/bughub/jupyterhub_deploy_bug/">
+        <link rel="canonical" href="https://sswfive.github.io/bloghub/python/">
       
       
-        <link rel="prev" href="../jupyter_matplotlib_font_bug/">
+        <link rel="prev" href="../about/profile/">
       
       
-        <link rel="next" href="../rsa_encryption_bug/">
+        <link rel="next" href="pybestpractices/py_logger_usage/">
       
       
-      <link rel="icon" href="../../../../customize/assets/head.png">
+      <link rel="icon" href="../customize/assets/head.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.32">
     
     
       
-        <title>Jupyterhub离线部署踩坑总结 - IceCoffee[空谷幽兰]</title>
+        <title>Python笔记 - IceCoffee[空谷幽兰]</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -56,15 +56,15 @@ but is high on our list for inclusion in a future release. -->
       
     
     
-      <link rel="stylesheet" href="../../../../customize/stylesheets/extra.css">
+      <link rel="stylesheet" href="../customize/stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../../../../customize/stylesheets/customize.css">
+      <link rel="stylesheet" href="../customize/stylesheets/customize.css">
     
       <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -100,7 +100,7 @@ but is high on our list for inclusion in a future release. -->
     <div data-md-component="skip">
       
         
-        <a href="#jupyterhub" class="md-skip">
+        <a href="#python" class="md-skip">
           跳转至
         </a>
       
@@ -114,9 +114,9 @@ but is high on our list for inclusion in a future release. -->
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../.." title="IceCoffee[空谷幽兰]" class="md-header__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
+    <a href=".." title="IceCoffee[空谷幽兰]" class="md-header__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
-  <img src="../../../../customize/assets/head.png" alt="logo">
+  <img src="../customize/assets/head.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -133,7 +133,7 @@ but is high on our list for inclusion in a future release. -->
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Jupyterhub离线部署踩坑总结
+              Python笔记
             
           </span>
         </div>
@@ -259,7 +259,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../.." class="md-tabs__link">
+        <a href=".." class="md-tabs__link">
           
   
     
@@ -275,11 +275,13 @@ but is high on our list for inclusion in a future release. -->
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../python/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
     
@@ -299,7 +301,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../../language/golang/go_learn_docs.md" class="md-tabs__link">
+        <a href="../language/golang/go_learn_docs.md" class="md-tabs__link">
           
   
     
@@ -319,7 +321,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../modelops/ml_basic/data_mining.md" class="md-tabs__link">
+        <a href="../notehub/modelops/ml_basic/data_mining.md" class="md-tabs__link">
           
   
     
@@ -345,7 +347,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../cloud_native/k8s/helm_usage/" class="md-tabs__link">
+        <a href="../notehub/cloud_native/k8s/helm_usage/" class="md-tabs__link">
           
   
     
@@ -374,7 +376,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../index.md" class="md-tabs__link">
+        <a href="../notehub/index.md" class="md-tabs__link">
           
   
     
@@ -397,7 +399,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../../toolbox/tools_ai/" class="md-tabs__link">
+        <a href="../toolbox/tools_ai/" class="md-tabs__link">
           
   
     
@@ -413,13 +415,11 @@ but is high on our list for inclusion in a future release. -->
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../notehub/solution/" class="md-tabs__link">
           
   
     
@@ -439,7 +439,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../../thinking/" class="md-tabs__link">
+        <a href="../thinking/" class="md-tabs__link">
           
   
     
@@ -459,7 +459,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../../tags/" class="md-tabs__link">
+        <a href="../tags/" class="md-tabs__link">
           
   
     
@@ -494,9 +494,9 @@ but is high on our list for inclusion in a future release. -->
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="IceCoffee[空谷幽兰]" class="md-nav__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
+    <a href=".." title="IceCoffee[空谷幽兰]" class="md-nav__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
-  <img src="../../../../customize/assets/head.png" alt="logo">
+  <img src="../customize/assets/head.png" alt="logo">
 
     </a>
     IceCoffee[空谷幽兰]
@@ -548,7 +548,7 @@ but is high on our list for inclusion in a future release. -->
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../.." class="md-nav__link ">
+            <a href=".." class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -581,7 +581,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../postlist/" class="md-nav__link">
+      <a href="../postlist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -602,7 +602,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../about/profile/" class="md-nav__link">
+      <a href="../about/profile/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -627,6 +627,8 @@ but is high on our list for inclusion in a future release. -->
       
   
   
+    
+  
   
   
     
@@ -641,19 +643,22 @@ but is high on our list for inclusion in a future release. -->
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../python/" class="md-nav__link ">
+            <a href="./" class="md-nav__link md-nav__link--active">
               
   
   <span class="md-ellipsis">
@@ -664,13 +669,13 @@ but is high on our list for inclusion in a future release. -->
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link md-nav__link--active" for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Python编程
@@ -750,7 +755,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/py_logger_usage/" class="md-nav__link">
+      <a href="pybestpractices/py_logger_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -771,7 +776,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/pypi_source_usage/" class="md-nav__link">
+      <a href="pybestpractices/pypi_source_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -792,7 +797,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/docker_build_python_image/" class="md-nav__link">
+      <a href="pybestpractices/docker_build_python_image/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -813,7 +818,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/env_package_selection/" class="md-nav__link">
+      <a href="pybestpractices/env_package_selection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -834,7 +839,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/py_data_struct_summary/" class="md-nav__link">
+      <a href="pybestpractices/py_data_struct_summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -855,7 +860,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/py_security_guide/" class="md-nav__link">
+      <a href="pybestpractices/py_security_guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -876,7 +881,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/pypi_python_pkg_publish/" class="md-nav__link">
+      <a href="pybestpractices/pypi_python_pkg_publish/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -897,7 +902,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/py_dev_tool_selection/" class="md-nav__link">
+      <a href="pybestpractices/py_dev_tool_selection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -918,7 +923,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/jupyter_tool_usage/" class="md-nav__link">
+      <a href="pybestpractices/jupyter_tool_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -939,7 +944,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/py2_py3_update/" class="md-nav__link">
+      <a href="pybestpractices/py2_py3_update/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -960,7 +965,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/conda_usage/" class="md-nav__link">
+      <a href="pybestpractices/conda_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -981,7 +986,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/coding_standard/" class="md-nav__link">
+      <a href="pybestpractices/coding_standard/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1059,7 +1064,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../language/golang/go_learn_docs.md" class="md-nav__link">
+      <a href="../language/golang/go_learn_docs.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1129,7 +1134,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../modelops/ml_basic/data_mining.md" class="md-nav__link">
+      <a href="../notehub/modelops/ml_basic/data_mining.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1267,7 +1272,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/k8s/helm_usage/" class="md-nav__link">
+      <a href="../notehub/cloud_native/k8s/helm_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1288,7 +1293,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1279/" class="md-nav__link">
+      <a href="../notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1279/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1309,7 +1314,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/k8s/ktconnect_usage/" class="md-nav__link">
+      <a href="../notehub/cloud_native/k8s/ktconnect_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1330,7 +1335,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/k8s/k8s_ectd_mount_memo/" class="md-nav__link">
+      <a href="../notehub/cloud_native/k8s/k8s_ectd_mount_memo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1351,7 +1356,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/k8s/k8s_storageclass_nfs/" class="md-nav__link">
+      <a href="../notehub/cloud_native/k8s/k8s_storageclass_nfs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1372,7 +1377,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/k8s/k8s_dashboard/" class="md-nav__link">
+      <a href="../notehub/cloud_native/k8s/k8s_dashboard/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1393,7 +1398,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/k8s/k8s_common_qa/" class="md-nav__link">
+      <a href="../notehub/cloud_native/k8s/k8s_common_qa/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1414,7 +1419,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/k8s/yaml_usage/" class="md-nav__link">
+      <a href="../notehub/cloud_native/k8s/yaml_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1435,7 +1440,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/k8s/k8s_usage_skills/" class="md-nav__link">
+      <a href="../notehub/cloud_native/k8s/k8s_usage_skills/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1456,7 +1461,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/k8s/k8s_core_name/" class="md-nav__link">
+      <a href="../notehub/cloud_native/k8s/k8s_core_name/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1477,7 +1482,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/k8s/k8s_common_cmd/" class="md-nav__link">
+      <a href="../notehub/cloud_native/k8s/k8s_common_cmd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1498,7 +1503,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1194/" class="md-nav__link">
+      <a href="../notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1194/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1571,7 +1576,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/dockercompose/docker_compose_software_usage/" class="md-nav__link">
+      <a href="../notehub/cloud_native/dockercompose/docker_compose_software_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1592,7 +1597,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/dockercompose/docker_compose_summary/" class="md-nav__link">
+      <a href="../notehub/cloud_native/dockercompose/docker_compose_summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1681,7 +1686,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/docker/docker_image_pull_problem_for_solution/" class="md-nav__link">
+      <a href="../notehub/cloud_native/docker/docker_image_pull_problem_for_solution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1702,7 +1707,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/docker/docker_detail_commands/" class="md-nav__link">
+      <a href="../notehub/cloud_native/docker/docker_detail_commands/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1723,7 +1728,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/docker/docker_command/" class="md-nav__link">
+      <a href="../notehub/cloud_native/docker/docker_command/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1744,7 +1749,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/docker/docker_practical_skills/" class="md-nav__link">
+      <a href="../notehub/cloud_native/docker/docker_practical_skills/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1765,7 +1770,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/docker/docker_common_software_install/" class="md-nav__link">
+      <a href="../notehub/cloud_native/docker/docker_common_software_install/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1786,7 +1791,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/docker/docker_registry_usage/" class="md-nav__link">
+      <a href="../notehub/cloud_native/docker/docker_registry_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1807,7 +1812,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/docker/dockerifle_guide/" class="md-nav__link">
+      <a href="../notehub/cloud_native/docker/dockerifle_guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1828,7 +1833,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/docker/dockerignore_template/" class="md-nav__link">
+      <a href="../notehub/cloud_native/docker/dockerignore_template/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1849,7 +1854,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/docker/docker_install_guide/" class="md-nav__link">
+      <a href="../notehub/cloud_native/docker/docker_install_guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1870,7 +1875,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud_native/docker/docker_arch_and_principle/" class="md-nav__link">
+      <a href="../notehub/cloud_native/docker/docker_arch_and_principle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1998,7 +2003,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../index.md" class="md-nav__link">
+      <a href="../notehub/index.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2019,7 +2024,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../software_engineering/algo_hash.md" class="md-nav__link">
+      <a href="../notehub/software_engineering/algo_hash.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2090,7 +2095,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../bigdata/spark/spark_distribute_compute.md" class="md-nav__link">
+      <a href="../notehub/bigdata/spark/spark_distribute_compute.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2161,7 +2166,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../codecore/data_struct/data_struct_and_algo_learn_materials.md" class="md-nav__link">
+      <a href="../notehub/codecore/data_struct/data_struct_and_algo_learn_materials.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2232,7 +2237,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../codecore/design_patterns/design_patterns_categories.md" class="md-nav__link">
+      <a href="../notehub/codecore/design_patterns/design_patterns_categories.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2322,7 +2327,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/tools_ai/" class="md-nav__link">
+      <a href="../toolbox/tools_ai/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2343,7 +2348,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/tools_common/" class="md-nav__link">
+      <a href="../toolbox/tools_common/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2364,7 +2369,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/tools_cheatsheet/" class="md-nav__link">
+      <a href="../toolbox/tools_cheatsheet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2385,7 +2390,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/tools_plugin/" class="md-nav__link">
+      <a href="../toolbox/tools_plugin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2406,7 +2411,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/macos_quickly_key/" class="md-nav__link">
+      <a href="../toolbox/macos_quickly_key/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2475,7 +2480,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/git/git_usage_summary/" class="md-nav__link">
+      <a href="../toolbox/git/git_usage_summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2496,7 +2501,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/git/git_config/" class="md-nav__link">
+      <a href="../toolbox/git/git_config/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2517,7 +2522,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/git/git_common_install/" class="md-nav__link">
+      <a href="../toolbox/git/git_common_install/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2538,7 +2543,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/git/gitflow_usage/" class="md-nav__link">
+      <a href="../toolbox/git/gitflow_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2635,7 +2640,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/etcd/" class="md-nav__link">
+      <a href="../toolbox/dev_software/etcd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2656,7 +2661,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/flink_on_yarn/" class="md-nav__link">
+      <a href="../toolbox/dev_software/flink_on_yarn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2677,7 +2682,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/spark_on_yarn/" class="md-nav__link">
+      <a href="../toolbox/dev_software/spark_on_yarn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2698,7 +2703,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/YARN/" class="md-nav__link">
+      <a href="../toolbox/dev_software/YARN/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2719,7 +2724,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/kafka/" class="md-nav__link">
+      <a href="../toolbox/dev_software/kafka/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2740,7 +2745,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/zookeeper/" class="md-nav__link">
+      <a href="../toolbox/dev_software/zookeeper/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2761,7 +2766,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/hadoop/" class="md-nav__link">
+      <a href="../toolbox/dev_software/hadoop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2782,7 +2787,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/mongodb/" class="md-nav__link">
+      <a href="../toolbox/dev_software/mongodb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2803,7 +2808,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/nginx/" class="md-nav__link">
+      <a href="../toolbox/dev_software/nginx/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2824,7 +2829,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/postgresql/" class="md-nav__link">
+      <a href="../toolbox/dev_software/postgresql/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2845,7 +2850,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/rabbitmq/" class="md-nav__link">
+      <a href="../toolbox/dev_software/rabbitmq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2866,7 +2871,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/redis/" class="md-nav__link">
+      <a href="../toolbox/dev_software/redis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2887,7 +2892,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/zabbix/" class="md-nav__link">
+      <a href="../toolbox/dev_software/zabbix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2908,7 +2913,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/java/" class="md-nav__link">
+      <a href="../toolbox/dev_software/java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2941,8 +2946,6 @@ but is high on our list for inclusion in a future release. -->
       
   
   
-    
-  
   
   
     
@@ -2959,22 +2962,19 @@ but is high on our list for inclusion in a future release. -->
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../notehub/solution/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2985,13 +2985,13 @@ but is high on our list for inclusion in a future release. -->
             </a>
             
               
-              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             迎刃而解
@@ -3057,7 +3057,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../opshub/centos_yum_source_delete_solution/" class="md-nav__link">
+      <a href="../notehub/solution/opshub/centos_yum_source_delete_solution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3078,7 +3078,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../opshub/mac_brew_service_error_solution/" class="md-nav__link">
+      <a href="../notehub/solution/opshub/mac_brew_service_error_solution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3099,7 +3099,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../opshub/server_disk_full_solution/" class="md-nav__link">
+      <a href="../notehub/solution/opshub/server_disk_full_solution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3120,7 +3120,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../opshub/win10_git_chinese_solution/" class="md-nav__link">
+      <a href="../notehub/solution/opshub/win10_git_chinese_solution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3141,7 +3141,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../window_install_pip_bug/" class="md-nav__link">
+      <a href="../notehub/solution/bughub/window_install_pip_bug/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3167,10 +3167,8 @@ but is high on our list for inclusion in a future release. -->
                 
   
   
-    
   
   
-  
     
     
       
@@ -3190,11 +3188,11 @@ but is high on our list for inclusion in a future release. -->
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" >
         
           
           <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
@@ -3208,7 +3206,7 @@ but is high on our list for inclusion in a future release. -->
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8_3">
             <span class="md-nav__icon md-icon"></span>
             Bug记录
@@ -3222,7 +3220,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../conda_rename_env_bug/" class="md-nav__link">
+      <a href="../notehub/solution/bughub/conda_rename_env_bug/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3243,7 +3241,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../jupyter_asyncio_run_bug/" class="md-nav__link">
+      <a href="../notehub/solution/bughub/jupyter_asyncio_run_bug/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3264,7 +3262,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../jupyter_matplotlib_font_bug/" class="md-nav__link">
+      <a href="../notehub/solution/bughub/jupyter_matplotlib_font_bug/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3282,30 +3280,10 @@ but is high on our list for inclusion in a future release. -->
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Jupyterhub离线部署踩坑总结
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../notehub/solution/bughub/jupyterhub_deploy_bug/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3314,44 +3292,6 @@ but is high on our list for inclusion in a future release. -->
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      事出有因
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      迎刃而解：
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3364,7 +3304,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../rsa_encryption_bug/" class="md-nav__link">
+      <a href="../notehub/solution/bughub/rsa_encryption_bug/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3433,7 +3373,7 @@ but is high on our list for inclusion in a future release. -->
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../thinking/" class="md-nav__link ">
+            <a href="../thinking/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3466,7 +3406,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../thinking/posts/06_learn_top2down_or_bottom2up/" class="md-nav__link">
+      <a href="../thinking/posts/06_learn_top2down_or_bottom2up/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3487,7 +3427,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../thinking/posts/05_personal_focus_and_abandon/" class="md-nav__link">
+      <a href="../thinking/posts/05_personal_focus_and_abandon/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3508,7 +3448,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../thinking/posts/04_wisdom_of_asking_questions/" class="md-nav__link">
+      <a href="../thinking/posts/04_wisdom_of_asking_questions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3529,7 +3469,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../thinking/posts/03_learn_open_source_project/" class="md-nav__link">
+      <a href="../thinking/posts/03_learn_open_source_project/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3550,7 +3490,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../thinking/posts/02_tech_yiyan/" class="md-nav__link">
+      <a href="../thinking/posts/02_tech_yiyan/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3571,7 +3511,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../thinking/posts/01_smart_to_do_things/" class="md-nav__link">
+      <a href="../thinking/posts/01_smart_to_do_things/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3620,7 +3560,7 @@ but is high on our list for inclusion in a future release. -->
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../tags/" class="md-nav__link ">
+            <a href="../tags/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3668,32 +3608,6 @@ but is high on our list for inclusion in a future release. -->
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      事出有因
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      迎刃而解：
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -3705,20 +3619,9 @@ but is high on our list for inclusion in a future release. -->
               <article class="md-content__inner md-typeset">
                 
                   
-  
-<nav class="md-tags" >
-  
-    
-    
-    
-      <a href="../../../../tags/#bug" class="md-tag">Bug</a>
-    
-  
-</nav>
-
 
   
-    <a href="https://github.com/sswfive/bloghub/edit/main/docs/notehub/solution/bughub/jupyterhub_deploy_bug.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/sswfive/bloghub/edit/main/docs/python/index.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -3727,79 +3630,18 @@ but is high on our list for inclusion in a future release. -->
     
       
     
-    <a href="https://github.com/sswfive/bloghub/raw/main/docs/notehub/solution/bughub/jupyterhub_deploy_bug.md" title="查看本页的源代码" class="md-content__button md-icon">
+    <a href="https://github.com/sswfive/bloghub/raw/main/docs/python/index.md" title="查看本页的源代码" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<h1 id="jupyterhub">Jupyterhub离线部署踩坑总结<a class="headerlink" href="#jupyterhub" title="Permanent link">&para;</a></h1>
-<h2 id="_1">事出有因<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>客户内网服务器部署，只有特定端口8888，只有特定pip安装源</p>
-<h2 id="_2">迎刃而解：<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>安装python</strong></li>
-<li><strong>创建虚拟环境virtualenv,最好将安装virtualenv的文件夹的权限调整711以上，否则多用户会用权限问题（此处踩坑较长，除了重新部署以外，修改文件夹的对应可执行权限应该是工作量最小的做法。）</strong></li>
-<li><strong>激活虚拟环境，source /或使用workon</strong></li>
-<li><strong>安装pip依赖包</strong></li>
-<li><strong>下载node源码，进行离线安装</strong></li>
-<li><strong>下载configurable-http-proxy，最佳实践是：在有网的环境中，新建一个空目录，在此目录下执行：npm install configurable-http-proxy ,安装完成以后，将该文件夹的node_modules的内容全部移动服务中的node/lib/node_module下，即可，此处踩坑实践较长</strong></li>
-<li><strong>生成配置并修改配置</strong></li>
-</ol>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span>
-<span class="normal"><a href="#__codelineno-0-11">11</a></span>
-<span class="normal"><a href="#__codelineno-0-12">12</a></span>
-<span class="normal"><a href="#__codelineno-0-13">13</a></span>
-<span class="normal"><a href="#__codelineno-0-14">14</a></span>
-<span class="normal"><a href="#__codelineno-0-15">15</a></span>
-<span class="normal"><a href="#__codelineno-0-16">16</a></span>
-<span class="normal"><a href="#__codelineno-0-17">17</a></span>
-<span class="normal"><a href="#__codelineno-0-18">18</a></span>
-<span class="normal"><a href="#__codelineno-0-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s1">&#39;/jupyterhub&#39;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">ip</span> <span class="o">=</span> <span class="s2">&quot;10.19.10.2&quot;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">c</span><span class="o">.</span><span class="n">Spawner</span><span class="o">.</span><span class="n">default_url</span> <span class="o">=</span> <span class="s1">&#39;/lab&#39;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">c</span><span class="o">.</span><span class="n">PAMAuthenticator</span><span class="o">.</span><span class="n">open_sessions</span> <span class="o">=</span> <span class="kc">False</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">c</span><span class="o">.</span><span class="n">LocalAuthenticator</span><span class="o">.</span><span class="n">create_system_users</span> <span class="o">=</span> <span class="kc">True</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">c</span><span class="o">.</span><span class="n">Authenticator</span><span class="o">.</span><span class="n">admin_users</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;zhongtai&#39;</span><span class="p">}</span>  <span class="c1"># #管理员用户</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">admin_access</span> <span class="o">=</span> <span class="kc">True</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">8888</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="n">c</span><span class="o">.</span><span class="n">Spawner</span><span class="o">.</span><span class="n">cmd</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;jupyterhub-singleuser&#39;</span><span class="p">]</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="n">c</span><span class="o">.</span><span class="n">PAMAuthenticator</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf8&#39;</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="n">c</span><span class="o">.</span><span class="n">Authenticator</span><span class="o">.</span><span class="n">whitelist</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;hcjupyter&#39;</span><span class="p">,</span><span class="s1">&#39;zhongtai&#39;</span><span class="p">}</span>  <span class="c1"># 白名单</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">statsd_prefix</span> <span class="o">=</span> <span class="s1">&#39;jupyterhub&#39;</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="c1">#c.LocalProcessSpawner.shell_cmd = [&quot;bash&quot;, &quot;-l&quot;, &quot;-c&quot;]</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">proxy_cmd</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/usr/local/node/bin/configurable-http-proxy&#39;</span><span class="p">,]</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="n">c</span><span class="o">.</span><span class="n">Authenticator</span><span class="o">.</span><span class="n">delete_invalid_users</span> <span class="o">=</span> <span class="kc">True</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">nodejs</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">configurable</span><span class="o">-</span><span class="n">http</span><span class="o">-</span><span class="n">proxy</span>
-</code></pre></div></td></tr></table></div>
-<ol>
-<li><strong>启动命令</strong></li>
-</ol>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
-<span class="normal"><a href="#__codelineno-1-2">2</a></span>
-<span class="normal"><a href="#__codelineno-1-3">3</a></span>
-<span class="normal"><a href="#__codelineno-1-4">4</a></span>
-<span class="normal"><a href="#__codelineno-1-5">5</a></span>
-<span class="normal"><a href="#__codelineno-1-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># 在虚拟环境中执行</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1"># 前台启动</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a>jupyterhub<span class="w"> </span>-f<span class="w"> </span>/etc/jupyterhub/config.py
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="c1"># 后台启动</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a>nohup<span class="w"> </span>jupyterhub<span class="w"> </span>-f<span class="w"> </span>/etc/jupyterhub/config.py<span class="w"> </span>--no-ssl<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>
-</code></pre></div></td></tr></table></div>
+<h1 id="python">Python笔记<a class="headerlink" href="#python" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>这里是Python相关实践笔记...</p>
+</div>
 
 
 
@@ -3822,7 +3664,7 @@ but is high on our list for inclusion in a future release. -->
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-27</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-29</span>
   </span>
 
     
@@ -3832,7 +3674,7 @@ but is high on our list for inclusion in a future release. -->
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-27</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-29</span>
   </span>
 
     
@@ -3881,9 +3723,9 @@ but is high on our list for inclusion in a future release. -->
         
           
           <a
-            href="../jupyter_matplotlib_font_bug/"
+            href="../about/profile/"
             class="md-footer__link md-footer__link--prev"
-            aria-label="上一页: Jupyter matplotlib画图中文字体缺失"
+            aria-label="上一页: 个人主页"
           >
             <div class="md-footer__button md-icon">
               
@@ -3894,7 +3736,7 @@ but is high on our list for inclusion in a future release. -->
                 上一页
               </span>
               <div class="md-ellipsis">
-                Jupyter matplotlib画图中文字体缺失
+                个人主页
               </div>
             </div>
             
@@ -3905,16 +3747,16 @@ but is high on our list for inclusion in a future release. -->
         
           
           <a
-            href="../rsa_encryption_bug/"
+            href="pybestpractices/py_logger_usage/"
             class="md-footer__link md-footer__link--next"
-            aria-label="下一页: 多语言之间的RSA加解密问题"
+            aria-label="下一页: Python中不同场景中使用日志的方式"
           >
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                多语言之间的RSA加解密问题
+                Python中不同场景中使用日志的方式
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4002,14 +3844,14 @@ but is high on our list for inclusion in a future release. -->
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["announce.dismiss", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.footer", "navigation.path", "search.suggest", "search.highlight", "search.share", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.action.edit", "content.action.view", "content.code.annotate", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.footer", "navigation.path", "search.suggest", "search.highlight", "search.share", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.action.edit", "content.action.view", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.471ce7a9.min.js"></script>
+      <script src="../assets/javascripts/bundle.471ce7a9.min.js"></script>
       
-        <script src="../../../../customize/javascripts/extra.js"></script>
+        <script src="../customize/javascripts/extra.js"></script>
       
-        <script src="../../../../customize/javascripts/mathjax.js"></script>
+        <script src="../customize/javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

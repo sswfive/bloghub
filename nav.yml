@@ -63,7 +63,18 @@ nav:
       - python/pysyntax/py_basics.md
    
   - Go编程:
-    - language/golang/go_learn_docs.md
+    - golang/go_learn_docs.md
+    - 工程实践:
+      - golang/gobestpractices/go_install_guide.md
+      - golang/gobestpractices/go_install_guide_2.md
+      - golang/gobestpractices/go_security_guide.md
+      - golang/gobestpractices/go_code_standard.md
+    - Go语法:
+      - golang/gosyntax/go_basics.md
+      - golang/gosyntax/go_data_struct.md
+      - golang/gosyntax/go_data_type.md
+      - golang/gosyntax/go_point.md
+
    
    
   - AIOps技术:

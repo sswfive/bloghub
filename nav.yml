@@ -9,10 +9,17 @@ nav:
     - language/python/index.md
     - 工程实践:
       - python/pybestpractices/py_logger_usage.md
+      - python/pybestpractices/pypi_source_usage.md
       - python/pybestpractices/docker_build_python_image.md
+      - python/pybestpractices/env_package_selection.md
       - python/pybestpractices/py_data_struct_summary.md
       - python/pybestpractices/py_security_guide.md
+      - python/pybestpractices/pypi_python_pkg_publish.md
+      - python/pybestpractices/py_dev_tool_selection.md
+      - python/pybestpractices/jupyter_tool_usage.md
       - python/pybestpractices/py2_py3_update.md
+      - python/pybestpractices/conda_usage.md
+
       - python/pybestpractices/coding_standard.md
   
    

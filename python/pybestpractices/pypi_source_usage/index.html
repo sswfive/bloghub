@@ -10,28 +10,28 @@
         <meta name="author" content="AstonWang">
       
       
-        <link rel="canonical" href="https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/helm_usage/">
+        <link rel="canonical" href="https://sswfive.github.io/bloghub/python/pybestpractices/pypi_source_usage/">
       
       
-        <link rel="prev" href="../../../../python/pybestpractices/coding_standard/">
+        <link rel="prev" href="../py_logger_usage/">
       
       
-        <link rel="next" href="../kubeadm_deploy_k8s_cluster_v1279/">
+        <link rel="next" href="../docker_build_python_image/">
       
       
-      <link rel="icon" href="../../../../customize/assets/head.png">
+      <link rel="icon" href="../../../customize/assets/head.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.32">
     
     
       
-        <title>k8s包管理工具Helm的使用 - IceCoffee[空谷幽兰]</title>
+        <title>常用Pypi源汇总及使用 - IceCoffee[空谷幽兰]</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -56,15 +56,15 @@ but is high on our list for inclusion in a future release. -->
       
     
     
-      <link rel="stylesheet" href="../../../../customize/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../customize/stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../../../../customize/stylesheets/customize.css">
+      <link rel="stylesheet" href="../../../customize/stylesheets/customize.css">
     
       <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -100,7 +100,7 @@ but is high on our list for inclusion in a future release. -->
     <div data-md-component="skip">
       
         
-        <a href="#helm" class="md-skip">
+        <a href="#pypi" class="md-skip">
           跳转至
         </a>
       
@@ -114,9 +114,9 @@ but is high on our list for inclusion in a future release. -->
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../.." title="IceCoffee[空谷幽兰]" class="md-header__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
+    <a href="../../.." title="IceCoffee[空谷幽兰]" class="md-header__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
-  <img src="../../../../customize/assets/head.png" alt="logo">
+  <img src="../../../customize/assets/head.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -133,7 +133,7 @@ but is high on our list for inclusion in a future release. -->
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              k8s包管理工具Helm的使用
+              常用Pypi源汇总及使用
             
           </span>
         </div>
@@ -259,7 +259,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../.." class="md-tabs__link">
+        <a href="../../.." class="md-tabs__link">
           
   
     
@@ -275,11 +275,13 @@ but is high on our list for inclusion in a future release. -->
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../language/python/index.md" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../language/python/index.md" class="md-tabs__link">
           
   
     
@@ -299,7 +301,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../../language/golang/go_learn_docs.md" class="md-tabs__link">
+        <a href="../../../language/golang/go_learn_docs.md" class="md-tabs__link">
           
   
     
@@ -319,7 +321,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../modelops/ml_basic/data_mining.md" class="md-tabs__link">
+        <a href="../../../notehub/modelops/ml_basic/data_mining.md" class="md-tabs__link">
           
   
     
@@ -335,21 +337,17 @@ but is high on our list for inclusion in a future release. -->
         
   
   
-    
-  
   
     
     
       
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../notehub/cloud_native/k8s/helm_usage/" class="md-tabs__link">
           
   
     
@@ -378,7 +376,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../index.md" class="md-tabs__link">
+        <a href="../../../notehub/index.md" class="md-tabs__link">
           
   
     
@@ -401,7 +399,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../../toolbox/tools_ai/" class="md-tabs__link">
+        <a href="../../../toolbox/tools_ai/" class="md-tabs__link">
           
   
     
@@ -421,7 +419,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../solution/" class="md-tabs__link">
+        <a href="../../../notehub/solution/" class="md-tabs__link">
           
   
     
@@ -441,7 +439,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../../thinking/" class="md-tabs__link">
+        <a href="../../../thinking/" class="md-tabs__link">
           
   
     
@@ -461,7 +459,7 @@ but is high on our list for inclusion in a future release. -->
     
     
       <li class="md-tabs__item">
-        <a href="../../../../tags/" class="md-tabs__link">
+        <a href="../../../tags/" class="md-tabs__link">
           
   
     
@@ -496,9 +494,9 @@ but is high on our list for inclusion in a future release. -->
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="IceCoffee[空谷幽兰]" class="md-nav__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
+    <a href="../../.." title="IceCoffee[空谷幽兰]" class="md-nav__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
       
-  <img src="../../../../customize/assets/head.png" alt="logo">
+  <img src="../../../customize/assets/head.png" alt="logo">
 
     </a>
     IceCoffee[空谷幽兰]
@@ -550,7 +548,7 @@ but is high on our list for inclusion in a future release. -->
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../.." class="md-nav__link ">
+            <a href="../../.." class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -583,7 +581,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../postlist/" class="md-nav__link">
+      <a href="../../../postlist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -604,7 +602,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../about/profile/" class="md-nav__link">
+      <a href="../../../about/profile/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -629,8 +627,10 @@ but is high on our list for inclusion in a future release. -->
       
   
   
+    
   
   
+  
     
     
       
@@ -641,17 +641,20 @@ but is high on our list for inclusion in a future release. -->
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -662,7 +665,7 @@ but is high on our list for inclusion in a future release. -->
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Python编程
@@ -676,7 +679,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../language/python/index.md" class="md-nav__link">
+      <a href="../../../language/python/index.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -694,8 +697,10 @@ but is high on our list for inclusion in a future release. -->
                 
   
   
+    
   
   
+  
     
     
       
@@ -729,11 +734,11 @@ but is high on our list for inclusion in a future release. -->
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -747,7 +752,7 @@ but is high on our list for inclusion in a future release. -->
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             工程实践
@@ -761,7 +766,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/py_logger_usage/" class="md-nav__link">
+      <a href="../py_logger_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -779,10 +784,30 @@ but is high on our list for inclusion in a future release. -->
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/pypi_source_usage/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    常用Pypi源汇总及使用
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -791,6 +816,113 @@ but is high on our list for inclusion in a future release. -->
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用国外源
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用国内源
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      pip 国内源配置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="pip 国内源配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      临时指定国内源安装
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      永久设置国内源安装
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      命令行设置默认源
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conda" class="md-nav__link">
+    <span class="md-ellipsis">
+      conda 国内源配置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pdm" class="md-nav__link">
+    <span class="md-ellipsis">
+      PDM 国内源配置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poetry 国内源配置
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -803,7 +935,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/docker_build_python_image/" class="md-nav__link">
+      <a href="../docker_build_python_image/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -824,7 +956,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/env_package_selection/" class="md-nav__link">
+      <a href="../env_package_selection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -845,7 +977,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/py_data_struct_summary/" class="md-nav__link">
+      <a href="../py_data_struct_summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -866,7 +998,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/py_security_guide/" class="md-nav__link">
+      <a href="../py_security_guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -887,7 +1019,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/pypi_python_pkg_publish/" class="md-nav__link">
+      <a href="../pypi_python_pkg_publish/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -908,7 +1040,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/py_dev_tool_selection/" class="md-nav__link">
+      <a href="../py_dev_tool_selection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -929,7 +1061,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/jupyter_tool_usage/" class="md-nav__link">
+      <a href="../jupyter_tool_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -950,7 +1082,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/py2_py3_update/" class="md-nav__link">
+      <a href="../py2_py3_update/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -971,7 +1103,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/conda_usage/" class="md-nav__link">
+      <a href="../conda_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -992,7 +1124,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/pybestpractices/coding_standard/" class="md-nav__link">
+      <a href="../coding_standard/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1070,7 +1202,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../language/golang/go_learn_docs.md" class="md-nav__link">
+      <a href="../../../language/golang/go_learn_docs.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1140,7 +1272,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../modelops/ml_basic/data_mining.md" class="md-nav__link">
+      <a href="../../../notehub/modelops/ml_basic/data_mining.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1165,10 +1297,8 @@ but is high on our list for inclusion in a future release. -->
       
   
   
-    
   
   
-  
     
     
       
@@ -1181,20 +1311,17 @@ but is high on our list for inclusion in a future release. -->
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1205,7 +1332,7 @@ but is high on our list for inclusion in a future release. -->
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             云原生技术
@@ -1216,10 +1343,8 @@ but is high on our list for inclusion in a future release. -->
                 
   
   
-    
   
   
-  
     
     
       
@@ -1253,11 +1378,11 @@ but is high on our list for inclusion in a future release. -->
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
         
           
           <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
@@ -1271,7 +1396,7 @@ but is high on our list for inclusion in a future release. -->
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_1">
             <span class="md-nav__icon md-icon"></span>
             Kubernetes
@@ -1282,28 +1407,10 @@ but is high on our list for inclusion in a future release. -->
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    k8s包管理工具Helm的使用
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/helm_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1312,126 +1419,6 @@ but is high on our list for inclusion in a future release. -->
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#helm" class="md-nav__link">
-    <span class="md-ellipsis">
-      Helm概述
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Helm概述">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      基本信息
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#helm_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Helm是什么？
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#helm_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Helm架构
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#helm_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Helm组成
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#helm_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      Helm安装
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Helm安装">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      先决条件
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      安装步骤
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#helm_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Helm使用
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#helm_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Helm常用命令汇总
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1444,7 +1431,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../kubeadm_deploy_k8s_cluster_v1279/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1279/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1465,7 +1452,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../ktconnect_usage/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/k8s/ktconnect_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1486,7 +1473,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../k8s_ectd_mount_memo/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/k8s/k8s_ectd_mount_memo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1507,7 +1494,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../k8s_storageclass_nfs/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/k8s/k8s_storageclass_nfs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1528,7 +1515,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../k8s_dashboard/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/k8s/k8s_dashboard/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1549,7 +1536,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../k8s_common_qa/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/k8s/k8s_common_qa/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1570,7 +1557,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../yaml_usage/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/k8s/yaml_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1591,7 +1578,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../k8s_usage_skills/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/k8s/k8s_usage_skills/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1612,7 +1599,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../k8s_core_name/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/k8s/k8s_core_name/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1633,7 +1620,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../k8s_common_cmd/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/k8s/k8s_common_cmd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1654,7 +1641,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../kubeadm_deploy_k8s_cluster_v1194/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1194/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1727,7 +1714,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../dockercompose/docker_compose_software_usage/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/dockercompose/docker_compose_software_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1748,7 +1735,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../dockercompose/docker_compose_summary/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/dockercompose/docker_compose_summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1837,7 +1824,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../docker/docker_image_pull_problem_for_solution/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/docker/docker_image_pull_problem_for_solution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1858,7 +1845,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../docker/docker_detail_commands/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/docker/docker_detail_commands/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1879,7 +1866,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../docker/docker_command/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/docker/docker_command/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1900,7 +1887,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../docker/docker_practical_skills/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/docker/docker_practical_skills/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1921,7 +1908,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../docker/docker_common_software_install/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/docker/docker_common_software_install/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1942,7 +1929,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../docker/docker_registry_usage/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/docker/docker_registry_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1963,7 +1950,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../docker/dockerifle_guide/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/docker/dockerifle_guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1984,7 +1971,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../docker/dockerignore_template/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/docker/dockerignore_template/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2005,7 +1992,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../docker/docker_install_guide/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/docker/docker_install_guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2026,7 +2013,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../docker/docker_arch_and_principle/" class="md-nav__link">
+      <a href="../../../notehub/cloud_native/docker/docker_arch_and_principle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2154,7 +2141,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../index.md" class="md-nav__link">
+      <a href="../../../notehub/index.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2175,7 +2162,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../software_engineering/algo_hash.md" class="md-nav__link">
+      <a href="../../../notehub/software_engineering/algo_hash.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2246,7 +2233,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../bigdata/spark/spark_distribute_compute.md" class="md-nav__link">
+      <a href="../../../notehub/bigdata/spark/spark_distribute_compute.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2317,7 +2304,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../codecore/data_struct/data_struct_and_algo_learn_materials.md" class="md-nav__link">
+      <a href="../../../notehub/codecore/data_struct/data_struct_and_algo_learn_materials.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2388,7 +2375,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../codecore/design_patterns/design_patterns_categories.md" class="md-nav__link">
+      <a href="../../../notehub/codecore/design_patterns/design_patterns_categories.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2478,7 +2465,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/tools_ai/" class="md-nav__link">
+      <a href="../../../toolbox/tools_ai/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2499,7 +2486,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/tools_common/" class="md-nav__link">
+      <a href="../../../toolbox/tools_common/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2520,7 +2507,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/tools_cheatsheet/" class="md-nav__link">
+      <a href="../../../toolbox/tools_cheatsheet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2541,7 +2528,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/tools_plugin/" class="md-nav__link">
+      <a href="../../../toolbox/tools_plugin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2562,7 +2549,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/macos_quickly_key/" class="md-nav__link">
+      <a href="../../../toolbox/macos_quickly_key/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2631,7 +2618,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/git/git_usage_summary/" class="md-nav__link">
+      <a href="../../../toolbox/git/git_usage_summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2652,7 +2639,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/git/git_config/" class="md-nav__link">
+      <a href="../../../toolbox/git/git_config/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2673,7 +2660,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/git/git_common_install/" class="md-nav__link">
+      <a href="../../../toolbox/git/git_common_install/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2694,7 +2681,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/git/gitflow_usage/" class="md-nav__link">
+      <a href="../../../toolbox/git/gitflow_usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2791,7 +2778,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/etcd/" class="md-nav__link">
+      <a href="../../../toolbox/dev_software/etcd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2812,7 +2799,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/flink_on_yarn/" class="md-nav__link">
+      <a href="../../../toolbox/dev_software/flink_on_yarn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2833,7 +2820,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/spark_on_yarn/" class="md-nav__link">
+      <a href="../../../toolbox/dev_software/spark_on_yarn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2854,7 +2841,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/YARN/" class="md-nav__link">
+      <a href="../../../toolbox/dev_software/YARN/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2875,7 +2862,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/kafka/" class="md-nav__link">
+      <a href="../../../toolbox/dev_software/kafka/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2896,7 +2883,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/zookeeper/" class="md-nav__link">
+      <a href="../../../toolbox/dev_software/zookeeper/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2917,7 +2904,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/hadoop/" class="md-nav__link">
+      <a href="../../../toolbox/dev_software/hadoop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2938,7 +2925,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/mongodb/" class="md-nav__link">
+      <a href="../../../toolbox/dev_software/mongodb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2959,7 +2946,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/nginx/" class="md-nav__link">
+      <a href="../../../toolbox/dev_software/nginx/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2980,7 +2967,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/postgresql/" class="md-nav__link">
+      <a href="../../../toolbox/dev_software/postgresql/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3001,7 +2988,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/rabbitmq/" class="md-nav__link">
+      <a href="../../../toolbox/dev_software/rabbitmq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3022,7 +3009,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/redis/" class="md-nav__link">
+      <a href="../../../toolbox/dev_software/redis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3043,7 +3030,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/zabbix/" class="md-nav__link">
+      <a href="../../../toolbox/dev_software/zabbix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3064,7 +3051,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../toolbox/dev_software/java/" class="md-nav__link">
+      <a href="../../../toolbox/dev_software/java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3125,7 +3112,7 @@ but is high on our list for inclusion in a future release. -->
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../solution/" class="md-nav__link ">
+            <a href="../../../notehub/solution/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3208,7 +3195,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../solution/opshub/centos_yum_source_delete_solution/" class="md-nav__link">
+      <a href="../../../notehub/solution/opshub/centos_yum_source_delete_solution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3229,7 +3216,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../solution/opshub/mac_brew_service_error_solution/" class="md-nav__link">
+      <a href="../../../notehub/solution/opshub/mac_brew_service_error_solution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3250,7 +3237,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../solution/opshub/server_disk_full_solution/" class="md-nav__link">
+      <a href="../../../notehub/solution/opshub/server_disk_full_solution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3271,7 +3258,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../solution/opshub/win10_git_chinese_solution/" class="md-nav__link">
+      <a href="../../../notehub/solution/opshub/win10_git_chinese_solution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3292,7 +3279,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../solution/bughub/window_install_pip_bug/" class="md-nav__link">
+      <a href="../../../notehub/solution/bughub/window_install_pip_bug/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3371,7 +3358,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../solution/bughub/conda_rename_env_bug/" class="md-nav__link">
+      <a href="../../../notehub/solution/bughub/conda_rename_env_bug/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3392,7 +3379,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../solution/bughub/jupyter_asyncio_run_bug/" class="md-nav__link">
+      <a href="../../../notehub/solution/bughub/jupyter_asyncio_run_bug/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3413,7 +3400,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../solution/bughub/jupyter_matplotlib_font_bug/" class="md-nav__link">
+      <a href="../../../notehub/solution/bughub/jupyter_matplotlib_font_bug/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3434,7 +3421,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../solution/bughub/jupyterhub_deploy_bug/" class="md-nav__link">
+      <a href="../../../notehub/solution/bughub/jupyterhub_deploy_bug/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3455,7 +3442,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../solution/bughub/rsa_encryption_bug/" class="md-nav__link">
+      <a href="../../../notehub/solution/bughub/rsa_encryption_bug/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3524,7 +3511,7 @@ but is high on our list for inclusion in a future release. -->
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../thinking/" class="md-nav__link ">
+            <a href="../../../thinking/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3557,7 +3544,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../thinking/posts/06_learn_top2down_or_bottom2up/" class="md-nav__link">
+      <a href="../../../thinking/posts/06_learn_top2down_or_bottom2up/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3578,7 +3565,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../thinking/posts/05_personal_focus_and_abandon/" class="md-nav__link">
+      <a href="../../../thinking/posts/05_personal_focus_and_abandon/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3599,7 +3586,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../thinking/posts/04_wisdom_of_asking_questions/" class="md-nav__link">
+      <a href="../../../thinking/posts/04_wisdom_of_asking_questions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3620,7 +3607,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../thinking/posts/03_learn_open_source_project/" class="md-nav__link">
+      <a href="../../../thinking/posts/03_learn_open_source_project/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3641,7 +3628,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../thinking/posts/02_tech_yiyan/" class="md-nav__link">
+      <a href="../../../thinking/posts/02_tech_yiyan/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3662,7 +3649,7 @@ but is high on our list for inclusion in a future release. -->
   
   
     <li class="md-nav__item">
-      <a href="../../../../thinking/posts/01_smart_to_do_things/" class="md-nav__link">
+      <a href="../../../thinking/posts/01_smart_to_do_things/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3711,7 +3698,7 @@ but is high on our list for inclusion in a future release. -->
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../tags/" class="md-nav__link ">
+            <a href="../../../tags/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3756,6 +3743,8 @@ but is high on our list for inclusion in a future release. -->
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -3764,79 +3753,55 @@ but is high on our list for inclusion in a future release. -->
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#helm" class="md-nav__link">
-    <span class="md-ellipsis">
-      Helm概述
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Helm概述">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      基本信息
+      常用国外源
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#helm_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Helm是什么？
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#helm_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Helm架构
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#helm_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Helm组成
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#helm_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      Helm安装
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Helm安装">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      先决条件
+      常用国内源
     </span>
   </a>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      pip 国内源配置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="pip 国内源配置">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      安装步骤
+      临时指定国内源安装
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      永久设置国内源安装
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      命令行设置默认源
     </span>
   </a>
   
@@ -3848,18 +3813,27 @@ but is high on our list for inclusion in a future release. -->
 </li>
       
         <li class="md-nav__item">
-  <a href="#helm_5" class="md-nav__link">
+  <a href="#conda" class="md-nav__link">
     <span class="md-ellipsis">
-      Helm使用
+      conda 国内源配置
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#helm_6" class="md-nav__link">
+  <a href="#pdm" class="md-nav__link">
     <span class="md-ellipsis">
-      Helm常用命令汇总
+      PDM 国内源配置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poetry 国内源配置
     </span>
   </a>
   
@@ -3884,14 +3858,14 @@ but is high on our list for inclusion in a future release. -->
     
     
     
-      <a href="../../../../tags/#k8s" class="md-tag">K8S</a>
+      <a href="../../../tags/#python" class="md-tag">Python</a>
     
   
 </nav>
 
 
   
-    <a href="https://github.com/sswfive/bloghub/edit/main/docs/notehub/cloud_native/k8s/helm_usage.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/sswfive/bloghub/edit/main/docs/python/pybestpractices/pypi_source_usage.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -3900,203 +3874,161 @@ but is high on our list for inclusion in a future release. -->
     
       
     
-    <a href="https://github.com/sswfive/bloghub/raw/main/docs/notehub/cloud_native/k8s/helm_usage.md" title="查看本页的源代码" class="md-content__button md-icon">
+    <a href="https://github.com/sswfive/bloghub/raw/main/docs/python/pybestpractices/pypi_source_usage.md" title="查看本页的源代码" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-  <h1>k8s包管理工具Helm的使用</h1>
-
-<h2 id="helm">Helm概述<a class="headerlink" href="#helm" title="Permanent link">&para;</a></h2>
-<h3 id="_1">基本信息<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h1 id="pypi">常用Pypi源汇总及使用<a class="headerlink" href="#pypi" title="Permanent link">&para;</a></h1>
+<h2 id="_1">常用国外源<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Github地址：<a href="https://github.com/helm/helm">Helm</a></li>
-<li><a href="https://helm.sh/">文档地址</a></li>
-<li>当前最新版本v3.15.4，当前Star数26.6k.</li>
-<li>Chart包托管平台：<a href="https://artifacthub.io/">ArtifactHub</a></li>
+<li><a href="https://pypi.org/simple/">官方源</a></li>
 </ul>
-<h3 id="helm_1">Helm是什么？<a class="headerlink" href="#helm_1" title="Permanent link">&para;</a></h3>
-<p>Helm是Kubernetes（K8S）的包管理工具，Helm主要是用来管理Chart包，类似于Python的pip、CentOS的yum、MacOS的brew等。Helm主要有三大基本概念，分别为：</p>
+<h2 id="_2">常用国内源<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Chart</strong>: 代表一个Helm包，它包含了在K8S集群中运行的应用程序、工具或服务所需要的所有YAML格式的资源定义文件以及这些资源的配置，可以通过Helm Chart包来整体维护这些资源。</li>
-<li><strong>Repository</strong>：它是用来存放和共享Helm Chart的地方，类似于存放源码的Github的Repository，以及存放镜像的Docker的Repository。</li>
-<li><strong>Release</strong>: 它是运行在K8S集群中的Chart的实例。一个Chart通常可以在同一个集群中安装多次。每一次安装都会创建一个新的Release。</li>
+<li><a href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/">清华源</a></li>
 </ul>
-<p>Helm也提供了一个helm命令行工具，该工具可以基于Chartb包一键创建应用，在创建应用时，可以自定义Chart配置。应用发布者可以通过Helm打包应用、管理应用依赖管理，管理应用版本、并发布应用到软件仓库。</p>
-<ul>
-<li>对于使用者来说，使用Helm后不需要写复杂的应用部署文件，可以非常方便的在K8S上查找、安装、升级、回滚以及卸载应用程序。</li>
-</ul>
-<h3 id="helm_2">Helm架构<a class="headerlink" href="#helm_2" title="Permanent link">&para;</a></h3>
-<p><img alt="helm_arch" src="../pics/helm_arch.png" /></p>
-<p>Helm Client（helm命令）和Helm Chart包时核心，helm命令可以从Chart Repository中下载Helm Chart包，读取kubeconfig文件，并构建kube-apiserver REST API 接口的HTTP请求，通过调用K8S提供的REST API 接口，将Chart包中包含的YAML格式定义的K8S资源，在K8S集群中创建， 这些资源以Release的形式存在与K8S集群中，每个Release 又包含多个K8S资源，如Deployment、Pod、Service等。</p>
-<h3 id="helm_3">Helm组成<a class="headerlink" href="#helm_3" title="Permanent link">&para;</a></h3>
-<p><img alt="" src="../pics/helm_struct.png" /></p>
-<ul>
-<li>
-<p>模板文件</p>
-</li>
-<li>
-<p>【通常有多个】，基于<code>text/template</code> 模板文件，提供了强大的模板渲染能力。Helm可以将配置文件中的值渲染进模板文件中，最终生成一个可以部署的K8S YAML格式的资源定义文件。</p>
-</li>
-<li>
-<p>配置文件</p>
-</li>
-<li>
-<p>【通常有一个】。</p>
-</li>
-</ul>
-<p>总结：</p>
-<ul>
-<li>在Helm中，<strong>部署一个应用可以简化为Chart模板（多个服务）+ Chart配置 —&gt; 应用</strong>。</li>
-<li>Chart模板一个应用只用编写一次，可以重复使用，再部署时，可以指定不同的配置，从而将应用部署到不同环境或同一环境部署不同配置的应用。</li>
-</ul>
-<p><img alt="" src="../pics/helm_deploy_app.png" /></p>
-<h2 id="helm_4">Helm安装<a class="headerlink" href="#helm_4" title="Permanent link">&para;</a></h2>
-<h3 id="_2">先决条件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<ul>
-<li>一个可用的K8S集群</li>
-<li>确定安装版本和安全配置</li>
-<li>安装和配置Helm</li>
-</ul>
-<p>安装</p>
-<ul>
-<li><a href="https://helm.sh/zh/docs/intro/install/">官方安装指南</a></li>
-<li>Helm 各个版本安装包：<a href="https://github.com/helm/helm/releases">Helm Releases</a></li>
-</ul>
-<h3 id="_3">安装步骤<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
-<span class="normal"><a href="#__codelineno-0-2">2</a></span>
-<span class="normal"><a href="#__codelineno-0-3">3</a></span>
-<span class="normal"><a href="#__codelineno-0-4">4</a></span>
-<span class="normal"><a href="#__codelineno-0-5">5</a></span>
-<span class="normal"><a href="#__codelineno-0-6">6</a></span>
-<span class="normal"><a href="#__codelineno-0-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>$<span class="w"> </span>wget<span class="w"> </span>https://get.helm.sh/helm-v3.15.4-linux-amd64.tar.gz
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>$<span class="w"> </span>tar<span class="w"> </span>-xvzf<span class="w"> </span>helm-v3.15.4-linux-amd64.tar.gz
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>$<span class="w"> </span>mv<span class="w"> </span>linux-amd64/helm<span class="w"> </span>/usr/local/bin/helm
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>$<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/usr/local/bin/helm
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>$<span class="w"> </span>helm<span class="w"> </span>version<span class="w">  </span><span class="c1"># 输出版本号即表示安装成功</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1">######log info ########</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>version.BuildInfo<span class="o">{</span>Version:<span class="s2">&quot;v3.15.4&quot;</span>,<span class="w"> </span>GitCommit:<span class="s2">&quot;fa9efb07d9d8debbb4306d72af76a383895aa8c4&quot;</span>,<span class="w"> </span>GitTreeState:<span class="s2">&quot;clean&quot;</span>,<span class="w"> </span>GoVersion:<span class="s2">&quot;go1.22.6&quot;</span><span class="o">}</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="w"> </span><span class="c1"># 清华大学 </span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple/<span class="w"> </span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w"> </span><span class="c1"># 阿里云 </span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w"> </span>http://mirrors.aliyun.com/pypi/simple/<span class="w"> </span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w"> </span><span class="c1"># 中国科技大学 </span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w"> </span>https://pypi.mirrors.ustc.edu.cn/simple/<span class="w"> </span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w"> </span><span class="c1"># 豆瓣(douban) </span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w"> </span>http://pypi.douban.com/simple/<span class="w"> </span>
 </code></pre></div></td></tr></table></div>
-<p>安装helm命令自动补全脚本（非必须）</p>
+<h2 id="pip">pip 国内源配置<a class="headerlink" href="#pip" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://helm.sh/docs/helm/helm_completion/">文档参考</a></li>
+<li><a href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/">https://mirrors.tuna.tsinghua.edu.cn/help/pypi/</a></li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>helm<span class="w"> </span>completion<span class="w"> </span>bash<span class="w"> </span>&gt;<span class="w"> </span>/etc/bash_completion.d/helm
+<h4 id="_3">临时指定国内源安装<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>在python3.6后，官方推荐使用 <code>python -m pip</code>的方式进行安装相关包x</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-i<span class="w"> </span>https://mirrors.aliyun.com/pypi/simple<span class="w"> </span>&lt;pkgname&gt;
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1"># pip install -i https://mirrors.aliyun.com/pypi/simple &lt;pkgname&gt;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-i<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple<span class="w"> </span>&lt;pkgname&gt;
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-i<span class="w"> </span>https://mirrors.ustc.edu.cn/pypi/web/simple<span class="w"> </span>&lt;pkgname&gt;
 </code></pre></div></td></tr></table></div>
+<h4 id="_4">永久设置国内源安装<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
 <ul>
-<li>执行 helm comp，就会自动补全为helm completion。</li>
+<li>下列以清华源设置为例，其他源设置类似</li>
 </ul>
-<h2 id="helm_5">Helm使用<a class="headerlink" href="#helm_5" title="Permanent link">&para;</a></h2>
-<h2 id="helm_6">Helm常用命令汇总<a class="headerlink" href="#helm_6" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>completion</td>
-<td>生成指定Shell的自动补全脚本，比如bash、zsh等</td>
-</tr>
-<tr>
-<td>create</td>
-<td>创建一个 Chart 并指定名字</td>
-</tr>
-<tr>
-<td>dependency</td>
-<td>管理 Chart 依赖</td>
-</tr>
-<tr>
-<td>env</td>
-<td>打印Helm客户端的环境变量信息，例如HELM_CACHE_HOME、HELM_NAMESPACE、HELM_REPOSITORY_CONFIG等</td>
-</tr>
-<tr>
-<td>get</td>
-<td>下载一个 Release。可用子命令：all、hooks、manifest、notes、values</td>
-</tr>
-<tr>
-<td>help</td>
-<td>打印helm命令的帮助信息</td>
-</tr>
-<tr>
-<td>history</td>
-<td>获取 Release历史</td>
-</tr>
-<tr>
-<td>install</td>
-<td>安装一个 Chart</td>
-</tr>
-<tr>
-<td>lint</td>
-<td>检查一个Chart包，并打印潜在的问题</td>
-</tr>
-<tr>
-<td>list</td>
-<td>列出 Release</td>
-</tr>
-<tr>
-<td>package</td>
-<td>将 Chart 目录打包到 Chart 存储文件中</td>
-</tr>
-<tr>
-<td>plugin</td>
-<td>Helm插件</td>
-</tr>
-<tr>
-<td>pull</td>
-<td>从远程仓库中下载 Chart 并解压到本地，例如helm pull stable/redis --untar</td>
-</tr>
-<tr>
-<td>repo</td>
-<td>添加（add）、列出（list）、移除（remove）、更新（update）和索引（index）Chart 仓库</td>
-</tr>
-<tr>
-<td>rollback</td>
-<td>从之前版本回滚</td>
-</tr>
-<tr>
-<td>search</td>
-<td>根据关键字搜索 Charts，可用子命令：hub、repo</td>
-</tr>
-<tr>
-<td>show</td>
-<td>查看 Chart 详细信息。可用子命令：all、chart、readme、values</td>
-</tr>
-<tr>
-<td>status</td>
-<td>显示已命名版本的状态</td>
-</tr>
-<tr>
-<td>template</td>
-<td>本地呈现模板</td>
-</tr>
-<tr>
-<td>test</td>
-<td>在 Release 中运行 Helm 中的预定义测试</td>
-</tr>
-<tr>
-<td>uninstall</td>
-<td>卸载一个 Release</td>
-</tr>
-<tr>
-<td>upgrade</td>
-<td>更新一个 Release</td>
-</tr>
-<tr>
-<td>verify</td>
-<td>验证给定路径的Chart是否已被签名且有效</td>
-</tr>
-<tr>
-<td>version</td>
-<td>查看 Helm 客户端版本</td>
-</tr>
-</tbody>
-</table>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.pip/
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>tee<span class="w"> </span>&gt;<span class="w"> </span>~/.pip/pip.conf<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="s">{源名称下面的配置}</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="s">EOF</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>----
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="c1"># 清华源</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="o">[</span>global<span class="o">]</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="nv">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6000</span><span class="w"> </span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>index-url<span class="w"> </span><span class="o">=</span><span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="o">[</span>install<span class="o">]</span><span class="w"> </span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>trusted-host<span class="w"> </span><span class="o">=</span><span class="w"> </span>pypi.tuna.tsinghua.edu.cn
+</code></pre></div></td></tr></table></div>
+<h4 id="_5">命令行设置默认源<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>pip<span class="w"> </span>install<span class="w"> </span>pip<span class="w"> </span>-U<span class="w"> </span>-i<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>pip<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.index-url<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre></div></td></tr></table></div>
+<h2 id="conda">conda 国内源配置<a class="headerlink" href="#conda" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span>
+<span class="normal"><a href="#__codelineno-4-18">18</a></span>
+<span class="normal"><a href="#__codelineno-4-19">19</a></span>
+<span class="normal"><a href="#__codelineno-4-20">20</a></span>
+<span class="normal"><a href="#__codelineno-4-21">21</a></span>
+<span class="normal"><a href="#__codelineno-4-22">22</a></span>
+<span class="normal"><a href="#__codelineno-4-23">23</a></span>
+<span class="normal"><a href="#__codelineno-4-24">24</a></span>
+<span class="normal"><a href="#__codelineno-4-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># 中科大源</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>https://mirrors.ustc.edu.cn/anaconda/pkgs/main/
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>https://mirrors.ustc.edu.cn/anaconda/pkgs/free/
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>https://mirrors.ustc.edu.cn/anaconda/cloud/msys2/
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>https://mirrors.ustc.edu.cn/anaconda/cloud/menpo/
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>https://mirrors.ustc.edu.cn/anaconda/cloud/
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="c1"># 阿里源</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>https://mirrors.aliyun.com/pypi/simple/
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="c1"># 豆瓣源</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>http://pypi.douban.com/simple/
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="c1"># 其他配置</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="c1">## 显示检索路径，每次安装包时会将包源路径显示出来</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18"></a>conda<span class="w"> </span>config<span class="w"> </span>--set<span class="w"> </span>show_channel_urls<span class="w"> </span>yes
+<a id="__codelineno-4-19" name="__codelineno-4-19"></a>conda<span class="w"> </span>config<span class="w"> </span>--set<span class="w"> </span>always_yes<span class="w"> </span>True
+<a id="__codelineno-4-20" name="__codelineno-4-20"></a>
+<a id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="c1">## 显示所有镜像通道路径命令</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22"></a>conda<span class="w"> </span>config<span class="w"> </span>--show<span class="w"> </span>channels
+<a id="__codelineno-4-23" name="__codelineno-4-23"></a>
+<a id="__codelineno-4-24" name="__codelineno-4-24"></a><span class="c1"># 恢复默认源</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25"></a>conda<span class="w"> </span>config<span class="w"> </span>--remove-key<span class="w"> </span>channels
+</code></pre></div></td></tr></table></div>
+<h2 id="pdm">PDM 国内源配置<a class="headerlink" href="#pdm" title="Permanent link">&para;</a></h2>
+<p>通过如下命令设置默认镜像：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>pdm<span class="w"> </span>config<span class="w"> </span>pypi.url<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre></div></td></tr></table></div>
+<h2 id="poetry">Poetry 国内源配置<a class="headerlink" href="#poetry" title="Permanent link">&para;</a></h2>
+<p>通过以下命令设置首选镜像：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>poetry<span class="w"> </span><span class="nb">source</span><span class="w"> </span>add<span class="w"> </span>--priority<span class="o">=</span>primary<span class="w"> </span>mirrors<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple/
+</code></pre></div></td></tr></table></div>
+<p>通过以下命令设置补充镜像：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>poetry<span class="w"> </span><span class="nb">source</span><span class="w"> </span>add<span class="w"> </span>--priority<span class="o">=</span>supplemental<span class="w"> </span>mirrors<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple/
+</code></pre></div></td></tr></table></div>
 
 
 
@@ -4119,7 +4051,7 @@ but is high on our list for inclusion in a future release. -->
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-25</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-29</span>
   </span>
 
     
@@ -4129,7 +4061,7 @@ but is high on our list for inclusion in a future release. -->
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-25</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-29</span>
   </span>
 
     
@@ -4178,9 +4110,9 @@ but is high on our list for inclusion in a future release. -->
         
           
           <a
-            href="../../../../python/pybestpractices/coding_standard/"
+            href="../py_logger_usage/"
             class="md-footer__link md-footer__link--prev"
-            aria-label="上一页: Python编码规范"
+            aria-label="上一页: Python中不同场景中使用日志的方式"
           >
             <div class="md-footer__button md-icon">
               
@@ -4191,7 +4123,7 @@ but is high on our list for inclusion in a future release. -->
                 上一页
               </span>
               <div class="md-ellipsis">
-                Python编码规范
+                Python中不同场景中使用日志的方式
               </div>
             </div>
             
@@ -4202,16 +4134,16 @@ but is high on our list for inclusion in a future release. -->
         
           
           <a
-            href="../kubeadm_deploy_k8s_cluster_v1279/"
+            href="../docker_build_python_image/"
             class="md-footer__link md-footer__link--next"
-            aria-label="下一页: kubeadm部署k8s集群指南(v1.27.9)"
+            aria-label="下一页: Docker构建Python镜像实践指南"
           >
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                kubeadm部署k8s集群指南(v1.27.9)
+                Docker构建Python镜像实践指南
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4299,14 +4231,14 @@ but is high on our list for inclusion in a future release. -->
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["announce.dismiss", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.footer", "navigation.path", "search.suggest", "search.highlight", "search.share", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.action.edit", "content.action.view", "content.code.annotate", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.footer", "navigation.path", "search.suggest", "search.highlight", "search.share", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.action.edit", "content.action.view", "content.code.annotate", "toc.follow"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.471ce7a9.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.471ce7a9.min.js"></script>
       
-        <script src="../../../../customize/javascripts/extra.js"></script>
+        <script src="../../../customize/javascripts/extra.js"></script>
       
-        <script src="../../../../customize/javascripts/mathjax.js"></script>
+        <script src="../../../customize/javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

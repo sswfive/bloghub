@@ -196,7 +196,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://sswfive.github.io/bloghub/python/pybestpractices/conda_usage/</loc>
+         <lastmod>2024-08-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://sswfive.github.io/bloghub/python/pybestpractices/docker_build_python_image/</loc>
+         <lastmod>2024-08-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/python/pybestpractices/env_package_selection/</loc>
+         <lastmod>2024-08-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/python/pybestpractices/jupyter_tool_usage/</loc>
          <lastmod>2024-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -211,12 +226,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://sswfive.github.io/bloghub/python/pybestpractices/py_dev_tool_selection/</loc>
+         <lastmod>2024-08-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://sswfive.github.io/bloghub/python/pybestpractices/py_logger_usage/</loc>
          <lastmod>2024-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pybestpractices/py_security_guide/</loc>
+         <lastmod>2024-08-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/python/pybestpractices/pypi_python_pkg_publish/</loc>
+         <lastmod>2024-08-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/python/pybestpractices/pypi_source_usage/</loc>
          <lastmod>2024-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>

@@ -6,7 +6,7 @@ nav:
     - 个人主页: about/profile.md
 
   - Python编程:
-    - language/python/index.md
+    - python/index.md
     - 工程实践:
       - python/pybestpractices/py_logger_usage.md
       - python/pybestpractices/pypi_source_usage.md

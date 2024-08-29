@@ -19,9 +19,29 @@ nav:
       - python/pybestpractices/jupyter_tool_usage.md
       - python/pybestpractices/py2_py3_update.md
       - python/pybestpractices/conda_usage.md
-
       - python/pybestpractices/coding_standard.md
-  
+    - 常用类库:
+      - python/pylibs/awesome_libs.md
+      - python/pylibs/daily_libs.md
+      - python/pylibs/pyflink.md
+      - python/pylibs/mlflow.md
+      - python/pylibs/pathlib.md
+      - python/pylibs/apscheduler.md
+      - python/pylibs/supervisor.md
+      - python/pylibs/subprocess.md
+      - python/pylibs/pandas.md
+      - python/pylibs/numpy.md
+      - python/pylibs/pickle.md
+      - python/pylibs/collections.md
+    - Django:
+      - python/django/django_orm_fields.md
+      - python/django/django_orm_query.md
+      - python/django/django_lazyobject_analysis.md
+      - python/django/django_websocket_usage.md
+      - python/django/django_middleware_usage.md
+      - python/django/django_class_view_usage.md
+      - python/django/django_bulk_create.md
+      - python/django/django_17_db_migrate.md
    
   - Go编程:
     - language/golang/go_learn_docs.md

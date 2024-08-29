@@ -42,6 +42,25 @@ nav:
       - python/django/django_class_view_usage.md
       - python/django/django_bulk_create.md
       - python/django/django_17_db_migrate.md
+    - Python语法:
+      - python/pysyntax/py_gc.md
+      - python/pysyntax/py_gil.md
+      - python/pysyntax/py_mem_manage.md
+      - python/pysyntax/asyncio.md
+      - python/pysyntax/futures.md
+      - python/pysyntax/generator.md
+      - python/pysyntax/decorator.md
+      - python/pysyntax/iterator.md
+      - python/pysyntax/closure.md
+      - python/pysyntax/oop.md
+      - python/pysyntax/def_and_lambda.md
+      - python/pysyntax/property.md
+      - python/pysyntax/deep_copy.md
+      - python/pysyntax/exception.md
+      - python/pysyntax/is_and_equals.md
+      - python/pysyntax/list_tuple_dict.md
+      - python/pysyntax/variable_comment.md
+      - python/pysyntax/py_basics.md
    
   - Go编程:
     - language/golang/go_learn_docs.md

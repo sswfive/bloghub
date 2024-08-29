@@ -1,0 +1,5397 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="AstonWang">
+      
+      
+        <link rel="canonical" href="https://sswfive.github.io/bloghub/python/django/django_orm_query/">
+      
+      
+        <link rel="prev" href="../django_orm_fields/">
+      
+      
+        <link rel="next" href="../django_lazyobject_analysis/">
+      
+      
+      <link rel="icon" href="../../../customize/assets/head.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.32">
+    
+    
+      
+        <title>django中ORM查询方法总结 - IceCoffee[空谷幽兰]</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+
+      
+    
+<!-- 数学公式格式支持，用html嵌入的方式支持数学公式自动换行，mathjax似乎要支持但是现在还没实现。
+Automatic line breaking has not yet been implemented in MathJax version 3, 
+but is high on our list for inclusion in a future release. -->
+
+
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../customize/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../customize/stylesheets/customize.css">
+    
+      <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config",""),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#djangoorm" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="IceCoffee[空谷幽兰]" class="md-header__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
+      
+  <img src="../../../customize/assets/head.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IceCoffee[空谷幽兰]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              django中ORM查询方法总结
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="关闭自动模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="关闭自动模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="blue"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sswfive/bloghub" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bloghub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  HelloWorld
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  Python编程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../language/golang/go_learn_docs.md" class="md-tabs__link">
+          
+  
+    
+  
+  Go编程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../notehub/modelops/ml_basic/data_mining.md" class="md-tabs__link">
+          
+  
+    
+  
+  AIOps技术
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../notehub/cloud_native/k8s/helm_usage/" class="md-tabs__link">
+          
+  
+    
+  
+  云原生技术
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../notehub/index.md" class="md-tabs__link">
+          
+  
+    
+  
+  综合知识库
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../toolbox/tools_ai/" class="md-tabs__link">
+          
+  
+    
+  
+  工具小栈
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../notehub/solution/" class="md-tabs__link">
+          
+  
+    
+  
+  迎刃而解
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../thinking/" class="md-tabs__link">
+          
+  
+    
+  
+  随思一言
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../tags/" class="md-tabs__link">
+          
+  
+    
+  
+  标签分类
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="IceCoffee[空谷幽兰]" class="md-nav__button md-logo" aria-label="IceCoffee[空谷幽兰]" data-md-component="logo">
+      
+  <img src="../../../customize/assets/head.png" alt="logo">
+
+    </a>
+    IceCoffee[空谷幽兰]
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sswfive/bloghub" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bloghub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    HelloWorld
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            HelloWorld
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../postlist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    文章归档
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/profile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    个人主页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Python编程
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Python编程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    工程实践
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            工程实践
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pybestpractices/py_logger_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python中不同场景中使用日志的方式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pybestpractices/pypi_source_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常用Pypi源汇总及使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pybestpractices/docker_build_python_image/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker构建Python镜像实践指南
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pybestpractices/env_package_selection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python版本及包管理工具选型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pybestpractices/py_data_struct_summary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python中的数据类型用法剖析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pybestpractices/py_security_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python安全指南[摘录]
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pybestpractices/pypi_python_pkg_publish/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用pypi进行python包的发布
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pybestpractices/py_dev_tool_selection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python常用开发工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pybestpractices/jupyter_tool_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jupyter系列工具的使用总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pybestpractices/py2_py3_update/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python2到python3的变化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pybestpractices/conda_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conda的实践应用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pybestpractices/coding_standard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python编码规范
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    常用类库
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            常用类库
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pylibs/awesome_libs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python常用库汇总[awesome]
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pylibs/daily_libs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python每日一库概览[usage]
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pylibs/pyflink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyFlink之分布式计算
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pylibs/mlflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MLflow之模型生命周期管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pylibs/pathlib/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pathlib之使用面向对象的方式操作路径
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pylibs/apscheduler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    APScheduler之定时任务工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pylibs/supervisor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Supervisor之进程管理工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pylibs/subprocess/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    subprocess之子进程管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pylibs/pandas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pandas之数据分析工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pylibs/numpy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Numpy之数据计算工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pylibs/pickle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pickle之数据序列化工具的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pylibs/collections/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python之collections的用法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Django
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Django
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../django_orm_fields/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django中ORM字段总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    django中ORM查询方法总结
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    django中ORM查询方法总结
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      查询
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods-that-return-new-querysets" class="md-nav__link">
+    <span class="md-ellipsis">
+      查询方法 Methods that return new QuerySets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#field-lookups" class="md-nav__link">
+    <span class="md-ellipsis">
+      查询条件 Field lookups
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      跨表查询
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="跨表查询">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foreignkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      ForeignKey 一对多查询
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manytomanyfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      ManyToManyField 多对多查询
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      一对一查询
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用聚合函数与分组查询
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用聚合函数与分组查询">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      聚合函数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      分组
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="分组">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sqlorm" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL语句与ORM的对应关系:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fq" class="md-nav__link">
+    <span class="md-ellipsis">
+      F查询和Q查询
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="F查询和Q查询">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#f" class="md-nav__link">
+    <span class="md-ellipsis">
+      F查询
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q查询
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../django_lazyobject_analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django源码学习之LazyObject
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../django_websocket_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django中使用websocket
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../django_middleware_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django中间件的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../django_class_view_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django中类视图的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../django_bulk_create/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django批量导入数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../django_17_db_migrate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    django1.7以前的版本执行数据库迁移
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Go编程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Go编程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../language/golang/go_learn_docs.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AIOps技术
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            AIOps技术
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/modelops/ml_basic/data_mining.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    云原生技术
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            云原生技术
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Kubernetes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Kubernetes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/helm_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s包管理工具Helm的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1279/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    kubeadm部署k8s集群指南(v1.27.9)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/ktconnect_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s实用工具之KtConnect
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/k8s_ectd_mount_memo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s中etcd挂载内存卷步骤
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/k8s_storageclass_nfs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s的storageclass-nfs安装和使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/k8s_dashboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s的Dashboard安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/k8s_common_qa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s部署常见问题汇总
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/yaml_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s中yaml文件的编写和使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/k8s_usage_skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s实用小技巧
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/k8s_core_name/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s核心概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/k8s_common_cmd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k8s常用命令总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1194/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    kubeadm部署k8s集群指南(v1.19.4)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DockerCompose
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            DockerCompose
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/dockercompose/docker_compose_software_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    docker-compose常用软件安装汇总
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/dockercompose/docker_compose_summary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    docker-compose使用总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/docker/docker_image_pull_problem_for_solution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker镜像无法拉取问题的解决方案
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/docker/docker_detail_commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查看Docker容器启动的详细命令及参数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/docker/docker_command/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker常用命令速查
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/docker/docker_practical_skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker实用技巧
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/docker/docker_common_software_install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker安装常用软件汇总
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/docker/docker_registry_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    docker-registry搭建与使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/docker/dockerifle_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dockerfile常用命令与编写指南
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/docker/dockerignore_template/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dockerignore文件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/docker/docker_install_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker安装卸载指南
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/cloud_native/docker/docker_arch_and_principle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker架构和原理学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    综合知识库
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            综合知识库
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    软件工程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            软件工程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/software_engineering/algo_hash.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    大数据技术
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            大数据技术
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/bigdata/spark/spark_distribute_compute.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数据结构与算法
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            数据结构与算法
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/codecore/data_struct/data_struct_and_algo_learn_materials.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    设计模式
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            设计模式
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/codecore/design_patterns/design_patterns_categories.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    工具小栈
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            工具小栈
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/tools_ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    甄选GPT-AI工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/tools_common/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    甄选实用软件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/tools_cheatsheet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常用软件命令速查
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/tools_plugin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常用插件集
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/macos_quickly_key/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mac常用快捷键
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_6" id="__nav_7_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_6">
+            <span class="md-nav__icon md-icon"></span>
+            Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/git/git_usage_summary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git使用总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/git/git_config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git实用配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/git/git_common_install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git常用软件安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/git/gitflow_usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    gitflow的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_7" id="__nav_7_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    开发软件安装
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_7">
+            <span class="md-nav__icon md-icon"></span>
+            开发软件安装
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/etcd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Etcd集群部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/flink_on_yarn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flink(On YARN)安装部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/spark_on_yarn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spark(ON YARN）安装部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/YARN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    YARN集群安装部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/kafka/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    kafka安装部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/zookeeper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Zookeeper安装部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/hadoop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hadoop安装部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/mongodb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mongodb的安装指南
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/nginx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nginx部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/postgresql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostgreSQL主从部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/rabbitmq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RabbitMQ介绍和使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/redis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Redis主从-哨兵部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/zabbix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Zabbix常用配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../toolbox/dev_software/java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java环境安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../notehub/solution/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    迎刃而解
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            迎刃而解
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ops手记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ops手记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/solution/opshub/centos_yum_source_delete_solution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Centos的yum源误删解决方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/solution/opshub/mac_brew_service_error_solution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mac使用brew services报错
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/solution/opshub/server_disk_full_solution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    服务器磁盘空间满的解决办法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/solution/opshub/win10_git_chinese_solution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    win10的cmd中操作git中文乱码解决方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/solution/bughub/window_install_pip_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    window环境中pip安装报错
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Bug记录
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Bug记录
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/solution/bughub/conda_rename_env_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conda修改虚拟环境名导致异常
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/solution/bughub/jupyter_asyncio_run_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jupyter运行asyncio run报错
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/solution/bughub/jupyter_matplotlib_font_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jupyter matplotlib画图中文字体缺失
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/solution/bughub/jupyterhub_deploy_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jupyterhub离线部署踩坑总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notehub/solution/bughub/rsa_encryption_bug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    多语言之间的RSA加解密问题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../thinking/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    随思一言
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            随思一言
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../thinking/posts/06_learn_top2down_or_bottom2up/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    学习应该自底向上,还是自顶向下
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../thinking/posts/05_personal_focus_and_abandon/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    个人战略上的聚焦和放弃
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../thinking/posts/04_wisdom_of_asking_questions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    提问的智慧
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../thinking/posts/03_learn_open_source_project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何高效学习开源项目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../thinking/posts/02_tech_yiyan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    技术一言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../thinking/posts/01_smart_to_do_things/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何更聪明的做事情
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../tags/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    标签分类
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            标签分类
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      查询
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods-that-return-new-querysets" class="md-nav__link">
+    <span class="md-ellipsis">
+      查询方法 Methods that return new QuerySets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#field-lookups" class="md-nav__link">
+    <span class="md-ellipsis">
+      查询条件 Field lookups
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      跨表查询
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="跨表查询">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foreignkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      ForeignKey 一对多查询
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manytomanyfield" class="md-nav__link">
+    <span class="md-ellipsis">
+      ManyToManyField 多对多查询
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      一对一查询
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用聚合函数与分组查询
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用聚合函数与分组查询">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      聚合函数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      分组
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="分组">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sqlorm" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL语句与ORM的对应关系:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fq" class="md-nav__link">
+    <span class="md-ellipsis">
+      F查询和Q查询
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="F查询和Q查询">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#f" class="md-nav__link">
+    <span class="md-ellipsis">
+      F查询
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q查询
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../../tags/#python" class="md-tag">Python</a>
+    
+  
+    
+    
+    
+      <a href="../../../tags/#django" class="md-tag">Django</a>
+    
+  
+</nav>
+
+
+  
+    <a href="https://github.com/sswfive/bloghub/edit/main/docs/python/django/django_orm_query.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/sswfive/bloghub/raw/main/docs/python/django/django_orm_query.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="djangoorm">django中ORM查询方法总结<a class="headerlink" href="#djangoorm" title="Permanent link">&para;</a></h1>
+<h2 id="_1"><strong>查询</strong><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>查询是通过ORM设置好的API,也就是各种方法和属性实现的.查询分为查询方法和查询条件.</p>
+<h2 id="methods-that-return-new-querysets"><strong>查询方法 <a href="https://docs.djangoproject.com/en/1.11/ref/models/querysets/#methods-that-return-new-querysets">Methods that return new QuerySets</a></strong><a class="headerlink" href="#methods-that-return-new-querysets" title="Permanent link">&para;</a></h2>
+<p>查询方法返回的都是QuerySet对象(包含一组对象的列表)或者具体的对象(表示一行数据),来看一下基本的查询方法:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">ORM一般查询</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">方法</td>
+<td style="text-align: center;">解释</td>
+</tr>
+<tr>
+<td style="text-align: center;">all()</td>
+<td style="text-align: center;">查询所有结果.objects后边的.all()可以省略,省略的时候就是对所有结果操作.</td>
+</tr>
+<tr>
+<td style="text-align: center;">get(**kwargs):</td>
+<td style="text-align: center;">返回与所给筛选条件相匹配的对象，返回结果有且只有一个，如果符合筛选条件的对象超过一个或者没查找到都会抛出错误。返回具体对象,不是QuerySet</td>
+</tr>
+<tr>
+<td style="text-align: center;">filter(**kwargs):</td>
+<td style="text-align: center;">返回与所给筛选条件相匹配的结果集(QuerySet对象,放有所有查询结果的列表),即使结果只有一个,也是返回一个结果集,需要从中取出每条数据处理.如果没有结果,返回空集.以后多用filter,基本不用get</td>
+</tr>
+<tr>
+<td style="text-align: center;">exclude(**kwargs)</td>
+<td style="text-align: center;">不符合筛选条件的结果.返回QuerySet</td>
+</tr>
+<tr>
+<td style="text-align: center;">values(*field)</td>
+<td style="text-align: center;">返回一个QuerySet,,每一个元素是代表一行数据的一个字典,里边用键=字段名 值= 数据 的方式存放所有查询到的结果.可以加参数指定具体字段,多个字段名用逗号分隔,不指定参数则取出所有字段.只能作用在QuerySet对象上,不能作用于单独的对象.</td>
+</tr>
+<tr>
+<td style="text-align: center;">values_list(*field)</td>
+<td style="text-align: center;">和values类似,只不过QuerySet的每一个元素是一个元组,按参数顺序放着字段的值.只能作用在QuerySet对象上,不能作用于单独的对象.</td>
+</tr>
+<tr>
+<td style="text-align: center;">order_by(*field)</td>
+<td style="text-align: center;">按照指定的字段排序.在字符串开头写-表示倒序如”-price”.不使用order_by的话,默认会按照META里设置的顺序对结果排序.返回QuerySet</td>
+</tr>
+<tr>
+<td style="text-align: center;">reverse()</td>
+<td style="text-align: center;">reverse只能在指定顺序的QuerySet上调用,比如用过了order_by方法或者META里写了排序方法.得到反向排序的顺序.返回QuerySet</td>
+</tr>
+<tr>
+<td style="text-align: center;">distinct()</td>
+<td style="text-align: center;">从返回结果中剔除重复纪录.跨表查询的时候经常用此方法去重.</td>
+</tr>
+<tr>
+<td style="text-align: center;">count()</td>
+<td style="text-align: center;">返回数据库中匹配查询结果集(QuerySet)中的对象数量.是一个Int值.</td>
+</tr>
+<tr>
+<td style="text-align: center;">first()</td>
+<td style="text-align: center;">返回QuerySet中第一个对象.返回的是具体对象,不是QuerySet</td>
+</tr>
+<tr>
+<td style="text-align: center;">last()</td>
+<td style="text-align: center;">返回QuerySet中最后一个对象.返回的是具体对象,不是QuerySet</td>
+</tr>
+<tr>
+<td style="text-align: center;">exists()</td>
+<td style="text-align: center;">返回一个布尔值.如果QuerySet包含数据，就返回True，否则返回False.用于快速判断是否查询到结果.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="field-lookups"><strong>查询条件 Field lookups</strong><a class="headerlink" href="#field-lookups" title="Permanent link">&para;</a></h2>
+<p>基本查询语句的参数是**kwargs的都是各种查询条件,上边例子里是用的=来表示条件,这是精确匹配,还可以采用其他条件.这部分对应的都是MySQL的WHERE语句后边的内容.在Django ROM里叫做 <a href="https://docs.djangoproject.com/en/1.11/ref/models/querysets/#field-lookups">Field lookups</a>.这些Field lookups 关键字都用双下划线加在字段名后边.有多个条件的,将条件用逗号隔开放在上边的基本查询语句中,比如<code>models.Person.objects.filter(id__gt=2,id__lt=5)</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Field lookups 查询条件</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">条件</td>
+<td style="text-align: center;">解释</td>
+</tr>
+<tr>
+<td style="text-align: center;">=</td>
+<td style="text-align: center;">表示精确匹配,只选择符合条件的对象</td>
+</tr>
+<tr>
+<td style="text-align: center;">iexact</td>
+<td style="text-align: center;">大小写不敏感的精确匹配,常用来匹配一段字符串</td>
+</tr>
+<tr>
+<td style="text-align: center;">contains</td>
+<td style="text-align: center;">包含有某段字符串内容的匹配,大小写敏感</td>
+</tr>
+<tr>
+<td style="text-align: center;">icontains</td>
+<td style="text-align: center;">大小写不敏感的icontains</td>
+</tr>
+<tr>
+<td style="text-align: center;">in</td>
+<td style="text-align: center;">在一个列表内.和SQL语句的in一样</td>
+</tr>
+<tr>
+<td style="text-align: center;">gt</td>
+<td style="text-align: center;">大于</td>
+</tr>
+<tr>
+<td style="text-align: center;">gte</td>
+<td style="text-align: center;">大于等于</td>
+</tr>
+<tr>
+<td style="text-align: center;">lt</td>
+<td style="text-align: center;">小于</td>
+</tr>
+<tr>
+<td style="text-align: center;">lte</td>
+<td style="text-align: center;">小于等于</td>
+</tr>
+<tr>
+<td style="text-align: center;">startswith</td>
+<td style="text-align: center;">以字符串开始,大小写敏感</td>
+</tr>
+<tr>
+<td style="text-align: center;">istartswith</td>
+<td style="text-align: center;">大小写不敏感版本的startswith</td>
+</tr>
+<tr>
+<td style="text-align: center;">endswith</td>
+<td style="text-align: center;">以字符串结尾,大小写敏感</td>
+</tr>
+<tr>
+<td style="text-align: center;">iendswith</td>
+<td style="text-align: center;">大小写不敏感版本的endswith</td>
+</tr>
+<tr>
+<td style="text-align: center;">range</td>
+<td style="text-align: center;">是否在一个范围内,包含范围的两端,=号后边是一个两个元素的元组,表示开始和结束</td>
+</tr>
+<tr>
+<td style="text-align: center;">date</td>
+<td style="text-align: center;">用在datetime类别的字段上,单独取出日期(datetime对象)来比较,还可以后续接其他Field lookups,详细看<a href="https://docs.djangoproject.com/en/1.11/ref/models/querysets/#date">这里</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">year</td>
+<td style="text-align: center;">和date一样,只不过单独取出来年份比较.是一个INT类型</td>
+</tr>
+<tr>
+<td style="text-align: center;">month</td>
+<td style="text-align: center;">和date一样,只不过单独取出来月份进行比较,是一个INT类型</td>
+</tr>
+<tr>
+<td style="text-align: center;">day</td>
+<td style="text-align: center;">和date一样,只不过单独取出来日进行比较,是一个INT类型.year,month和day经常用在快速过滤日期,比使用datetime对象比较要简单很多.</td>
+</tr>
+<tr>
+<td style="text-align: center;">week</td>
+<td style="text-align: center;">和date一样,只不过单独取出来第几周进行比较,是一个INT类型.</td>
+</tr>
+<tr>
+<td style="text-align: center;">week_day</td>
+<td style="text-align: center;">和date一样,只不过单独取出来星期几日进行比较,是一个INT类型.星期天是1,星期六是7.比较常用.</td>
+</tr>
+<tr>
+<td style="text-align: center;">time</td>
+<td style="text-align: center;">和date一样,只不过单独取出来时间进行比较,是一个 datetime.time对象.</td>
+</tr>
+<tr>
+<td style="text-align: center;">hour</td>
+<td style="text-align: center;">从datetime和time fileds里取小时,范围是0-23,是一个INT类型.</td>
+</tr>
+<tr>
+<td style="text-align: center;">minute</td>
+<td style="text-align: center;">同hour,取分钟,范围0-59,是一个INT类型</td>
+</tr>
+<tr>
+<td style="text-align: center;">second</td>
+<td style="text-align: center;">同hour,取秒,范围0-59,是一个INT类型</td>
+</tr>
+<tr>
+<td style="text-align: center;">isnull</td>
+<td style="text-align: center;">判断字段是否是Null</td>
+</tr>
+<tr>
+<td style="text-align: center;">regex</td>
+<td style="text-align: center;">大小写敏感的正则匹配模式,等号后边需要是一个正则表达式</td>
+</tr>
+<tr>
+<td style="text-align: center;">iregex</td>
+<td style="text-align: center;">大小写不敏感的正则表达式</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2"><strong>跨表查询</strong><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>跨表查询指的是依靠关系进行查询的方法.其核心就是依据外键以及一对一,多对多字段进行的查找.先来看经典的外键一对多查询:</p>
+<h3 id="foreignkey"><strong>ForeignKey 一对多查询</strong><a class="headerlink" href="#foreignkey" title="Permanent link">&para;</a></h3>
+<p>先来了解一下正向查询和反向查询
+<strong>正向查询</strong>:外键所在的表去查外键关联的表.
+<strong>逆向查询</strong>:一个表去查另外一个外键关联到当前这个表的表.
+例子:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">class</span> <span class="nc">Publisher</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="nb">id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">AutoField</span><span class="p">(</span><span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>        <span class="k">return</span> <span class="s2">&quot;我是一个出版社对象:</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="k">class</span> <span class="nc">Book</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="nb">id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">AutoField</span><span class="p">(</span><span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="n">price</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DecimalField</span><span class="p">(</span><span class="n">max_digits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">decimal_places</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">99.99</span><span class="p">)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>    <span class="c1"># 库存数</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="n">kucun</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="c1"># 卖出数</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="n">maichu</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>    <span class="c1"># 外键</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>    <span class="c1"># related_name=&quot;books&quot; 反向查询是用来代替 book_set的</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>    <span class="n">publisher</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>        <span class="n">to</span><span class="o">=</span><span class="s2">&quot;Publisher&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>        <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span>
+</code></pre></div></td></tr></table></div>
+<p>从Book表去查Publisher查叫做正向查询,从Publisher表去查Book叫做反向查询.</p>
+<p>正向查询,在当前表内查到结果之后,直接调用外键对应的属性,就可以得到指向的外键对象.由于这里是一对多的,正向查询回去的结果就是对应的对象,不是QuerySet.例子:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">book_obj</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">ret</span> <span class="o">=</span> <span class="n">book_obj</span><span class="o">.</span><span class="n">publisher</span>  <span class="c1"># 和我这本书关联的出版社对象</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<p>结果直接就是书对应的出版社对象.如果想查对应的出版社的名称,由于查到了对象,可以再取名称,但有简单的方法来查外键对应的具体字段:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">ret</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values_list</span><span class="p">(</span><span class="s2">&quot;publisher__name&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>双下划线就表示跨了表,前边的publisher是表名,后边是表示字段名.由于是拿到具体值,所以只能在values和values_list里应用该方法.</p>
+<p>反向查询,如果要查一个出版社所有的书,有个特殊的方法是表名+_set来反着找”一对多”里的”多”,来看例子:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">publisher_obj</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Publisher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>  <span class="c1"># 找到第一个出版社对象</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">books</span> <span class="o">=</span> <span class="n">publisher_obj</span><span class="o">.</span><span class="n">book_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>  <span class="c1"># 找到第一个出版社出版的所有书</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">titles</span> <span class="o">=</span> <span class="n">books</span><span class="o">.</span><span class="n">values_list</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>这里的book是表名,后边加上_set就表示来反着找,结果是一个QuerySet,可以把book表里由第一个出版社出版的所有书都找到.
+如果在book表的外键里给外键指定了related_name,那么此时就不要用表名,直接用related_name的名字就可以了.比如指定了related_name为all_books.上边例子的第二句话就可以改写成:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">books</span> <span class="o">=</span> <span class="n">publisher_obj</span><span class="o">.</span><span class="n">allbook</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>注意,如果起了外键别名,再使用原表名_set会报错.实际上别名代替了原来对象上的表名_set方法.
+同样,也可以直接查字段,也是用双下划线来连接表名和字段.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">ret</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Publisher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values_list</span><span class="p">(</span><span class="s2">&quot;book__title&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>book是表名,title是字段名.注意,这里如果外键指定了related_name的值而没有指定related_query_name的值,则需要将book换成其related_name的值,如果同时指定了related_name和related_query_name的值,则需要换成related_query_name的值,如果只指定了related_query_name的值,也需要换成其值.
+结果得到的是元素为元组的列表,每个元组内就是查询字段的结果.</p>
+<h3 id="manytomanyfield"><strong>ManyToManyField 多对多查询</strong><a class="headerlink" href="#manytomanyfield" title="Permanent link">&para;</a></h3>
+<p>在ORM中,多对多以及外键的反向查询(结果集都是取到多个对象的时候),内部都是通过一个叫做 RelatedManager类的实例,即关联上下文管理器来操作的.
+比如在外键的例子中,如果打印<code>publisher_obj.allbook</code>,可以看到结果是一个 RelatedManager类.针对这个类,像.all()就是取全部结果,除此之外,针对这个类还有一些特殊的操作:</p>
+<p><strong><code>create()</code></strong> 用于从创建一对多关系</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">models</span><span class="o">.</span><span class="n">Author</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">book_set</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;番茄物语&quot;</span><span class="p">,</span> <span class="n">publish_date</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())</span>
+</code></pre></div></td></tr></table></div>
+<p>通过Author.objects.first()取到一个具体的作者对象,然后.book_set取到上下文管理器对象,然后对这个对象进行.create方法,结果是先在book表内建立一本书,然后在多对多的表内建立这本书与这个作者的关系.</p>
+<p><strong><code>add()</code></strong> 操作一个已经存在的对象,将对象添加到对应关系里</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">new_book</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span> <span class="s1">&#39;新的书&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>  <span class="c1"># 在book表内建立一本新书</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">models</span><span class="o">.</span><span class="n">Author</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">book_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_book</span><span class="p">)</span>  <span class="c1"># 在多对多表内添加一行,记录第一个作者和这本新书的对应关系.</span>
+</code></pre></div></td></tr></table></div>
+<p>add的参数可以是对象,可以是解开的QeurySet对象(<em>ret),也可以是一个数字表示id或者拆解开的列表id,如add(</em>[3,12,19]).</p>
+<p><strong><code>set()</code></strong> 一次性在多对多表里设置一组对应关系
+在之前的项目中已经使用过set了,其结果就是将对应的一组id或者对象代表的内容,在多对多表里去当前对象联系起来/</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">book_obj</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">book_obj</span><span class="o">.</span><span class="n">authors</span><span class="o">.</span><span class="n">set</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</code></pre></div></td></tr></table></div>
+<p>这个例子就是将第一本书与id为2,3的作者在多对多表里联系起来.</p>
+<p><strong><code>remove()</code></strong> 移除参数指定的对象与当前对象的对应关系</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">book_obj</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">book_obj</span><span class="o">.</span><span class="n">authors</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>remove接受的参数和add一样.</p>
+<p><strong><code>clear()</code></strong> 表示清除当前对象在多对多表里对应某个表的全部对应关系.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">book_obj</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="n">book_obj</span><span class="o">.</span><span class="n">authors</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>这个操作的意思表示移除第一本书和所有作者的关联关系.也就是在多对多表里删除所有book_id = 1的数据行.</p>
+<p>由于上下文管理器在外键的反向查询的过程中也存在,因此也是可以用上边五种方法来操作的,只不过在外键反向查询中,不存在多对多的表格.所以clear()和remove()操作实际上是将外键那一列修改成Null,因此必须要求外键设置成Null=True,否则会报错.</p>
+<h3 id="_3"><strong>一对一查询</strong><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>一对一的关系字段是models.OneToOneField(to=).实际上正查反查都是只能出来一条字段.不再赘述.其实用id也可以取得相同的数据.
+<a href="https://www.cnblogs.com/pythonxiaohu/p/5814247.html">这里</a>有一篇文章讲了Django中关系的总结.</p>
+<h2 id="_4"><strong>使用聚合函数与分组查询</strong><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>在ORM中,一样可以使用便利的聚合函数以及非常常见的分组查询.</p>
+<h3 id="_5"><strong>聚合函数</strong><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>聚合函数的方法是<code>aggregate()</code>,在使用这个方法之后,查询语句就结束了,这个方法返回一个字典,里边包含着使用聚合函数的结果.
+在使用聚合函数之前,必须导入对应的聚合函数模块:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>from django.db.models import Avg, Sum, Max, Min, Count
+</code></pre></div></td></tr></table></div>
+<p>这些函数的参数都是字段名称.对于生成的结果字典,如果没有指定名称,则Django会自动设置一个名称.如果指定了名称,就会使用指定的名称,然后再从字典里取数即可:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">4</a></span>
+<span class="normal"><a href="#__codelineno-12-5">5</a></span>
+<span class="normal"><a href="#__codelineno-12-6">6</a></span>
+<span class="normal"><a href="#__codelineno-12-7">7</a></span>
+<span class="normal"><a href="#__codelineno-12-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">models</span><span class="o">.</span><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">Avg</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">))</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="c1"># 结果是{&#39;price__avg&#39;: 13.233333},其中的&quot;price__avg&quot;由Django自动生成</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="n">models</span><span class="o">.</span><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">average_price</span><span class="o">=</span><span class="n">Avg</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">))</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="c1"># 结果是{&#39;average_price&#39;: 13.233333}, 其中的&quot;average_price&quot;是自定义的名称.</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="n">models</span><span class="o">.</span><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">Avg</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">),</span> <span class="n">Max</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">),</span> <span class="n">Min</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">))</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="c1"># 同时使用多个聚合函数,可以用逗号分割,结果字典中会包括全部结果.</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_6"><strong>分组</strong><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>分组的方法是<code>.annotate()</code>.这里可能有点抽象,其实annotate的作用就是先按照之前的查找方式返回数据,再将返回的多行数据按照某个指定的字段进行分组操作,然后将分组过的每一行结果都包在一个QuerySet中返回.其中.annotate之前的部分如果是通过外键查询,其本身就相当于连表操作,再分组之后就是分组后的QuerySet了.
+比如在自己编写的行政物品管理系统内,需要列出每一种物品的结余,即通过物品列表查到每一种物品对应的所有出入库记录,再将出库和入库记录求和分别求和并相减.
+用SQL语句是先通过move的item_id连表,然后按照item_id分组并对in_num和out_num字段进行求和再相减.
+在ORM里,通过物品列表的这一段写在前边,到外键所在的表去查询,则将外键所在的表及字段名称写在annotate内部的聚合函数内,即像这样:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">ret</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Items</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">num_balance</span><span class="o">=</span><span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;moves__in_num&quot;</span><span class="p">)</span> <span class="o">-</span> <span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;moves__out_num&quot;</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<p>前边的<code>ret = models.Items.objects.all()</code>表示按照所有的物品分组.由于是正向查询即通过物品查余额,所以<code>moves__in_num</code>和<code>moves__out_num</code>其中采取表名__字段名的写法.<code>.annotate</code>就表示按照之前的对象分组并且按照参数中的某个字段进行处理,这里是分组以后对分组的in_num求和再减去out_num的求和,就得到了按照物品分组的余额.这里是反向操作,直接使用小写的类名即可,不用加__set,如果是正向,用外键也可以.(当然一般分组不会用正向查询)
+ret是一个QuerySet,其中的每一个元素就是一个对象,表示一行经过分组过后的数据,这一行里的属性包括Items表里的全部属性,以及自定义的num_balance属性.</p>
+<p>这里直接就使用了跨表查询,如果想在同一个表内,按照某一个字段进行分组,像上边例子里的<code>models.Items.objects.all()</code>的部分,就需要改成当前表里字段的用values的查询结果,也就是告诉ORM按照哪个字段来分组.
+在自己编写的进销存系统中,查询moves表按照item_id分类的in_sum字段的和:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">ret</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Moves</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s2">&quot;item_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">insum</span> <span class="o">=</span> <span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;in_num&quot;</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<p>这个就是先用了item_id过滤出内容,结果的QuerySet里只包括item_id字段的值,然后在对其进行分组并对对应的in_num字段求和,求和的结果放到每一个结果里的insum字段名中.
+ret实际上就是一个分组并且计算过的表的每一行内容的QuerySet,再从里边取出每一行进行操作和展示即可.</p>
+<p>分组的操作不是太直观,用<a href="http://www.cnblogs.com/liwenzhou/p/8660826.html">这里</a>分组的例子举一个例子:
+在一张表内进行分组,用SQL语句比较直观:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">select</span> <span class="n">dept</span><span class="p">,</span><span class="n">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">employee</span> <span class="n">group</span> <span class="n">by</span> <span class="n">dept</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>如果换成ORM,首先明确是要查那张表.这个查询只在一个表内查询,查询的结果包括dept和AVG(salary),group by 后边是dept.
+这说明按照dept先分组,然后对于聚合后的结果,用avg对salary求平均数,最后返回分组后的部门和结果.</p>
+<h4 id="sqlorm"><strong>SQL语句与ORM的对应关系:</strong><a class="headerlink" href="#sqlorm" title="Permanent link">&para;</a></h4>
+<p><strong>第一步:基础对应关系:</strong>
+models.Employee 表示从那张表进行查询,即from.
+objects是中间件的名称,不用管
+.all表示SELECT *
+如果是要取具体的字段,就用values(“字段名”),比如values(“dept”)就相当于 SELECT dept.
+可见,如果想要达到select dept,AVG(salary) from employee的效果,我的ORM语句对应的部分是:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="n">models</span><span class="o">.</span><span class="n">Employee</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s2">&quot;dept,&quot;</span><span class="n">平均数的别名</span><span class="s2">&quot;)</span>
+</code></pre></div></td></tr></table></div>
+<p>现在平均数的别名还不知道,继续往下看分组:</p>
+<p><strong>第二步:分组与聚合处理</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>models.Employee.objects.values(&quot;dept,&quot;平均数的别名&quot;).annotate()
+</code></pre></div></td></tr></table></div>
+<p>这里的annotate()如果不传参数,表示按照.all()全部分组,一般不这样使用..annotate之前的value表示GROUP BY之后的内容,所以<code>values("dept").annotate(my_avg=Avg("salary"))</code>就表示按照dept进行分组,然后对salary进行求和,得到分组的结果.</p>
+<p><strong>第三步:取分组后结果</strong>
+由于分组结果算出来了,是一个QuerySet,按照我们的需求,最前边是SELECT dept, Avg(salary),现在Avg(salary)的别名有了,所以要在最后再加上.values(“dept”,”my_avg”).
+最终结果和原来SQL语句用颜色标识的对应关系是:
+<code>models.Employee.objects.values("dept").annotate(my_avg=Avg("salary").values(dept, "my_avg")</code>
+<code>select dept,AVG(salary) from employee group by dept;</code>
+ORM语句橙色的部分其实也涵盖了SQL语句中的Avg(salary),这是因为ORM里使用了别名.实际对应关系还是可以很清楚的看出来.</p>
+<p>第二个例子是连表查询,dept_id外键关联到dept表.
+如果想得到和上边例子一样的结果,在SQL中就是先连表再查询,到了ORM里,其实就是通过外键进行的双下划线查询去跨表:
+<code>select dept.name,AVG(salary) from employee inner join dept on (employee.dept_id=dept.id) group by dept_id</code>;</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">models</span><span class="o">.</span><span class="n">Dept</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">avg</span><span class="o">=</span><span class="n">Avg</span><span class="p">(</span><span class="s2">&quot;employee__salary&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;avg&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>ORM里从Dept表发起查询并且分组,由于dept_id和dept.name是一一对应的,所以从Dept发起查询后直接接.annotate就可以.后边的对应关系中从dept跨表到employee就相当于连表,然后对salary进行Avg操作,其他的对应关系和上边类似.</p>
+<h2 id="fq"><strong>F查询和Q查询</strong><a class="headerlink" href="#fq" title="Permanent link">&para;</a></h2>
+<p>F和Q其实就是为了解决以面向对象的方式书写SQL操作的时候,对于语句中的and or 等逻辑控制符不方便书写的问题.</p>
+<h3 id="f"><strong>F查询</strong><a class="headerlink" href="#f" title="Permanent link">&para;</a></h3>
+<p>在之前的查询条件中,使用的都是诸如<code>.filter(id__gt=3)</code>这种将字段值与常量进行比较的条件,如果需要对两个字段做比较,显然在Python中不能写成<code>.filter(id__gt=item_id)</code>,因为item_id并没有在python程序中定义.这个时候就要使用F查询来替代对应的字段,,只要给F的参数传入字段名称即可.
+比如在自行编写的行政物品查询系统中,如果要查询所有入库 大于 出库的单据,就写成:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">ret</span> <span class="o">=</span> <span class="n">ret_temp</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Moves</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">in_num__gte</span><span class="o">=</span><span class="n">F</span><span class="p">(</span><span class="s2">&quot;out_num&quot;</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<p>在一张表用自身数据做控制的时候,就要用到F查询,经常在各种内容管理系统中使用,比如列出点赞数高于踩数的条目等等.
+除了进行比较之外,F查询在根据自己的字段值更新值的时候比较常用,比如要在出入库表上的出库数字增加10:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">models</span><span class="o">.</span><span class="n">Moves</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">in_num</span> <span class="o">=</span> <span class="n">F</span><span class="p">(</span><span class="s2">&quot;in_num&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>这里要注意的就是update方法,仅可以使用在QuerySet上,单个对象(行数据)没有该方法.该方法返回的是受影响的行数.</p>
+<h3 id="q"><strong>Q查询</strong><a class="headerlink" href="#q" title="Permanent link">&para;</a></h3>
+<p>Q查询是为了解决条件查询的时候方便使用or 等逻辑符的问题,将条件独立出来,然后用逻辑运算符连结来得到最终条件.
+默认情况下,filter等条件查询内部可以使用多个条件语句,用逗号分割,这些条件之间是and的关系,比如查询每一张出入库单,要求出库大于入库而且入库大于50,就可以写成:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">ret_temp</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Moves</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">in_num__gte</span><span class="o">=</span><span class="n">F</span><span class="p">(</span><span class="s2">&quot;out_num&quot;</span><span class="p">),</span> <span class="n">in_num__gt</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>其中的<code>in_num__gte=F("out_num")</code>和<code>in_num__gt=50</code>是and关系.如果要改成or关系,就要使用Q对象将条件独立出来,然后用&amp;(表示and)和|(表示or)还有~(表示取反)来连结各个Q对象.
+如果要查询入库小于出库或者出库大于20的单据:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">F</span><span class="p">,</span><span class="n">Q</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="n">ret_temp</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Moves</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">in_num__lte</span><span class="o">=</span><span class="n">F</span><span class="p">(</span><span class="s2">&quot;out_num&quot;</span><span class="p">))</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">out_num__gt</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<p>至此,已经学习完了<a href="https://docs.djangoproject.com/en/1.11/ref/models/querysets/">DJango 1.11 QuerySet API reference </a>里的Methods that return new QuerySets,也就是返回查询结果的部分.还有一部分API没有接触到,列在下边:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">返回QuerySet的方法补充</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">方法名</td>
+<td style="text-align: center;">解释</td>
+</tr>
+<tr>
+<td style="text-align: center;">dates(field, kind, order=’ASC’)</td>
+<td style="text-align: center;">针对DateField和DateTimeField类型的字段,取出其中和日期相关的部分,去重,然后排序.返回的是一个QuerySet对象,其中的每一个元素是datetime.date()对象.kind表示精确度,只能取”year”,”month”和”day”三个字符串值.order的ASC表示正向排序,DESC表示逆向排序</td>
+</tr>
+<tr>
+<td style="text-align: center;">datetimes(field_name, kind, order=’ASC’, tzinfo=None)</td>
+<td style="text-align: center;">功能与dates类似.区别是针对DateTimeField类型的字段, kind 只能是 “year”, “month”, “day”, “hour”, “minute” 或 “second”.tiinfo的参数必须是一个 datetime.tzinfo 对象,如果设置为None,Django会使用当前时区.</td>
+</tr>
+<tr>
+<td style="text-align: center;">none()</td>
+<td style="text-align: center;">不管前边查询条件如何,带上这个方法就一定返回一个空的QuerySet对象</td>
+</tr>
+<tr>
+<td style="text-align: center;">union(*other_qs, all=False)</td>
+<td style="text-align: center;">左右连两个查询结果,使用方法是 queryset1.union(queryset2).如果all=True,则允许重复项.</td>
+</tr>
+<tr>
+<td style="text-align: center;">intersection(*other_qs)</td>
+<td style="text-align: center;">获取多个QuerySet中相同的查询结果.使用方法是qs1.intersection(qs2, qs3)</td>
+</tr>
+<tr>
+<td style="text-align: center;">difference(*other_qs)</td>
+<td style="text-align: center;">获取只在调用方法的QuerySet中存在,不在参数的QuerySet中存在的结果,使用方法是qs1.difference(qs2, qs3)</td>
+</tr>
+<tr>
+<td style="text-align: center;">select_related(*fields)</td>
+<td style="text-align: center;">相当于通过外键进行连表查询.使用方法e = Entry.objects.select_related(‘blog’).get(id=5),表示选中id为5的Entry记录通过外键关联的blog里的对象.</td>
+</tr>
+<tr>
+<td style="text-align: center;">prefetch_related(*lookups)</td>
+<td style="text-align: center;">这个与select类似,主要是性能相关,会预先通过外键进行查找,再次使用查询的时候会到临时表里查询.详细看<a href="https://docs.djangoproject.com/en/1.11/ref/models/querysets/#prefetch-related">这里</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">extra(select=None, where=None, params=None, tables=None, order_by=None, select_params=None)</td>
+<td style="text-align: center;">当ORM有时候难以描述一个复杂的WHERE查询的时候,用extra构造额外的查询条件,比如子查询.详细看<a href="https://docs.djangoproject.com/en/1.11/ref/models/querysets/#extra">这里</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">defer(*fields)</td>
+<td style="text-align: center;">参数为字段名,用于在结果集中排出某些列,排出之后,列就没有了对应的字段名的属性</td>
+</tr>
+<tr>
+<td style="text-align: center;">only(*fields)</td>
+<td style="text-align: center;">仅取指定的某些字段的信息.</td>
+</tr>
+<tr>
+<td style="text-align: center;">using(alias)</td>
+<td style="text-align: center;">如果Django中设置了超过一个数据库,在查询的时候用此方法指定使用哪个数据库,alias是数据库的别名,不加则表示使用”default”数据库.数据库的别名是指的settings.py里DATABASES参数的键名.</td>
+</tr>
+<tr>
+<td style="text-align: center;">select_for_update(nowait=False, skip_locked=False)</td>
+<td style="text-align: center;">表示所有查询结果在完成事务之前都不能被改动,具体看<a href="https://docs.djangoproject.com/en/1.11/ref/models/querysets/#select-for-update">这里</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">raw(raw_query, params=None, translations=None)</td>
+<td style="text-align: center;">执行原生的SQL语句,返回一个 django.db.models.query.RawQuerySet对象,可以像QuerySet一样遍历取出各行数据.</td>
+</tr>
+</tbody>
+</table>
+<p>上边的所有方法都是用来查询,也就是返回QuerySet对象,或者是QuerySet封装的字典或者其他对象(比如values, values_list, date等方法),相当于在MySQL中查找的结果.对于查询以外的方法,主要是涉及到增删改查,将在下一部分学习.</p>
+<h1 id="methods-that-do-not-return-querysets"><strong>其他方法 Methods that do not return QuerySets</strong><a class="headerlink" href="#methods-that-do-not-return-querysets" title="Permanent link">&para;</a></h1>
+<p>所谓其他方法,也就是<a href="https://docs.djangoproject.com/en/1.11/ref/models/querysets/#methods-that-do-not-return-querysets">不返回QuerySet的方法</a>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">不返回QuerySet的方法</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">条件</td>
+<td style="text-align: center;">解释</td>
+</tr>
+<tr>
+<td style="text-align: center;">get(**kwargs)</td>
+<td style="text-align: center;">参数为关键字的查询条件,返回一个结果,如果找不到,会报 DoesNotExist 异常.如果找到多个,会报 MultipleObjectsReturned 异常.对一个QuerySet对象使用不带参数的get(),可以让其只返回第一个对象.今后遇到查询,还是优先使用filter方法比较好</td>
+</tr>
+<tr>
+<td style="text-align: center;">create(**kwargs)</td>
+<td style="text-align: center;">接受参数来建立一个对象,使用.create()方法就包含了.save()的过程,详细看<a href="https://docs.djangoproject.com/en/1.11/ref/models/querysets/#create">这里</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">get_or_create(defaults=None, **kwargs)</td>
+<td style="text-align: center;">用给定的查询条件寻找对象,如果找不到,就建立一个.这个方法返回一个元组(object,created),元组第一个元素是查询结果或者新建的数据,第二个是一个布尔值,如果新建了就是True,否则是False.这个方法实际过程相当于先去调用get(),如果产生了DoesNotExist异常,则会新建一个同样参数的对象.注意关键字参数里名称叫做defaults的关键字是不会成为内含的get()调用中的参数,只会在新建的时候发生作用.具体看<a href="https://docs.djangoproject.com/en/1.11/ref/models/querysets/#get-or-create">这里</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">update_or_create(defaults=None, **kwargs)</td>
+<td style="text-align: center;">和get_or_create类似,如果字段存在则更新,否则创建.defautls也是表示创建时候的其他字段.</td>
+</tr>
+<tr>
+<td style="text-align: center;">bulk_create(objs, batch_size=None)</td>
+<td style="text-align: center;">批量插入(新增)数据,objs是一个列表,batch_size表示一次插入的个数.具体看<a href="https://docs.djangoproject.com/en/1.11/ref/models/querysets/#bulk-create">这里</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">in_bulk(id_list=None)</td>
+<td style="text-align: center;">id_list是一个主键列表,根据其中的主键,返回一个字典,键是主键,值是对应的数据行对象.如果不传参数,则返回所有主键和对应数据行构成的字典.在按照主键查询的时候经常用此方法.</td>
+</tr>
+<tr>
+<td style="text-align: center;">iterator()</td>
+<td style="text-align: center;">QuerySet的方法,使用之后变成一个迭代器.</td>
+</tr>
+<tr>
+<td style="text-align: center;">latest(field_name=None)</td>
+<td style="text-align: center;">需要指定字段名,字段必须是时间类型的字段,直接返回时间最晚的那一行记录.</td>
+</tr>
+<tr>
+<td style="text-align: center;">earliest(field_name=None)</td>
+<td style="text-align: center;">和latest用法相同,返回时间最早的那一条记录,和latest经常使用在一些内容管理的查找上</td>
+</tr>
+<tr>
+<td style="text-align: center;">update(**kwargs)</td>
+<td style="text-align: center;">用在QuerySet上,更新QuerySet里所有对象的字段,隐含了save操作,返回受影响的行数.update不能够用在关联关系的操作上,不能直接通过外键名__字段名去更新其他表.之前说过查询的时候多用filter,因此今后就用update与filter搭配使用.</td>
+</tr>
+<tr>
+<td style="text-align: center;">delete()</td>
+<td style="text-align: center;">用在单个对象或者QuerySet上,表示将选择的行从表里删除,返回受影响的行数.</td>
+</tr>
+<tr>
+<td style="text-align: center;">as_manager()</td>
+<td style="text-align: center;">在每次写查询的<code>models.Book.objects</code>中的objects就是一个对象管理器,对象管理器的默认名称就是objects.这个方法就是产生一个带有QuerySet所有方法的管理器,替代了objects这个名字,具体看<a href="https://docs.djangoproject.com/en/1.11/topics/db/managers/#manager-names">这里</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="_7"><strong>补充部分</strong><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
+<h3 id="sql"><strong>查看实际生成的SQL语句</strong><a class="headerlink" href="#sql" title="Permanent link">&para;</a></h3>
+<p>在使用ORM的时候,有的时候需要知道实际生成的SQL语句,将如下部分复制到settings.py中,设置DEBUG=True,每次执行ORM操作的时候,就可以在python console中看到实际的SQL语句.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-23-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-23-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-23-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-23-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-23-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-23-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-23-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-23-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-23-10">10</a></span>
+<span class="normal"><a href="#__codelineno-23-11">11</a></span>
+<span class="normal"><a href="#__codelineno-23-12">12</a></span>
+<span class="normal"><a href="#__codelineno-23-13">13</a></span>
+<span class="normal"><a href="#__codelineno-23-14">14</a></span>
+<span class="normal"><a href="#__codelineno-23-15">15</a></span>
+<span class="normal"><a href="#__codelineno-23-16">16</a></span>
+<span class="normal"><a href="#__codelineno-23-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a>    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a>    <span class="s1">&#39;disable_existing_loggers&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a>    <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a>        <span class="s1">&#39;console&#39;</span><span class="p">:{</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6"></a>            <span class="s1">&#39;level&#39;</span><span class="p">:</span><span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7"></a>            <span class="s1">&#39;class&#39;</span><span class="p">:</span><span class="s1">&#39;logging.StreamHandler&#39;</span><span class="p">,</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8"></a>        <span class="p">},</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9"></a>    <span class="p">},</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10"></a>    <span class="s1">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11"></a>        <span class="s1">&#39;django.db.backends&#39;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-23-12" name="__codelineno-23-12"></a>            <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;console&#39;</span><span class="p">],</span>
+<a id="__codelineno-23-13" name="__codelineno-23-13"></a>            <span class="s1">&#39;propagate&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-23-14" name="__codelineno-23-14"></a>            <span class="s1">&#39;level&#39;</span><span class="p">:</span><span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span>
+<a id="__codelineno-23-15" name="__codelineno-23-15"></a>        <span class="p">},</span>
+<a id="__codelineno-23-16" name="__codelineno-23-16"></a>    <span class="p">}</span>
+<a id="__codelineno-23-17" name="__codelineno-23-17"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="pythondjango"><strong>在python程序中调用Django环境</strong><a class="headerlink" href="#pythondjango" title="Permanent link">&para;</a></h3>
+<p>一般来说我们在启动Django程序的时候才运行在Django环境中,单独写一个py文件,导入Django的库是无法进行操作的.
+实际上Django环境是写在Django_admin等内容中的,直接使用会提示导入环境配置文件,只要根据提示操作即可,这里提供直接可供粘贴的代码:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-24-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-24-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-24-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-24-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-24-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-24-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-24-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-24-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-24-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kn">import</span> <span class="nn">os</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a>    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;DJANGO_SETTINGS_MODULE&quot;</span><span class="p">,</span> <span class="s2">&quot;BMS.settings&quot;</span><span class="p">)</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a>    <span class="kn">import</span> <span class="nn">django</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6"></a>    <span class="n">django</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="c1">#  在以上语句结束之后,就可以像编写views,models等文件中来导入Django的各种模块来进行操作,结果也与像在实际的Django环境中得到的结果一样</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8"></a>    <span class="kn">from</span> <span class="nn">app01</span> <span class="kn">import</span> <span class="n">models</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9"></a>    <span class="n">books</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">books</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-29</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-29</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <!-- Footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    
+      
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="页脚"
+        
+      >
+
+        <!-- Link to previous page -->
+        
+          
+          <a
+            href="../django_orm_fields/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="上一页: django中ORM字段总结"
+          >
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                django中ORM字段总结
+              </div>
+            </div>
+            
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          
+          <a
+            href="../django_lazyobject_analysis/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="下一页: django源码学习之LazyObject"
+          >
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                django源码学习之LazyObject
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid" style="display: flex; justify-content: center; ">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2017~2024 AstonWang/All Rights Reserved.
+    </div>
+  
+  
+</div>
+
+      <font color="#B9B9B9">
+      <div class="md-footer-meta__inner md-grid" style="display: flex; justify-content: center; "></div>
+        <div id='box11' style="font-size: 14px;"> &nbsp;| &nbsp; 本站已经运行: <span id="timer"></span></div>
+      </font>
+
+    <!-- 本站访问量：<script async src="//finicounter.eu.org/finicounter.js"></script> -->
+    <!-- <span id="finicount_views"></span>    &nbsp;|&nbsp; -->
+    <!-- <footer> -->
+      <!-- <a href="https://icp.gov.moe/?keyword=20230640" target="_blank">萌ICP备20230640号</a> -->
+    <!-- </footer> -->
+  </div>
+      </font>
+   
+    <!-- <font color="#B9B9B9">
+      <div class="footer-visit-count" style="display: flex; justify-content: center; align-items: center;">
+    本站访问量：<script async src="//finicounter.eu.org/finicounter.js"></script>
+    <span id="finicount_views"></span>    &nbsp;|&nbsp;
+    <footer>
+      <a href="https://icp.gov.moe/?keyword=20230640" target="_blank">萌ICP备20230640号</a>
+    </footer>
+  </div>
+      </font> -->
+
+      <style>
+        .footer-visit-count {
+            height: fit-content;
+            min-height: 55px; /* 根据实际情况调整此高度 */
+        }
+        </style>
+      
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+  function timingTime(){
+    let start = '2024-06-28 00:00:00'
+    let startTime = new Date(start).getTime()
+    let currentTime = new Date().getTime()
+    let difference = currentTime - startTime
+    let m =  Math.floor(difference / (1000))
+    let mm = m % 60  // 秒
+    let f = Math.floor(m / 60)
+    let ff = f % 60 // 分钟
+    let s = Math.floor(f/ 60) // 小时
+    let ss = s % 24
+    let day = Math.floor(s  / 24 ) // 天数
+    return day + "天" + ss + "时" + ff + "分" + mm +'秒'
+  }
+  setInterval(()=>{
+    document.getElementById('timer').innerHTML = timingTime()
+  },1000)
+  });
+</script>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.footer", "navigation.path", "search.suggest", "search.highlight", "search.share", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.action.edit", "content.action.view", "content.code.annotate", "toc.follow"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.471ce7a9.min.js"></script>
+      
+        <script src="../../../customize/javascripts/extra.js"></script>
+      
+        <script src="../../../customize/javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.0.2/dist/add-html-label-6e56ed67.min.js"></script>
+      
+    
+  </body>
+</html>

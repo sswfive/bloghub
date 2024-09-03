@@ -5,6 +5,7 @@ title: 文章归档
     有人说：种一颗树，最好的时间是十年前，其次是现在...
 
 === "2024"
+    - 2024-09-03 [ Kserve安装部署](./notehub/mlops/kserve_deploy.md)
     - 2024-08-21 [Docker镜像无法拉取问题的解决方案](./notehub/cloud_native/docker/docker_image_pull_problem_for_solution.md)
     - 2024-08-18 [k8s包管理工具Helm的使用](./notehub/cloud_native/k8s/helm_usage.md)
     - 2024-08-16 [K8S集群部署指南(v1.27.9)](./notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1279.md)

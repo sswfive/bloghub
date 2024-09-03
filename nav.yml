@@ -77,8 +77,9 @@ nav:
 
    
    
-  - AIOps技术:
-    - notehub/modelops/ml_basic/data_mining.md
+  - MLOps技术:
+    - 模型部署:
+      - notehub/mlops/kserve_deploy.md
 
 
   - 云原生技术:

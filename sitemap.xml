@@ -2,647 +2,652 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://sswfive.github.io/bloghub/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/postlist/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/about/profile/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/golang/go_learn_docs/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/golang/gobestpractices/go_code_standard/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/golang/gobestpractices/go_install_guide/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/golang/gobestpractices/go_install_guide_2/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/golang/gobestpractices/go_security_guide/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/golang/gosyntax/go_basics/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/golang/gosyntax/go_data_struct/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/golang/gosyntax/go_data_type/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/golang/gosyntax/go_point/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/docker/docker_arch_and_principle/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/docker/docker_command/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/docker/docker_common_software_install/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/docker/docker_detail_commands/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/docker/docker_image_pull_problem_for_solution/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/docker/docker_install_guide/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/docker/docker_practical_skills/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/docker/docker_registry_usage/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/docker/dockerifle_guide/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/docker/dockerignore_template/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/dockercompose/docker_compose_software_usage/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/dockercompose/docker_compose_summary/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/helm_usage/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/k8s_common_cmd/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/k8s_common_qa/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/k8s_core_name/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/k8s_dashboard/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/k8s_ectd_mount_memo/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/k8s_storageclass_nfs/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/k8s_usage_skills/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/ktconnect_usage/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1194/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/kubeadm_deploy_k8s_cluster_v1279/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/yaml_usage/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sswfive.github.io/bloghub/notehub/mlops/kserve_deploy/</loc>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/solution/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/solution/bughub/conda_rename_env_bug/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/solution/bughub/jupyter_asyncio_run_bug/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/solution/bughub/jupyter_matplotlib_font_bug/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/solution/bughub/jupyterhub_deploy_bug/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/solution/bughub/rsa_encryption_bug/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/solution/bughub/window_install_pip_bug/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/solution/opshub/centos_yum_source_delete_solution/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/solution/opshub/mac_brew_service_error_solution/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/solution/opshub/server_disk_full_solution/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/notehub/solution/opshub/win10_git_chinese_solution/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/django/django_17_db_migrate/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/django/django_bulk_create/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/django/django_class_view_usage/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/django/django_lazyobject_analysis/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/django/django_middleware_usage/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/django/django_orm_fields/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/django/django_orm_query/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/django/django_websocket_usage/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pybestpractices/coding_standard/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pybestpractices/conda_usage/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pybestpractices/docker_build_python_image/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pybestpractices/env_package_selection/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pybestpractices/jupyter_tool_usage/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pybestpractices/py2_py3_update/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pybestpractices/py_data_struct_summary/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pybestpractices/py_dev_tool_selection/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pybestpractices/py_logger_usage/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pybestpractices/py_security_guide/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pybestpractices/pypi_python_pkg_publish/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pybestpractices/pypi_source_usage/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pylibs/apscheduler/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pylibs/awesome_libs/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pylibs/collections/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pylibs/daily_libs/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pylibs/mlflow/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pylibs/numpy/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pylibs/pandas/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pylibs/pathlib/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pylibs/pickle/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pylibs/pyflink/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pylibs/subprocess/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pylibs/supervisor/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pysyntax/asyncio/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pysyntax/closure/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pysyntax/decorator/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pysyntax/deep_copy/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pysyntax/def_and_lambda/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pysyntax/exception/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pysyntax/futures/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pysyntax/generator/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pysyntax/is_and_equals/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pysyntax/iterator/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pysyntax/list_tuple_dict/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pysyntax/oop/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pysyntax/property/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pysyntax/py_basics/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pysyntax/py_gc/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pysyntax/py_gil/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pysyntax/py_mem_manage/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/python/pysyntax/variable_comment/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/thinking/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/thinking/posts/01_smart_to_do_things/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/thinking/posts/02_tech_yiyan/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/thinking/posts/03_learn_open_source_project/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/thinking/posts/04_wisdom_of_asking_questions/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/thinking/posts/05_personal_focus_and_abandon/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/thinking/posts/06_learn_top2down_or_bottom2up/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/macos_quickly_key/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/tools_ai/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/tools_cheatsheet/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/tools_common/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/tools_plugin/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/dev_software/YARN/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/dev_software/etcd/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/dev_software/flink_on_yarn/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/dev_software/hadoop/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/dev_software/java/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/dev_software/kafka/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/dev_software/mongodb/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/dev_software/nginx/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/dev_software/postgresql/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/dev_software/rabbitmq/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/dev_software/redis/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/dev_software/spark_on_yarn/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/dev_software/zabbix/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/dev_software/zookeeper/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/git/git_common_install/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/git/git_config/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/git/git_usage_summary/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/toolbox/git/gitflow_usage/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sswfive.github.io/bloghub/tags/</loc>
-         <lastmod>2024-08-29</lastmod>
+         <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

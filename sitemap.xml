@@ -176,6 +176,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/longhorn_deploy/</loc>
+         <lastmod>2024-09-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://sswfive.github.io/bloghub/notehub/cloud_native/k8s/yaml_usage/</loc>
          <lastmod>2024-09-03</lastmod>
          <changefreq>daily</changefreq>

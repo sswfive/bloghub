@@ -5,6 +5,7 @@ title: 文章归档
     有人说：种一颗树，最好的时间是十年前，其次是现在...
 
 === "2024"
+    - 2024-09-24 [常用软件工具集合](./toolbox/tools_software_dev_collection.md)
     - 2024-09-03 [ Kserve安装部署](./notehub/mlops/kserve_deploy.md)
     - 2024-08-23 [ Longhorn部署与使用](./notehub/cloud_native/k8s/longhorn_deploy.md)
     - 2024-08-21 [Docker镜像无法拉取问题的解决方案](./notehub/cloud_native/docker/docker_image_pull_problem_for_solution.md)

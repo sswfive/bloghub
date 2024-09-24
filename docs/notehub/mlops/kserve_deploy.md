@@ -32,7 +32,7 @@ Kserve 有多种安装部署模式，包括 Serverless、ModelMesh 以及 Kubern
 
 ```bash
 # 添加repo
-helm repo add https://kubernetes.github.io/ingress-nginx
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
 # 下载ingress-nginx.tgz
 wget https://github.com/kubernetes/ingress-nginx/releases/download/helm-chart-4.11.2/ingress-nginx-4.11.2.tgz

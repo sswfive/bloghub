@@ -132,6 +132,7 @@ nav:
       - notehub/codecore/design_patterns/design_patterns_categories.md
 
   - 工具小栈:
+    - toolbox/tools_software_dev_collection.md
     - toolbox/tools_ai.md
     - toolbox/tools_common.md
     - toolbox/tools_cheatsheet.md

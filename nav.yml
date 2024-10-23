@@ -2,7 +2,7 @@
 nav:
   - HelloWorld: 
     - index.md
-    - 文章归档: postlist.md
+    # - 文章归档: postlist.md
     - 个人主页: about/profile.md
 
   - Python编程:

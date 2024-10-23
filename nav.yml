@@ -138,6 +138,8 @@ nav:
     - toolbox/tools_cheatsheet.md
     - toolbox/tools_plugin.md
     - toolbox/macos_quickly_key.md
+    - Plugins:
+      - toolbox/plugins/chrome_plugins.md
     - Git:
       - toolbox/git/git_usage_summary.md
       - toolbox/git/git_config.md

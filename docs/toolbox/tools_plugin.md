@@ -10,6 +10,7 @@ tags:
 
 ## Chrome插件
 
+- [Cloud Document Converter](https://chromewebstore.google.com/detail/cloud-document-converter/ehkomhhcinhikfddnmklbloahaakploh?pli=1): 一款支持将飞书文档下载或复制为Markdown的Chrome扩展（Add: 2024-10-23 09:56:03）.
 - 收藏猫插件：[https://chrome.pictureknow.com/](https://chrome.pictureknow.com/)
 
 

@@ -8,9 +8,18 @@ tags:
 !!! tip
     以下是Chrome、 Vscode、 IDEA等常用插件收集汇总，持续更新中...
 
-## Chrome插件
+## 常用Chrome插件
+| **名称** | **简介** | **时间** |
+|:-------------:|:----|:----:|
+| [OneTab](https://www.one-tab.com/)              | 一款优化内存的插件，将活跃的多个页签一键变成链接聚合到一个页面中     |      |
+|         [Surfingkeys](https://github.com/brookhong/Surfingkeys)      |  一款让用户可以通过Vim风格的键盘操作来控制浏览器    |      |
+| [Cloud Document Converter](https://chromewebstore.google.com/detail/cloud-document-converter/ehkomhhcinhikfddnmklbloahaakploh?pli=1)              |  一款支持将飞书文档下载或复制为Markdown的Chrome扩展    |  2024-10-23 09:56:03    |
+|               |      |      |
 
-- [Cloud Document Converter](https://chromewebstore.google.com/detail/cloud-document-converter/ehkomhhcinhikfddnmklbloahaakploh?pli=1): 一款支持将飞书文档下载或复制为Markdown的Chrome扩展（Add: 2024-10-23 09:56:03）.
+
+
+
+
 - 收藏猫插件：[https://chrome.pictureknow.com/](https://chrome.pictureknow.com/)
 
 
